@@ -4,6 +4,14 @@
 * Download latest Firefox Beta
 * Type *about:config* in the address bar and enter
 
+Set the following entries to ***true***
+
+| Entry | Info |
+|:---:|:---:|
+| *device.sensors.proximity.enabled* | Enable the proximity sensor |
+| *media.getusermedia.insecure.enabled* | Enable the microphone on http (if needed) |
+| *media.webspeech.recognition.enable* | Enable Web Speech recognition API |
+| *media.webspeech.recognition.force_enable* | Enable Web Speech recognition API |
 Set the following entries to **`true`**:
 
 | Entry | Info |
@@ -137,4 +145,5 @@ However, my suggestion would be using the latter function in search bar.
 #### getRecipesBy_search(str) (TODO)
 
 This function searches the input "str" in the titles of recipes and returns all recipes that include this "str" in their titles.
+e.g.: Each time when a user types a letter, this function is being called (like onClick) and user dynamically sees the recipes that consist the letters he/she has just typed. I think it is better than searching with keyword.
 e.g.: Each time when a user types a letter, this function is being called (like onClick) and user dynamically sees the recipes that consist the letters he/she has just typed. I think it is better than searching with keyword.
