@@ -1,6 +1,7 @@
 # Clean Kitchen
 
 ## Phone Setup
+
 * Download latest Firefox Beta
 * Type *about:config* in the address bar and enter
 
@@ -14,9 +15,17 @@ Set the following entries to **`true`**:
 | `media.webspeech.recognition.force_enable` | Enable Web Speech recognition API |
 
 ## Development Resources
+
 * [Web Speech API](<https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API>)
 * [Speech Recognition Interface](<https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition>)
 * [Web Speech API Tutorial](<https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API>)
 * [Web Speech API Tutorial on Github](<https://github.com/mdn/web-speech-api>)
 * [Proximity Events API](<https://developer.mozilla.org/en-US/docs/Web/API/Proximity_Events>)
 * [Proximity Events API Tutorial](<https://hacks.mozilla.org/2013/06/the-proximity-api/>)
+
+## How to test
+
+* Download python
+* Download ngrok
+* Start a python webserver: ```python -m http.server port_number```
+* Start ngrok tunnel: ```ngrok http ip_address:port_number``` where ```ip_address``` is the IP address of your device running the python webserver.
