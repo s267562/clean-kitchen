@@ -18,8 +18,12 @@ body, html {
     text-align: center;
     padding: 20px;
   }
+
+  .proximity-button{
+    text-align: center;
+  }
   
-  div {
+  .feedback {
     height: 100px;
     overflow: auto;
     position: absolute;

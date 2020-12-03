@@ -30,10 +30,17 @@ document.body.onclick = function() {
   console.log('Ready to receive a color command.');
 }
 
+function proximityButton(){
+  recognition.start();
+  diagnostic.textContent='Proximity Near: listening';
+  console.log('Ready to receive a voice command.');
+}
+
 window.onuserproximity = function (event) {
   // Check user proximity
   recognition.start();
   diagnostic.textContent='Proximity Near: listening';
+  console.log('Ready to receive a voice command.');
 };
 
   function changeColor(newColor) {
