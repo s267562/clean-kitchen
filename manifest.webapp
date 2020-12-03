@@ -1,0 +1,11 @@
+{
+  "name": "Clean Kitchen - test",
+  "description": "Web Speech and Proximity API demo",
+  "type": "privileged",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Chris Mills",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API"
+  },
+  "orientation": "portrait"
+}
