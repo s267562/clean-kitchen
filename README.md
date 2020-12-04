@@ -2,14 +2,14 @@
 
 ## Test Implementation
 
-This is a test implementation of both Web Speech and Proximity Events APIs, based on this [MDN demo](<(https://github.com/mdn/web-speech-api)>).
+This is a test implementation of both Web Speech and Proximity Events APIs, based on this [MDN demo](<https://github.com/mdn/web-speech-api>).
 
 ## Phone Setup
 
 * Download latest Firefox Beta
-  * This is currently only available on Android, as iOS Beta program is full
-  * This is necessary to use the Proximity Events API
-  * Speech Recognition should work on both Firefox and Chrome
+    * This is currently only available on Android, as iOS Beta program is full
+    * This is necessary to use the Proximity Events API
+    * Speech Recognition should work on both Firefox and Chrome
 * Type *about:config* in the address bar and enter
 
 Set the following entries to **`true`**:
