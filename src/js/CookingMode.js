@@ -1,44 +1,58 @@
-import { Component } from 'react';
+import { Component, useState } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 class CookingMode extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = { value: 0 };
-
-        this.handleProximity = this.handleProximity.bind(this);
     }
 
     componentDidMount() {
-        window.addEventListener('userproximity', this.handleProximity);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('userproximity', this.handleProximity);
-    }
-
-    handleProximity(e) {
-        console.log('Proximity');
-        console.log(e);
-
-        if (e.near) {
-            this.setState(prevState => {
-                return { value: prevState.value + 1 };
-            });
-            console.log("near");
-        } else {
-            console.log("far");
-        }
     }
 
     render() {
         return <>
-            <p>
-                Proximity sensor: {this.state.value}
-            </p>
+            <Rec />
         </>;
     }
+}
+
+function Rec() { // Rule 2: call hooks in function component
+
+    /* Speech recognition */
+    const [message, setMessage] = useState('');
+    const commands = [
+        {
+            command: 'I would like to order *',
+            callback: (food) => setMessage(`Your order is for: ${food}`)
+        },
+        {
+            command: 'The weather is :condition today',
+            callback: (condition) => setMessage(`Today, the weather is ${condition}`)
+        },
+        {
+            command: ['Hello', 'Hi'],
+            callback: ({ command }) => setMessage(`Hi there! You said: "${command}"`),
+            matchInterim: true
+        }
+    ];
+    const { transcript, listening } = useSpeechRecognition({ commands }) // Rule 1: call hooks in top-level
+
+    /* Proximity sensor */
+    function handleProximity(e) {
+        if (e.near) {
+            SpeechRecognition.startListening();
+        }
+    }
+    window.addEventListener('userproximity', handleProximity);
+
+    return (
+        <div>
+            <h1>Speech recognition: {listening ? 'ON' : 'OFF'}</h1>
+            <p>{message}</p>
+            <p>{transcript}</p>
+        </div>
+    )
 }
 
 export default CookingMode;
