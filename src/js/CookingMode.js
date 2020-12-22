@@ -1,117 +1,23 @@
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-import { MobileStepper, Button } from '@material-ui/core';
+import { MobileStepper, Button, Card, CardHeader, CardMedia, CardContent, Typography } from '@material-ui/core';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
-class CookingMode extends Component {
+import MicIcon from '@material-ui/icons/Mic';
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeStep: 0,
-        };
+function CookingMode() { // Rule 2: call hooks in function component
 
-        this.onStepChange = this.onStepChange.bind(this);
-        this.handleNext = this.handleNext.bind(this);
-        this.handleBack = this.handleBack.bind(this);
-    }
+    /* API CALL - set up
+    React.useEffect(() => {    
+        fetch(`backend url`)
+          .then(results => results.json())
+          .then(data => {
+              /// DO SOMETHING
+          });
+    }, []); */
 
-    componentDidMount() {
-    }
-
-    onStepChange(command) {
-        if (command === 'next') {
-            this.setState((prevState) => ({ activeStep: parseInt(prevState.activeStep) + 1 }));
-        } else if (command === 'back') {
-            this.setState((prevState) => ({ activeStep: parseInt(prevState.activeStep) - 1 }));
-        } else {
-            /* step number (command) */
-            let stepNumber = undefined;
-            if (isNaN(command)) {
-                switch (command.toLowerCase()) {
-                    case 'zero':
-                        stepNumber = 0;
-                        break;
-                    case 'one':
-                        stepNumber = 1;
-                        break;
-                    case 'two':
-                        stepNumber = 2;
-                        break;
-                    case 'three':
-                        stepNumber = 3;
-                        break;
-                    case 'four':
-                        stepNumber = 4;
-                        break;
-                    case 'five':
-                        stepNumber = 5;
-                        break;
-                    case 'six':
-                        stepNumber = 6;
-                        break;
-                    case 'seven':
-                        stepNumber = 7;
-                        break;
-                    case 'eight':
-                        stepNumber = 8;
-                        break;
-                    case 'nine':
-                        stepNumber = 9;
-                        break;
-                    case 'ten':
-                        stepNumber = 10;
-                        break;
-                    default:
-                        stepNumber = -1;
-                        break;
-
-                }
-            } else {
-                stepNumber = command;
-            }
-            this.setState({ activeStep: parseInt(stepNumber) });
-        }
-    }
-
-    handleNext = () => {
-        this.setState((prevState) => ({ activeStep: parseInt(prevState.activeStep) + 1 }));
-    };
-
-    handleBack = () => {
-        this.setState((prevState) => ({ activeStep: parseInt(prevState.activeStep) - 1 }));
-    };
-
-    render() {
-        return <>
-            <Rec onStepChange={this.onStepChange} />
-            <p>Step # {this.state.activeStep}</p>
-
-            <MobileStepper
-                variant="progress"
-                steps={6}
-                position="static"
-                activeStep={this.state.activeStep}
-                nextButton={
-                    <Button size="small" onClick={this.handleNext} disabled={this.state.activeStep === 5}>
-                        Next
-                        <KeyboardArrowRight />
-                    </Button>
-                }
-                backButton={
-                    <Button size="small" onClick={this.handleBack} disabled={this.state.activeStep === 0}>
-                        <KeyboardArrowLeft />
-                        Back
-                    </Button>
-                }
-            />
-        </>;
-    }
-}
-
-function Rec(props) { // Rule 2: call hooks in function component
     /* Speech recognition */
     const [message, setMessage] = useState('');
     const commands = [
@@ -129,12 +35,16 @@ function Rec(props) { // Rule 2: call hooks in function component
             matchInterim: true
         },
         {
-            command: ['next', 'back'],
-            callback: (({ command }) => props.onStepChange(command))
+            command: 'next',
+            callback: (() => handleNext())
         },
         {
-            command: ['Step *'],
-            callback: ((step) => props.onStepChange(step))
+            command: 'back',
+            callback: (() => handleBack())
+        },
+        {
+            command: 'exit',
+            callback: (() => exit())
         }
     ];
     const { transcript, listening } = useSpeechRecognition({ commands }) // Rule 1: call hooks in top-level
@@ -142,17 +52,97 @@ function Rec(props) { // Rule 2: call hooks in function component
     /* Proximity sensor */
     function handleProximity(e) {
         if (e.near) {
+            /* TODO open a dialog showing the mic icon and what the user said */
             SpeechRecognition.startListening();
         }
     }
     window.addEventListener('userproximity', handleProximity);
 
+    /* Stepper */
+    const [activeStep, setActiveStep] = useState(0);
+    const handleNext = () => {
+        setActiveStep(activeStep + 1);
+    };
+    const handleBack = () => {
+        setActiveStep(activeStep - 1);
+    };
+
+    /* Util functions */
+    const exit = () => {
+        setMessage('TODO - exit cooking mode');
+    }
+
+    /* Render */
     return (
         <div>
-            <h1>Speech recognition: {listening ? 'ON' : 'OFF'}</h1>
+            <MicIcon fontSize="large" color={listening ? 'primary' : 'inherit'} />
             <p>{message}</p>
             <p>{transcript}</p>
+
+            <MobileStepper
+                variant="progress"
+                steps={6}
+                position="static"
+                activeStep={activeStep}
+                nextButton={
+                    <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
+                        Next
+                        <KeyboardArrowRight />
+                    </Button>
+                }
+                backButton={
+                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                        <KeyboardArrowLeft />
+                        Back
+                    </Button>
+                }
+            />
         </div>
+    )
+}
+
+function CookingModeCard(props) {
+    return (
+        <Card style={{margin: '0px 5px' }}>
+            <CardHeader
+                title={`Step ${props.stepNumber}`}
+            />
+            <CardMedia
+                image="/static/images/cards/paella.jpg"
+                title="Paella dish"
+            />
+            <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    This impressive paella is a perfect party dish and a fun meal to cook together with your
+                    guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                </Typography>
+
+                <Typography paragraph>Method:</Typography>
+                <Typography paragraph>
+                    Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
+                    minutes.
+                 </Typography>
+                <Typography paragraph>
+                    Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
+                    heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
+                    browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
+                    and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
+                    pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
+                    saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+                </Typography>
+                <Typography paragraph>
+                    Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
+                    without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
+                    medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
+                    again without stirring, until mussels have opened and rice is just tender, 5 to 7
+                    minutes more. (Discard any mussels that don’t open.)
+                </Typography>
+                <Typography>
+                    Set aside off of the heat to let rest for 10 minutes, and then serve.
+                </Typography>
+            </CardContent>
+
+        </Card>
     )
 }
 
