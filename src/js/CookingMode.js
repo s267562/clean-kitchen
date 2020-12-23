@@ -1,7 +1,9 @@
+import '../css/CookingMode.css';
+
 import { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-import { MobileStepper, Button, Card, CardContent, Typography, Dialog, DialogTitle } from '@material-ui/core';
+import { MobileStepper, Button, Card, CardContent, Typography, Dialog, DialogTitle, IconButton, Fab, Box } from '@material-ui/core';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
@@ -10,6 +12,8 @@ import MicIcon from '@material-ui/icons/Mic';
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
 function CookingMode() { // Rule 2: call hooks in function component
+
+    const [debugMsg, setDebugMsg] = useState("");
 
     /* API CALL - set up
     React.useEffect(() => {    
@@ -21,38 +25,28 @@ function CookingMode() { // Rule 2: call hooks in function component
     }, []); */
 
     /* Speech recognition */
-    const [message, setMessage] = useState('');
+    const [success, setSuccess] = useState(false);
     const commands = [
         {
-            command: 'I would like to order *',
-            callback: (food) => setMessage(`Your order is for: ${food}`)
-        },
-        {
-            command: 'The weather is :condition today',
-            callback: (condition) => setMessage(`Today, the weather is ${condition}`)
-        },
-        {
-            command: ['Hello', 'Hi'],
-            callback: ({ command }) => setMessage(`Hi there! You said: "${command}"`),
-            matchInterim: true
-        },
-        {
-            command: ['next', 'back', 'exit'], /* I grouped all together because I want to add a small delay (TIMEOUT) before performing the command --> no repetition of code (delay) */ 
-            callback: ({ command }) => setTimeout(function () {
-                switch (command) {
-                    case 'next':
-                        handleNext();
-                        break;
-                    case 'back':
-                        handleBack();
-                        break;
-                    case 'exit':
-                        exit();
-                        break;
-                    default:
-                        break;
-                }
-            }, TIMEOUT)
+            command: ['next', 'back', 'exit'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
+            callback: ({ command }) => {
+                setSuccess(true); /* successfull speech recognition */
+                setTimeout(function () {
+                    switch (command) {
+                        case 'next':
+                            handleNext();
+                            break;
+                        case 'back':
+                            handleBack();
+                            break;
+                        case 'exit':
+                            exit();
+                            break;
+                        default:
+                            break;
+                    }
+                }, TIMEOUT)
+            }
         }
     ];
     const { transcript, listening } = useSpeechRecognition({ commands }) // Rule 1: call hooks in top-level
@@ -61,7 +55,7 @@ function CookingMode() { // Rule 2: call hooks in function component
     const [open, setOpen] = useState(false);
     SpeechRecognition.getRecognition().onend = function (event) {
         SpeechRecognition.stopListening();
-        setTimeout(function () {
+        setTimeout(() => {
             setOpen(false);
         }, TIMEOUT); /* keep the dialog open for 2 second when the speech recognition has the result */
     };
@@ -86,16 +80,14 @@ function CookingMode() { // Rule 2: call hooks in function component
 
     /* Util functions */
     const exit = () => {
-        setMessage('TODO - exit cooking mode');
+        // TODO - exit cooking mode
     }
 
     /* Render */
     return (
         <div>
-            <p>{message}</p>
-
+            <p>{debugMsg}</p>
             <CookingModeCard stepNumber={activeStep} />
-
             <MobileStepper
                 variant="progress"
                 steps={6}
@@ -114,19 +106,34 @@ function CookingMode() { // Rule 2: call hooks in function component
                     </Button>
                 }
             />
-            <SpeechRecognitionDialog listening={listening} transcript={transcript} open={open} />
+            <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
         </div>
     )
 }
 
 function SpeechRecognitionDialog(props) {
-    const { listening, transcript, open } = props;
-
+    const { listening, transcript, open, success, exitFun, exitedFun } = props;
     return (
-        <Dialog open={open}>
-            <DialogTitle>Speak now</DialogTitle>
-            <MicIcon fontSize="large" color={listening ? 'primary' : 'inherit'} style={{ margin: '0px auto 30px auto' }} />
-            {transcript}
+        <Dialog open={open} fullWidth="true" maxWidth="xl" onExited={() => exitedFun() }>
+            <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                p={3}
+            >
+                <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    className={`circular ${listening ? ' pulse' : success ? ' success' : ' failure'}`}
+                >
+                    <MicIcon fontSize="large" style={{ color: 'white' }} />
+                </Box>
+
+                <Typography paragraph>{transcript !== "" ? transcript : "Speak now"}</Typography>
+                <Typography style={{ fontSize: 14 }} color="textSecondary" gutterBottom>english</Typography>
+            </Box>
         </Dialog>
     );
 }
