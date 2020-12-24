@@ -11,12 +11,13 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper'
 import 'fontsource-roboto';
 
+
 const useStyles = makeStyles({
     root: {
         overflowY: "hidden",
         overflowX: "scroll",
         alignItems: "safe center",
-        background: "#fffaf3",
+        paddingBottom: 16,
     },
     cardsCategoryScrollView: {
         justifyContent: "space-between",
@@ -54,7 +55,6 @@ const useStyles = makeStyles({
         minWidth: 300,
         height: 185,
         position: 'relative',
-        boxShadow: 3,
         margin: 8,
         borderRadius: 16,
         '&:after': {
@@ -80,7 +80,7 @@ const useStyles = makeStyles({
     suggestionTitle: {
         display: "flex",
         flexGrow: 0,
-        padding: 16,
+        paddingLeft: 8,
         flexFlow: "row",
     },
     suggestionTitleTxt: {
@@ -128,7 +128,7 @@ export function CategoryCard() {
     const classes = useStyles();
 
     return (
-        <Card className={classes.cardsCategory}>
+        <Card elevation={8} className={classes.cardsCategory}>
                 <CardMedia
                     className={classes.mediaCategory}
                     image="/res/images/croissant.png"
@@ -165,7 +165,7 @@ export function SuggestionCard() {
     const classes = useStyles();
 
     return (
-        <Card className={classes.cardSuggestion}>
+        <Card elevation={8} className={classes.cardSuggestion}>
             <CardMedia
                 className={classes.mediaSuggestion}
                 image="/res/images/carbonara.jpg"
