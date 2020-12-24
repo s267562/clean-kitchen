@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <AppBar position="static">
+        <AppBar position="sticky">
           <Toolbar >
             <Typography variant="h6" style={{ flexGrow: 1 }} >
               Clean Kitchen
