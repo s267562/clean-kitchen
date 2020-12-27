@@ -10,6 +10,7 @@ import Search from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper'
 import 'fontsource-roboto';
+import { Box } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
@@ -19,12 +20,12 @@ const useStyles = makeStyles({
         alignItems: "safe center",
         paddingBottom: 16,
     },
-    cardsCategoryScrollView: {
+    scrollViewCategory: {
         justifyContent: "space-between",
         flexFlow: "row",
         scrollbarWidth: "none",
     },
-    cardsCategory: {
+    cardCategory: {
         width: 85,
         height: 85,
         margin: 8,
@@ -38,17 +39,17 @@ const useStyles = makeStyles({
         height: 64,
         padding: 4,
     },
-    categories: {
+    contentCategory: {
        padding: 0,
        textAlign: "center",
     },
-    searchContainer: {
-        display: "flex",
-        flexGrow: 1,
-        justifyContent: "center",
-        padding: 16,
+    textCategory: {
+        color: "#FFFFFF",
+        margin: 0,
+        fontSize: "0.7rem", 
+        marginBottom: "0.35em", 
     },
-    cardsSuggestionContentScrollView: {
+    scrollViewSuggestion: {
         flexFlow: "row",
     },
     cardSuggestion: {
@@ -56,7 +57,7 @@ const useStyles = makeStyles({
         height: 185,
         position: 'relative',
         margin: 8,
-        borderRadius: 16,
+        borderRadius: 12,
         '&:after': {
             content: '""',
             display: 'block',
@@ -68,35 +69,34 @@ const useStyles = makeStyles({
             background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
         },
     },
-    suggestionContent: {
+    mediaSuggestion: {
+        height: "100%",
+    },
+    contentSuggestion: {
         position: 'absolute',
         zIndex: 2,
         bottom: 0,
         width: '100%',
     },
-    mediaSuggestion: {
-        height: "100%",
+    textSuggestion: {
+        color: "#FFFFFF",
+        margin: 0, 
     },
-    suggestionTitle: {
+    headerSuggestion: {
         display: "flex",
         flexGrow: 0,
         paddingLeft: 8,
         flexFlow: "row",
     },
-    suggestionTitleTxt: {
-        color: "#FFFFFF",
-        margin: 0, 
-    },
-    categoriesTitleTxt: {
-        color: "#FFFFFF",
-        margin: 0,
-        fontSize: "0.7rem", 
-        marginBottom: "0.35em", 
-    },
     paperSearch:{
         flexGrow: 1,
     },
-
+    searchContainer: {
+        display: "flex",
+        flexGrow: 1,
+        justifyContent: "center",
+        padding: 16,
+    },
 });
 class Home extends Component {
 
@@ -115,27 +115,27 @@ class Home extends Component {
 
         return <>
             <SearchBar />
-            <CategoryGrid />
-            <SuggestionContentTitle />
-            <SuggestionGrid />
-            <SuggestionContentTitle />
-            <SuggestionGrid />
+            <GridCategory />
+            <HeaderSuggestion />
+            <GridSuggestion />
+            <HeaderSuggestion />
+            <GridSuggestion />
         </>
     }
 }
 
-export function CategoryCard() {
+export function CardCategory() {
     const classes = useStyles();
 
     return (
-        <Card elevation={8} className={classes.cardsCategory}>
+        <Card elevation={8} className={classes.cardCategory}>
                 <CardMedia
                     className={classes.mediaCategory}
                     image="/res/images/croissant.png"
                     title="Breakfast"
                 />
-            <CardContent className={classes.categories}>
-            <Typography variant="button" component="h2" className={classes.categoriesTitleTxt}>
+            <CardContent className={classes.contentCategory}>
+            <Typography variant="button" component="h2" className={classes.textCategory}>
                     Breakfast
             </Typography>
             </CardContent>
@@ -143,16 +143,17 @@ export function CategoryCard() {
     );
 }
 
-export function CategoryGrid() {
+export function GridCategory() {
     const classes = useStyles();
 
     return (
         <Grid container className={classes.root}>
             <Grid item xs>
-                <Grid container className={classes.cardsCategoryScrollView}>
+                <Grid container className={classes.scrollViewCategory
+        }>
                     {[0, 1, 2, 3, 4].map((value) => (
                         <Grid key={value} item>
-                            <CategoryCard />
+                            <CardCategory />
                         </Grid>
                     ))}
                 </Grid>
@@ -161,7 +162,7 @@ export function CategoryGrid() {
     );
 }
 
-export function SuggestionCard() {
+export function CardSuggestion() {
     const classes = useStyles();
 
     return (
@@ -171,8 +172,8 @@ export function SuggestionCard() {
                 image="/res/images/carbonara.jpg"
                 title="Pasta alla Carbonara"
             />
-            <CardContent className={classes.suggestionContent}>
-                <Typography gutterBottom variant="h5" component="h2" className={classes.suggestionTitleTxt}>
+            <CardContent className={classes.contentSuggestion}>
+                <Typography gutterBottom variant="h5" component="h2" className={classes.textSuggestion}>
                     Pasta alla Carbonara
             </Typography>
             </CardContent>
@@ -180,16 +181,16 @@ export function SuggestionCard() {
     );
 }
 
-export function SuggestionGrid() {
+export function GridSuggestion() {
     const classes = useStyles();
 
     return (
         <Grid container className={classes.root}>
             <Grid item xs>
-                <Grid container className={classes.cardsSuggestionContentScrollView}>
+                <Grid container className={classes.scrollViewSuggestion}>
                     {[0, 1, 2].map((value) => (
                         <Grid key={value} item>
-                            <SuggestionCard />
+                            <CardSuggestion />
                         </Grid>
                     ))}
                 </Grid>
@@ -218,14 +219,15 @@ export function SearchBar() {
     );
 }
 
-export function SuggestionContentTitle() {
+export function HeaderSuggestion() {
     const classes = useStyles();
 
     return (
-        <div className={classes.suggestionTitle}>
-            <img src={"res/images/fire.png"} width="32" alt="fire"/>
-            <Typography variant="h6" component="h2">
-                Popular
+        <div className={classes.headerSuggestion}>
+            <img src={"res/images/fire.png"} width='26' height='26' alt="fire"/>
+            <Typography variant="overline">
+                <Box fontWeight="fontWeightBold">
+                Popular</Box>
       </Typography>
         </div>
     );
