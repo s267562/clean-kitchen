@@ -193,7 +193,7 @@ export function GridCategory() {
     const classes = useStyles();
 
     return (
-        <Grid container className={classes.root}>
+        <Grid container className={classes.rootGridScrollView}>
             <Grid item xs>
                 <Grid container className={classes.scrollViewCategory
         }>
@@ -233,7 +233,7 @@ export function GridSuggestion(props) {
     const classes = useStyles();
 
     return (
-        <Grid container className={classes.root}>
+        <Grid container className={classes.rootGridScrollView}>
             <Grid item xs>
                 <Grid container className={classes.scrollViewSuggestion}>
                     {[0, 1, 2].map((value) => (
