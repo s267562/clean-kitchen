@@ -217,9 +217,11 @@ export function CardSuggestion(props) {
                 title={props.recipe}
             />
             <CardContent className={classes.contentSuggestion}>
+                <ThemeProvider theme={customFont}>
                     <Typography gutterBottom variant="h6" component="h1" className={classes.textSuggestion}>
                         {props.recipe}
             </Typography>
+                </ThemeProvider>
             </CardContent>
         </Card>
     );
@@ -249,10 +251,12 @@ export function HeaderSuggestion(props) {
     return (
         <div className={classes.headerSuggestion}>
             <img src={`res/images/${props.icon}`} width='26' height='26' alt="fire" />
+            <ThemeProvider theme={customFont}>
                 <Typography variant ="h5">
                     <Box fontWeight="400"  paddingLeft="8px">
                         {props.title}</Box>
                 </Typography>
+            </ThemeProvider>
         </div>
     );
 }
