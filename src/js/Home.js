@@ -156,10 +156,10 @@ class Home extends Component {
         return <>
             <SearchBar />
             <GridCategory />
-            <HeaderSuggestion />
-            <GridSuggestion />
-            <HeaderSuggestion />
-            <GridSuggestion />
+            <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px"}}>
+            </Paper>
+            <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px"}}>
+            </Paper>
         </>
     }
 }
