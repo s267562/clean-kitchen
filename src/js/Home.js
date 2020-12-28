@@ -157,26 +157,30 @@ class Home extends Component {
             <SearchBar />
             <GridCategory />
             <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px"}}>
+            <HeaderSuggestion title="Popular" icon="fire.png" />
+            <GridSuggestion recipe="Pasta alla Carbonara" img="carbonara.jpg" />
             </Paper>
             <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px"}}>
+            <HeaderSuggestion title="Editor's Choice" icon="choice.png" />
+            <GridSuggestion recipe="Cheesecake" img="cheesecake.jpg" />
             </Paper>
         </>
     }
 }
 
-export function CardCategory() {
+export function CardCategory(props) {
     const classes = useStyles();
 
     return (
         <Card elevation={8} className={classes.cardCategory}>
                 <CardMedia
                     className={classes.mediaCategory}
-                    image="/res/images/croissant.png"
-                    title="Breakfast"
+                image={`/res/images/${props.name}.png`}
+                title={props.name}
                 />
             <CardContent className={classes.contentCategory}>
-            <Typography variant="button" component="h2" className={classes.textCategory}>
-                    Breakfast
+                <Typography variant="button" component="h1" className={classes.textCategory}>
+                {props.name}
             </Typography>
             </CardContent>
         </Card>
@@ -191,9 +195,9 @@ export function GridCategory() {
             <Grid item xs>
                 <Grid container className={classes.scrollViewCategory
         }>
-                    {[0, 1, 2, 3, 4].map((value) => (
+                    {["breakfast", "fish", "meat", "vegan", "dessert"].map((value) => (
                         <Grid key={value} item>
-                            <CardCategory />
+                            <CardCategory name={value}/>
                         </Grid>
                     ))}
                 </Grid>
@@ -202,26 +206,26 @@ export function GridCategory() {
     );
 }
 
-export function CardSuggestion() {
+export function CardSuggestion(props) {
     const classes = useStyles();
 
     return (
         <Card elevation={8} className={classes.cardSuggestion}>
             <CardMedia
                 className={classes.mediaSuggestion}
-                image="/res/images/carbonara.jpg"
-                title="Pasta alla Carbonara"
+                image={`/res/images/${props.img}`}
+                title={props.recipe}
             />
             <CardContent className={classes.contentSuggestion}>
-                <Typography gutterBottom variant="h5" component="h2" className={classes.textSuggestion}>
-                    Pasta alla Carbonara
+                    <Typography gutterBottom variant="h6" component="h1" className={classes.textSuggestion}>
+                        {props.recipe}
             </Typography>
             </CardContent>
         </Card>
     );
 }
 
-export function GridSuggestion() {
+export function GridSuggestion(props) {
     const classes = useStyles();
 
     return (
@@ -230,12 +234,26 @@ export function GridSuggestion() {
                 <Grid container className={classes.scrollViewSuggestion}>
                     {[0, 1, 2].map((value) => (
                         <Grid key={value} item>
-                            <CardSuggestion />
+                            <CardSuggestion recipe={props.recipe} img={props.img} />
                         </Grid>
                     ))}
                 </Grid>
             </Grid>
         </Grid>
+    );
+}
+
+export function HeaderSuggestion(props) {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.headerSuggestion}>
+            <img src={`res/images/${props.icon}`} width='26' height='26' alt="fire" />
+                <Typography variant ="h5">
+                    <Box fontWeight="400"  paddingLeft="8px">
+                        {props.title}</Box>
+                </Typography>
+        </div>
     );
 }
 
@@ -255,20 +273,6 @@ export function SearchBar() {
                 }}
             />
             </Paper>
-        </div>
-    );
-}
-
-export function HeaderSuggestion() {
-    const classes = useStyles();
-
-    return (
-        <div className={classes.headerSuggestion}>
-            <img src={"res/images/fire.png"} width='26' height='26' alt="fire"/>
-            <Typography variant="overline">
-                <Box fontWeight="fontWeightBold">
-                Popular</Box>
-      </Typography>
         </div>
     );
 }
