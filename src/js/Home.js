@@ -31,7 +31,7 @@ const customFont = createMuiTheme({
 });
 
 const useStyles = makeStyles({
-    root: {
+    rootGridScrollView: {
         overflowY: "hidden",
         overflowX: "scroll",
         alignItems: "safe center",
@@ -105,7 +105,7 @@ const useStyles = makeStyles({
         paddingLeft: 8,
         flexFlow: "row",
     },
-    paperSearch:{
+    paperSearch: {
         flexGrow: 1,
     },
     searchContainer: {
