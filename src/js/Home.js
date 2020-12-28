@@ -30,6 +30,23 @@ const customFont = createMuiTheme({
     },
 });
 
+function newGradient() {
+    var c1 = {
+      r: Math.floor(Math.random()*255),
+      g: Math.floor(Math.random()*255),
+      b: Math.floor(Math.random()*255)
+    };
+    var c2 = {
+      r: Math.floor(Math.random()*255),
+      g: Math.floor(Math.random()*255),
+      b: Math.floor(Math.random()*255)
+    };
+    c1.rgb = 'rgb('+c1.r+','+c1.g+','+c1.b+')';
+    c2.rgb = 'rgb('+c2.r+','+c2.g+','+c2.b+')';
+    return 'radial-gradient(at top left, '+c1.rgb+', '+c2.rgb+')';
+  }
+  
+
 const useStyles = makeStyles({
     rootGridScrollView: {
         overflowY: "hidden",
@@ -51,8 +68,9 @@ const useStyles = makeStyles({
         padding: 8,
         borderRadius: 18,
         minWidth: 56,
-        background: `radial-gradient(circle, rgba(251,179,63,0.9415967070421919) 0%, rgba(252,70,107,1) 100%)`,
-        backgroundColor: "rgb(63,94,251)", /*this your primary color*/
+        background: newGradient,
+        /*background: `radial-gradient(circle, rgba(251,179,63,0.9415967070421919) 0%, rgba(252,70,107,1) 100%)`,*/
+        /*backgroundColor: "rgb(63,94,251)", /*this your primary color*/
     },
     mediaCategory: {
         height: 64,
