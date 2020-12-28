@@ -33,14 +33,16 @@ const customFont = createMuiTheme({
 const useStyles = makeStyles({
     rootGridScrollView: {
         overflowY: "hidden",
-        overflowX: "scroll",
+        overflowX: "hidden",
         alignItems: "safe center",
-        paddingBottom: 16,
+        paddingBottom: 8,
     },
     scrollViewCategory: {
         justifyContent: "space-between",
         flexFlow: "row",
+        overflowX: "scroll",
         scrollbarWidth: "none",
+        paddingBottom: 8,
     },
     cardCategory: {
         width: 85,
@@ -68,6 +70,9 @@ const useStyles = makeStyles({
     },
     scrollViewSuggestion: {
         flexFlow: "row",
+        overflowX: "scroll",
+        scrollbarWidth: "none",
+        padding: 8,
     },
     cardSuggestion: {
         minWidth: 300,
