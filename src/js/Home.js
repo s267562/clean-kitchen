@@ -121,9 +121,11 @@ const useStyles = makeStyles({
     textSuggestion: {
         color: "#FFFFFF",
         margin: 0, 
+        flexWrap: 1,
     },
     headerSuggestion: {
         display: "flex",
+        alignItems: "center",
         flexGrow: 0,
         paddingLeft: 8,
         flexFlow: "row",
