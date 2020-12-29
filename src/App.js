@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import './css/App.css';
 import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
