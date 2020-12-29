@@ -108,7 +108,7 @@ function MyAppBar(props) {
 
 const CustomSearchField = withStyles({
   root: {
-    background: "#f2f2f2",
+    background: "#eeeeee",
     borderRadius: 25,
     '& label.Mui-focused': {
       color: '#000',
@@ -137,12 +137,16 @@ function SearchBar() {
       id="custom-css-outlined-input" size="small" style={{ margin: '16px',}}
 
       /* styles the input component */
-      inputProps={{
+      InputProps={{
         endAdornment: (
           <InputAdornment position="end">
             <Search />
           </InputAdornment>
         ),
+      }}
+
+      InputLabelProps={{
+        style: { color: '#000' },
       }}
     />
 
