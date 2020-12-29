@@ -3,6 +3,7 @@ import './css/App.css';
 import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
+import { fade, ThemeProvider, withStyles, makeStyles, createMuiTheme, } from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
@@ -55,7 +56,7 @@ class App extends Component {
   }
 }
 
-function MyAppBar(props){
+function MyAppBar(props) {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -72,53 +73,79 @@ function MyAppBar(props){
     });
   };
 
-  return(
-    <AppBar position="sticky" style={{background: "#fafafa", color: "#000"}}>
-    <Toolbar >
-      <Typography variant="h6" style={{ flexGrow: 1 }} >
-        Clean Kitchen
+  return (
+    <AppBar position="sticky" style={{ background: "#fafafa", color: "#000", marginBottom: '8px' }}>
+      <Toolbar >
+        <Typography variant="h6" style={{ flexGrow: 1 }} >
+          Clean Kitchen
       </Typography>
-      <IconButton edge="end" color="inherit" onClick={handleClick}>
-        <MoreVertIcon />
-      </IconButton>
-      <Menu
-        id="setting-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        {settingOptions.map((option, index) => (
-          <MenuItem
-            key={option}
-            onClick={(event) => handleClose(event, index)}
-          >
-            {option}
-          </MenuItem>
-        ))}
-      </Menu>
-    </Toolbar>
-    {
-      (history.location.pathname === '/' || history.location.pathname === '/searchResults') && <SearchBar />
-    }
-  </AppBar>
+        <IconButton edge="end" color="inherit" onClick={handleClick}>
+          <MoreVertIcon />
+        </IconButton>
+        <Menu
+          id="setting-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          {settingOptions.map((option, index) => (
+            <MenuItem
+              key={option}
+              onClick={(event) => handleClose(event, index)}
+            >
+              {option}
+            </MenuItem>
+          ))}
+        </Menu>
+      </Toolbar>
+      {
+        (history.location.pathname === '/' || history.location.pathname === '/searchResults') && <SearchBar />
+      }
+    </AppBar>
   );
 }
+
+const CustomSearchField = withStyles({
+  root: {
+    background: "#f2f2f2",
+    borderRadius: 25,
+    '& label.Mui-focused': {
+      color: '#000',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#000',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: "transparent",
+        borderRadius: 25,
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#afafaf',
+      },
+    },
+  },
+})(TextField);
 
 function SearchBar() {
 
   return (
-      <div>
-          <TextField id="outlined-search" label="Search" type="search" variant="outlined" fullWidth style={{borderRadius: '25px'}}
-              InputProps={{
-                  endAdornment: (
-                      <InputAdornment position="end">
-                          <Search />
-                      </InputAdornment>
-                  ),
-              }}
-          />
-      </div>
+    <CustomSearchField
+      label="Search"
+      variant="outlined"
+      id="custom-css-outlined-input" size="small" style={{ margin: '16px',}}
+
+      /* styles the input component */
+      inputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <Search />
+          </InputAdornment>
+        ),
+      }}
+    />
+
   );
 }
 
