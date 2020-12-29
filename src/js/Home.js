@@ -169,7 +169,7 @@ class Home extends Component {
     }
 }
 
-export function CardCategory(props) {
+function CardCategory(props) {
     const classes = useStyles();
     const bgColor = newGradient(props.name)
 
@@ -189,7 +189,7 @@ export function CardCategory(props) {
     );
 }
 
-export function GridCategory() {
+function GridCategory() {
     const classes = useStyles();
 
     return (
@@ -208,7 +208,7 @@ export function GridCategory() {
     );
 }
 
-export function CardSuggestion(props) {
+function CardSuggestion(props) {
     const classes = useStyles();
 
     return (
@@ -229,7 +229,7 @@ export function CardSuggestion(props) {
     );
 }
 
-export function GridSuggestion(props) {
+function GridSuggestion(props) {
     const classes = useStyles();
 
     return (
@@ -247,7 +247,7 @@ export function GridSuggestion(props) {
     );
 }
 
-export function HeaderSuggestion(props) {
+function HeaderSuggestion(props) {
     const classes = useStyles();
 
     return (
