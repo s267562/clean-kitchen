@@ -3,7 +3,7 @@ import '../css/CookingMode.css';
 import { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-import { MobileStepper, Button, Card, CardContent, Typography, Dialog, DialogTitle, IconButton, Fab, Box } from '@material-ui/core';
+import { MobileStepper, Button, Card, CardContent, Typography, Dialog, Box } from '@material-ui/core';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
@@ -28,7 +28,7 @@ function CookingMode() { // Rule 2: call hooks in function component
     const [success, setSuccess] = useState(false);
     const commands = [
         {
-            command: ['next', 'back', 'exit'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
+            command: ['next', 'back', 'exit', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
             callback: ({ command }) => {
                 setSuccess(true); /* successfull speech recognition */
                 setTimeout(function () {
@@ -41,6 +41,12 @@ function CookingMode() { // Rule 2: call hooks in function component
                             break;
                         case 'exit':
                             exit();
+                            break;
+                        case 'up':
+                            up();
+                            break;
+                        case 'down':
+                            down();
                             break;
                         default:
                             break;
@@ -82,17 +88,32 @@ function CookingMode() { // Rule 2: call hooks in function component
     const exit = () => {
         // TODO - exit cooking mode
     }
+    const up = () => {
+        // TODO - scroll up
+    }
+    const down = () => {
+        // TODO - scroll down
+    }
 
     /* Render */
-    return (
-        <div>
-            <p>{debugMsg}</p>
-            <CookingModeCard stepNumber={activeStep} />
+    return (<>
+        <p>{debugMsg}</p>
+        <CookingModeCard stepNumber={activeStep} />
+        <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            style={{ position: 'fixed', bottom: '0px', left: 0, right: 0, bottom: 0, background: '#fafafa' }}
+        >
+            <Typography style={{ fontSize: 14, paddingTop: '16px', margin: '0px' }} color="textPrimary">
+                Step 2 of 5
+            </Typography>
             <MobileStepper
                 variant="progress"
                 steps={6}
-                position="static"
                 activeStep={activeStep}
+                style={{ position: 'unset', width: '100%' }}
                 nextButton={
                     <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
                         Next
@@ -106,15 +127,16 @@ function CookingMode() { // Rule 2: call hooks in function component
                     </Button>
                 }
             />
-            <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
-        </div>
+        </Box>
+        <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
+    </>
     )
 }
 
 function SpeechRecognitionDialog(props) {
-    const { listening, transcript, open, success, exitFun, exitedFun } = props;
+    const { listening, transcript, open, success, exitedFun } = props;
     return (
-        <Dialog open={open} fullWidth="true" maxWidth="xl" onExited={() => exitedFun() }>
+        <Dialog open={open} fullWidth="true" maxWidth="xl" onExited={() => exitedFun()}>
             <Box
                 display="flex"
                 flexDirection="column"
@@ -150,12 +172,13 @@ function CookingModeCard(props) {
     return (
         <Card style={{ margin: '16px' }}>
             <CardContent>
-                <Typography style={{ fontSize: 14 }} color="textSecondary" gutterBottom>
-                    {`Step ${props.stepNumber}`}
-                </Typography>
                 <Typography variant="h5" component="h2">
                     Shrimp and Chorizo Paella
                 </Typography>
+                <br />
+                <img src="https://www.donnamoderna.com/content/uploads/2014/12/Paella-mista-carne-pesce.jpg"
+                    style={{ width: "100%" }} />
+                <br />
                 <br />
                 <Typography paragraph>Method:</Typography>
                 <Typography paragraph>
