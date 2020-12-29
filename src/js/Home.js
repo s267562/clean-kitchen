@@ -27,20 +27,32 @@ const customFont = createMuiTheme({
     },
 });
 
-function newGradient() {
-    var c1 = {
-      r: Math.floor(Math.random()*255),
-      g: Math.floor(Math.random()*255),
-      b: Math.floor(Math.random()*255)
-    };
-    var c2 = {
-      r: Math.floor(Math.random()*255),
-      g: Math.floor(Math.random()*255),
-      b: Math.floor(Math.random()*255)
-    };
-    c1.rgb = 'rgb('+c1.r+','+c1.g+','+c1.b+')';
-    c2.rgb = 'rgb('+c2.r+','+c2.g+','+c2.b+')';
-    return 'radial-gradient(at top left, '+c1.rgb+', '+c2.rgb+')';
+function newGradient(name) {
+
+    var backgroundGradient = null;
+
+    switch (name) {
+        case "breakfast":
+            backgroundGradient = 'radial-gradient(at top left, rgb(255, 222, 97), rgb(219, 153, 5))'
+            break;
+        case "fish":
+            backgroundGradient = 'radial-gradient(at top left, rgb(15, 187, 194), rgb(58, 82, 194))'
+            break;
+        case "meat":
+            backgroundGradient = 'radial-gradient(at top left, rgb(247, 147, 42), rgb(221, 31, 31))'
+            break;
+        case "vegan":
+            backgroundGradient = 'radial-gradient(at top left, rgb(56, 230, 118), rgb(49, 139, 143))'
+            break;
+        case "dessert":
+            backgroundGradient = 'radial-gradient(at top left, rgb(13, 245, 169), rgb(160, 143, 247))'
+            break;
+    
+        default:
+            break;
+    }
+
+    return backgroundGradient;
   }
   
 
@@ -49,28 +61,28 @@ const useStyles = makeStyles({
         overflowY: "hidden",
         overflowX: "hidden",
         alignItems: "safe center",
-        paddingBottom: 8,
     },
     scrollViewCategory: {
         justifyContent: "space-between",
         flexFlow: "row",
         overflowX: "scroll",
         scrollbarWidth: "none",
+        paddingTop: 8,
         paddingBottom: 8,
     },
     cardCategory: {
-        width: 85,
-        height: 85,
+        width: 65,
+        height: 65,
         margin: 8,
         padding: 8,
         borderRadius: 18,
-        minWidth: 56,
-        background: newGradient,
+        minWidth: 48,
+        //background: newGradient,
         /*background: `radial-gradient(circle, rgba(251,179,63,0.9415967070421919) 0%, rgba(252,70,107,1) 100%)`,*/
         /*backgroundColor: "rgb(63,94,251)", /*this your primary color*/
     },
     mediaCategory: {
-        height: 64,
+        height: 44,
         padding: 4,
     },
     contentCategory: {
@@ -159,9 +171,10 @@ class Home extends Component {
 
 export function CardCategory(props) {
     const classes = useStyles();
+    const bgColor = newGradient(props.name)
 
     return (
-        <Card elevation={8} className={classes.cardCategory}>
+        <Card elevation={8} className={classes.cardCategory} style={{background: bgColor}}>
                 <CardMedia
                     className={classes.mediaCategory}
                 image={`/res/images/${props.name}.png`}
@@ -186,7 +199,7 @@ export function GridCategory() {
         }>
                     {["breakfast", "fish", "meat", "vegan", "dessert"].map((value) => (
                         <Grid key={value} item>
-                            <CardCategory name={value}/>
+                            <CardCategory name={value} />
                         </Grid>
                     ))}
                 </Grid>
