@@ -61,16 +61,12 @@ function MyAppBar(props) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
-    setAnchorEl({
-      anchorEl: event.currentTarget
-    });
+    setAnchorEl(event.currentTarget);
   };
 
   const handleClose = (event, index) => {
     console.log("handleClose - " + settingOptions[index]);
-    setAnchorEl({
-      anchorEl: null
-    });
+    setAnchorEl(null);
   };
 
   return (
