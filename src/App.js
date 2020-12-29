@@ -3,7 +3,7 @@ import './css/App.css';
 import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
-import { fade, ThemeProvider, withStyles, makeStyles, createMuiTheme, } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
