@@ -4,9 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Search from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper'
 import { Box } from '@material-ui/core';
@@ -130,15 +127,6 @@ const useStyles = makeStyles({
         paddingLeft: 8,
         flexFlow: "row",
     },
-    paperSearch: {
-        flexGrow: 1,
-    },
-    searchContainer: {
-        display: "flex",
-        flexGrow: 1,
-        justifyContent: "center",
-        padding: 16,
-    },
 });
 class Home extends Component {
 
@@ -156,7 +144,6 @@ class Home extends Component {
     render() {
 
         return <>
-            <SearchBar />
             <GridCategory />
             <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px"}}>
             <HeaderSuggestion title="Popular" icon="fire.png" />
@@ -263,23 +250,5 @@ export function HeaderSuggestion(props) {
     );
 }
 
-export function SearchBar() {
-    const classes = useStyles();
 
-    return (
-        <div className={classes.searchContainer}>
-             <Paper elevation={3} className={classes.paperSearch}>
-            <TextField id="outlined-search" label="Search" type="search" variant="outlined" fullWidth
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <Search />
-                        </InputAdornment>
-                    ),
-                }}
-            />
-            </Paper>
-        </div>
-    );
-}
 export default Home;

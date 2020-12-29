@@ -1,13 +1,16 @@
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import './css/App.css';
 import CookingMode from './js/CookingMode';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
-import Search from './js/Search';
+import SearchView from './js/Search';
 import Recipe from './js/Recipe';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Search from '@material-ui/icons/Search';
 
 const settingOptions = [
   'Setting #0',
@@ -24,58 +27,18 @@ class App extends Component {
       anchorEl: null
     };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClose = this.handleClose.bind(this);
   }
-
-  handleClick = (event) => {
-    this.setState({
-      anchorEl: event.currentTarget
-    });
-  };
-
-  handleClose = (event, index) => {
-    console.log("handleClose - " + settingOptions[index]);
-    this.setState({
-      anchorEl: null
-    });
-  };
 
   render() {
     return (
       <Router>
-        <AppBar position="sticky">
-          <Toolbar >
-            <Typography variant="h6" style={{ flexGrow: 1 }} >
-              Clean Kitchen
-            </Typography>
-            <IconButton edge="end" color="inherit" onClick={this.handleClick}>
-              <MoreVertIcon />
-            </IconButton>
-            <Menu
-              id="setting-menu"
-              anchorEl={this.state.anchorEl}
-              keepMounted
-              open={Boolean(this.state.anchorEl)}
-              onClose={this.handleClose}
-            >
-              {settingOptions.map((option, index) => (
-                <MenuItem
-                  key={option}
-                  onClick={(event) => this.handleClose(event, index)}
-                >
-                  {option}
-                </MenuItem>
-              ))}
-            </Menu>
-          </Toolbar>
-        </AppBar>
+        <MyAppBar />
         <Switch>
           <Route path="/tutorial">
             <Tutorial />
           </Route>
-          <Route path="/search"> { /* field keyword (/:keyword)*/}
-            <Search />
+          <Route path="/searchResults"> { /* field keyword (/:keyword)*/}
+            <SearchView />
           </Route>
           <Route path="/recipe"> { /* field id (/:id)*/}
             <Recipe />
@@ -90,6 +53,73 @@ class App extends Component {
       </Router>
     );
   }
+}
+
+function MyAppBar(props){
+  const history = useHistory();
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl({
+      anchorEl: event.currentTarget
+    });
+  };
+
+  const handleClose = (event, index) => {
+    console.log("handleClose - " + settingOptions[index]);
+    setAnchorEl({
+      anchorEl: null
+    });
+  };
+
+  return(
+    <AppBar position="sticky" style={{background: "#fafafa", color: "#000"}}>
+    <Toolbar >
+      <Typography variant="h6" style={{ flexGrow: 1 }} >
+        Clean Kitchen
+      </Typography>
+      <IconButton edge="end" color="inherit" onClick={handleClick}>
+        <MoreVertIcon />
+      </IconButton>
+      <Menu
+        id="setting-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        {settingOptions.map((option, index) => (
+          <MenuItem
+            key={option}
+            onClick={(event) => handleClose(event, index)}
+          >
+            {option}
+          </MenuItem>
+        ))}
+      </Menu>
+    </Toolbar>
+    {
+      (history.location.pathname === '/' || history.location.pathname === '/searchResults') && <SearchBar />
+    }
+  </AppBar>
+  );
+}
+
+function SearchBar() {
+
+  return (
+      <div>
+          <TextField id="outlined-search" label="Search" type="search" variant="outlined" fullWidth style={{borderRadius: '25px'}}
+              InputProps={{
+                  endAdornment: (
+                      <InputAdornment position="end">
+                          <Search />
+                      </InputAdornment>
+                  ),
+              }}
+          />
+      </div>
+  );
 }
 
 export default App;
