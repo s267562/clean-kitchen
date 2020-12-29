@@ -3,7 +3,7 @@ import '../css/CookingMode.css';
 import { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-import { MobileStepper, Button, Card, CardContent, Typography, Dialog, Box, LinearProgress } from '@material-ui/core';
+import { Button, Card, CardContent, Typography, Dialog, Box, LinearProgress } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
@@ -43,7 +43,7 @@ function CookingMode() { // Rule 2: call hooks in function component
     const [success, setSuccess] = useState(false);
     const commands = [
         {
-            command: ['next', 'back', 'exit', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
+            command: ['cancel', 'next', 'back', 'exit', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
             callback: ({ command }) => {
                 setSuccess(true); /* successfull speech recognition */
                 setTimeout(function () {
@@ -113,7 +113,7 @@ function CookingMode() { // Rule 2: call hooks in function component
     /* Render */
     return (<>
         <p>{debugMsg}</p>
-        <CookingModeCard stepNumber={activeStep} style={{ position: 'fixed', top: '56px', bottom: '102px', overflow: 'scroll' }} />
+        <CookingModeCard stepNumber={activeStep} style={{ position: 'fixed', top: 56, height: 'calc(100% - 158px)', overflow: 'scroll', width: '100%' }} />
         <Stepper steps={5} activeStep={activeStep} next={handleNext} back={handleBack} />
         <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
     </>
@@ -130,7 +130,7 @@ function CookingModeCard(props) {
     ]
 
     return (
-        <Box style={props.style}>
+        <div style={props.style}>
             <Card style={{ margin: '16px' }}>
                 <CardContent>
                     <Typography variant="h5" component="h2">
@@ -148,7 +148,7 @@ function CookingModeCard(props) {
                 </CardContent>
 
             </Card >
-        </Box>
+        </div>
     )
 }
 
@@ -166,7 +166,6 @@ function Stepper(props) {
             padding: '16px',
         }}
         >
-
             <Box display="flex" alignItems="center" style={{ marginBottom: '8px' }}>
                 <Box width="100%" mr={2}>
                     <BorderLinearProgress variant="determinate" value={(activeStep / steps) * 100} />
@@ -187,7 +186,6 @@ function Stepper(props) {
                     Next <KeyboardArrowRight />
                 </Button>
             </Box>
-
         </div>
     )
 }
