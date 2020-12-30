@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
-import SearchView from './js/Search';
+import SearchResults from './js/SearchResults';
 import Recipe from './js/Recipe';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -38,7 +38,7 @@ class App extends Component {
             <Tutorial />
           </Route>
           <Route path="/searchResults"> { /* field keyword (/:keyword)*/}
-            <SearchView />
+            <SearchResults />
           </Route>
           <Route path="/recipe"> { /* field id (/:id)*/}
             <Recipe />
@@ -95,7 +95,7 @@ function MyAppBar(props) {
         </Menu>
       </Toolbar>
       {
-        (history.location.pathname === '/' || history.location.pathname === '/searchResults') && <SearchBar />
+        (history.location.pathname === '/' || history.location.pathname.toLowerCase() === '/searchresults') && <SearchBar />
       }
     </AppBar>
   );
@@ -129,7 +129,7 @@ function SearchBar() {
     <CustomSearchField
       label="Search"
       variant="outlined"
-      id="custom-css-outlined-input" size="small" style={{ margin: '16px',}}
+      id="custom-css-outlined-input" size="small" style={{ margin: '16px' }}
 
       /* styles the input component */
       InputProps={{
@@ -144,7 +144,6 @@ function SearchBar() {
         style: { color: '#000' },
       }}
     />
-
   );
 }
 
