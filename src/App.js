@@ -143,6 +143,7 @@ const CustomSearchField = withStyles({
 })(TextField);
 
 function SearchBar() {
+  const history = useHistory();
   const [value, setValue] = useState('');
 
   const handleChange = (event) => {
@@ -150,9 +151,18 @@ function SearchBar() {
   }
 
   const handleKeyDown = (event) => {
+    console.log(event.keyCode);
     if (event.keyCode === 13) {
-      /* the user press enter */
-      console.log('keyword: ' + value);
+      if (value !== '') {
+        /* the user presses enter */
+        history.push({
+          pathname: '/searchResults',
+          search: `?query=${value}`,
+          state: { query: value }
+        });
+        setValue('');
+      }
+      document.activeElement.blur(); /* unfocus search view */
     }
   }
 
@@ -161,6 +171,8 @@ function SearchBar() {
       label="Search"
       variant="outlined"
       id="custom-css-outlined-input" size="small" style={{ margin: '16px' }}
+
+      value={value}
 
       /* styles the input component */
       InputProps={{

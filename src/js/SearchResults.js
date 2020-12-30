@@ -1,10 +1,11 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import { Box, Card, CardMedia, Divider, Grid, Typography, Button } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
 import TimerIcon from '@material-ui/icons/Timer';
 import TuneIcon from '@material-ui/icons/Tune';
+import { useLocation } from "react-router-dom";
 
 const recipes = [
     {
@@ -97,6 +98,12 @@ const useStyles = makeStyles(() => ({
 
 function SearchResults() {
 
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log(location.state.query);
+    }, [location]);
+
     return (
         <Box
             display="flex"
@@ -104,7 +111,7 @@ function SearchResults() {
             style={{ marginBottom: "8px" }}
         >
             <Button
-                style={{ padding: '16px', width: '50%', margin: 'auto' }}
+                style={{ padding: '16px', margin: 'auto' }}
                 startIcon={<TuneIcon />}
             >
                 Filter
