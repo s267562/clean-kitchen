@@ -149,6 +149,7 @@ function Recipe(props) {
                         <Divider orientation="vertical" style={{ marginLeft: '8px', marginRight: '8px', height: "21px" }} />
                         <StyledRating
                             name="cost-rating"
+                            readOnly
                             max={3}
                             value={getRecipeCost(recipe)}
                             icon={<EuroIcon fontSize="small" />}
