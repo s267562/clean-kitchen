@@ -89,26 +89,35 @@ function RecipeOverview(props) {
             <Grid key='media' item className={classes.itemMedia}>
                 <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
             </Grid>
-            <Grid key='title' item className={classes.itemTitle}>
-                <Paper elevation={0} className={classes.paperTitle}>
-                    <Typography variant='h5' style={{ paddingTop: '16px', paddingLeft: '16px', paddingRight: '16px', }}>
-                        {recipe.title}
-                    </Typography>
-                    <Grid container className={classes.infoTitle}>
-                        <Typography style={{display: 'flex', alignContent: 'center'}}>
-                            <TimerIcon style={{paddingRight: '8px'}}/> Time: {recipe.duration} min
-                        </Typography>
-                        <Typography style={{display: 'flex', alignContent: 'center'}}> Cost
-                        <StyledRating readOnly style={{paddingLeft: '8px'}}
-                            name="cost-rating"
-                            max={3}
-                            value={recipe.cost}
-                            icon={<EuroIcon fontSize="small" />} />
-                            </Typography>
-                    </Grid>
-                </Paper>
-            </Grid>
+                <RecipeTitle recipe={recipe}/>
         </Grid>
+    );
+}
+
+function RecipeTitle(props) {
+    const { recipe } = props;
+    const classes = useStyles();
+
+    return (
+        <Grid key='title' item className={classes.itemTitle}>
+        <Paper elevation={0} className={classes.paperTitle}>
+            <Typography variant='h5' style={{ paddingTop: '16px', paddingLeft: '16px', paddingRight: '16px', }}>
+                {recipe.title}
+            </Typography>
+            <Grid container className={classes.infoTitle}>
+                <Typography style={{display: 'flex', alignContent: 'center'}}>
+                    <TimerIcon style={{paddingRight: '8px'}}/> Time: {recipe.duration} min
+                </Typography>
+                <Typography style={{display: 'flex', alignContent: 'center'}}> Cost
+                <StyledRating readOnly style={{paddingLeft: '8px'}}
+                    name="cost-rating"
+                    max={3}
+                    value={recipe.cost}
+                    icon={<EuroIcon fontSize="small" />} />
+                    </Typography>
+            </Grid>
+        </Paper>
+    </Grid>
     );
 }
 
