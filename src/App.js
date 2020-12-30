@@ -87,35 +87,35 @@ function MyAppBar(props) {
 
   return (
     <ElevationScroll {...props}>
-    <AppBar position="sticky" style={{ background: "#fafafa", color: "#000", marginBottom: '8px' }}>
-      <Toolbar >
-        <Typography variant="h6" style={{ flexGrow: 1 }} >
-          Clean Kitchen
+      <AppBar position="sticky" style={{ background: "#fafafa", color: "#000", marginBottom: '8px' }}>
+        <Toolbar >
+          <Typography variant="h6" style={{ flexGrow: 1 }} >
+            Clean Kitchen
       </Typography>
-        <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
-          <MoreVertIcon />
-        </IconButton>
-        <Menu
-          id="setting-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          {settingOptions.map((option, index) => (
-            <MenuItem
-              key={option}
-              onClick={(event) => handleClose(event, index)}
-            >
-              {option}
-            </MenuItem>
-          ))}
-        </Menu>
-      </Toolbar>
-      {
-        (history.location.pathname === '/' || history.location.pathname.toLowerCase() === '/searchresults') && <SearchBar />
-      }
-    </AppBar>
+          <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
+            <MoreVertIcon />
+          </IconButton>
+          <Menu
+            id="setting-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            {settingOptions.map((option, index) => (
+              <MenuItem
+                key={option}
+                onClick={(event) => handleClose(event, index)}
+              >
+                {option}
+              </MenuItem>
+            ))}
+          </Menu>
+        </Toolbar>
+        {
+          (history.location.pathname === '/' || history.location.pathname.toLowerCase() === '/searchresults') && <SearchBar />
+        }
+      </AppBar>
     </ElevationScroll>
   );
 }
@@ -143,6 +143,18 @@ const CustomSearchField = withStyles({
 })(TextField);
 
 function SearchBar() {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      /* the user press enter */
+      console.log('keyword: ' + value);
+    }
+  }
 
   return (
     <CustomSearchField
@@ -162,6 +174,10 @@ function SearchBar() {
       InputLabelProps={{
         style: { color: '#000' },
       }}
+
+      onChange={handleChange}
+
+      onKeyDown={handleKeyDown}
     />
   );
 }
