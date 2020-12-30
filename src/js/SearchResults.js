@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Card, CardMedia, Divider, Grid, Typography } from '@material-ui/core';
+import { Box, Card, CardMedia, Divider, Grid, Typography, Button } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
 import TimerIcon from '@material-ui/icons/Timer';
+import TuneIcon from '@material-ui/icons/Tune';
 
 const recipes = [
     {
@@ -102,6 +103,12 @@ function SearchResults() {
             flexDirection="column"
             style={{ marginBottom: "8px" }}
         >
+            <Button
+                style={{ padding: '16px', width: '50%', margin: 'auto' }}
+                startIcon={<TuneIcon />}
+            >
+                Filter
+            </Button>
             {
                 recipes.map((recipe) =>
                     <Recipe key={recipe.id} recipe={recipe} />
@@ -125,14 +132,14 @@ function Recipe(props) {
                 className={styles.media}
                 image={recipe.overviewImg}
             />
-            <Grid container direction="column" justify="space-between" alignItems="stretch" style={{ overflow: 'hidden', height: "100%", marginLeft: "16px" }} >
+            <Grid container direction="column" justify="space-between" alignItems="stretch" style={{ overflow: 'hidden', height: "100%", marginLeft: "16px", paddingTop: '8px', paddingBottom: '8px' }} >
                 <Grid item>
                     <Typography style={{ fontSize: 16, fontWeight: 'bold', lineHeight: '24px', maxHeight: '48px', overflow: 'hidden' }} color="textPrimary">
                         {recipe.title}
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <Box display="flex" flexDirection="row" style={{ marginTop: "16px", marginBottom: '8px' }}>
+                    <Box display="flex" flexDirection="row" style={{ marginTop: "8px", marginBottom: '8px' }}>
                         <Typography style={{ fontSize: '0.9em' }} color="textSecondary"> Difficulty:&nbsp; </Typography>
                         <Typography style={{ fontSize: '0.9em' }} color="textPrimary"> {recipe.difficulty} </Typography>
                     </Box>
