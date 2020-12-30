@@ -2,66 +2,89 @@
     "recipes": [
         {
             "id": "r0",
-            "title": "Spaghetti alla carbonara",
-            "rating": "4,5",
-            "duration": "20",
-            "shortDescription": "Simple and easy dish, made by coating pasta in a rich, creamy sauce of eggs, cheese, pork, and black pepper.",
-            "description": "",
-            "overviewImg": "",
+            "title": "Crispy Oven-Fried Chicken",
+            "description": "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
+            "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+            "rating": "4",
+            "duration": "75",
+            "price": "Low",
+            "difficulty": "Medium",
             "yield": "4",
             "ingredients": [
                 {
-                    "name": "Dried spaghetti",
-                    "quantity": "450",
-                    "unit": "g"
+                    "name": "buttermilk",
+                    "quantity": "237",
+                    "unit": "milliliters"
                 },
                 {
-                    "name": "Salt",
-                    "quantity": "",
-                    "unit": ""
-                },
-                {
-                    "name": "Guanciale",
-                    "quantity": "85",
-                    "unit": "g"
-                },
-                {
-                    "name": "Egg yolks",
+                    "name": "chicken legs",
                     "quantity": "8",
                     "unit": ""
                 },
                 {
-                    "name": "Grated Pecorino",
-                    "quantity": "25",
+                    "name": "all-purpose flour",
+                    "quantity": "63",
                     "unit": "g"
                 },
                 {
-                    "name": "Grated Parmigiano",
-                    "quantity": "25",
-                    "unit": "g"
+                    "name": "paprika",
+                    "quantity": "1",
+                    "unit": "tsp"
                 },
                 {
-                    "name": "Black pepper",
+                    "name": "garlic powder",
+                    "quantity": "1/2",
+                    "unit": "tsp"
+                },
+                {
+                    "name": "baking powder",
+                    "quantity": "1",
+                    "unit": "tsp"
+                },
+                {
+                    "name": "fine sea salt",
+                    "quantity": "1",
+                    "unit": "tsp"
+                },
+                {
+                    "name": "black pepper",
+                    "quantity": "1",
+                    "unit": "tsp"
+                },
+                {
+                    "name": "olive oil cooking spray (as needed)",
                     "quantity": "",
                     "unit": ""
+                },
+                {
+                    "name": "honey",
+                    "quantity": "170",
+                    "unit": "grams"
                 }
             ],
             "directions": [
                 {
-                    "description": "Bring a pot of salted water to a boil. Add pasta and cook, stirring, until al dente.",
-                    "image": ""
+                    "description": "Preheat the oven to 425°F",
+                    "image": "",
+                    "timer": "",
+                    "ingredients": []
                 },
                 {
-                    "description": "Put guanciale (or pancetta or bacon) in a large skillet and cook, stirring frequently, over medium heat, until fat has rendered and guanciale is crisp, about 7 minutes. In a large metal heatproof mixing bowl, whisk together whole eggs and yolks, Pecorino Romano, Parmigiano-Reggiano, and black pepper.",
-                    "image": ""
-                },
-                {
-                    "description": "Using tongs and/or a strainer, transfer pasta to skillet with crisped guanciale and its fat; be sure not to drain boiling pasta water. Add remaining 1 tablespoon (15ml) olive oil to pasta and stir to combine; let cool slightly. Scrape pasta, pork, and all the fat into the egg mixture. Measure 1/2 cup (120ml) pasta-cooking water and add to pasta and egg mixture. Stir well to combine.",
-                    "image": ""
-                },
-                {
-                    "description": "Set mixing bowl over pot of boiling pasta water (make sure bottom of bowl does not touch the water) and cook, stirring quickly with tongs, until sauce thickens to a creamy, silky consistency and leaves trails as you stir. Remove from heat, season with salt if needed, and divide into bowls. Serve right away, topping with more grated cheese and freshly ground pepper as desired.",
-                    "image": ""
+                    "description": "Place the chicken in a shallow dish and pour the buttermilk over the top. With your hands, rub the buttermilk into the chicken so it is covered. Allow the chicken to sit at room temperature for 30 minutes.",
+                    "image": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+                    "timer": "30",
+                    "ingredients": [
+                        {
+                            "name": "buttermilk",
+                            "quantity": "237",
+                            "unit": "milliliters"
+                        },
+                        {
+                            "name": "chicken legs",
+                            "quantity": "8",
+                            "unit": ""
+                        }
+                    ]
                 }
             ],
             "helpWeyword": ""
@@ -69,32 +92,32 @@
         {
             "id": "r1",
             "title": "",
-            "rating": "",
-            "duration": "",
-            "shortDescription": "",
-            "description": "",
-            "overviewImg": "",
-            "yield": "",
+            "description": "(short decription)",
+            "overviewImg": "(url?)",
+            "rating": "(maximum 5)",
+            "duration": "(minutes)",
+            "price": "Low/Medium/High",
+            "difficulty": "Easy/Medium/Hard",
+            "yield": "(4 as default?)",
             "ingredients": [
                 {
                     "name": "",
-                    "quantity": "",
-                    "unit": ""
-                },
-                {
-                    "name": "",
-                    "quantity": "",
-                    "unit": ""
+                    "quantity": "(optional)",
+                    "unit": "(optional)"
                 }
             ],
             "directions": [
                 {
-                    "description": "",
-                    "image": ""
-                },
-                {
-                    "description": "",
-                    "image": ""
+                    "description": "(short description)",
+                    "image": "(optional)",
+                    "timer": "(optional)",
+                    "ingredients": [
+                        {
+                            "name": "",
+                            "quantity": "(optional)",
+                            "unit": "(optional)"
+                        } 
+                    ]
                 }
             ],
             "helpWeyword": ""
