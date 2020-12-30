@@ -1,6 +1,6 @@
-import { Component, useState } from 'react';
+import { Component, useState, useEffect } from 'react';
 import CookingMode from './js/CookingMode';
-import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useLocation, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -39,10 +39,10 @@ class App extends Component {
           <Route path="/tutorial">
             <Tutorial />
           </Route>
-          <Route path="/searchResults"> { /* field keyword (/:keyword)*/}
+          <Route path="/searchResults"> { /* field keyword (/:keyword) */}
             <SearchResults />
           </Route>
-          <Route path="/recipe"> { /* field id (/:id)*/}
+          <Route path="/recipe"> { /* field id (/:id) */}
             <Recipe />
           </Route>
           <Route path="/cookingMode">
@@ -73,17 +73,21 @@ function ElevationScroll(props) {
 }
 
 function MyAppBar(props) {
-  const history = useHistory();
+  const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [loc, setLoc] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = (event, index) => {
-    console.log("handleClose - " + settingOptions[index]);
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+    setLoc(location);
+  }, [location]);
 
   return (
     <ElevationScroll {...props}>
@@ -113,7 +117,7 @@ function MyAppBar(props) {
           </Menu>
         </Toolbar>
         {
-          (history.location.pathname === '/' || history.location.pathname.toLowerCase() === '/searchresults') && <SearchBar />
+          loc !== null && (loc.pathname === '/' || loc.pathname.toLowerCase() === '/searchresults') && <SearchBar />
         }
       </AppBar>
     </ElevationScroll>
@@ -151,7 +155,6 @@ function SearchBar() {
   }
 
   const handleKeyDown = (event) => {
-    console.log(event.keyCode);
     if (event.keyCode === 13) {
       if (value !== '') {
         /* the user presses enter */

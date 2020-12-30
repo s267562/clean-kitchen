@@ -1,11 +1,11 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Box, Card, CardMedia, Divider, Grid, Typography, Button } from '@material-ui/core';
+import { useHistory, useLocation } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
 import TimerIcon from '@material-ui/icons/Timer';
 import TuneIcon from '@material-ui/icons/Tune';
-import { useLocation } from "react-router-dom";
 
 const recipes = [
     {
@@ -99,9 +99,11 @@ const useStyles = makeStyles(() => ({
 function SearchResults() {
 
     const location = useLocation();
+    const [query, setQuery] = useState('');
 
     useEffect(() => {
-        console.log(location.state.query);
+        console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
+        setQuery(location.state?.query);
     }, [location]);
 
     return (
@@ -110,6 +112,9 @@ function SearchResults() {
             flexDirection="column"
             style={{ marginBottom: "8px" }}
         >
+            <Typography style={{ fontSize: 16, fontWeight: 'bold', lineHeight: '24px', maxHeight: '48px', overflow: 'hidden' }} color="textPrimary">
+                {`Results for ${query}`}
+            </Typography>
             <Button
                 style={{ padding: '16px', margin: 'auto' }}
                 startIcon={<TuneIcon />}
@@ -128,9 +133,14 @@ function SearchResults() {
 function Recipe(props) {
     const { recipe } = props;
     const styles = useStyles();
+    const history = useHistory();
 
     const onCardClick = () => {
-        console.log("onCardClick() - " + recipe.title);
+        history.push({
+          pathname: '/recipe',
+          search: `?id=${recipe.id}`,
+          state: { id: recipe.id }
+        });
     }
 
     return (

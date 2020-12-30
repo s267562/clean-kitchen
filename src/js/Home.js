@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { useHistory } from 'react-router-dom';
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -9,6 +10,7 @@ import Paper from '@material-ui/core/Paper'
 import { Box } from '@material-ui/core';
 import "typeface-overpass";
 import "typeface-ubuntu";
+
 
 const customFont = createMuiTheme({
     typography: {
@@ -173,8 +175,18 @@ function CardCategory(props) {
     const classes = useStyles();
     const bgColor = newGradient(props.name)
 
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push({
+            pathname: '/searchResults',
+            search: `?query=${props.name}`,
+            state: { query: props.name }
+          });
+    }
+
     return (
-        <Card elevation={8} className={classes.cardCategory} style={{background: bgColor}}>
+        <Card elevation={8} className={classes.cardCategory} style={{background: bgColor}} onClick={handleClick}>
                 <CardMedia
                     className={classes.mediaCategory}
                 image={`/res/images/${props.name}.png`}

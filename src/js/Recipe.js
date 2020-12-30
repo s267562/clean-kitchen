@@ -1,7 +1,8 @@
+import { Component, useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
@@ -15,7 +16,7 @@ const recipes =
     id: "r0",
     title: "Spaghetti alla Carbonara",
     difficulty: "Easy",
-    cost: "1",
+    cost: 1,
     duration: "20",
     overviewImg: "./res/images/carbonara.jpg",
     yield: "4",
@@ -121,6 +122,14 @@ class Recipe extends Component {
 function RecipeOverview(props) {
     const { recipe } = props;
     const classes = useStyles();
+    const [id, setId] = useState('');
+
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log("useEffect (Recipe.js) - id: " + location.state.id);
+        setId(location.state.id);
+    }, [location]);
 
     return (
         <Grid container className={classes.root}>
