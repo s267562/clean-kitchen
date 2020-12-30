@@ -92,7 +92,7 @@ function MyAppBar(props) {
         <Typography variant="h6" style={{ flexGrow: 1 }} >
           Clean Kitchen
       </Typography>
-        <IconButton edge="end" color="inherit" onClick={handleClick}>
+        <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
           <MoreVertIcon />
         </IconButton>
         <Menu
