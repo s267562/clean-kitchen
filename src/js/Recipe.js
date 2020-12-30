@@ -8,13 +8,18 @@ const useStyles = makeStyles({
         flexGrow: 1,
         flexDirection: 'column',
         alignItems: 'safe center',
+    },
+    itemMedia: {
+        width: '100%',
         padding: 16,
-      },
-      paperMedia: {
-        height: 250,
+    },
+    media: {
+        maxHeight: '20%',
         width: '100%',
         borderRadius: 12,
-      },
+        objectFit: 'cover',
+        objectPosition: 'center',
+    },
 });
 
 class Recipe extends Component {
