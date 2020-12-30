@@ -75,15 +75,14 @@ const StyledRating = withStyles({
 
 const useStyles = makeStyles(() => ({
     card: {
-        // borderRadius: '16px',
+        borderRadius: '0px',
         boxShadow: 'none',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         padding: '16px',
-        marginBottom: '8px',
-        marginTop: '8px',
-        marginRight: '8px',
+        marginBottom: '4px',
+        marginTop: '4px',
         height: '128px',
     },
 
@@ -101,6 +100,7 @@ function SearchResults() {
         <Box
             display="flex"
             flexDirection="column"
+            style={{ marginBottom: "8px"}}
         >
             {
                 recipes.map((recipe) =>
