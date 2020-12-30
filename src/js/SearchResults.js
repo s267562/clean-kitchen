@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardMedia, Divider, Typography } from '@material-ui/core';
+import { Box, Card, CardMedia, Divider, Grid, Typography } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
@@ -100,7 +100,7 @@ function SearchResults() {
         <Box
             display="flex"
             flexDirection="column"
-            style={{ marginBottom: "8px"}}
+            style={{ marginBottom: "8px" }}
         >
             {
                 recipes.map((recipe) =>
@@ -115,51 +115,40 @@ function Recipe(props) {
     const { recipe } = props;
     const styles = useStyles();
 
+    const onCardClick = () => {
+        console.log("onCardClick() - " + recipe.title);
+    }
+
     return (
-        <Card className={styles.card} >
+        <Card className={styles.card} onClick={onCardClick}>
             <CardMedia
                 className={styles.media}
                 image={recipe.overviewImg}
             />
-            <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                style={{ height: '100%', width: '100%', marginLeft: '16px' }}
-            >
-                <Typography style={{ fontSize: 16, fontWeight: 'bold', lineHeight: '16px', maxHeight: '32px', overflow: 'hidden' }} color="textPrimary" gutterBottom>
-                    {recipe.title}
-                </Typography>
-
-                <Box
-                    display="flex"
-                    flexDirection="row"
-                    style={{ marginTop: "16px", marginBottom: '8px' }}
-                >
-                    <Typography style={{ fontSize: '0.9em' }} color="textSecondary">
-                        Difficulty:&nbsp;
+            <Grid container direction="column" justify="space-between" alignItems="stretch" style={{ overflow: 'hidden', height: "100%", marginLeft: "16px" }} >
+                <Grid item>
+                    <Typography style={{ fontSize: 16, fontWeight: 'bold', lineHeight: '24px', maxHeight: '48px', overflow: 'hidden' }} color="textPrimary">
+                        {recipe.title}
                     </Typography>
-                    <Typography style={{ fontSize: '0.9em' }} color="textPrimary">
-                        {recipe.difficulty}
-                    </Typography>
-                </Box>
-
-                <Box
-                    display="flex"
-                    flexDirection="row"
-                >
-                    <TimerIcon fontSize="small" style={{ marginRight: '8px' }} />
-                    <Typography style={{ fontSize: '0.9em' }} >
-                        {recipe.duration} min
-                    </Typography>
-                    <Divider orientation="vertical" style={{ marginLeft: '8px', marginRight: '8px' }} />
-                    <StyledRating
-                        max={3}
-                        value={getRecipeCost(recipe)}
-                        icon={<EuroIcon fontSize="small" />}
-                    />
-                </Box>
-            </Box>
+                </Grid>
+                <Grid item>
+                    <Box display="flex" flexDirection="row" style={{ marginTop: "16px", marginBottom: '8px' }}>
+                        <Typography style={{ fontSize: '0.9em' }} color="textSecondary"> Difficulty:&nbsp; </Typography>
+                        <Typography style={{ fontSize: '0.9em' }} color="textPrimary"> {recipe.difficulty} </Typography>
+                    </Box>
+                    <Box display="flex" flexDirection="row">
+                        <TimerIcon fontSize="small" style={{ marginRight: '8px' }} />
+                        <Typography style={{ fontSize: '0.9em' }}> {recipe.duration} min </Typography>
+                        <Divider orientation="vertical" style={{ marginLeft: '8px', marginRight: '8px', height: "21px" }} />
+                        <StyledRating
+                            name="cost-rating"
+                            max={3}
+                            value={getRecipeCost(recipe)}
+                            icon={<EuroIcon fontSize="small" />}
+                        />
+                    </Box>
+                </Grid>
+            </Grid>
         </Card >
     );
 }
@@ -171,7 +160,7 @@ function getRecipeCost(recipe) {
         case 'Medium':
             return 2;
         case 'High':
-            return '3';
+            return 3;
         default:
             return 0;
     }
