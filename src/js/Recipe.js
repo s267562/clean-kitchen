@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
 import TimerIcon from '@material-ui/icons/Timer';
+import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import ArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { Box } from '@material-ui/core';
 
 const recipes =
 {
@@ -15,6 +18,29 @@ const recipes =
     cost: "1",
     duration: "20",
     overviewImg: "./res/images/carbonara.jpg",
+    yield: "4",
+    ingredients: [
+        {
+            "name": "Pasta",
+            "quantity": "400",
+            "unit": "g"
+        },
+        {
+            "name": "Guanciale",
+            "quantity": "200",
+            "unit": "g"
+        },
+        {
+            "name": "Yolk",
+            "quantity": "5",
+            "unit": ""
+        },
+        {
+            "name": "Pecorino",
+            "quantity": "100",
+            "unit": "g"
+        },
+    ]
 };
 
 const useStyles = makeStyles({
@@ -25,7 +51,10 @@ const useStyles = makeStyles({
     },
     itemMedia: {
         width: '100%',
-        padding: 16,
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 8,
+        paddingBottom: 8,
     },
     media: {
         maxHeight: '20%',
@@ -40,12 +69,21 @@ const useStyles = makeStyles({
     paperTitle: {
         height: 'min-content',
         width: '100%',
-        borderRadius: 0
+        borderRadius: 0,
+        marginBottom: 8,
     },
     infoTitle: {
         justifyContent: 'space-between',
         padding: 16,
         alignItems: 'center',
+    },
+    listIngredients: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: 'min-content',
+        width: '100%',
+        borderRadius: 0,
+        marginBottom: 8,
     },
 });
 
@@ -89,7 +127,8 @@ function RecipeOverview(props) {
             <Grid key='media' item className={classes.itemMedia}>
                 <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
             </Grid>
-                <RecipeTitle recipe={recipe}/>
+                <RecipeTitle recipe={recipe} />
+                <Ingredients recipe={recipe} />
         </Grid>
     );
 }
@@ -116,6 +155,31 @@ function RecipeTitle(props) {
                     icon={<EuroIcon fontSize="small" />} />
                     </Typography>
             </Grid>
+        </Paper>
+    </Grid>
+    );
+}
+
+function Ingredients(props) {
+    const { recipe } = props;
+    const classes = useStyles();
+
+    return (
+        <Grid key='ingredients' item className={classes.itemTitle}>
+        <Paper elevation={0} className={classes.paperTitle}>
+            <Grid key='list' container className={classes.listIngredients}>
+            <Typography variant='h6' style={{ paddingRight: '16px', }}>
+                Ingredients
+            </Typography>
+                   <Box style={{display: 'flex', flexDirection: 'column'}}>
+                       <ArrowUpIcon />
+                       <ArrowDownIcon />
+                       </Box> 
+                <Typography variant="h6" style={{display: 'flex', alignContent: 'center'}}>
+                       {recipe.yield} 
+                </Typography>servings
+            
+                </Grid>
         </Paper>
     </Grid>
     );
