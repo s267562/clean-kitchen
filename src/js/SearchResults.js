@@ -1,6 +1,9 @@
 import React from 'react';
-import { Box, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Box, Card, CardMedia, Divider, Typography } from '@material-ui/core';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { Rating } from '@material-ui/lab';
+import EuroIcon from '@material-ui/icons/Euro';
+import TimerIcon from '@material-ui/icons/Timer';
 
 const recipes = [
     {
@@ -31,7 +34,7 @@ const recipes = [
         id: "r3",
         title: "Lasagne alla Bolognese",
         difficulty: "Medium",
-        cost: "Mow",
+        cost: "Low",
         duration: "300",
         overviewImg: "https://www.giallozafferano.it/images/229-22941/Lasagne-alla-Bolognese_450x300.jpg",
     },
@@ -45,7 +48,7 @@ const recipes = [
     },
     {
         id: "r5",
-        title: "Spaghetti alla carbonara",
+        title: "Paella de marisco",
         difficulty: "Medium",
         cost: "High",
         duration: "95",
@@ -60,6 +63,15 @@ const recipes = [
         overviewImg: "https://www.giallozafferano.it/images/221-22170/Spatzle-di-spinaci_450x300.jpg",
     },
 ]
+
+const StyledRating = withStyles({
+    iconFilled: {
+        color: '#ff6d75',
+    },
+    iconHover: {
+        color: '#ff3d47',
+    },
+})(Rating);
 
 const useStyles = makeStyles(() => ({
     card: {
@@ -107,9 +119,7 @@ function Recipe(props) {
         <Card className={styles.card} >
             <CardMedia
                 className={styles.media}
-                image={
-                    recipe.overviewImg
-                }
+                image={recipe.overviewImg}
             />
             <Box
                 display="flex"
@@ -117,12 +127,54 @@ function Recipe(props) {
                 justifyContent="center"
                 style={{ height: '100%', width: '100%', marginLeft: '16px' }}
             >
-                <Typography style={{ fontSize: 16, fontWeight: 'bold' }} color="textPrimary" gutterBottom>
+                <Typography style={{ fontSize: 16, fontWeight: 'bold', lineHeight: '16px', maxHeight: '32px', overflow: 'hidden' }} color="textPrimary" gutterBottom>
                     {recipe.title}
                 </Typography>
+
+                <Box
+                    display="flex"
+                    flexDirection="row"
+                    style={{ marginTop: "16px", marginBottom: '8px' }}
+                >
+                    <Typography style={{ fontSize: '0.9em' }} color="textSecondary">
+                        Difficulty:&nbsp;
+                    </Typography>
+                    <Typography style={{ fontSize: '0.9em' }} color="textPrimary">
+                        {recipe.difficulty}
+                    </Typography>
+                </Box>
+
+                <Box
+                    display="flex"
+                    flexDirection="row"
+                >
+                    <TimerIcon fontSize="small" style={{ marginRight: '8px' }} />
+                    <Typography style={{ fontSize: '0.9em' }} >
+                        {recipe.duration} min
+                    </Typography>
+                    <Divider orientation="vertical" style={{ marginLeft: '8px', marginRight: '8px' }} />
+                    <StyledRating
+                        max={3}
+                        value={getRecipeCost(recipe)}
+                        icon={<EuroIcon fontSize="small" />}
+                    />
+                </Box>
             </Box>
         </Card >
     );
+}
+
+function getRecipeCost(recipe) {
+    switch (recipe.cost) {
+        case 'Low':
+            return 1;
+        case 'Medium':
+            return 2;
+        case 'High':
+            return '3';
+        default:
+            return 0;
+    }
 }
 
 export default SearchResults;
