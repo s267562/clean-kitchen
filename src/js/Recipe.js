@@ -16,29 +16,29 @@ const recipes =
     id: "r0",
     title: "Spaghetti alla Carbonara",
     difficulty: "Easy",
-    cost: "1",
+    cost: 1,
     duration: "20",
     overviewImg: "./res/images/carbonara.jpg",
     yield: "4",
     ingredients: [
         {
             "name": "Pasta",
-            "quantity": "400",
+            "quantity": 400,
             "unit": "g"
         },
         {
             "name": "Guanciale",
-            "quantity": "200",
+            "quantity": 200,
             "unit": "g"
         },
         {
-            "name": "Yolk",
-            "quantity": "5",
+            "name": "Egg's Yolk",
+            "quantity": 5,
             "unit": ""
         },
         {
             "name": "Pecorino",
-            "quantity": "100",
+            "quantity": 100,
             "unit": "g"
         },
     ]
