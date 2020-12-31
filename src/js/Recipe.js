@@ -52,15 +52,15 @@ const useStyles = makeStyles({
     },
     itemMedia: {
         width: '100%',
-        paddingLeft: 16,
-        paddingRight: 16,
-        paddingTop: 8,
-        paddingBottom: 8,
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
     },
     media: {
-        maxHeight: '20%',
+        maxHeight: '200px',
         width: '100%',
-        borderRadius: 12,
+        borderRadius: 0,
         objectFit: 'cover',
         objectPosition: 'center',
     },
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
         height: 'min-content',
         width: '100%',
         borderRadius: 0,
-        marginBottom: 8,
+        marginBottom: 4,
     },
     infoTitle: {
         justifyContent: 'space-between',
@@ -129,36 +129,36 @@ function RecipeOverview(props) {
             <Grid key='media' item className={classes.itemMedia}>
                 <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
             </Grid>
-                <RecipeTitle recipe={recipe} />
                 <Ingredients recipe={recipe} />
+            <RecipeHeader recipe={recipe} />
         </Grid>
     );
 }
 
-function RecipeTitle(props) {
+function RecipeHeader(props) {
     const { recipe } = props;
     const classes = useStyles();
 
     return (
         <Grid key='title' item className={classes.itemTitle}>
-        <Paper elevation={0} className={classes.paperTitle}>
-            <Typography variant='h5' style={{ paddingTop: '16px', paddingLeft: '16px', paddingRight: '16px', }}>
-                {recipe.title}
-            </Typography>
-            <Grid container className={classes.infoTitle}>
-                <Typography style={{display: 'flex', alignContent: 'center'}}>
-                    <TimerIcon style={{paddingRight: '8px'}}/> Time: {recipe.duration} min
+            <Paper elevation={0} className={classes.paperTitle}>
+                <Typography variant='h5' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                    {recipe.title}
                 </Typography>
-                <Typography style={{display: 'flex', alignContent: 'center'}}> Cost
-                <StyledRating readOnly style={{paddingLeft: '8px'}}
-                    name="cost-rating"
-                    max={3}
-                    value={recipe.cost}
-                    icon={<EuroIcon fontSize="small" />} />
+                <Grid container className={classes.infoTitle}>
+                    <Typography style={{ display: 'flex', alignContent: 'center' }}>
+                        <TimerIcon style={{ paddingRight: '8px' }} /> Time: {recipe.duration} min
+                </Typography>
+                    <Typography style={{ display: 'flex', alignContent: 'center' }}> Cost
+                <StyledRating readOnly style={{ paddingLeft: '8px' }}
+                            name="cost-rating"
+                            max={3}
+                            value={recipe.cost}
+                            icon={<EuroIcon fontSize="small" />} />
                     </Typography>
-            </Grid>
-        </Paper>
-    </Grid>
+                </Grid>
+            </Paper>
+        </Grid>
     );
 }
 
