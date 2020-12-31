@@ -95,7 +95,7 @@ function MyAppBar(props) {
         <Toolbar >
           <Typography variant="h6" style={{ flexGrow: 1 }} >
             Clean Kitchen
-      </Typography>
+          </Typography>
           <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
             <MoreVertIcon />
           </IconButton>
@@ -154,46 +154,47 @@ function SearchBar() {
     setValue(event.target.value);
   }
 
-  const handleKeyDown = (event) => {
-    if (event.keyCode === 13) {
-      if (value !== '') {
-        /* the user presses enter */
-        history.push({
-          pathname: '/searchResults',
-          search: `?query=${value}`,
-          state: { query: value }
-        });
-        setValue('');
-      }
-      document.activeElement.blur(); /* unfocus search view */
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (value !== '') {
+      /* the user typed something */
+      history.push({
+        pathname: '/searchResults',
+        search: `?query=${value}`,
+        state: { query: value }
+      });
+      setValue('');
     }
+    document.activeElement.blur(); /* unfocus search view */
+
   }
 
   return (
-    <CustomSearchField
-      label="Search"
-      variant="outlined"
-      id="custom-css-outlined-input" size="small" style={{ margin: '16px' }}
+    <form onSubmit={handleSubmit} style={{ margin: '16px' }}>
+      <CustomSearchField
+        label="Search"
+        variant="outlined"
+        id="custom-css-outlined-input" size="small"
+        style={{ width: '100%' }}
+        value={value}
 
-      value={value}
+        /* styles the input component */
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <Search />
+            </InputAdornment>
+          ),
+        }}
 
-      /* styles the input component */
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <Search />
-          </InputAdornment>
-        ),
-      }}
+        InputLabelProps={{
+          style: { color: '#000' },
+        }}
 
-      InputLabelProps={{
-        style: { color: '#000' },
-      }}
-
-      onChange={handleChange}
-
-      onKeyDown={handleKeyDown}
-    />
+        onChange={handleChange}
+      />
+      <button type="submit" style={{display:"none"}}></button>
+    </form>
   );
 }
 
