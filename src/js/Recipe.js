@@ -1,15 +1,21 @@
+import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper';
+import List from '@material-ui/core/List';
 import { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
 import TimerIcon from '@material-ui/icons/Timer';
+import IconButton from '@material-ui/core/IconButton';
 import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import ArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Box } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import ListItemText from '@material-ui/core/ListItemText';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const recipes =
 {
@@ -78,14 +84,21 @@ const useStyles = makeStyles({
         padding: 16,
         alignItems: 'center',
     },
-    listIngredients: {
+    headerIngredients: {
         justifyContent: 'space-between',
         alignItems: 'center',
         height: 'min-content',
         width: '100%',
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 8,
+        paddingBottom: 0,
         borderRadius: 0,
-        marginBottom: 8,
     },
+    listIngredients: {
+        paddingLeft: 0,
+        paddingRight: 16,
+    }
 });
 
 const StyledRating = withStyles({
@@ -129,8 +142,8 @@ function RecipeOverview(props) {
             <Grid key='media' item className={classes.itemMedia}>
                 <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
             </Grid>
-                <Ingredients recipe={recipe} />
             <RecipeHeader recipe={recipe} />
+            <Ingredients recipe={recipe} />
         </Grid>
     );
 }
@@ -168,22 +181,68 @@ function Ingredients(props) {
 
     return (
         <Grid key='ingredients' item className={classes.itemTitle}>
-        <Paper elevation={0} className={classes.paperTitle}>
-            <Grid key='list' container className={classes.listIngredients}>
-            <Typography variant='h6' style={{ paddingRight: '16px', }}>
-                Ingredients
-            </Typography>
-                   <Box style={{display: 'flex', flexDirection: 'column'}}>
-                       <ArrowUpIcon />
-                       <ArrowDownIcon />
-                       </Box> 
-                <Typography variant="h6" style={{display: 'flex', alignContent: 'center'}}>
-                       {recipe.yield} 
-                </Typography>servings
-            
+            <Paper elevation={0} className={classes.paperTitle}>
+                <Grid key='iheader' container className={classes.headerIngredients}>
+                    <Typography variant='h6' style={{ paddingRight: '16px', }}>
+                        Ingredients
+                     </Typography>
+                    <Box aria-label="servings group"
+                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <ButtonGroup
+                            orientation="vertical"
+                            color="#000"
+                            aria-label="increase/decrease group"
+                            variant="text"
+                            size='small'
+                        >
+                            <IconButton aria-label="increase">
+                                <ArrowUpIcon />
+                            </IconButton>
+
+                            <IconButton aria-label="decrease">
+                                <ArrowDownIcon />
+                            </IconButton>
+                        </ButtonGroup>
+
+                        <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingLeft: '8px' }}>
+                            <Typography variant="h6"
+                                style={{ lineHeight: '1.3' }}>
+                                {recipe.yield}
+                            </Typography>
+                            <Typography variant="overline"
+                                style={{ color: '#757575', fontSize: '0.7rem', lineHeight: '1' }}>
+                                servings
+                            </Typography>
+                        </Box>
+                    </Box>
                 </Grid>
-        </Paper>
-    </Grid>
+                <Grid key='iheader' container className={classes.listIngredients}>
+                    <Typography variant='body' style={{ paddingRight: '16px', }}>
+                        <IngredientsList recipe={recipe} />
+                    </Typography>
+                </Grid>
+            </Paper>
+        </Grid>
+    );
+}
+
+function IngredientsList(props) {
+    const { recipe } = props;
+    const classes = useStyles();
+
+    return (
+        <List dense>
+            {recipe.ingredients.map((value) => {
+
+                return (
+                    <ListItem>
+                        <ListItemText primary={value.name} />
+                    </ListItem>
+                );
+            })}
+        </List>
+    );
+}
 function StartButton() {
 
     return (
