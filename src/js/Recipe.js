@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ListItem from '@material-ui/core/ListItem';
@@ -178,6 +178,7 @@ function RecipeHeader(props) {
 function Ingredients(props) {
     const { recipe } = props;
     const classes = useStyles();
+    var [currentYield, setYield] = useState(recipe.yield);
 
     return (
         <Grid key='ingredients' item className={classes.itemTitle}>
@@ -195,11 +196,11 @@ function Ingredients(props) {
                             variant="text"
                             size='small'
                         >
-                            <IconButton aria-label="increase">
+                            <IconButton aria-label="increase" onClick={() => { if(currentYield < 20) {setYield(++currentYield)}}} >
                                 <ArrowUpIcon />
                             </IconButton>
 
-                            <IconButton aria-label="decrease">
+                            <IconButton aria-label="decrease" onClick={() => { if(currentYield > 0) {setYield(--currentYield)}}}>
                                 <ArrowDownIcon />
                             </IconButton>
                         </ButtonGroup>
@@ -207,7 +208,7 @@ function Ingredients(props) {
                         <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingLeft: '8px' }}>
                             <Typography variant="h6"
                                 style={{ lineHeight: '1.3' }}>
-                                {recipe.yield}
+                                {currentYield}
                             </Typography>
                             <Typography variant="overline"
                                 style={{ color: '#757575', fontSize: '0.7rem', lineHeight: '1' }}>
@@ -229,14 +230,15 @@ function Ingredients(props) {
 function IngredientsList(props) {
     const { recipe } = props;
     const classes = useStyles();
+    //var [currentQuantity, setQuantity] = useState();
+
 
     return (
-        <List dense>
+        <List dense style={{paddingTop: '0'}}>
             {recipe.ingredients.map((value) => {
-
                 return (
                     <ListItem>
-                        <ListItemText primary={value.name} />
+                        <ListItemText primary={value.name + ' - ' + value.quantity + ' ' + value.unit} />
                     </ListItem>
                 );
             })}
