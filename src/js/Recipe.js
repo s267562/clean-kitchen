@@ -9,6 +9,7 @@ import TimerIcon from '@material-ui/icons/Timer';
 import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import ArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Box } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 const recipes =
 {
@@ -113,6 +114,7 @@ class Recipe extends Component {
         return (<>
 
             <RecipeOverview key={recipes.id} recipe={recipes} />
+            <StartButton />
         </>
         );
     }
@@ -182,6 +184,19 @@ function Ingredients(props) {
                 </Grid>
         </Paper>
     </Grid>
+function StartButton() {
+
+    return (
+        <Box
+        style={{display: 'flex', position: 'fixed',
+         bottom: '0px', right: '0px', left: '0', padding: '16px'}}
+        >
+        <Button variant="contained" color="secondary"
+        style={{ margin: 'auto'}}
+        >
+            Let's cook
+        </Button>
+        </Box>
     );
 }
 
