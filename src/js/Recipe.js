@@ -22,6 +22,7 @@ const recipes =
     id: "r0",
     title: "Spaghetti alla Carbonara",
     difficulty: "Easy",
+    description: "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
     cost: 1,
     duration: "20",
     overviewImg: "./res/images/carbonara.jpg",
@@ -144,6 +145,7 @@ function RecipeOverview(props) {
             </Grid>
             <RecipeHeader recipe={recipe} />
             <Ingredients recipe={recipe} />
+            <Descriptions recipe={recipe} />
         </Grid>
     );
 }
@@ -232,7 +234,6 @@ function IngredientsList(props) {
     const classes = useStyles();
     //var [currentQuantity, setQuantity] = useState();
 
-
     return (
         <List dense style={{paddingTop: '0'}}>
             {recipe.ingredients.map((value) => {
@@ -243,6 +244,23 @@ function IngredientsList(props) {
                 );
             })}
         </List>
+    );
+}
+
+function Descriptions(props){
+    const { recipe } = props;
+    const classes = useStyles();
+    return (
+        <Grid key='title' item className={classes.itemTitle}>
+        <Paper elevation={0} className={classes.paperTitle}>
+        <Typography variant='h6' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                Description
+            </Typography>
+            <Typography variant='body1' style={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                {recipe.description}
+            </Typography>
+            </Paper>
+        </Grid>
     );
 }
 
