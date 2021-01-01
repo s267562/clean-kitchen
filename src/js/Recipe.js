@@ -1,21 +1,28 @@
-import { Component, useState, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import {React, useState} from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper';
+import List from '@material-ui/core/List';
+import { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
 import TimerIcon from '@material-ui/icons/Timer';
+import IconButton from '@material-ui/core/IconButton';
 import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import ArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Box } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import ListItemText from '@material-ui/core/ListItemText';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const recipes =
 {
     id: "r0",
     title: "Spaghetti alla Carbonara",
     difficulty: "Easy",
+    description: "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
     cost: 1,
     duration: "20",
     overviewImg: "./res/images/carbonara.jpg",
@@ -23,22 +30,22 @@ const recipes =
     ingredients: [
         {
             "name": "Pasta",
-            "quantity": "400",
+            "quantity": 400,
             "unit": "g"
         },
         {
             "name": "Guanciale",
-            "quantity": "200",
+            "quantity": 200,
             "unit": "g"
         },
         {
-            "name": "Yolk",
-            "quantity": "5",
+            "name": "Egg's Yolk",
+            "quantity": 5,
             "unit": ""
         },
         {
             "name": "Pecorino",
-            "quantity": "100",
+            "quantity": 100,
             "unit": "g"
         },
     ]
@@ -52,15 +59,15 @@ const useStyles = makeStyles({
     },
     itemMedia: {
         width: '100%',
-        paddingLeft: 16,
-        paddingRight: 16,
-        paddingTop: 8,
-        paddingBottom: 8,
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
     },
     media: {
-        maxHeight: '20%',
+        maxHeight: '200px',
         width: '100%',
-        borderRadius: 12,
+        borderRadius: 0,
         objectFit: 'cover',
         objectPosition: 'center',
     },
@@ -71,21 +78,28 @@ const useStyles = makeStyles({
         height: 'min-content',
         width: '100%',
         borderRadius: 0,
-        marginBottom: 8,
+        marginBottom: 4,
     },
     infoTitle: {
         justifyContent: 'space-between',
         padding: 16,
         alignItems: 'center',
     },
-    listIngredients: {
+    headerIngredients: {
         justifyContent: 'space-between',
         alignItems: 'center',
         height: 'min-content',
         width: '100%',
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 8,
+        paddingBottom: 0,
         borderRadius: 0,
-        marginBottom: 8,
     },
+    listIngredients: {
+        paddingLeft: 0,
+        paddingRight: 16,
+    }
 });
 
 const StyledRating = withStyles({
@@ -114,6 +128,7 @@ class Recipe extends Component {
         return (<>
 
             <RecipeOverview key={recipes.id} recipe={recipes} />
+            <StartButton />
         </>
         );
     }
@@ -136,61 +151,142 @@ function RecipeOverview(props) {
             <Grid key='media' item className={classes.itemMedia}>
                 <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
             </Grid>
-                <RecipeTitle recipe={recipe} />
-                <Ingredients recipe={recipe} />
+            <RecipeHeader recipe={recipe} />
+            <Ingredients recipe={recipe} />
+            <Descriptions recipe={recipe} />
         </Grid>
     );
 }
 
-function RecipeTitle(props) {
+function RecipeHeader(props) {
     const { recipe } = props;
     const classes = useStyles();
 
     return (
         <Grid key='title' item className={classes.itemTitle}>
-        <Paper elevation={0} className={classes.paperTitle}>
-            <Typography variant='h5' style={{ paddingTop: '16px', paddingLeft: '16px', paddingRight: '16px', }}>
-                {recipe.title}
-            </Typography>
-            <Grid container className={classes.infoTitle}>
-                <Typography style={{display: 'flex', alignContent: 'center'}}>
-                    <TimerIcon style={{paddingRight: '8px'}}/> Time: {recipe.duration} min
+            <Paper elevation={0} className={classes.paperTitle}>
+                <Typography variant='h5' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                    {recipe.title}
                 </Typography>
-                <Typography style={{display: 'flex', alignContent: 'center'}}> Cost
-                <StyledRating readOnly style={{paddingLeft: '8px'}}
-                    name="cost-rating"
-                    max={3}
-                    value={recipe.cost}
-                    icon={<EuroIcon fontSize="small" />} />
+                <Grid container className={classes.infoTitle}>
+                    <Typography style={{ display: 'flex', alignContent: 'center' }}>
+                        <TimerIcon style={{ paddingRight: '8px' }} /> Time: {recipe.duration} min
+                </Typography>
+                    <Typography style={{ display: 'flex', alignContent: 'center' }}> Cost
+                <StyledRating readOnly style={{ paddingLeft: '8px' }}
+                            name="cost-rating"
+                            max={3}
+                            value={recipe.cost}
+                            icon={<EuroIcon fontSize="small" />} />
                     </Typography>
-            </Grid>
-        </Paper>
-    </Grid>
+                </Grid>
+            </Paper>
+        </Grid>
     );
 }
 
 function Ingredients(props) {
     const { recipe } = props;
     const classes = useStyles();
+    var [currentYield, setYield] = useState(recipe.yield);
 
     return (
         <Grid key='ingredients' item className={classes.itemTitle}>
-        <Paper elevation={0} className={classes.paperTitle}>
-            <Grid key='list' container className={classes.listIngredients}>
-            <Typography variant='h6' style={{ paddingRight: '16px', }}>
-                Ingredients
-            </Typography>
-                   <Box style={{display: 'flex', flexDirection: 'column'}}>
-                       <ArrowUpIcon />
-                       <ArrowDownIcon />
-                       </Box> 
-                <Typography variant="h6" style={{display: 'flex', alignContent: 'center'}}>
-                       {recipe.yield} 
-                </Typography>servings
-            
+            <Paper elevation={0} className={classes.paperTitle}>
+                <Grid key='iheader' container className={classes.headerIngredients}>
+                    <Typography variant='h6' style={{ paddingRight: '16px', }}>
+                        Ingredients
+                     </Typography>
+                    <Box aria-label="servings group"
+                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <ButtonGroup
+                            orientation="vertical"
+                            color="#000"
+                            aria-label="increase/decrease group"
+                            variant="text"
+                            size='small'
+                        >
+                            <IconButton aria-label="increase" onClick={() => { if(currentYield < 20) {setYield(++currentYield)}}} >
+                                <ArrowUpIcon />
+                            </IconButton>
+
+                            <IconButton aria-label="decrease" onClick={() => { if(currentYield > 0) {setYield(--currentYield)}}}>
+                                <ArrowDownIcon />
+                            </IconButton>
+                        </ButtonGroup>
+
+                        <Box style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingLeft: '8px' }}>
+                            <Typography variant="h6"
+                                style={{ lineHeight: '1.3' }}>
+                                {currentYield}
+                            </Typography>
+                            <Typography variant="overline"
+                                style={{ color: '#757575', fontSize: '0.7rem', lineHeight: '1' }}>
+                                servings
+                            </Typography>
+                        </Box>
+                    </Box>
                 </Grid>
-        </Paper>
-    </Grid>
+                <Grid key='iheader' container className={classes.listIngredients}>
+                    <Typography variant='body' style={{ paddingRight: '16px', }}>
+                        <IngredientsList recipe={recipe} />
+                    </Typography>
+                </Grid>
+            </Paper>
+        </Grid>
+    );
+}
+
+function IngredientsList(props) {
+    const { recipe } = props;
+    const classes = useStyles();
+    //var [currentQuantity, setQuantity] = useState();
+
+    return (
+        <List dense style={{paddingTop: '0'}}>
+            {recipe.ingredients.map((value) => {
+                return (
+                    <ListItem>
+                        <ListItemText primary={value.name + ' - ' + value.quantity + ' ' + value.unit} />
+                    </ListItem>
+                );
+            })}
+        </List>
+    );
+}
+
+function Descriptions(props){
+    const { recipe } = props;
+    const classes = useStyles();
+    return (
+        <Grid key='title' item className={classes.itemTitle}>
+        <Paper elevation={0} className={classes.paperTitle}>
+        <Typography variant='h6' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                Description
+            </Typography>
+            <Typography variant='body1' style={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                {recipe.description}
+            </Typography>
+            </Paper>
+        </Grid>
+    );
+}
+
+function StartButton() {
+
+    return (
+        <Box
+            style={{
+                display: 'flex', position: 'fixed',
+                bottom: '0px', right: '0px', left: '0', padding: '16px'
+            }}
+        >
+            <Button variant="contained" color="secondary"
+                style={{ margin: 'auto' }}
+            >
+                Let's cook
+        </Button>
+        </Box>
     );
 }
 
