@@ -1,10 +1,10 @@
-import {React, useState} from 'react';
+import { Component, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
-import { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
