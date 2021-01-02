@@ -95,7 +95,7 @@ function MyAppBar(props) {
 
   return (
     <ElevationScroll {...props}>
-      <AppBar position="sticky" style={{ background: "#fafafa", color: "#000", marginBottom: '8px' }}>
+      <AppBar position="sticky" style={{ background: "#fafafa", color: "#000" }}>
         <Toolbar >
           <Typography variant="h6" style={{ flexGrow: 1 }} >
             Clean Kitchen
