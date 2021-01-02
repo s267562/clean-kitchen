@@ -2,9 +2,8 @@ import '../css/CookingMode.css';
 
 import { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-
-import { Button, Card, CardContent, Typography, Dialog, Box, LinearProgress } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Button, Card, CardContent, Typography, Dialog, Box, LinearProgress, Grid } from '@material-ui/core';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
@@ -14,17 +13,34 @@ const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] se
 
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
-        height: 8,
+        height: 5,
         borderRadius: 5,
     },
     colorPrimary: {
         backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
     },
     bar: {
-        borderRadius: 5,
+        borderRadius: 2,
         backgroundColor: '#1a90ff',
     },
 }))(LinearProgress);
+
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+        flexDirection: 'column',
+        padding: '16px',
+    },
+    media: {
+        maxHeight: '300px',
+        width: '100%',
+        margin: 'auto',
+        borderRadius: '8px',
+        boxShadow: '0px 0px 16px rgba(34, 35, 58, 0.4)',
+        objectFit: 'cover',
+        objectPosition: 'center',
+    },
+});
 
 function CookingMode() { // Rule 2: call hooks in function component
 
@@ -113,43 +129,72 @@ function CookingMode() { // Rule 2: call hooks in function component
     /* Render */
     return (<>
         <p>{debugMsg}</p>
-        <CookingModeCard stepNumber={activeStep} style={{ position: 'fixed', top: 56, height: 'calc(100% - 158px)', overflow: 'scroll', width: '100%' }} />
+        {/* <CookingModeCard stepNumber={activeStep} /> */}
+        <Recipe currentStep={activeStep} steps={5} />
         <Stepper steps={5} activeStep={activeStep} next={handleNext} back={handleBack} />
         <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
     </>
     )
 }
 
-function CookingModeCard(props) {
-
-    const steps = [
+function Recipe(props) {
+    const stepsDescription = [
         'Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes.',
         'Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.',
         'Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook again without stirring, until mussels have opened and rice is just tender, 5 to 7 minutes more. (Discard any mussels that don’t open.)',
         'Set aside off of the heat to let rest for 10 minutes, and then serve.'
-    ]
+    ];
+
+    const { currentStep, steps } = props;
+    const classes = useStyles();
 
     return (
-        <div style={props.style}>
-            <Card style={{ margin: '16px' }}>
-                <CardContent>
-                    <Typography variant="h5" component="h2">
-                        Shrimp and Chorizo Paella
-                </Typography>
-                    <br />
-                    <img src="https://www.donnamoderna.com/content/uploads/2014/12/Paella-mista-carne-pesce.jpg"
-                        style={{ width: "100%" }} />
-                    <br />
-                    <br />
-                    <Typography paragraph>Method:</Typography>
-                    <Typography paragraph>
-                        {steps[props.stepNumber]}
-                    </Typography>
-                </CardContent>
+        <Grid container className={classes.root}>
+            <img src="https://www.donnamoderna.com/content/uploads/2014/12/Paella-mista-carne-pesce.jpg" className={classes.media} />
 
-            </Card >
-        </div>
-    )
+            <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
+                <Typography variant="body1"
+                    style={{ fontSize: '0.8rem' }}>
+                    {`Step ${currentStep + 1}`}&nbsp;
+                </Typography>
+                <Typography variant="body1"
+                    style={{ color: '#757575', fontSize: '0.8rem' }}>
+                    {` of ${steps}`}
+                </Typography>
+            </Box>
+
+            <Typography variant="body1">
+                {stepsDescription[currentStep]}
+            </Typography>
+
+            <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
+                INGREDIENTS
+            </Typography>
+
+            <Grid container style={{ paddingLeft: '8px', paddingRight: '8px' }}>
+                <Ingredient ingredient={{ name: 'Sale', quantity: '8', unity: 'grams' }} />
+            </Grid>
+        </Grid >
+    );
+}
+
+function Ingredient(props) {
+    const { ingredient } = props;
+
+    return (
+        <>
+            <Typography variant="body1"
+                style={{ color: '#757575', fontSize: '0.8rem' }}
+                gutterBottom>
+                {`${ingredient.quantity} ${ingredient.unity}`}&nbsp;
+            </Typography>
+            <Typography variant="body1"
+                style={{ fontSize: '0.8rem' }}
+                gutterBottom>
+                {`${ingredient.name}`}
+            </Typography>
+        </>
+    );
 }
 
 function Stepper(props) {
@@ -163,27 +208,18 @@ function Stepper(props) {
             left: 0,
             right: 0,
             background: '#fafafa',
-            padding: '16px',
+            padding: '8px',
         }}
         >
-            <Box display="flex" alignItems="center" style={{ marginBottom: '8px' }}>
-                <Box width="100%" mr={2}>
-                    <BorderLinearProgress variant="determinate" value={(activeStep / steps) * 100} />
-                </Box>
-                <Box minWidth={35}>
-                    <Typography variant="body2" color="textSecondary">{`${Math.round((activeStep / steps) * 100)}%`}</Typography>
-                </Box>
-            </Box>
-
             <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" style={{ width: '100%' }}>
-                <Button size="large" onClick={back} disabled={activeStep === 0}>
-                    <KeyboardArrowLeft /> Back
+                <Button size="medium" onClick={back} disabled={activeStep === 0}>
+                    <KeyboardArrowLeft />
                 </Button>
-                <Typography style={{ fontSize: 14, width: '100%', textAlign: 'center' }} color="textPrimary">
-                    {`Step ${activeStep} of ${steps}`}
-                </Typography>
-                <Button size="large" onClick={next} disabled={activeStep === steps}>
-                    Next <KeyboardArrowRight />
+                <Box width="100%" style={{ marginLeft: '8px', marginRight: '8px' }} >
+                    <BorderLinearProgress variant="determinate" value={((activeStep + 1) / (steps + 1)) * 100} />
+                </Box>
+                <Button size="medium" onClick={next} disabled={activeStep === steps}>
+                    <KeyboardArrowRight />
                 </Button>
             </Box>
         </div>
