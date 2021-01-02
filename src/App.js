@@ -132,7 +132,7 @@ const CustomSearchField = withStyles({
     background: "#eeeeee",
     borderRadius: 25,
     '& .Mui-focused': {
-      background: '#fafafa'
+      background: '#fafafa',
     },
     '& label.Mui-focused': {
       color: '#000',
@@ -142,11 +142,12 @@ const CustomSearchField = withStyles({
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: "transparent",
+        borderWidth: '0px',
         borderRadius: 25,
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#eeeeee',
+        borderWidth: '0px',
+        boxShadow: '0px 0px 6px 0px #8E8E8E',
       },
     },
   },
@@ -159,7 +160,7 @@ function SearchBar() {
 
   const handleMouseDownSearch = event => {
     event.preventDefault();
-};
+  };
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -186,43 +187,43 @@ function SearchBar() {
 
   const iconAdornment = (isSelected && value !== '')
     ? {
-        endAdornment: (
-          <InputAdornment position="end">
+      endAdornment: (
+        <InputAdornment position="end">
           <Zoom in={isSelected}>
             <IconButton
-                  aria-label="clear search"
-                  onMouseDown={handleMouseDownSearch}
-                  onClick={handleClear}
-                  edge="start"
-                >
-                  <Clear />
-                </IconButton>
+              aria-label="clear search"
+              onMouseDown={handleMouseDownSearch}
+              onClick={handleClear}
+              edge="start"
+            >
+              <Clear />
+            </IconButton>
           </Zoom>
           <Zoom in={isSelected}>
             <Divider orientation="vertical" style={{ height: "16px" }} />
           </Zoom>
-            <IconButton
-                  aria-label="search"
-                  type="submit"
-                  onMouseDown={handleMouseDownSearch}
-                  onClick={handleSubmit}
-                  edge="end"
-                >
-                  <Search />
-                </IconButton>
-          </InputAdornment>
-        )
-      }
+          <IconButton
+            aria-label="search"
+            type="submit"
+            onMouseDown={handleMouseDownSearch}
+            onClick={handleSubmit}
+            edge="end"
+          >
+            <Search />
+          </IconButton>
+        </InputAdornment>
+      )
+    }
     : {
       endAdornment: (
         <InputAdornment position="end">
           <IconButton
-                  aria-label="search"
-                  edge="end"
-                  size="small"
-                >
-                  <Search />
-                </IconButton>
+            aria-label="search"
+            edge="end"
+            size="small"
+          >
+            <Search />
+          </IconButton>
         </InputAdornment>
       )
     };
@@ -242,7 +243,7 @@ function SearchBar() {
         InputLabelProps={{
           style: { color: '#000' },
         }}
-        
+
         onFocus={e => setIsSelected(true)}
         onBlur={e => setIsSelected(false)}
         onChange={handleChange}
