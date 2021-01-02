@@ -172,7 +172,7 @@ function SearchBar() {
   return (
     <form onSubmit={handleSubmit} style={{ margin: '16px' }}>
       <CustomSearchField
-        label="Search"
+        label="Search for recipes"
         variant="outlined"
         id="custom-css-outlined-input" size="small"
         style={{ width: '100%' }}
