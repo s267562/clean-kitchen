@@ -15,6 +15,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import React from 'react';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Divider from '@material-ui/core/Divider';
 
 const settingOptions = [
   'Setting #0',
@@ -187,15 +188,15 @@ function SearchBar() {
     ? {
         endAdornment: (
           <InputAdornment position="end">
-            <ButtonGroup disableElevation variant="contained" color="#eeeeee" size="small" style={{padding: "4px"}}>       
             <IconButton
                   aria-label="clear search"
                   onMouseDown={handleMouseDownSearch}
                   onClick={handleClear}
-                  edge="end"
+                  edge="start"
                 >
                   <Clear />
                 </IconButton>
+                <Divider orientation="vertical" style={{height: "16px"}} />
             <IconButton
                   aria-label="search"
                   type="submit"
@@ -205,14 +206,19 @@ function SearchBar() {
                 >
                   <Search />
                 </IconButton>
-                </ButtonGroup>  
           </InputAdornment>
         )
       }
     : {
       endAdornment: (
         <InputAdornment position="end">
-          <Search />
+          <IconButton
+                  aria-label="search"
+                  edge="end"
+                  size="small"
+                >
+                  <Search />
+                </IconButton>
         </InputAdornment>
       )
     };
