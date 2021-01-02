@@ -3,16 +3,17 @@ import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch, useLocation, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
 import SearchResults from './js/SearchResults';
 import Recipe from './js/Recipe';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import Search from '@material-ui/icons/Search';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import React from 'react';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Search from '@material-ui/icons/Search';
+import Clear from '@material-ui/icons/Clear';
 
 const settingOptions = [
   'Setting #0',
