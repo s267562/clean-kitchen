@@ -228,6 +228,7 @@ function CookingMode() { // Rule 2: call hooks in function component
         <SwipeableViews
             enableMouseEvents
             index={currentStep}
+            style={{ height: '100%' }}
             onChangeIndex={handleStepChange} >
             {recipe_test.directions.map((direction, index) => (
                 <Grid key={index} container className={classes.root}>
