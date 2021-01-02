@@ -9,6 +9,9 @@ import SearchResults from './js/SearchResults';
 import Recipe from './js/Recipe';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Search from '@material-ui/icons/Search';
+import Clear from '@material-ui/icons/Clear';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import React from 'react';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -129,9 +132,8 @@ const CustomSearchField = withStyles({
   root: {
     background: "#eeeeee",
     borderRadius: 25,
-    '& .Mui-focused ': {
-      background: "#fff",
-      elevation: "3"
+    '& .Mui-focused': {
+      background: '#fafafa'
     },
     '& label.Mui-focused': {
       color: '#000',
@@ -153,11 +155,20 @@ const CustomSearchField = withStyles({
 
 function SearchBar() {
   const history = useHistory();
+  const [isSelected, setIsSelected] = useState(false);
   const [value, setValue] = useState('');
   const [isSelected, setIsSelected] = useState(false);
 
+  const handleMouseDownSearch = event => {
+    event.preventDefault();
+};
+
   const handleChange = (event) => {
     setValue(event.target.value);
+  }
+
+  const handleClear = () => {
+    setValue('');
   }
 
   const handleSubmit = (event) => {
@@ -169,27 +180,35 @@ function SearchBar() {
         search: `?query=${value}`,
         state: { query: value }
       });
-      setValue('');
+      handleClear();
     }
     document.activeElement.blur(); /* unfocus search view */
 
   }
 
-  const handleMouseDownPassword = event => {
-       event.preventDefault();
-  };
-
-  const iconAdornment = isSelected
+  const iconAdornment = (isSelected && value !== '')
     ? {
         endAdornment: (
           <InputAdornment position="end">
+            <ButtonGroup disableElevation variant="contained" color="#eeeeee" size="small" style={{padding: "4px"}}>       
             <IconButton
                   aria-label="clear search"
-                  onMouseDown={handleMouseDownPassword}
+                  onMouseDown={handleMouseDownSearch}
+                  onClick={handleClear}
                   edge="end"
                 >
                   <Clear />
                 </IconButton>
+            <IconButton
+                  aria-label="search"
+                  type="submit"
+                  onMouseDown={handleMouseDownSearch}
+                  onClick={handleSubmit}
+                  edge="end"
+                >
+                  <Search />
+                </IconButton>
+                </ButtonGroup>  
           </InputAdornment>
         )
       }
@@ -210,16 +229,17 @@ function SearchBar() {
         style={{ width: '100%' }}
         value={value}
 
-      /* styles the input component */
-      InputProps={iconAdornment}
+        /* styles the input component */
+        InputProps={iconAdornment}
 
         InputLabelProps={{
           style: { color: '#000' },
         }}
-
+        
+        onFocus={e => setIsSelected(true)}
+        onBlur={e => setIsSelected(false)}
         onChange={handleChange}
       />
-      <button type="submit" style={{display:"none"}}></button>
     </form>
   );
 }
