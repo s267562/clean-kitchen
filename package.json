@@ -15,9 +15,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-speech-recognition": "^3.6.0",
+    "react-swipeable-views": "^0.13.9",
     "typeface-overpass": "^1.1.13",
     "typeface-ubuntu": "^1.1.13",
-    "react-swipeable-views": "^0.13.9",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
