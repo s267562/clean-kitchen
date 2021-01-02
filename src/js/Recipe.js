@@ -178,7 +178,7 @@ function RecipeHeader(props) {
                     <Typography style={{ display: 'flex', alignContent: 'center' }}>
                         <TimerIcon style={{ paddingRight: '8px' }} /> Time: {recipe.duration} min
                 </Typography>
-                    <Typography style={{ display: 'flex', alignContent: 'center' }}> Cost
+                    <Typography style={{ display: 'flex', alignContent: 'center', lineHeight: 'unset' }}> Cost
                 <StyledRating readOnly style={{ paddingLeft: '8px' }}
                             name="cost-rating"
                             max={3}
