@@ -1,7 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-
 import "@fontsource/inter";
-import "@fontsource/poppins";
 
 /*
 *   defaults available here https://material-ui.com/customization/default-theme/
