@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { useHistory } from 'react-router-dom';
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -8,26 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper'
 import { Box } from '@material-ui/core';
-import "typeface-overpass";
-import "typeface-ubuntu";
-
-
-const customFont = createMuiTheme({
-    typography: {
-        h6: {
-            fontFamily: [
-                'Overpass',
-                'sans-serif',
-            ].join(','),
-        },
-        h5: {
-            fontFamily: [
-                'Ubuntu',
-                'sans-serif',
-            ].join(','),
-        },
-    },
-});
 
 function newGradient(name) {
 
@@ -231,11 +211,9 @@ function CardSuggestion(props) {
                 title={props.recipe}
             />
             <CardContent className={classes.contentSuggestion}>
-                <ThemeProvider theme={customFont}>
                     <Typography gutterBottom variant="h6" component="h1" className={classes.textSuggestion}>
                         {props.recipe}
             </Typography>
-                </ThemeProvider>
             </CardContent>
         </Card>
     );
@@ -265,12 +243,10 @@ function HeaderSuggestion(props) {
     return (
         <div className={classes.headerSuggestion}>
             <img src={`res/images/${props.icon}`} width='26' height='26' alt="fire" />
-            <ThemeProvider theme={customFont}>
                 <Typography variant ="h5">
                     <Box fontWeight="400"  paddingLeft="8px">
                         {props.title}</Box>
                 </Typography>
-            </ThemeProvider>
         </div>
     );
 }
