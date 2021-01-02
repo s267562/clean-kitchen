@@ -153,6 +153,7 @@ const CustomSearchField = withStyles({
 function SearchBar() {
   const history = useHistory();
   const [value, setValue] = useState('');
+  const [isSelected, setIsSelected] = useState(false);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -173,6 +174,32 @@ function SearchBar() {
 
   }
 
+  const handleMouseDownPassword = event => {
+       event.preventDefault();
+  };
+
+  const iconAdornment = isSelected
+    ? {
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton
+                  aria-label="clear search"
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  <Clear />
+                </IconButton>
+          </InputAdornment>
+        )
+      }
+    : {
+      endAdornment: (
+        <InputAdornment position="end">
+          <Search />
+        </InputAdornment>
+      )
+    };
+
   return (
     <form onSubmit={handleSubmit} style={{ margin: '16px' }}>
       <CustomSearchField
@@ -182,14 +209,8 @@ function SearchBar() {
         style={{ width: '100%' }}
         value={value}
 
-        /* styles the input component */
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <Search />
-            </InputAdornment>
-          ),
-        }}
+      /* styles the input component */
+      InputProps={iconAdornment}
 
         InputLabelProps={{
           style: { color: '#000' },
