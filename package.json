@@ -17,6 +17,7 @@
     "react-speech-recognition": "^3.6.0",
     "typeface-overpass": "^1.1.13",
     "typeface-ubuntu": "^1.1.13",
+    "react-swipeable-views": "^0.13.9",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

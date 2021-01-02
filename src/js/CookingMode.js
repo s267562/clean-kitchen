@@ -2,33 +2,141 @@ import '../css/CookingMode.css';
 
 import { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-
-import { Button, Card, CardContent, Typography, Dialog, Box, LinearProgress } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { Button, Typography, Dialog, Box, LinearProgress, Grid, List, ListItem } from '@material-ui/core';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-
 import MicIcon from '@material-ui/icons/Mic';
+import SwipeableViews from 'react-swipeable-views';
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
+
+const recipe_test = {
+    id: "r0",
+    title: "Crispy Oven-Fried Chicken",
+    description: "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
+    overviewImg: "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+    rating: "4",
+    duration: "75",
+    price: "Low",
+    difficulty: "Medium",
+    yield: "4",
+    ingredients: [
+        {
+            name: "buttermilk",
+            quantity: "237",
+            unit: "milliliters"
+        },
+        {
+            name: "chicken legs",
+            quantity: "8",
+            unit: ""
+        },
+        {
+            name: "all-purpose flour",
+            quantity: "63",
+            unit: "g"
+        },
+        {
+            name: "paprika",
+            quantity: "1",
+            unit: "tsp"
+        },
+        {
+            name: "garlic powder",
+            quantity: "1/2",
+            unit: "tsp"
+        },
+        {
+            name: "baking powder",
+            quantity: "1",
+            unit: "tsp"
+        },
+        {
+            name: "fine sea salt",
+            quantity: "1",
+            unit: "tsp"
+        },
+        {
+            name: "black pepper",
+            quantity: "1",
+            unit: "tsp"
+        },
+        {
+            name: "olive oil cooking spray (as needed)",
+            quantity: "",
+            unit: ""
+        },
+        {
+            name: "honey",
+            quantity: "170",
+            unit: "grams"
+        }
+    ],
+    directionsNumber: 2,
+    directions: [
+        {
+            description: "Preheat the oven to 425°F",
+            image: "",
+            timer: "",
+            ingredients: []
+        },
+        {
+            description: "Place the chicken in a shallow dish and pour the buttermilk over the top. With your hands, rub the buttermilk into the chicken so it is covered. Allow the chicken to sit at room temperature for 30 minutes.",
+            image: "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+            timer: "30",
+            ingredients: [
+                {
+                    "name": "buttermilk",
+                    "quantity": "237",
+                    "unit": "milliliters"
+                },
+                {
+                    "name": "chicken legs",
+                    "quantity": "8",
+                    "unit": ""
+                }
+            ]
+        }
+    ],
+    helpWeyword: ""
+}
+
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
-        height: 8,
+        height: 5,
         borderRadius: 5,
     },
     colorPrimary: {
         backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
     },
     bar: {
-        borderRadius: 5,
-        backgroundColor: '#1a90ff',
+        borderRadius: 2,
+        backgroundColor: '#ff6d75',
     },
 }))(LinearProgress);
 
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+        flexDirection: 'column',
+        padding: '16px',
+    },
+    media: {
+        maxHeight: '300px',
+        width: '100%',
+        margin: 'auto',
+        borderRadius: '8px',
+        boxShadow: '0px 0px 16px rgba(34, 35, 58, 0.4)',
+        objectFit: 'cover',
+        objectPosition: 'center',
+    },
+});
+
 function CookingMode() { // Rule 2: call hooks in function component
 
-    const [debugMsg, setDebugMsg] = useState("");
+    const classes = useStyles();
 
     /* API CALL - set up
     React.useEffect(() => {    
@@ -91,12 +199,17 @@ function CookingMode() { // Rule 2: call hooks in function component
     window.addEventListener('userproximity', handleProximity);
 
     /* Stepper */
-    const [activeStep, setActiveStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState(0);
     const handleNext = () => {
-        setActiveStep(activeStep + 1);
+        setCurrentStep(currentStep + 1);
     };
     const handleBack = () => {
-        setActiveStep(activeStep - 1);
+        setCurrentStep(currentStep - 1);
+    };
+
+    /* swipeableViews */
+    const handleStepChange = (step) => {
+        setCurrentStep(step);
     };
 
     /* Util functions */
@@ -112,48 +225,73 @@ function CookingMode() { // Rule 2: call hooks in function component
 
     /* Render */
     return (<>
-        <p>{debugMsg}</p>
-        <CookingModeCard stepNumber={activeStep} style={{ position: 'fixed', top: 56, height: 'calc(100% - 158px)', overflow: 'scroll', width: '100%' }} />
-        <Stepper steps={5} activeStep={activeStep} next={handleNext} back={handleBack} />
+        <SwipeableViews
+            enableMouseEvents
+            index={currentStep}
+            onChangeIndex={handleStepChange} >
+            {recipe_test.directions.map((direction, index) => (
+                <Grid key={index} container className={classes.root}>
+                    {direction.image &&
+                        <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
+
+                    <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
+                        <Typography variant="body1"
+                            style={{ fontSize: '0.8rem', color: '#ff6d75' }}>
+                            {`Step ${currentStep + 1}`}&nbsp;
+                            </Typography>
+                        <Typography variant="body1"
+                            style={{ color: '#757575', fontSize: '0.8rem' }}>
+                            {` of ${recipe_test.directionsNumber}`}
+                        </Typography>
+                    </Box>
+
+                    <Typography variant="body1">
+                        {direction.description}
+                    </Typography>
+
+                    {direction.ingredients.length > 0 &&
+                        <>
+                            <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
+                                INGREDIENTS
+                            </Typography>
+                            <List dense style={{ paddingTop: '0px' }}>
+                                {direction.ingredients.map((ingredient) =>
+                                    <ListItem key={ingredient.name}>
+                                        <Ingredient ingredient={ingredient} />
+                                    </ListItem>)}
+                            </List>
+                        </>}
+                </Grid >
+            ))}
+            <div style={{ padding: "16px", minHeight: '200px', color: '#fff', backgroundColor: '#6AC0FF' }}>FINISH</div>
+        </SwipeableViews>
+        <Stepper directionsNumber={recipe_test.directionsNumber} currentStep={currentStep} next={handleNext} back={handleBack} />
         <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
     </>
     )
 }
 
-function CookingModeCard(props) {
-
-    const steps = [
-        'Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes.',
-        'Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.',
-        'Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook again without stirring, until mussels have opened and rice is just tender, 5 to 7 minutes more. (Discard any mussels that don’t open.)',
-        'Set aside off of the heat to let rest for 10 minutes, and then serve.'
-    ]
+function Ingredient(props) {
+    const { ingredient } = props;
 
     return (
-        <div style={props.style}>
-            <Card style={{ margin: '16px' }}>
-                <CardContent>
-                    <Typography variant="h5" component="h2">
-                        Shrimp and Chorizo Paella
-                </Typography>
-                    <br />
-                    <img src="https://www.donnamoderna.com/content/uploads/2014/12/Paella-mista-carne-pesce.jpg"
-                        style={{ width: "100%" }} />
-                    <br />
-                    <br />
-                    <Typography paragraph>Method:</Typography>
-                    <Typography paragraph>
-                        {steps[props.stepNumber]}
-                    </Typography>
-                </CardContent>
-
-            </Card >
-        </div>
-    )
+        <>
+            <Typography variant="body1"
+                style={{ color: '#757575', fontSize: '0.8rem' }}
+                gutterBottom>
+                {`${ingredient.quantity} ${ingredient.unit}`}&nbsp;
+            </Typography>
+            <Typography variant="body1"
+                style={{ fontSize: '0.8rem' }}
+                gutterBottom>
+                {`${ingredient.name}`}
+            </Typography>
+        </>
+    );
 }
 
 function Stepper(props) {
-    const { steps, activeStep, next, back } = props;
+    const { directionsNumber, currentStep, next, back } = props;
 
     return (
         <div style={{
@@ -163,27 +301,18 @@ function Stepper(props) {
             left: 0,
             right: 0,
             background: '#fafafa',
-            padding: '16px',
+            padding: '8px',
         }}
         >
-            <Box display="flex" alignItems="center" style={{ marginBottom: '8px' }}>
-                <Box width="100%" mr={2}>
-                    <BorderLinearProgress variant="determinate" value={(activeStep / steps) * 100} />
-                </Box>
-                <Box minWidth={35}>
-                    <Typography variant="body2" color="textSecondary">{`${Math.round((activeStep / steps) * 100)}%`}</Typography>
-                </Box>
-            </Box>
-
             <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" style={{ width: '100%' }}>
-                <Button size="large" onClick={back} disabled={activeStep === 0}>
-                    <KeyboardArrowLeft /> Back
+                <Button size="medium" onClick={back} disabled={currentStep === 0}>
+                    <KeyboardArrowLeft />
                 </Button>
-                <Typography style={{ fontSize: 14, width: '100%', textAlign: 'center' }} color="textPrimary">
-                    {`Step ${activeStep} of ${steps}`}
-                </Typography>
-                <Button size="large" onClick={next} disabled={activeStep === steps}>
-                    Next <KeyboardArrowRight />
+                <Box width="100%" style={{ marginLeft: '8px', marginRight: '8px' }} >
+                    <BorderLinearProgress variant="determinate" value={((currentStep + 1) / (directionsNumber + 1)) * 100} />
+                </Box>
+                <Button size="medium" onClick={next} disabled={currentStep === directionsNumber}>
+                    <KeyboardArrowRight />
                 </Button>
             </Box>
         </div>
@@ -193,7 +322,7 @@ function Stepper(props) {
 function SpeechRecognitionDialog(props) {
     const { listening, transcript, open, success, exitedFun } = props;
     return (
-        <Dialog open={open} fullWidth="true" maxWidth="xl" onExited={() => exitedFun()}>
+        <Dialog open={open} fullWidth={true} onExited={() => exitedFun()}>
             <Box
                 display="flex"
                 flexDirection="column"
