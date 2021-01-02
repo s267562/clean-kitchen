@@ -15,8 +15,6 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import React from 'react';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Search from '@material-ui/icons/Search';
-import Clear from '@material-ui/icons/Clear';
 
 const settingOptions = [
   'Setting #0',
@@ -157,7 +155,6 @@ function SearchBar() {
   const history = useHistory();
   const [isSelected, setIsSelected] = useState(false);
   const [value, setValue] = useState('');
-  const [isSelected, setIsSelected] = useState(false);
 
   const handleMouseDownSearch = event => {
     event.preventDefault();
