@@ -6,8 +6,8 @@ import { Button, Typography, Dialog, Box, LinearProgress, Grid, List, ListItem }
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-
 import MicIcon from '@material-ui/icons/Mic';
+import SwipeableViews from 'react-swipeable-views';
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
@@ -207,6 +207,11 @@ function CookingMode() { // Rule 2: call hooks in function component
         setCurrentStep(currentStep - 1);
     };
 
+    /* swipeableViews */
+    const handleStepChange = (step) => {
+        setCurrentStep(step);
+    };
+
     /* Util functions */
     const exit = () => {
         // TODO - exit cooking mode
@@ -220,41 +225,46 @@ function CookingMode() { // Rule 2: call hooks in function component
 
     /* Render */
     return (<>
-        {recipe_test.directions[currentStep] &&
-            <Grid container className={classes.root}>
-                {recipe_test.directions[currentStep].image &&
-                    <img src={recipe_test.directions[currentStep].image} className={classes.media} />}
+        <SwipeableViews
+            enableMouseEvents
+            index={currentStep}
+            onChangeIndex={handleStepChange} >
+            {recipe_test.directions.map((direction, index) => (
+                <Grid key={index} container className={classes.root}>
+                    {direction.image &&
+                        <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
 
-                <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
-                    <Typography variant="body1"
-                        style={{ fontSize: '0.8rem', color: '#ff6d75' }}>
-                        {`Step ${currentStep + 1}`}&nbsp;
-            </Typography>
-                    <Typography variant="body1"
-                        style={{ color: '#757575', fontSize: '0.8rem' }}>
-                        {` of ${recipe_test.directionsNumber}`}
+                    <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
+                        <Typography variant="body1"
+                            style={{ fontSize: '0.8rem', color: '#ff6d75' }}>
+                            {`Step ${currentStep + 1}`}&nbsp;
+                            </Typography>
+                        <Typography variant="body1"
+                            style={{ color: '#757575', fontSize: '0.8rem' }}>
+                            {` of ${recipe_test.directionsNumber}`}
+                        </Typography>
+                    </Box>
+
+                    <Typography variant="body1">
+                        {direction.description}
                     </Typography>
-                </Box>
 
-                <Typography variant="body1">
-                    {recipe_test.directions[currentStep].description}
-                </Typography>
-
-                {recipe_test.directions[currentStep].ingredients.length > 0 &&
-                    <>
-                        <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
-                            INGREDIENTS
-                </Typography>
-                        <List dense style={{ paddingTop: '0px' }}>
-                            {recipe_test.directions[currentStep].ingredients.map((ingredient) =>
-                                <ListItem key={ingredient.name}>
-                                    <Ingredient ingredient={ingredient} />
-                                </ListItem>)}
-                        </List>
-                    </>}
-
-            </Grid >
-        }
+                    {direction.ingredients.length > 0 &&
+                        <>
+                            <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
+                                INGREDIENTS
+                            </Typography>
+                            <List dense style={{ paddingTop: '0px' }}>
+                                {direction.ingredients.map((ingredient) =>
+                                    <ListItem key={ingredient.name}>
+                                        <Ingredient ingredient={ingredient} />
+                                    </ListItem>)}
+                            </List>
+                        </>}
+                </Grid >
+            ))}
+            <div style={{ padding: "16px", minHeight: '200px', color: '#fff', backgroundColor: '#6AC0FF' }}>FINISH</div>
+        </SwipeableViews>
         <Stepper directionsNumber={recipe_test.directionsNumber} currentStep={currentStep} next={handleNext} back={handleBack} />
         <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
     </>
@@ -312,7 +322,7 @@ function Stepper(props) {
 function SpeechRecognitionDialog(props) {
     const { listening, transcript, open, success, exitedFun } = props;
     return (
-        <Dialog open={open} fullWidth="true" maxWidth="xl" onExited={() => exitedFun()}>
+        <Dialog open={open} fullWidth={true} onExited={() => exitedFun()}>
             <Box
                 display="flex"
                 flexDirection="column"
