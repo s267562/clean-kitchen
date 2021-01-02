@@ -256,7 +256,7 @@ function Descriptions(props) {
     const { recipe } = props;
     const classes = useStyles();
     return (
-        <Grid key='title' item className={classes.itemTitle}>
+        <Grid key='title' item className={classes.itemTitle} style={{marginBottom: '80px'}}>
             <Paper elevation={0} className={classes.paperTitle}>
                 <Typography variant='h6' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
                     Description
