@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Search from '@material-ui/icons/Search';
 import Clear from '@material-ui/icons/Clear';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Zoom from '@material-ui/core/Zoom';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import React from 'react';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -188,6 +188,7 @@ function SearchBar() {
     ? {
         endAdornment: (
           <InputAdornment position="end">
+          <Zoom in={isSelected}>
             <IconButton
                   aria-label="clear search"
                   onMouseDown={handleMouseDownSearch}
@@ -196,7 +197,10 @@ function SearchBar() {
                 >
                   <Clear />
                 </IconButton>
-                <Divider orientation="vertical" style={{height: "16px"}} />
+          </Zoom>
+          <Zoom in={isSelected}>
+            <Divider orientation="vertical" style={{ height: "16px" }} />
+          </Zoom>
             <IconButton
                   aria-label="search"
                   type="submit"
