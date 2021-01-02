@@ -198,11 +198,11 @@ function Ingredients(props) {
                             variant="text"
                             size='small'
                         >
-                            <IconButton aria-label="increase" onClick={() => { if(currentYield < 20) {setYield(++currentYield)}}} >
+                            <IconButton aria-label="increase" onClick={() => { if(currentYield < 100) {setYield(++currentYield)}}} >
                                 <ArrowUpIcon />
                             </IconButton>
 
-                            <IconButton aria-label="decrease" onClick={() => { if(currentYield > 0) {setYield(--currentYield)}}}>
+                            <IconButton aria-label="decrease" onClick={() => { if(currentYield > 1) {setYield(--currentYield)}}}>
                                 <ArrowDownIcon />
                             </IconButton>
                         </ButtonGroup>
@@ -221,7 +221,7 @@ function Ingredients(props) {
                 </Grid>
                 <Grid key='iheader' container className={classes.listIngredients}>
                     <Typography variant='body' style={{ paddingRight: '16px', }}>
-                        <IngredientsList recipe={recipe} />
+                        <IngredientsList recipe={recipe} currentYield={currentYield} />
                     </Typography>
                 </Grid>
             </Paper>
@@ -230,16 +230,15 @@ function Ingredients(props) {
 }
 
 function IngredientsList(props) {
-    const { recipe } = props;
+    const { recipe, currentYield } = props;
     const classes = useStyles();
-    //var [currentQuantity, setQuantity] = useState();
 
     return (
         <List dense style={{paddingTop: '0'}}>
             {recipe.ingredients.map((value) => {
                 return (
                     <ListItem>
-                        <ListItemText primary={value.name + ' - ' + value.quantity + ' ' + value.unit} />
+                        <ListItemText primary={<span>{Math.round((value.quantity*currentYield)/4)}  {value.unit} <b> {value.name} </b>  </span>} />
                     </ListItem>
                 );
             })}
