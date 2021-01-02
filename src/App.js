@@ -128,6 +128,10 @@ const CustomSearchField = withStyles({
   root: {
     background: "#eeeeee",
     borderRadius: 25,
+    '& .Mui-focused ': {
+      background: "#fff",
+      elevation: "3"
+    },
     '& label.Mui-focused': {
       color: '#000',
     },
@@ -140,7 +144,7 @@ const CustomSearchField = withStyles({
         borderRadius: 25,
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#afafaf',
+        borderColor: '#eeeeee',
       },
     },
   },
