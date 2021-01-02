@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ListItem from '@material-ui/core/ListItem';
@@ -12,8 +12,8 @@ import TimerIcon from '@material-ui/icons/Timer';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import ArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { Box } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Fab from '@material-ui/core/Fab';
 import ListItemText from '@material-ui/core/ListItemText';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
@@ -128,7 +128,13 @@ class Recipe extends Component {
         return (<>
 
             <RecipeOverview key={recipes.id} recipe={recipes} />
-            <StartButton />
+            <Fab variant="extended" color='secondary' style={{
+                position: 'fixed',
+                bottom: '16px',
+                right: '16px',
+            }}>
+                Let's cook!
+            </Fab>
         </>
         );
     }
@@ -198,11 +204,11 @@ function Ingredients(props) {
                             variant="text"
                             size='small'
                         >
-                            <IconButton aria-label="increase" onClick={() => { if(currentYield < 100) {setYield(++currentYield)}}} >
+                            <IconButton aria-label="increase" onClick={() => { if (currentYield < 100) { setYield(++currentYield) } }} >
                                 <ArrowUpIcon />
                             </IconButton>
 
-                            <IconButton aria-label="decrease" onClick={() => { if(currentYield > 1) {setYield(--currentYield)}}}>
+                            <IconButton aria-label="decrease" onClick={() => { if (currentYield > 1) { setYield(--currentYield) } }}>
                                 <ArrowDownIcon />
                             </IconButton>
                         </ButtonGroup>
@@ -234,11 +240,11 @@ function IngredientsList(props) {
     const classes = useStyles();
 
     return (
-        <List dense style={{paddingTop: '0'}}>
+        <List dense style={{ paddingTop: '0' }}>
             {recipe.ingredients.map((value) => {
                 return (
                     <ListItem>
-                        <ListItemText primary={<span>{Math.round((value.quantity*currentYield)/4)}  {value.unit} <b> {value.name} </b>  </span>} />
+                        <ListItemText primary={<span>{Math.round((value.quantity * currentYield) / 4)}  {value.unit} <b> {value.name} </b>  </span>} />
                     </ListItem>
                 );
             })}
@@ -246,38 +252,20 @@ function IngredientsList(props) {
     );
 }
 
-function Descriptions(props){
+function Descriptions(props) {
     const { recipe } = props;
     const classes = useStyles();
     return (
         <Grid key='title' item className={classes.itemTitle}>
-        <Paper elevation={0} className={classes.paperTitle}>
-        <Typography variant='h6' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
-                Description
+            <Paper elevation={0} className={classes.paperTitle}>
+                <Typography variant='h6' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                    Description
             </Typography>
-            <Typography variant='body1' style={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
-                {recipe.description}
-            </Typography>
+                <Typography variant='body1' style={{ paddingTop: '8px', paddingBottom: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
+                    {recipe.description}
+                </Typography>
             </Paper>
         </Grid>
-    );
-}
-
-function StartButton() {
-
-    return (
-        <Box
-            style={{
-                display: 'flex', position: 'fixed',
-                bottom: '0px', right: '0px', left: '0', padding: '16px'
-            }}
-        >
-            <Button variant="contained" color="secondary"
-                style={{ margin: 'auto' }}
-            >
-                Let's cook
-        </Button>
-        </Box>
     );
 }
 
