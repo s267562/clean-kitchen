@@ -79,6 +79,7 @@ function MyAppBar(props) {
   const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [loc, setLoc] = useState(null);
+  const [queryParam, setQueryParam] = useState('');
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -90,6 +91,7 @@ function MyAppBar(props) {
 
   useEffect(() => {
     setLoc(location);
+    setQueryParam(location.search.replace('?query=', ''));
   }, [location]);
 
   return (
@@ -120,7 +122,7 @@ function MyAppBar(props) {
           </Menu>
         </Toolbar>
         {
-          loc !== null && (loc.pathname === '/' || loc.pathname.toLowerCase() === '/searchresults') && <SearchBar />
+          loc !== null && (loc.pathname === '/' || loc.pathname.toLowerCase() === '/searchresults') && <SearchBar keyword={queryParam} />
         }
       </AppBar>
     </ElevationScroll>
@@ -153,10 +155,14 @@ const CustomSearchField = withStyles({
   },
 })(TextField);
 
-function SearchBar() {
+function SearchBar(props) {
   const history = useHistory();
   const [isSelected, setIsSelected] = useState(false);
   const [value, setValue] = useState('');
+  
+  useEffect(() => {
+    setValue(props.keyword);
+  }, [props.keyword]);
 
   const handleMouseDownSearch = event => {
     event.preventDefault();
@@ -181,7 +187,6 @@ function SearchBar() {
       });
     }
     document.activeElement.blur(); /* unfocus search view */
-
   }
 
   // const iconAdornment = (isSelected && value !== '')
