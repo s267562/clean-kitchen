@@ -17,6 +17,7 @@ import React from 'react';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Divider from '@material-ui/core/Divider';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import CloseIcon from '@material-ui/icons/Close';
 
 const settingOptions = [
   'Setting #0',
@@ -103,6 +104,10 @@ function MyAppBar(props) {
       history.goBack();
   }
 
+  const handleExit = () => {
+    history.push({ pathname: '/' });
+  }
+
   return (
     <ElevationScroll {...props}>
       <AppBar position="sticky" style={{ background: "#fafafa", color: "#000" }}>
@@ -110,6 +115,11 @@ function MyAppBar(props) {
           {loc !== null && (loc.pathname.toLowerCase() === '/searchresults' || loc.pathname.toLowerCase() === '/recipe') &&
             <IconButton edge="start" color="inherit" onClick={handleBack} disableFocusRipple={true}>
               <ArrowBackIcon />
+            </IconButton>
+          }
+          {loc !== null && loc.pathname.toLowerCase() === '/cookingmode' &&
+            <IconButton edge="start" color="inherit" onClick={handleExit} disableFocusRipple={true}>
+              <CloseIcon />
             </IconButton>
           }
           <Typography variant="h6" style={{ flexGrow: 1 }} >
