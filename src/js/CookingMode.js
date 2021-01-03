@@ -1,6 +1,5 @@
 import '../css/CookingMode.css';
-
-import { useState } from 'react';
+import { React, useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { Button, Typography, Dialog, Box, LinearProgress, Grid, List, ListItem } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -358,6 +357,7 @@ function SpeechRecognitionDialog(props) {
     );
 }
 
+
 function DoneDialog(props) {
     const { done } = props;
 
@@ -369,8 +369,12 @@ function DoneDialog(props) {
         });
     }
 
+
+
     return (
-        <Dialog open={done} fullWidth={true}>
+        <Dialog open={done}
+            fullWidth
+        >
             <Box
                 display="flex"
                 flexDirection="column"
@@ -378,9 +382,18 @@ function DoneDialog(props) {
                 alignItems="center"
                 p={3}
             >
-                <Typography paragraph>FINISH</Typography>
-            </Box>
-        </Dialog>
+                <Typography variant='h5' align='center' paragraph> Well done! <br /> Enjoy your meal! </Typography>
+                <Typography variant='body1' align='center' paragraph> Say (or press) $ to go home, <br /> or say (or press) $ to keep cooking. </Typography>
+                <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-evenly' }}>
+                    <Button variant='outlined' color='secondary' size="small">
+                        Undo
+                </Button>
+                    <Button variant='contained' color='secondary' size="small">
+                        Home
+                </Button>
+                </div>
+            </Box >
+        </Dialog >
     );
 }
 
