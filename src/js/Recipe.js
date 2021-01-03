@@ -1,5 +1,5 @@
 import { Component, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ListItem from '@material-ui/core/ListItem';
@@ -26,7 +26,7 @@ const recipes =
     cost: 1,
     duration: "20",
     overviewImg: "./res/images/carbonara.jpg",
-    yield: "4",
+    yield: 4,
     ingredients: [
         {
             "name": "Pasta",
@@ -56,6 +56,7 @@ const useStyles = makeStyles({
         flexGrow: 1,
         flexDirection: 'column',
         alignItems: 'safe center',
+        height: '100%'
     },
     itemMedia: {
         width: '100%',
@@ -111,37 +112,36 @@ const StyledRating = withStyles({
     },
 })(Rating);
 
-class Recipe extends Component {
+function Recipe() {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
+    const history = useHistory();
+    const [currentYield, setYield] = useState(recipes.yield);
+
+    const handleClick = () => {
+        history.push({
+            pathname: '/cookingMode',
+            search: `?id=${recipes.id}&y=${currentYield}`,
+            state: { id: recipes.id, currentYield: currentYield }
+        });
     }
 
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
-    }
-
-    render() {
-        return (<>
-
-            <RecipeOverview key={recipes.id} recipe={recipes} />
+    return (
+        <>
+            <RecipeOverview key={recipes.id} recipe={recipes} currentYield={currentYield} setYield={setYield} />
             <Fab variant="extended" color='secondary' style={{
                 position: 'fixed',
                 bottom: '16px',
                 right: '16px',
-            }}>
+            }}
+                onClick={handleClick} >
                 Let's cook!
             </Fab>
         </>
-        );
-    }
+    );
 }
 
 function RecipeOverview(props) {
-    const { recipe } = props;
+    const { recipe, currentYield, setYield } = props;
     const classes = useStyles();
     const [id, setId] = useState('');
 
@@ -158,7 +158,7 @@ function RecipeOverview(props) {
                 <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
             </Grid>
             <RecipeHeader recipe={recipe} />
-            <Ingredients recipe={recipe} />
+            <Ingredients recipe={recipe} currentYield={currentYield} setYield={setYield} />
             <Descriptions recipe={recipe} />
         </Grid>
     );
@@ -192,9 +192,8 @@ function RecipeHeader(props) {
 }
 
 function Ingredients(props) {
-    const { recipe } = props;
+    const { recipe, currentYield, setYield } = props;
     const classes = useStyles();
-    var [currentYield, setYield] = useState(recipe.yield);
 
     return (
         <Grid key='ingredients' item className={classes.itemTitle}>
@@ -212,11 +211,11 @@ function Ingredients(props) {
                             variant="text"
                             size='small'
                         >
-                            <IconButton aria-label="increase" onClick={() => { if (currentYield < 100) { setYield(++currentYield) } }} >
+                            <IconButton aria-label="increase" onClick={() => { if (currentYield < 100) { setYield(currentYield + 1) } }} >
                                 <ArrowUpIcon />
                             </IconButton>
 
-                            <IconButton aria-label="decrease" onClick={() => { if (currentYield > 1) { setYield(--currentYield) } }}>
+                            <IconButton aria-label="decrease" onClick={() => { if (currentYield > 1) { setYield(currentYield - 1) } }}>
                                 <ArrowDownIcon />
                             </IconButton>
                         </ButtonGroup>

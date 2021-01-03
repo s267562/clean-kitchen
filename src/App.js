@@ -16,6 +16,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import React from 'react';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Divider from '@material-ui/core/Divider';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const settingOptions = [
   'Setting #0',
@@ -77,6 +78,7 @@ function ElevationScroll(props) {
 
 function MyAppBar(props) {
   const location = useLocation();
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const [loc, setLoc] = useState(null);
   const [queryParam, setQueryParam] = useState('');
@@ -105,6 +107,11 @@ function MyAppBar(props) {
     <ElevationScroll {...props}>
       <AppBar position="sticky" style={{ background: "#fafafa", color: "#000" }}>
         <Toolbar >
+          {loc !== null && (loc.pathname.toLowerCase() === '/searchresults' || loc.pathname.toLowerCase() === '/recipe') &&
+            <IconButton edge="start" color="inherit" onClick={handleBack} disableFocusRipple={true}>
+              <ArrowBackIcon />
+            </IconButton>
+          }
           <Typography variant="h6" style={{ flexGrow: 1 }} >
             Clean Kitchen
           </Typography>
@@ -166,7 +173,7 @@ function SearchBar(props) {
   const history = useHistory();
   const [isSelected, setIsSelected] = useState(false);
   const [value, setValue] = useState('');
-  
+
   useEffect(() => {
     setValue(props.keyword);
   }, [props.keyword]);
