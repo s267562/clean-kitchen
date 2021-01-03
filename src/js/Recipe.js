@@ -178,18 +178,23 @@ function RecipeHeader(props) {
                 <Typography variant='h5' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
                     {recipe.title}
                 </Typography>
-                <Grid container className={classes.infoTitle}>
-                    <Typography style={{ display: 'flex', alignContent: 'center' }}>
-                        <TimerIcon style={{ paddingRight: '8px' }} /> Time: {recipe.duration} min
+                <Box className={classes.infoTitle}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <TimerIcon style={{ paddingRight: '8px' }} />
+                        <Typography variant='overline' style={{ display: 'flex', alignContent: 'center' }}>
+                            Time: {recipe.duration} min
                 </Typography>
-                    <Typography style={{ display: 'flex', alignContent: 'center', lineHeight: 'unset' }}> Cost
-                <StyledRating readOnly style={{ paddingLeft: '8px' }}
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <Typography variant='overline' style={{ display: 'flex', alignContent: 'center', }}> Cost
+                    </Typography>
+                        <StyledRating readOnly style={{ paddingLeft: '8px' }}
                             name="cost-rating"
                             max={3}
                             value={recipe.cost}
                             icon={<EuroIcon fontSize="small" />} />
-                    </Typography>
-                </Grid>
+                    </div>
+                </Box>
             </Paper>
         </Box>
     );
