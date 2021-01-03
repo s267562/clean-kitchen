@@ -8,6 +8,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import MicIcon from '@material-ui/icons/Mic';
 import SwipeableViews from 'react-swipeable-views';
+import { useHistory } from 'react-router-dom';
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
@@ -126,7 +127,6 @@ const useStyles = makeStyles({
     media: {
         maxHeight: '300px',
         width: '100%',
-        margin: 'auto',
         borderRadius: '8px',
         boxShadow: '0px 0px 16px rgba(34, 35, 58, 0.4)',
         objectFit: 'cover',
@@ -151,7 +151,7 @@ function CookingMode() { // Rule 2: call hooks in function component
     const [success, setSuccess] = useState(false);
     const commands = [
         {
-            command: ['cancel', 'next', 'back', 'exit', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
+            command: ['cancel', 'next', 'back', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
             callback: ({ command }) => {
                 setSuccess(true); /* successfull speech recognition */
                 setTimeout(function () {
@@ -161,9 +161,6 @@ function CookingMode() { // Rule 2: call hooks in function component
                             break;
                         case 'back':
                             handleBack();
-                            break;
-                        case 'exit':
-                            exit();
                             break;
                         case 'up':
                             up();
@@ -201,7 +198,10 @@ function CookingMode() { // Rule 2: call hooks in function component
     /* Stepper */
     const [currentStep, setCurrentStep] = useState(0);
     const handleNext = () => {
-        setCurrentStep(currentStep + 1);
+        if ((currentStep + 1) !== recipe_test.directionsNumber)
+            setCurrentStep(currentStep + 1);
+        else
+            setDone(true);
     };
     const handleBack = () => {
         setCurrentStep(currentStep - 1);
@@ -213,9 +213,6 @@ function CookingMode() { // Rule 2: call hooks in function component
     };
 
     /* Util functions */
-    const exit = () => {
-        // TODO - exit cooking mode
-    }
     const up = () => {
         // TODO - scroll up
     }
@@ -223,51 +220,57 @@ function CookingMode() { // Rule 2: call hooks in function component
         // TODO - scroll down
     }
 
+    const [done, setDone] = useState(false);
+
     /* Render */
     return (<>
-        <SwipeableViews
-            enableMouseEvents
-            index={currentStep}
-            style={{ height: '100%' }}
-            onChangeIndex={handleStepChange} >
-            {recipe_test.directions.map((direction, index) => (
-                <Grid key={index} container className={classes.root}>
-                    {direction.image &&
-                        <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
-
-                    <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
-                        <Typography variant="body1"
-                            style={{ fontSize: '0.8rem', color: '#ff6d75' }}>
-                            {`Step ${currentStep + 1}`}&nbsp;
+        <Box
+            display='flex'
+            flexDirection='column'
+            style={{ overflowY: 'scroll', background: '#fafafa', height: 'calc(100% - 56px)' }}>
+            <SwipeableViews
+                enableMouseEvents
+                index={currentStep}
+                style={{ paddingBottom: '52px' }}
+                onChangeIndex={handleStepChange} >
+                {recipe_test.directions.map((direction, index) => (
+                    <Grid key={index} container className={classes.root} style={{ height: '100%' }}>
+                        {direction.image &&
+                            <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
+                        <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
+                            <Typography variant="body1"
+                                style={{ fontSize: '0.8rem', color: '#ff6d75' }}>
+                                {`Step ${currentStep + 1}`}&nbsp;
                             </Typography>
-                        <Typography variant="body1"
-                            style={{ color: '#757575', fontSize: '0.8rem' }}>
-                            {` of ${recipe_test.directionsNumber}`}
+                            <Typography variant="body1"
+                                style={{ color: '#757575', fontSize: '0.8rem' }}>
+                                {` of ${recipe_test.directionsNumber}`}
+                            </Typography>
+                        </Box>
+
+                        <Typography variant="body1">
+                            {direction.description}
                         </Typography>
-                    </Box>
 
-                    <Typography variant="body1">
-                        {direction.description}
-                    </Typography>
-
-                    {direction.ingredients.length > 0 &&
-                        <>
-                            <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
-                                INGREDIENTS
+                        {direction.ingredients.length > 0 &&
+                            <>
+                                <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
+                                    INGREDIENTS
                             </Typography>
-                            <List dense style={{ paddingTop: '0px' }}>
-                                {direction.ingredients.map((ingredient) =>
-                                    <ListItem key={ingredient.name}>
-                                        <Ingredient ingredient={ingredient} />
-                                    </ListItem>)}
-                            </List>
-                        </>}
-                </Grid >
-            ))}
-            <div style={{ padding: "16px", minHeight: '200px', color: '#fff', backgroundColor: '#6AC0FF' }}>FINISH</div>
-        </SwipeableViews>
-        <Stepper directionsNumber={recipe_test.directionsNumber} currentStep={currentStep} next={handleNext} back={handleBack} />
+                                <List dense style={{ paddingTop: '0px' }}>
+                                    {direction.ingredients.map((ingredient) =>
+                                        <ListItem key={ingredient.name}>
+                                            <Ingredient ingredient={ingredient} />
+                                        </ListItem>)}
+                                </List>
+                            </>}
+                    </Grid >
+                ))}
+            </SwipeableViews>
+            <Stepper directionsNumber={recipe_test.directionsNumber} currentStep={currentStep} next={handleNext} back={handleBack} setDone={setDone} />
+        </Box>
         <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
+        <DoneDialog done={done} />
     </>
     )
 }
@@ -292,8 +295,11 @@ function Ingredient(props) {
 }
 
 function Stepper(props) {
-    const { directionsNumber, currentStep, next, back } = props;
+    const { directionsNumber, currentStep, next, back, setDone } = props;
 
+    const handleDone = () => {
+        setDone(true);
+    }
     return (
         <div style={{
             overflow: 'scroll',
@@ -310,11 +316,16 @@ function Stepper(props) {
                     <KeyboardArrowLeft />
                 </Button>
                 <Box width="100%" style={{ marginLeft: '8px', marginRight: '8px' }} >
-                    <BorderLinearProgress variant="determinate" value={((currentStep + 1) / (directionsNumber + 1)) * 100} />
+                    <BorderLinearProgress variant="determinate" value={((currentStep + 1) / directionsNumber) * 100} />
                 </Box>
-                <Button size="medium" onClick={next} disabled={currentStep === directionsNumber}>
-                    <KeyboardArrowRight />
-                </Button>
+                {(currentStep + 1) === directionsNumber ?
+                    <Button size="medium" onClick={handleDone}>
+                        DONE
+                    </Button> :
+                    <Button size="medium" onClick={next}>
+                        <KeyboardArrowRight />
+                    </Button>}
+
             </Box>
         </div>
     )
@@ -342,6 +353,32 @@ function SpeechRecognitionDialog(props) {
 
                 <Typography paragraph>{transcript !== "" ? transcript : "Speak now"}</Typography>
                 <Typography style={{ fontSize: 14 }} color="textSecondary" gutterBottom>english</Typography>
+            </Box>
+        </Dialog>
+    );
+}
+
+function DoneDialog(props) {
+    const { done } = props;
+
+    const history = useHistory();
+
+    const handleExit = () => {
+        history.push({
+            pathname: '/',
+        });
+    }
+
+    return (
+        <Dialog open={done} fullWidth={true}>
+            <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                p={3}
+            >
+                <Typography paragraph>FINISH</Typography>
             </Box>
         </Dialog>
     );
