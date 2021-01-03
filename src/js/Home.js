@@ -202,9 +202,17 @@ function GridCategory() {
 
 function CardSuggestion(props) {
     const classes = useStyles();
+    const handleClick = () => {
+        console.log("CardSuggestion - TODO: get recipe id and pass it to /recipe");
+        /* TODO history.push({
+            pathname: '/recipe',
+            search: `?id=${props.recipe.id}`,
+            state: { id: props.recipe.id }
+          }); */
+    }
 
     return (
-        <Card elevation={8} className={classes.cardSuggestion}>
+        <Card elevation={8} className={classes.cardSuggestion} onClick={handleClick}>
             <CardMedia
                 className={classes.mediaSuggestion}
                 image={`/res/images/${props.img}`}
