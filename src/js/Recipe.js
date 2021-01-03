@@ -73,7 +73,7 @@ const useStyles = makeStyles({
         objectPosition: 'center',
     },
     itemTitle: {
-        width: '100%'
+        width: '100%',
     },
     paperTitle: {
         height: 'min-content',
@@ -82,17 +82,19 @@ const useStyles = makeStyles({
         marginBottom: 4,
     },
     infoTitle: {
+        display: 'flex',
+        flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 16,
         alignItems: 'center',
     },
     headerIngredients: {
         justifyContent: 'space-between',
+        display: 'flex',
+        flexDirection: 'row',
         alignItems: 'center',
         height: 'min-content',
         width: '100%',
-        paddingLeft: 16,
-        paddingRight: 16,
         paddingTop: 8,
         paddingBottom: 0,
         borderRadius: 0,
@@ -154,12 +156,14 @@ function RecipeOverview(props) {
 
     return (
         <Grid container className={classes.root}>
-            <Grid key='media' item className={classes.itemMedia}>
-                <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
+            <Grid item xs>
+                <Box className={classes.itemMedia}>
+                    <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
+                </Box>
+                <RecipeHeader recipe={recipe} />
+                <Ingredients recipe={recipe} currentYield={currentYield} setYield={setYield} />
+                <Descriptions recipe={recipe} />
             </Grid>
-            <RecipeHeader recipe={recipe} />
-            <Ingredients recipe={recipe} currentYield={currentYield} setYield={setYield} />
-            <Descriptions recipe={recipe} />
         </Grid>
     );
 }
@@ -169,7 +173,7 @@ function RecipeHeader(props) {
     const classes = useStyles();
 
     return (
-        <Grid key='title' item className={classes.itemTitle}>
+        <Box className={classes.itemTitle}>
             <Paper elevation={0} className={classes.paperTitle}>
                 <Typography variant='h5' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
                     {recipe.title}
@@ -187,7 +191,7 @@ function RecipeHeader(props) {
                     </Typography>
                 </Grid>
             </Paper>
-        </Grid>
+        </Box>
     );
 }
 
@@ -196,14 +200,14 @@ function Ingredients(props) {
     const classes = useStyles();
 
     return (
-        <Grid key='ingredients' item className={classes.itemTitle}>
+        <Box className={classes.itemTitle}>
             <Paper elevation={0} className={classes.paperTitle}>
-                <Grid key='iheader' container className={classes.headerIngredients}>
-                    <Typography variant='h6' style={{ paddingRight: '16px', }}>
+                <Box className={classes.headerIngredients}>
+                    <Typography variant='h6' style={{ paddingLeft: '16px', }}>
                         Ingredients
                      </Typography>
                     <Box aria-label="servings group"
-                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '16px' }}>
                         <ButtonGroup
                             orientation="vertical"
                             color="#000"
@@ -231,14 +235,14 @@ function Ingredients(props) {
                             </Typography>
                         </Box>
                     </Box>
-                </Grid>
-                <Grid key='iheader' container className={classes.listIngredients}>
+                </Box>
+                <Box className={classes.listIngredients}>
                     <Typography variant='body' style={{ paddingRight: '16px', }}>
                         <IngredientsList recipe={recipe} currentYield={currentYield} />
                     </Typography>
-                </Grid>
+                </Box>
             </Paper>
-        </Grid>
+        </Box>
     );
 }
 
@@ -262,7 +266,7 @@ function Descriptions(props) {
     const { recipe } = props;
     const classes = useStyles();
     return (
-        <Grid key='title' item className={classes.itemTitle} style={{marginBottom: '80px'}}>
+        <Box className={classes.itemTitle} style={{ marginBottom: '80px' }}>
             <Paper elevation={0} className={classes.paperTitle}>
                 <Typography variant='h6' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
                     Description
@@ -271,7 +275,7 @@ function Descriptions(props) {
                     {recipe.description}
                 </Typography>
             </Paper>
-        </Grid>
+        </Box>
     );
 }
 
