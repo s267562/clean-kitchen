@@ -81,6 +81,11 @@ function MyAppBar(props) {
   const [loc, setLoc] = useState(null);
   const [queryParam, setQueryParam] = useState('');
 
+  useEffect(() => {
+    setLoc(location);
+    setQueryParam(location.search.replace('?query=', ''));
+  }, [location]);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -89,10 +94,12 @@ function MyAppBar(props) {
     setAnchorEl(null);
   };
 
-  useEffect(() => {
-    setLoc(location);
-    setQueryParam(location.search.replace('?query=', ''));
-  }, [location]);
+  const handleBack = () => {
+    if (loc !== null && loc.pathname.toLowerCase() === '/searchresults')
+      history.push({ pathname: '/' });
+    else if (loc !== null && loc.pathname.toLowerCase() === '/recipe')
+      history.goBack();
+  }
 
   return (
     <ElevationScroll {...props}>
