@@ -245,7 +245,6 @@ function Ingredients(props) {
 
 function IngredientsList(props) {
     const { recipe, currentYield } = props;
-    const classes = useStyles();
 
     return (
         <List dense style={{ paddingTop: '0' }}>
