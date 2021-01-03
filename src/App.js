@@ -179,17 +179,17 @@ function SearchBar() {
         search: `?query=${value}`,
         state: { query: value }
       });
-      handleClear();
     }
     document.activeElement.blur(); /* unfocus search view */
 
   }
 
-  const iconAdornment = (isSelected && value !== '')
+  // const iconAdornment = (isSelected && value !== '')
+  const iconAdornment = (value !== '')
     ? {
       endAdornment: (
         <InputAdornment position="end">
-          <Zoom in={isSelected}>
+          <Zoom in={/* isSelected */ value != ''}>
             <IconButton
               aria-label="clear search"
               onMouseDown={handleMouseDownSearch}
@@ -199,7 +199,7 @@ function SearchBar() {
               <Clear />
             </IconButton>
           </Zoom>
-          <Zoom in={isSelected}>
+          <Zoom in={/* isSelected */ value != ''}>
             <Divider orientation="vertical" style={{ height: "16px" }} />
           </Zoom>
           <IconButton

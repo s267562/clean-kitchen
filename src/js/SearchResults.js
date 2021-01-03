@@ -112,9 +112,6 @@ function SearchResults() {
             flexDirection="column"
             style={{ marginBottom: "8px" }}
         >
-            <Typography style={{ fontSize: 16, fontWeight: 'bold', lineHeight: '24px', maxHeight: '48px', overflow: 'hidden' }} color="textPrimary">
-                {`Results for ${query}`}
-            </Typography>
             <Button
                 style={{ padding: '16px', margin: 'auto' }}
                 startIcon={<TuneIcon />}
