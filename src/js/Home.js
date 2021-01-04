@@ -15,16 +15,16 @@ function newGradient(name) {
 
     switch (name) {
         case "breakfast":
-            backgroundGradient = 'radial-gradient(at top left, rgb(255, 222, 97), rgb(219, 153, 5))'
+            backgroundGradient = 'radial-gradient(at top left, rgb(244, 200, 31), rgb(91, 34, 0))'
             break;
         case "fish":
             backgroundGradient = 'radial-gradient(at top left, rgb(15, 187, 194), rgb(58, 82, 194))'
             break;
         case "meat":
-            backgroundGradient = 'radial-gradient(at top left, rgb(247, 147, 42), rgb(221, 31, 31))'
+            backgroundGradient = 'radial-gradient(at top left, rgb(247, 147, 42), rgb(157, 2, 2))'
             break;
         case "vegan":
-            backgroundGradient = 'radial-gradient(at top left, rgb(56, 230, 118), rgb(49, 139, 143))'
+            backgroundGradient = 'radial-gradient(at top left, rgb(56, 230, 118), rgb(18, 52, 53))'
             break;
         case "dessert":
             backgroundGradient = 'radial-gradient(at top left, rgb(13, 245, 169), rgb(160, 143, 247))'

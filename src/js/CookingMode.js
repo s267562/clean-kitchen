@@ -173,13 +173,13 @@ function CookingMode() { // Rule 2: call hooks in function component
                             <Grid key={index} container className={classes.root} style={{ height: '100%' }}>
                                 {direction.image &&
                                     <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
-                                <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
+                                <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '32px', marginBottom: '16px' }}>
                                     <Typography variant="body1"
-                                        style={{ fontSize: '0.8rem', color: '#e57373' }}>
+                                        style={{ fontSize: '1rem', color: '#c62828' }}>
                                         {`Step ${currentStep + 1}`}&nbsp;
                                     </Typography>
                                     <Typography variant="body1"
-                                        style={{ color: '#757575', fontSize: '0.8rem' }}>
+                                        style={{ color: '#424242', fontSize: '1rem' }}>
                                         {` of ${recipe?.directionsNumber}`}
                                     </Typography>
                                 </Box>
@@ -191,10 +191,10 @@ function CookingMode() { // Rule 2: call hooks in function component
                                 {direction.ingredients.length > 0 &&
                                     <>
                                         <div style={{ marginTop: '16px' }}>
-                                            <Typography variant="overline" style={{ fontSize: '0.7rem', marginTop: '16px' }}>
+                                            <Typography variant="overline" style={{ fontSize: '1rem', marginTop: '16px' }}>
                                                 INGREDIENTS -&nbsp;
                                             </Typography>
-                                            <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem' }}>
+                                            <Typography variant="overline" style={{ color: '#424242', fontSize: '1rem' }}>
                                                 {`${currentYield} servings`}
                                             </Typography>
                                         </div>
@@ -224,12 +224,12 @@ function Ingredient(props) {
     return (
         <>
             <Typography variant="body1"
-                style={{ color: '#757575', fontSize: '0.8rem' }}
+                style={{ color: '#424242', fontSize: '0.95rem' }}
                 gutterBottom>
                 {`${Math.round((ingredient.quantity * currentYield) / 4)} ${ingredient.unit}`}&nbsp;
             </Typography>
             <Typography variant="body1"
-                style={{ fontSize: '0.8rem' }}
+                style={{ fontSize: '0.95rem' }}
                 gutterBottom>
                 {`${ingredient.name}`}
             </Typography>
