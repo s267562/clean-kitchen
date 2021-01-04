@@ -196,7 +196,7 @@ function Ingredients(props) {
                         style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '16px' }}>
                         <ButtonGroup
                             orientation="vertical"
-                            color="#000"
+                            color="default"
                             aria-label="increase/decrease group"
                             variant="text"
                             size='small'
@@ -223,7 +223,7 @@ function Ingredients(props) {
                     </Box>
                 </Box>
                 <Box className={classes.listIngredients}>
-                    <Typography variant='body' style={{ paddingRight: '16px', }}>
+                    <Typography variant='body1' style={{ paddingRight: '16px', }}>
                         <IngredientsList recipe={recipe} currentYield={currentYield} />
                     </Typography>
                 </Box>
@@ -239,7 +239,7 @@ function IngredientsList(props) {
         <List dense style={{ paddingTop: '0' }}>
             {recipe.ingredients.map((value) => {
                 return (
-                    <ListItem>
+                    <ListItem key={value.name}>
                         <ListItemText primary={<span>{value.quantity && Math.round((value.quantity * currentYield) / 4)}  {value.unit} <b> {value.name} </b>  </span>} />
                     </ListItem>
                 );
