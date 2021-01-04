@@ -192,6 +192,12 @@ function FilterDialog(props) {
         setOpen(false);
     }
 
+    const handleReset = () => {
+        setTime([0, 200]);
+        setDifficulty({ easy: false, medium: false, hard: false });
+        setCost({ low: false, medium: false, high: false });
+    }
+
     const handleApply = () => {
         setResult(filteredRecipes);
         setOpen(false);
@@ -258,7 +264,7 @@ function FilterDialog(props) {
                 <Typography variant='overline' style={{ fontSize: '1.1rem' }}>
                     Filter
                 </Typography>
-                <Button onClick={console.log("reset")} color="secondary">
+                <Button onClick={handleReset} color="secondary">
                     Reset
                 </Button>
             </DialogActions>
