@@ -1,4 +1,4 @@
-import { React, useEffect, useState, forwardRef } from 'react';
+import { React, useEffect, useState, forwardRef, useRef } from 'react';
 import { Box, Card, CardMedia, Divider, Grid, Typography, Button, Slide, Dialog, IconButton, Slider, DialogTitle, DialogContent, DialogActions, FormControl, FormGroup, Checkbox, FormControlLabel } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -50,6 +50,7 @@ function SearchResults() {
     const [searchResults, setSearchResults] = useState(null);
     const [query, setQuery] = useState('');
     const [filterOpen, setFilterOpen] = useState(false);
+    const [filteredRecipes, setFilteredRecipes] = useState(null);
 
     useEffect(() => {
         //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
@@ -61,6 +62,7 @@ function SearchResults() {
             API.getSearchResults(query)
                 .then(recipes => {
                     setSearchResults(recipes);
+                    setFilteredRecipes(recipes);
                 })
         }
     }, [query]);
@@ -69,9 +71,9 @@ function SearchResults() {
         setFilterOpen(true);
     }
 
-    if (searchResults === null) {
+    if (filteredRecipes === null) {
         return <LoadingComponent />
-    } else if (searchResults.length > 0) {
+    } else if (filteredRecipes.length > 0) {
         return (
             <>
                 <Box
@@ -87,12 +89,12 @@ function SearchResults() {
                         Filter
                     </Button>
                     {
-                        searchResults.map((recipe) =>
+                        filteredRecipes.map((recipe) =>
                             <Recipe key={recipe.id} recipe={recipe} />
                         )
                     }
                 </Box>
-                <FilterDialog open={filterOpen} setOpen={setFilterOpen} />
+                <FilterDialog open={filterOpen} setOpen={setFilterOpen} recipes={searchResults} setResult={setFilteredRecipes} />
             </>
         );
     } else {
@@ -180,18 +182,24 @@ const CustomSlider = withStyles({
 
 function FilterDialog(props) {
     const classes = useStyles();
-    const { open, setOpen } = props;
-    const [value, setValue] = useState([15, 60]);
+    const { open, setOpen, setResult } = props;
+    const [filteredRecipes, setFilteredRecipes] = useState(props.recipes);
+    const [time, setTime] = useState([0, 200]);
     const [difficulty, setDifficulty] = useState({ easy: false, medium: false, hard: false });
     const [cost, setCost] = useState({ low: false, medium: false, high: false });
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
 
     const handleClose = () => {
         setOpen(false);
     }
+
+    const hanldeApply = () => {
+        setResult(filteredRecipes);
+        setOpen(false);
+    }
+
+    const handleTimeChange = (event, newTime) => {
+        setTime(newTime);
+    };
 
     const handleDifficultyChange = (event) => {
         setDifficulty({ ...difficulty, [event.target.name]: event.target.checked });
@@ -200,6 +208,46 @@ function FilterDialog(props) {
     const handleCostChange = (event) => {
         setCost({ ...cost, [event.target.name]: event.target.checked });
     };
+
+    useEffect(() => {
+        setFilteredRecipes(props.recipes.filter(recipe => {
+            return checkDuration(recipe) && checkDifficulty(recipe) && checkCost(recipe);
+        }));
+    }, [time, difficulty, cost]);
+
+    function checkDuration(recipe) {
+        return recipe.duration > time[0] && recipe.duration < time[1];
+    }
+    function checkDifficulty(recipe) {
+        if(!difficulty.easy && !difficulty.medium && !difficulty.hard) 
+            return true;
+            
+        switch (recipe.difficulty.toLowerCase()) {
+            case 'easy':
+                return difficulty.easy;
+            case 'medium':
+                return difficulty.medium;
+            case 'hard':
+                return difficulty.hard;
+            default:
+                return false;
+        }
+    }
+    function checkCost(recipe) {
+        if(!cost.low && !cost.medium && !cost.high) 
+            return true;
+
+        switch (recipe.cost) {
+            case 1:
+                return cost.low;
+            case 2:
+                return cost.medium;
+            case 3:
+                return cost.high;
+            default:
+                return false;
+        }
+    }
 
     return (
         <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
@@ -218,17 +266,16 @@ function FilterDialog(props) {
                         Time range
                     </Typography>
                     <Typography variant="overline" style={{ color: '#757575' }}>
-                        {`${value[0]} - ${value[1]}${value[1] === 200 && '+' || ''} min.`}
+                        {`${time[0]} - ${time[1]}${time[1] === 200 && '+' || ''} min.`}
                     </Typography>
                     <div style={{ paddingLeft: '12px', paddingRight: '12px' }}>
                         <CustomSlider
-                            value={value}
-                            onChange={handleChange}
+                            value={time}
+                            onChange={handleTimeChange}
                             color="secondary"
                             min={0}
                             step={5}
                             max={200}
-                            style={{}}
                         />
                     </div>
                     <Divider className={classes.dialogDivider} />
@@ -295,8 +342,8 @@ function FilterDialog(props) {
             </DialogContent>
             <Divider />
             <DialogActions>
-                <Button variant="text" color="secondary">
-                    Apply
+                <Button onClick={hanldeApply} color="secondary" disabled={filteredRecipes.length === 0}>
+                    {`Show ${filteredRecipes.length} recipes`}
                 </Button>
             </DialogActions>
         </Dialog>
