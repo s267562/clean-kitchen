@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper'
-import { Box } from '@material-ui/core';
+import { Box, StepContent } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import "typeface-overpass";
 import "typeface-ubuntu";
@@ -23,26 +23,17 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
 //stepper
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import StepContent from '@material-ui/core/StepContent';
+import {useTheme } from '@material-ui/core/styles';
+import MobileStepper from '@material-ui/core/MobileStepper';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
-const useStyles2 = makeStyles((theme) => ({
+const useStyles2 = makeStyles({
   root: {
-    width: '100%',
+    maxWidth: 400,
+    flexGrow: 1,
   },
-  button: {
-    marginTop: theme.spacing(1),
-    marginRight: theme.spacing(1),
-  },
-  actionsContainer: {
-    marginBottom: theme.spacing(2),
-  },
-  resetContainer: {
-    padding: theme.spacing(3),
-  },
-}));
+});
 
 const styles = (theme) => ({
   root: {
@@ -354,10 +345,10 @@ function CustomizedDialogs() {
       <div>
         <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
           <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-            Modal title
+            Welcome!
           </DialogTitle>
           <DialogContent dividers>
-            <VerticalLinearStepper /> {/* inserimento stepper nel dialogo*/}
+            <DotsMobileStepper /> {/* inserimento stepper nel dialogo*/}
           </DialogContent>
           <DialogActions>
             <Button autoFocus onClick={handleClose} color="primary" variant="contained">
@@ -371,81 +362,87 @@ function CustomizedDialogs() {
   
 
 //stepper function
-function getSteps() {
-    return ['Welcome in Clean Kitchen!', 'Select what you want to cook', 'Browse pages', 'Set a timer'];
-  }
-  
-  function getStepContent(step) {
-    switch (step) {
-        case 0:
-            return `You wouldn't prefer to touch your screen while cooking, do you?
-            Let's see how it works`;
-          case 1:
-            return 'image';
-          case 2:
-            return `Bring your hand closer to the screen when you want to change page.`;
-          case 3:
-            return `If you would like to set a timer, just hold on the sensor for 3 seconds.`;
-          default:
-            return 'Unknown step';
-    }
-  }
-  
-  function VerticalLinearStepper() {
-    const classes = useStyles2();
-    const [activeStep, setActiveStep] = React.useState(0);
-    const steps = getSteps();
-  
-    const handleNext = () => {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
-  
-    const handleBack = () => {
-      setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-  
-    const handleReset = () => {
-      setActiveStep(0);
-    };
-  
-    return (
-      <div className={classes.root}>
-        <Stepper activeStep={activeStep} orientation="vertical">
-          {steps.map((label, index) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-              <StepContent>
-                <Typography>{getStepContent(index)}</Typography>
-                <div className={classes.actionsContainer}>
-                  <div>
-                    <Button
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      className={classes.button}
-                    >
-                      Back
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleNext}
-                      className={classes.button}
-                    >
-                      Next
-                    </Button>
-                  </div>
-                </div>
-              </StepContent>
-            </Step>
-          ))}
-        </Stepper>
-        {activeStep === steps.length && (
-        <Paper square elevation={0} className={classes.resetContainer}>
-          <Typography>You're ready to start!</Typography>
-        </Paper>
-      )}
-      </div>
-    );
-  }
+const tutorialSteps = [
+  {
+    label: 'Welcome in Clean Kitchen!',
+    body: 'You would not prefer to touch your screen while cooking, do you?',
+    imgPath:
+      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+  },
+  {
+    label: 'Select what you want to cook',
+    nody: '',
+    imgPath:
+      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+  },
+  {
+    label: 'Browse pages',
+    body: 'Bring your hand closer to the screen when you want to change page.',
+    imgPath:
+      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
+  },
+  {
+    label: 'Set a timer',
+    body: 'If you would like to set a timer, just hold on the sensor for 3 seconds.',
+    imgPath:
+      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+  }, 
+  {
+    label: 'Ask for help!',
+    body: 'Say HELP if you need suggestions',
+    imgPath:
+      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+  },
+];
+
+function DotsMobileStepper() {
+  const classes = useStyles2();
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Paper square elevation={0} className={classes.header}>
+        <Typography>{tutorialSteps[activeStep].label}</Typography>
+      </Paper>
+      <Paper square elevation={0} className={classes.header}>
+        <Typography>{tutorialSteps[activeStep].body}</Typography>
+      </Paper>
+      <img
+        className={classes.img}
+        src={tutorialSteps[activeStep].imgPath}
+        alt={tutorialSteps[activeStep].label}
+      />
+      <MobileStepper
+        variant="dots"
+        steps={5}
+        position="static"
+        activeStep={activeStep}
+        className={classes.root}
+        
+        nextButton={
+          <Button size="small" onClick={handleNext} disabled={activeStep === 4}>
+            Next
+            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+          </Button>
+        }
+        backButton={
+          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+            Back
+          </Button>
+        }
+      />
+     </div>
+  );
+}
 
 export default Home;
