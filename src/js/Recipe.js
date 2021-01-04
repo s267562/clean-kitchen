@@ -75,7 +75,7 @@ const useStyles = makeStyles({
 
 const StyledRating = withStyles({
     iconFilled: {
-        color: '#ff6d75',
+        color: '#c62828',
     },
     iconHover: {
         color: '#ff3d47',
