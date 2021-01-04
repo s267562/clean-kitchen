@@ -16,40 +16,8 @@ import Box from '@material-ui/core/Box';
 import Fab from '@material-ui/core/Fab';
 import ListItemText from '@material-ui/core/ListItemText';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
-const recipes =
-{
-    id: "r0",
-    title: "Spaghetti alla Carbonara",
-    difficulty: "Easy",
-    description: "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
-    cost: 1,
-    duration: "20",
-    overviewImg: "./res/images/carbonara.jpg",
-    yield: 4,
-    ingredients: [
-        {
-            "name": "Pasta",
-            "quantity": 400,
-            "unit": "g"
-        },
-        {
-            "name": "Guanciale",
-            "quantity": 200,
-            "unit": "g"
-        },
-        {
-            "name": "Egg's Yolk",
-            "quantity": 5,
-            "unit": ""
-        },
-        {
-            "name": "Pecorino",
-            "quantity": 100,
-            "unit": "g"
-        },
-    ]
-};
+import API from './API';
+import LoadingComponent from './LoadingComponent';
 
 const useStyles = makeStyles({
     root: {
@@ -115,44 +83,57 @@ const StyledRating = withStyles({
 })(Rating);
 
 function Recipe() {
-
     const history = useHistory();
-    const [currentYield, setYield] = useState(recipes.yield);
+    const location = useLocation();
+    const [currentYield, setYield] = useState(4);
+
+    const [id, setId] = useState('');
+    const [recipe, setRecipe] = useState(null);
+
+    useEffect(() => {
+        setId(location.search.replace('?id=', ''));
+    }, [location]);
+
+    useEffect(() => {
+        if (id !== '') {
+            API.getRecipe(id)
+                .then(recipe => {
+                    setRecipe(recipe);
+                    setYield(recipe.yield);
+                });
+        }
+    }, [id]);
 
     const handleClick = () => {
         history.push({
             pathname: '/cookingMode',
-            search: `?id=${recipes.id}&y=${currentYield}`,
-            state: { id: recipes.id, currentYield: currentYield }
+            search: `?id=${recipe.id}&y=${currentYield}`,
+            state: { id: recipe.id, currentYield: currentYield }
         });
     }
 
-    return (
-        <>
-            <RecipeOverview key={recipes.id} recipe={recipes} currentYield={currentYield} setYield={setYield} />
-            <Fab variant="extended" color='secondary' style={{
-                position: 'fixed',
-                bottom: '16px',
-                right: '16px',
-            }}
-                onClick={handleClick} >
-                Let's cook!
+    if (recipe === null) {
+        return <LoadingComponent />
+    } else {
+        return (
+            <>
+                <RecipeOverview key={recipe.id} recipe={recipe} currentYield={currentYield} setYield={setYield} />
+                <Fab variant="extended" color='secondary' style={{
+                    position: 'fixed',
+                    bottom: '16px',
+                    right: '16px',
+                }}
+                    onClick={handleClick} >
+                    Let's cook!
             </Fab>
-        </>
-    );
+            </>
+        );
+    }
 }
 
 function RecipeOverview(props) {
     const { recipe, currentYield, setYield } = props;
     const classes = useStyles();
-    const [id, setId] = useState('');
-
-    const location = useLocation();
-
-    useEffect(() => {
-        console.log("useEffect (Recipe.js) - id: " + location.state.id);
-        setId(location.state.id);
-    }, [location]);
 
     return (
         <Grid container className={classes.root}>
@@ -161,8 +142,8 @@ function RecipeOverview(props) {
                     <img src={`${recipe.overviewImg}`} alt='Carbonara' className={classes.media} />
                 </Box>
                 <RecipeHeader recipe={recipe} />
-                <Ingredients recipe={recipe} currentYield={currentYield} setYield={setYield} />
                 <Descriptions recipe={recipe} />
+                <Ingredients recipe={recipe} currentYield={currentYield} setYield={setYield} />
             </Grid>
         </Grid>
     );
@@ -259,7 +240,7 @@ function IngredientsList(props) {
             {recipe.ingredients.map((value) => {
                 return (
                     <ListItem>
-                        <ListItemText primary={<span>{Math.round((value.quantity * currentYield) / 4)}  {value.unit} <b> {value.name} </b>  </span>} />
+                        <ListItemText primary={<span>{value.quantity && Math.round((value.quantity * currentYield) / 4)}  {value.unit} <b> {value.name} </b>  </span>} />
                     </ListItem>
                 );
             })}
@@ -271,7 +252,7 @@ function Descriptions(props) {
     const { recipe } = props;
     const classes = useStyles();
     return (
-        <Box className={classes.itemTitle} style={{ marginBottom: '80px' }}>
+        <Box className={classes.itemTitle}>
             <Paper elevation={0} className={classes.paperTitle}>
                 <Typography variant='h6' style={{ paddingTop: '8px', paddingLeft: '16px', paddingRight: '16px', }}>
                     Description
