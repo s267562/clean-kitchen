@@ -14,7 +14,7 @@
             "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
             "rating": "4",
             "duration": "75",
-            "price": "Low",
+            "cost": "Low",
             "difficulty": "Medium",
             "yield": "4",
             "ingredients": [
@@ -105,7 +105,7 @@
             "overviewImg": "(url?)",
             "rating": "(maximum 5)",
             "duration": "(minutes)",
-            "price": "Low/Medium/High",
+            "cost": "Low/Medium/High",
             "difficulty": "Easy/Medium/Hard",
             "yield": "(4 as default?)",
             "ingredients": [
