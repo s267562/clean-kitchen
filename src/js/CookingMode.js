@@ -23,7 +23,7 @@ const BorderLinearProgress = withStyles((theme) => ({
     },
     bar: {
         borderRadius: 2,
-        backgroundColor: 'secondary',
+        backgroundColor: '#e57373',
     },
 }))(LinearProgress);
 
@@ -175,7 +175,7 @@ function CookingMode() { // Rule 2: call hooks in function component
                                     <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
                                 <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
                                     <Typography variant="body1"
-                                        style={{ fontSize: '0.8rem', color: 'secondary' }}>
+                                        style={{ fontSize: '0.8rem', color: '#e57373' }}>
                                         {`Step ${currentStep + 1}`}&nbsp;
                                     </Typography>
                                     <Typography variant="body1"
