@@ -14,9 +14,9 @@
             "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
             "rating": "4",
             "duration": "75",
-            "cost": "Low",
+            "cost": 1,
             "difficulty": "Medium",
-            "yield": "4",
+            "yield": 4,
             "ingredients": [
                 {
                     "name": "buttermilk",
@@ -40,7 +40,7 @@
                 },
                 {
                     "name": "garlic powder",
-                    "quantity": "1/2",
+                    "quantity": "0.5",
                     "unit": "tsp"
                 },
                 {
@@ -60,7 +60,7 @@
                 },
                 {
                     "name": "olive oil cooking spray (as needed)",
-                    "quantity": "",
+                    
                     "unit": ""
                 },
                 {
