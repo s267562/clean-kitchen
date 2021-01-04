@@ -6,6 +6,8 @@ import { Rating } from '@material-ui/lab';
 import EuroIcon from '@material-ui/icons/Euro';
 import TimerIcon from '@material-ui/icons/Timer';
 import TuneIcon from '@material-ui/icons/Tune';
+import API from './API';
+import LoadingComponent from './LoadingComponent';
 
 const recipes = [
     {
@@ -97,6 +99,15 @@ const useStyles = makeStyles(() => ({
 }));
 
 function SearchResults() {
+    const [searchResults, setSearchResults] = useState(null);
+
+    useEffect(() => {
+        API.getSearchResults('meat')
+            .then(recipes => {
+                // console.log("Search results: " + JSON.stringify(recipes));
+                setSearchResults(recipes);
+            })
+    }, []);
 
     const location = useLocation();
     const [query, setQuery] = useState('');
@@ -106,25 +117,29 @@ function SearchResults() {
         setQuery(location.state?.query);
     }, [location]);
 
-    return (
-        <Box
-            display="flex"
-            flexDirection="column"
-            style={{ marginBottom: "8px" }}
-        >
-            <Button
-                style={{ padding: '16px', margin: 'auto' }}
-                startIcon={<TuneIcon />}
+    if (searchResults === null) {
+        return <LoadingComponent />
+    } else {
+        return (
+            <Box
+                display="flex"
+                flexDirection="column"
+                style={{ marginBottom: "8px" }}
             >
-                Filter
+                <Button
+                    style={{ padding: '16px', margin: 'auto' }}
+                    startIcon={<TuneIcon />}
+                >
+                    Filter
             </Button>
-            {
-                recipes.map((recipe) =>
-                    <Recipe key={recipe.id} recipe={recipe} />
-                )
-            }
-        </Box>
-    );
+                {
+                    recipes.map((recipe) =>
+                        <Recipe key={recipe.id} recipe={recipe} />
+                    )
+                }
+            </Box>
+        );
+    }
 }
 
 function Recipe(props) {
@@ -134,9 +149,9 @@ function Recipe(props) {
 
     const onCardClick = () => {
         history.push({
-          pathname: '/recipe',
-          search: `?id=${recipe.id}`,
-          state: { id: recipe.id }
+            pathname: '/recipe',
+            search: `?id=${recipe.id}`,
+            state: { id: recipe.id }
         });
     }
 
