@@ -84,6 +84,7 @@ function SearchResults() {
     } else {
         return (
             <div style={{ height: 'calc(100% - 128px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: '16px', marginLeft: '16px' }}>
+                <img src='/res/images/noresults.png' alt='no results' />
                 <Typography variant="h4">No results found</Typography>
                 <Typography style={{ color: '#757575', marginTop: '16px', textAlign: 'center'}} >Try adjusting your search or filter to find what you're searching for.</Typography>
             </div>
