@@ -12,7 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 const StyledRating = withStyles({
     iconFilled: {
-        color: '#ff6d75',
+        color: '#c62828',
     },
     iconHover: {
         color: '#ff3d47',
@@ -192,7 +192,7 @@ function FilterDialog(props) {
         setOpen(false);
     }
 
-    const hanldeApply = () => {
+    const handleApply = () => {
         setResult(filteredRecipes);
         setOpen(false);
     }
@@ -251,12 +251,17 @@ function FilterDialog(props) {
 
     return (
         <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-
-            <DialogTitle>
+            <DialogActions style={{justifyContent: 'space-between', paddingLeft: '24px', paddingRight: '24px'}}>
                 <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
                     <CloseIcon />
                 </IconButton>
-            </DialogTitle>
+                <Typography variant='overline' style={{ fontSize: '1.1rem' }}>
+                    Filter
+                </Typography>
+                <Button onClick={console.log("reset")} color="secondary">
+                    Reset
+                </Button>
+            </DialogActions>
             <DialogContent>
                 <Box
                     display="flex"
@@ -340,9 +345,9 @@ function FilterDialog(props) {
                     </FormControl>
                 </Box>
             </DialogContent>
-            <Divider />
-            <DialogActions>
-                <Button onClick={hanldeApply} color="secondary" disabled={filteredRecipes.length === 0}>
+            <DialogActions style={{justifyContent: 'center', padding: '24px',}}>
+                <Button onClick={handleApply} variant='contained' size="large" color="secondary" disabled={filteredRecipes.length === 0}
+                style={{borderRadius: '25px', color: '#fff',}}>
                     {`Show ${filteredRecipes.length} recipes`}
                 </Button>
             </DialogActions>
