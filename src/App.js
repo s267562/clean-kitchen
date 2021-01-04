@@ -2,7 +2,7 @@ import { Component, useState, useEffect } from 'react';
 import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch, useLocation, useHistory } from 'react-router-dom';
 import { AppBar, Toolbar, IconButton, Dialog, Typography, Menu, MenuItem, Button, Box, Icon, DialogTitle, DialogContent } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
 import SearchResults from './js/SearchResults';
@@ -26,6 +26,11 @@ const settingOptions = [
   'Setting #1',
   'Setting #2',
 ];
+
+
+const useStyles = makeStyles({
+  paper: { borderRadius: 20 }
+});
 
 class App extends Component {
 
@@ -299,13 +304,14 @@ function SearchBar(props) {
 
 function TutorialReminderDialog(props) {
   const { isOpenReminder, setOpenReminder } = props;
+  const classes = useStyles();
 
   const handleClose = () => {
     setOpenReminder(false);
   }
 
   return (
-    <Dialog open={isOpenReminder} onBackdropClick={handleClose}>
+    <Dialog open={isOpenReminder} onBackdropClick={handleClose} classes={{ paper: classes.paper }}>
       <DialogTitle disableTypography style={{ margin: '0', paddingBottom: '0' }}>
         <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
           <CloseIcon />
@@ -334,7 +340,7 @@ function TutorialReminderDialog(props) {
             background: '#eeeeee', 
             borderRadius: '25px'
           }}>
-          <Typography variant='overline' align='center' > 'cancel'<br /> 'next'<br /> 'back'<br /> 'help'</Typography>
+          <Typography variant='overline' align='center' > 'next'<br /> 'back'<br /> 'help'</Typography>
         </div>
       </DialogContent>
     </Dialog >
