@@ -1,5 +1,5 @@
-import { React, useEffect, useState } from 'react';
-import { Box, Card, CardMedia, Divider, Grid, Typography, Button } from '@material-ui/core';
+import { React, useEffect, useState, forwardRef } from 'react';
+import { Box, Card, CardMedia, Divider, Grid, Typography, Button, Slide, Dialog, IconButton, Slider, DialogTitle, DialogContent, DialogActions, FormControl, FormGroup, Checkbox, FormControlLabel } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Rating } from '@material-ui/lab';
@@ -8,7 +8,7 @@ import TimerIcon from '@material-ui/icons/Timer';
 import TuneIcon from '@material-ui/icons/Tune';
 import API from './API';
 import LoadingComponent from './LoadingComponent';
-
+import CloseIcon from '@material-ui/icons/Close';
 
 const StyledRating = withStyles({
     iconFilled: {
@@ -38,12 +38,18 @@ const useStyles = makeStyles(() => ({
         borderRadius: '8px',
         boxShadow: '0px 0px 16px rgba(34, 35, 58, 0.3)',
     },
+
+    dialogDivider: {
+        marginTop: '16px',
+        marginBottom: '16px',
+    }
 }));
 
 function SearchResults() {
     const location = useLocation();
-    const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState(null);
+    const [query, setQuery] = useState('');
+    const [filterOpen, setFilterOpen] = useState(false);
 
     useEffect(() => {
         //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
@@ -59,34 +65,42 @@ function SearchResults() {
         }
     }, [query]);
 
+    const handleFilterClick = () => {
+        setFilterOpen(true);
+    }
+
     if (searchResults === null) {
         return <LoadingComponent />
     } else if (searchResults.length > 0) {
         return (
-            <Box
-                display="flex"
-                flexDirection="column"
-                style={{ marginBottom: "8px" }}
-            >
-                <Button
-                    style={{ padding: '16px', margin: 'auto' }}
-                    startIcon={<TuneIcon />}
+            <>
+                <Box
+                    display="flex"
+                    flexDirection="column"
+                    style={{ marginBottom: "8px" }}
                 >
-                    Filter
-            </Button>
-                {
-                    searchResults.map((recipe) =>
-                        <Recipe key={recipe.id} recipe={recipe} />
-                    )
-                }
-            </Box>
+                    <Button
+                        style={{ padding: '16px', margin: 'auto' }}
+                        startIcon={<TuneIcon />}
+                        onClick={handleFilterClick}
+                    >
+                        Filter
+                    </Button>
+                    {
+                        searchResults.map((recipe) =>
+                            <Recipe key={recipe.id} recipe={recipe} />
+                        )
+                    }
+                </Box>
+                <FilterDialog open={filterOpen} setOpen={setFilterOpen} />
+            </>
         );
     } else {
         return (
             <div style={{ height: 'calc(100% - 128px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: '16px', marginLeft: '16px' }}>
                 <img src='/res/images/noresults.png' alt='no results' />
                 <Typography variant="h4">No results found</Typography>
-                <Typography style={{ color: '#757575', marginTop: '16px', textAlign: 'center'}} >Try adjusting your search or filter to find what you're searching for.</Typography>
+                <Typography style={{ color: '#757575', marginTop: '16px', textAlign: 'center' }} >Try adjusting your search or filter to find what you're searching for.</Typography>
             </div>
         )
     }
@@ -139,5 +153,158 @@ function Recipe(props) {
         </Card >
     );
 }
+
+const CustomSlider = withStyles({
+    root: {
+        height: 8,
+    },
+    thumb: {
+        height: 24,
+        width: 24,
+        backgroundColor: '#fff',
+        border: '1px solid currentColor',
+        marginTop: -8,
+        marginLeft: -12,
+        '&:focus, &:hover, &$active': {
+            boxShadow: 'none',
+        },
+    },
+    track: {
+        height: 4,
+    },
+    rail: {
+        height: 4,
+    },
+
+})(Slider);
+
+function FilterDialog(props) {
+    const classes = useStyles();
+    const { open, setOpen } = props;
+    const [value, setValue] = useState([15, 60]);
+    const [difficulty, setDifficulty] = useState({ easy: false, medium: false, hard: false });
+    const [cost, setCost] = useState({ low: false, medium: false, high: false });
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const handleDifficultyChange = (event) => {
+        setDifficulty({ ...difficulty, [event.target.name]: event.target.checked });
+    };
+
+    const handleCostChange = (event) => {
+        setCost({ ...cost, [event.target.name]: event.target.checked });
+    };
+
+    return (
+        <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+
+            <DialogTitle>
+                <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                    <CloseIcon />
+                </IconButton>
+            </DialogTitle>
+            <DialogContent>
+                <Box
+                    display="flex"
+                    flexDirection="column"
+                >
+                    <Typography variant="overline" style={{ fontSize: '1.1rem' }}>
+                        Time range
+                    </Typography>
+                    <Typography variant="overline" style={{ color: '#757575' }}>
+                        {`${value[0]} - ${value[1]}${value[1] === 200 && '+' || ''} min.`}
+                    </Typography>
+                    <div style={{ paddingLeft: '12px', paddingRight: '12px' }}>
+                        <CustomSlider
+                            value={value}
+                            onChange={handleChange}
+                            color="secondary"
+                            min={0}
+                            step={5}
+                            max={200}
+                            style={{}}
+                        />
+                    </div>
+                    <Divider className={classes.dialogDivider} />
+
+                    <Typography variant="overline" style={{ fontSize: '1.1rem' }}>
+                        Difficulty
+                    </Typography>
+                    <FormControl component="fieldset">
+                        <FormGroup>
+                            <FormControlLabel
+                                control={<Checkbox checked={difficulty.easy} onChange={handleDifficultyChange} name="easy" />}
+                                label="Easy"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={difficulty.medium} onChange={handleDifficultyChange} name="medium" />}
+                                label="Medium"
+                            />
+                            <FormControlLabel
+                                control={<Checkbox checked={difficulty.hard} onChange={handleDifficultyChange} name="hard" />}
+                                label="Hard"
+                            />
+                        </FormGroup>
+                    </FormControl>
+                    <Divider className={classes.dialogDivider} />
+
+                    <Typography variant="overline" style={{ fontSize: '1.1rem' }}>
+                        Cost
+                    </Typography>
+                    <FormControl component="fieldset">
+                        <FormGroup>
+                            <Box display="flex">
+                                <Box display="flex" flexDirection="column">
+                                    <FormControlLabel
+                                        control={<Checkbox checked={cost.low} onChange={handleCostChange} name="low" />}
+                                        label="Low"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={cost.medium} onChange={handleCostChange} name="medium" />}
+                                        label="Medium"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={cost.high} onChange={handleCostChange} name="high" />}
+                                        label="High"
+                                    />
+                                </Box>
+                                <Box display="flex" flexDirection="column">
+                                    <div style={{ height: '42px', display: 'flex', alignItems: 'center' }}>
+                                        <EuroIcon color="secondary" fontSize="small" />
+                                    </div>
+                                    <div style={{ height: '42px', display: 'flex', alignItems: 'center' }}>
+                                        <EuroIcon color="secondary" fontSize="small" />
+                                        <EuroIcon color="secondary" fontSize="small" />
+                                    </div>
+                                    <div style={{ height: '42px', display: 'flex', alignItems: 'center' }}>
+                                        <EuroIcon color="secondary" fontSize="small" />
+                                        <EuroIcon color="secondary" fontSize="small" />
+                                        <EuroIcon color="secondary" fontSize="small" />
+                                    </div>
+                                </Box>
+                            </Box>
+                        </FormGroup>
+                    </FormControl>
+                </Box>
+            </DialogContent>
+            <Divider />
+            <DialogActions>
+                <Button variant="text" color="secondary">
+                    Apply
+                </Button>
+            </DialogActions>
+        </Dialog>
+    );
+}
+
+const Transition = forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default SearchResults;
