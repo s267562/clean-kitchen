@@ -1,7 +1,7 @@
 import '../css/CookingMode.css';
 import { React, useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { Button, Typography, Dialog, Box, LinearProgress, Grid, List, ListItem } from '@material-ui/core';
+import { Button, Typography, Dialog, Box, LinearProgress, Grid, List, ListItem, DialogContent, DialogActions } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
@@ -41,6 +41,7 @@ const useStyles = makeStyles({
         objectFit: 'cover',
         objectPosition: 'center',
     },
+    paper: { borderRadius: 20 }
 });
 
 function CookingMode() { // Rule 2: call hooks in function component
@@ -72,7 +73,7 @@ function CookingMode() { // Rule 2: call hooks in function component
     const [success, setSuccess] = useState(false);
     const commands = [
         {
-            command: ['cancel', 'next', 'back', 'help', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
+            command: ['next', 'back', 'help', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
             callback: ({ command }) => {
                 setSuccess(true); /* successfull speech recognition */
                 setTimeout(function () {
@@ -275,8 +276,10 @@ function Stepper(props) {
 
 function SpeechRecognitionDialog(props) {
     const { listening, transcript, open, success, exitedFun } = props;
+    const classes = useStyles();
+
     return (
-        <Dialog open={open} fullWidth={true} onExited={() => exitedFun()}>
+        <Dialog open={open} fullWidth={true} onExited={() => exitedFun()} classes={{ paper: classes.paper }}>
             <Box
                 display="flex"
                 flexDirection="column"
@@ -304,6 +307,7 @@ function DoneDialog(props) {
     const { done, setDone } = props;
 
     const history = useHistory();
+    const classes = useStyles();
 
     const handleExit = () => {
         history.push({
@@ -316,42 +320,34 @@ function DoneDialog(props) {
     }
 
     return (
-        <Dialog open={done}
-            fullWidth
-        >
-            <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                p={3}
-            >
-                <Typography variant='h5' align='center' paragraph> Well done! <br /> Enjoy your meal! </Typography>
-                <Typography variant='body1' align='center' paragraph> Say (or press) $ to go home, <br /> or say (or press) $ to keep cooking. </Typography>
-                <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-evenly' }}>
-                    <Button variant='outlined' color='secondary' size="small" onClick={handleClose}>
-                        Undo
+        <Dialog open={done} fullWidth classes={{ paper: classes.paper }} >
+            <DialogContent style={{ marginTop: '16px' }}>
+                <Typography variant='h5' align='center' style={{ marginBottom: '26px' }}> Well done! <br /> Enjoy your meal! </Typography>
+                <Typography variant='body1' align='center' paragraph> Press HOME to go home, <br /> or press UNDO to keep cooking. </Typography>
+            </DialogContent>
+            <DialogActions style={{ padding: '16px' }}>
+                <Button variant='text' color='secondary' onClick={handleClose}>
+                    Undo
                 </Button>
-                    <Button variant='contained' color='secondary' size="small" onClick={handleExit}>
-                        Home
+                <Button variant='contained' color='secondary' onClick={handleExit} style={{ color: 'white', borderRadius: '25px' }}>
+                    Home
                 </Button>
-                </div>
-            </Box >
+            </DialogActions>
+
         </Dialog >
     );
 }
 
 function HelpDialog(props) {
     const { open, setHelp } = props;
+    const classes = useStyles();
 
     const handleClose = () => {
         setHelp(false);
     }
 
     return (
-        <Dialog open={open}
-            fullWidth
-        >
+        <Dialog open={open} fullWidth classes={{ paper: classes.paper }} >
             <Box
                 display="flex"
                 flexDirection="column"
