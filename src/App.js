@@ -1,8 +1,8 @@
-import { Component, useState, useEffect } from 'react';
+import { Component, useState, useEffect, forwardRef } from 'react';
 import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch, useLocation, useHistory } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Dialog, Typography, Menu, MenuItem, Button, Box, Icon, DialogTitle, DialogContent } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { AppBar, Toolbar, IconButton, Dialog, Typography, Menu, MenuItem, Button, Box, DialogTitle, DialogContent, Slide, Switch as SwitchMaterial } from '@material-ui/core';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
 import SearchResults from './js/SearchResults';
@@ -21,10 +21,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import MicIcon from '@material-ui/icons/Mic';
 
-const settingOptions = [
-  'Setting #0',
-  'Setting #1',
-  'Setting #2',
+const options = [
+  'Settings',
+  'Tutorial',
 ];
 
 
@@ -38,7 +37,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      anchorEl: null
+      anchorEl: null,
     };
 
   }
@@ -91,6 +90,7 @@ function MyAppBar(props) {
   const [loc, setLoc] = useState(null);
   const [queryParam, setQueryParam] = useState('');
   const [isOpenReminder, setOpenReminder] = useState(true);
+  const [isOpenSettings, setOpenSettings] = useState(false);
 
   useEffect(() => {
     setLoc(location);
@@ -105,6 +105,18 @@ function MyAppBar(props) {
     setAnchorEl(null);
   };
 
+  const handleOptionClick = (event, index) => {
+    if (index === 0) {
+      /* settings */
+      setOpenSettings(true);
+    } else if (index === 1) {
+      /* show tutorial */
+
+    }
+
+    setAnchorEl(null);
+  };
+
   const handleBack = () => {
     if (loc !== null && loc.pathname.toLowerCase() === '/searchresults')
       history.push({ pathname: '/' });
@@ -115,6 +127,7 @@ function MyAppBar(props) {
   const handleExit = () => {
     history.goBack();
   }
+
   const handleTutorialReminder = () => {
     setOpenReminder(true);
   }
@@ -138,9 +151,12 @@ function MyAppBar(props) {
           </Typography>
           {
             (loc !== null && loc.pathname.toLowerCase() !== '/cookingmode') ?
-              <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
-                <MoreVertIcon />
-              </IconButton>
+              <>
+                <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
+                  <MoreVertIcon />
+                </IconButton>
+                <SettingsDialog isOpenSettings={isOpenSettings} setOpenSettings={setOpenSettings} />
+              </>
               :
               <>
                 <IconButton edge="end" color="inherit" onClick={handleTutorialReminder} disableFocusRipple={true}>
@@ -156,10 +172,10 @@ function MyAppBar(props) {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            {settingOptions.map((option, index) => (
+            {options.map((option, index) => (
               <MenuItem
                 key={option}
-                onClick={(event) => handleClose(event, index)}
+                onClick={(event) => handleOptionClick(event, index)}
               >
                 {option}
               </MenuItem>
@@ -333,11 +349,11 @@ function TutorialReminderDialog(props) {
         <div
           style={{
             display: 'flex',
-            paddingTop: '8px', 
-            paddingBottom: '8px', 
-            paddingLeft: '46px', 
-            paddingRight: '46px', 
-            background: '#eeeeee', 
+            paddingTop: '8px',
+            paddingBottom: '8px',
+            paddingLeft: '46px',
+            paddingRight: '46px',
+            background: '#eeeeee',
             borderRadius: '25px'
           }}>
           <Typography variant='overline' align='center' > 'next'<br /> 'back'<br /> 'help'</Typography>
@@ -346,5 +362,85 @@ function TutorialReminderDialog(props) {
     </Dialog >
   );
 }
+
+function SettingsDialog(props) {
+  const { isOpenSettings, setOpenSettings } = props;
+  const [state, setState] = useState(true);
+
+  const handleClose = () => {
+    setOpenSettings(false);
+  }
+
+  const handleSave = () => {
+    handleClose();
+  }
+
+  const handleChange = (event) => {
+    setState(event.target.checked);
+  };
+
+  return (
+    <Dialog fullScreen open={isOpenSettings} onClose={handleClose} TransitionComponent={Transition}>
+
+      <DialogTitle>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+            <CloseIcon />
+          </IconButton>
+          <Button onClick={handleSave} color="secondary">
+            Save
+        </Button>
+        </div>
+      </DialogTitle>
+      <DialogContent>
+        <Box
+          display="flex"
+          flexDirection="column"
+        >
+          <Typography variant="overline" style={{ fontSize: '1.1rem' }}>
+            Theme
+          </Typography>
+          <Typography variant="overline" style={{ color: '#757575' }}>
+            light
+          </Typography>
+          <Divider style={{ marginTop: '16px', marginBottom: '16px' }} />
+
+          <Typography variant="overline" style={{ fontSize: '1.1rem' }}>
+            Language
+          </Typography>
+          <Typography variant="overline" style={{ color: '#757575' }}>
+            english
+          </Typography>
+          <Divider style={{ marginTop: '16px', marginBottom: '16px' }} />
+
+          <Box display='flex' alignItems='center'>
+            <Box display='flex' flexDirection='column'>
+              <Typography variant="overline" style={{ fontSize: '1.1rem' }}>
+                Reminder
+              </Typography>
+              <Typography variant="overline" style={{ lineHeight: '1.6em' }}>
+                show voice commands reminder when you start cooking
+              </Typography>
+            </Box>
+            <Divider orientation='vertical' style={{ height: '64px', marginRight: '16px', marginLeft: '16px' }} />
+            <SwitchMaterial
+              checked={state}
+              onChange={handleChange}
+              style={{ width: '20px', height: '20px' }}
+              name="checkedA"
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </Box>
+        
+        </Box>
+      </DialogContent>
+
+    </Dialog>
+  );
+}
+
+const Transition = forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default App;
