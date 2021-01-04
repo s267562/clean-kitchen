@@ -1,5 +1,5 @@
 import '../css/CookingMode.css';
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { Button, Typography, Dialog, Box, LinearProgress, Grid, List, ListItem } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -8,100 +8,10 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import MicIcon from '@material-ui/icons/Mic';
 import SwipeableViews from 'react-swipeable-views';
 import { useHistory } from 'react-router-dom';
+import API from './API';
+import LoadingComponent from './LoadingComponent';
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
-
-
-const recipe_test = {
-    id: "r0",
-    title: "Crispy Oven-Fried Chicken",
-    description: "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
-    overviewImg: "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
-    rating: "4",
-    duration: "75",
-    price: "Low",
-    difficulty: "Medium",
-    yield: "4",
-    ingredients: [
-        {
-            name: "buttermilk",
-            quantity: "237",
-            unit: "milliliters"
-        },
-        {
-            name: "chicken legs",
-            quantity: "8",
-            unit: ""
-        },
-        {
-            name: "all-purpose flour",
-            quantity: "63",
-            unit: "g"
-        },
-        {
-            name: "paprika",
-            quantity: "1",
-            unit: "tsp"
-        },
-        {
-            name: "garlic powder",
-            quantity: "1/2",
-            unit: "tsp"
-        },
-        {
-            name: "baking powder",
-            quantity: "1",
-            unit: "tsp"
-        },
-        {
-            name: "fine sea salt",
-            quantity: "1",
-            unit: "tsp"
-        },
-        {
-            name: "black pepper",
-            quantity: "1",
-            unit: "tsp"
-        },
-        {
-            name: "olive oil cooking spray (as needed)",
-            quantity: "",
-            unit: ""
-        },
-        {
-            name: "honey",
-            quantity: "170",
-            unit: "grams"
-        }
-    ],
-    directionsNumber: 2,
-    directions: [
-        {
-            description: "Preheat the oven to 425°F",
-            image: "",
-            timer: "",
-            ingredients: []
-        },
-        {
-            description: "Place the chicken in a shallow dish and pour the buttermilk over the top. With your hands, rub the buttermilk into the chicken so it is covered. Allow the chicken to sit at room temperature for 30 minutes.",
-            image: "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
-            timer: "30",
-            ingredients: [
-                {
-                    "name": "buttermilk",
-                    "quantity": "237",
-                    "unit": "milliliters"
-                },
-                {
-                    "name": "chicken legs",
-                    "quantity": "8",
-                    "unit": ""
-                }
-            ]
-        }
-    ],
-    helpWeyword: ""
-}
 
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
@@ -135,16 +45,16 @@ const useStyles = makeStyles({
 
 function CookingMode() { // Rule 2: call hooks in function component
 
-    const classes = useStyles();
+    const [recipe, setRecipe] = useState(null);
 
-    /* API CALL - set up
-    React.useEffect(() => {    
-        fetch(`backend url`)
-          .then(results => results.json())
-          .then(data => {
-              /// DO SOMETHING
-          });
-    }, []); */
+    useEffect(() => {
+        API.getRecipe('r0')
+            .then(recipe => {
+                setRecipe(recipe);
+            })
+    }, []);
+
+    const classes = useStyles();
 
     /* Speech recognition */
     const [success, setSuccess] = useState(false);
@@ -197,7 +107,7 @@ function CookingMode() { // Rule 2: call hooks in function component
     /* Stepper */
     const [currentStep, setCurrentStep] = useState(0);
     const handleNext = () => {
-        if ((currentStep + 1) !== recipe_test.directionsNumber)
+        if ((currentStep + 1) !== recipe?.directionsNumber)
             setCurrentStep(currentStep + 1);
         else
             setDone(true);
@@ -222,56 +132,63 @@ function CookingMode() { // Rule 2: call hooks in function component
     const [done, setDone] = useState(false);
 
     /* Render */
-    return (<>
-        <Box
-            display='flex'
-            flexDirection='column'
-            style={{ overflowY: 'scroll', background: '#fafafa', height: 'calc(100% - 56px)' }}>
-            <SwipeableViews
-                enableMouseEvents
-                index={currentStep}
-                style={{ paddingBottom: '52px' }}
-                onChangeIndex={handleStepChange} >
-                {recipe_test.directions.map((direction, index) => (
-                    <Grid key={index} container className={classes.root} style={{ height: '100%' }}>
-                        {direction.image &&
-                            <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
-                        <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
-                            <Typography variant="body1"
-                                style={{ fontSize: '0.8rem', color: '#ff6d75' }}>
-                                {`Step ${currentStep + 1}`}&nbsp;
-                            </Typography>
-                            <Typography variant="body1"
-                                style={{ color: '#757575', fontSize: '0.8rem' }}>
-                                {` of ${recipe_test.directionsNumber}`}
-                            </Typography>
-                        </Box>
+    if (recipe === null) {
+        // Render loading state ...
+        return <LoadingComponent />
+    } else {
+        return (
+            // Render real UI ...
+            <>
+                <Box
+                    display='flex'
+                    flexDirection='column'
+                    style={{ overflowY: 'scroll', background: '#fafafa', height: 'calc(100% - 56px)' }}>
+                    <SwipeableViews
+                        enableMouseEvents
+                        index={currentStep}
+                        style={{ paddingBottom: '52px' }}
+                        onChangeIndex={handleStepChange} >
+                        {recipe?.directions.map((direction, index) => (
+                            <Grid key={index} container className={classes.root} style={{ height: '100%' }}>
+                                {direction.image &&
+                                    <img src={direction.image} className={classes.media} alt={`step ${currentStep}`} />}
+                                <Box aria-label="step number" style={{ display: 'flex', flexDirection: 'row', marginTop: '16px', marginBottom: '8px' }}>
+                                    <Typography variant="body1"
+                                        style={{ fontSize: '0.8rem', color: '#ff6d75' }}>
+                                        {`Step ${currentStep + 1}`}&nbsp;
+                                    </Typography>
+                                    <Typography variant="body1"
+                                        style={{ color: '#757575', fontSize: '0.8rem' }}>
+                                        {` of ${recipe?.directionsNumber}`}
+                                    </Typography>
+                                </Box>
 
-                        <Typography variant="body1">
-                            {direction.description}
-                        </Typography>
+                                <Typography variant="body1">
+                                    {direction.description}
+                                </Typography>
 
-                        {direction.ingredients.length > 0 &&
-                            <>
-                                <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
-                                    INGREDIENTS
-                            </Typography>
-                                <List dense style={{ paddingTop: '0px' }}>
-                                    {direction.ingredients.map((ingredient) =>
-                                        <ListItem key={ingredient.name}>
-                                            <Ingredient ingredient={ingredient} />
-                                        </ListItem>)}
-                                </List>
-                            </>}
-                    </Grid >
-                ))}
-            </SwipeableViews>
-            <Stepper directionsNumber={recipe_test.directionsNumber} currentStep={currentStep} next={handleNext} back={handleBack} setDone={setDone} />
-        </Box>
-        <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
-        <DoneDialog done={done} />
-    </>
-    )
+                                {direction.ingredients.length > 0 &&
+                                    <>
+                                        <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
+                                            INGREDIENTS
+                                        </Typography>
+                                        <List dense style={{ paddingTop: '0px' }}>
+                                            {direction.ingredients.map((ingredient) =>
+                                                <ListItem key={ingredient.name}>
+                                                    <Ingredient ingredient={ingredient} />
+                                                </ListItem>)}
+                                        </List>
+                                    </>}
+                            </Grid >
+                        ))}
+                    </SwipeableViews>
+                    <Stepper directionsNumber={recipe?.directionsNumber} currentStep={currentStep} next={handleNext} back={handleBack} setDone={setDone} />
+                </Box>
+                <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
+                <DoneDialog done={done} />
+            </>
+        );
+    }
 }
 
 function Ingredient(props) {
