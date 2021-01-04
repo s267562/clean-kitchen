@@ -1,7 +1,18 @@
 /* temporary solution: use CSV file */
 const URL = '/res/json/'; // TODO change to backend url
 const RECIPES = 'recipes.json'; // TODO change to 'recipes' (?)
-const SEARCHES = 'searches.json'; // TODO change to 'searches' (?)
+
+async function getRecipes() {
+    const url = `${URL}${RECIPES}`;
+    const response = await fetch(url);
+    const recipes = await response.json();
+    if (response.ok) {
+        return recipes.recipes; // TODO remove .recipes 
+    } else {
+        let err = { status: response.status, errorObj: recipes };
+        throw err;
+    }
+}
 
 async function getRecipe(recipeId) {
     // const url = `${URL}/recipe/` + recipeId;
@@ -16,24 +27,47 @@ async function getRecipe(recipeId) {
 
     return getRecipes()
         .then((recipes) => {
-            console.log(recipes);
             return recipes
-                    .filter( recipe => recipe.id === recipeId)
-                    [0];
+                .filter(recipe => recipe.id === recipeId)
+            [0];
         });
 }
 
-async function getRecipes() {
-    const url = `${URL}${RECIPES}`;
-    const response = await fetch(url);
-    const recipes = await response.json();
-    if (response.ok) {
-        return recipes.recipes; // TODO remove .recipes 
-    } else {
-        let err = { status: response.status, errorObj: recipes };
-        throw err;
-    }
+async function getSearchResults(keyword) {
+    // const url = `${URL}/searchRecipes/` + keyword;
+    // const response = await fetch(url);
+    // const recipes = await response.json();
+    // if (response.ok) {
+    //     return recipes;
+    // } else {
+    //     let err = { status: response.status, errorObj: recipe };
+    //     throw err;
+    // }
+
+    return getRecipes()
+        .then((recipes) => {
+            let results = recipes
+                .filter(recipe => {
+                    let filteredKeywords = recipe.keywords.filter(k => k.includes(keyword));
+                    return filteredKeywords.length > 0;
+                });
+
+            return results;
+        });
 }
 
-const API = { getRecipe, getRecipes, };
+async function getSuggestedRecipes(category) {
+    return getRecipes()
+        .then((recipes) => {
+            let suggestedRecipes = recipes
+                .filter(recipe => {
+                    let isSuggested = recipe.suggestedCategory.includes(category);
+                    return isSuggested;
+                });
+
+            return suggestedRecipes;
+        });
+}
+
+const API = { getRecipe, getRecipes, getSearchResults, getSuggestedRecipes };
 export default API;

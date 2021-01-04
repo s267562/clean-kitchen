@@ -2,6 +2,13 @@
     "recipes": [
         {
             "id": "r0",
+            "keywords": [
+                "meat",
+                "chicken",
+                "fried",
+                "crispy oven fried chicken"
+            ],
+            "suggestedCategory": ["popular", "editor"],
             "title": "Crispy Oven-Fried Chicken",
             "description": "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
             "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
@@ -92,6 +99,8 @@
         },
         {
             "id": "r1",
+            "keywords": [],
+            "suggested": [],
             "title": "",
             "description": "(short decription)",
             "overviewImg": "(url?)",
@@ -117,7 +126,7 @@
                             "name": "",
                             "quantity": "(optional)",
                             "unit": "(optional)"
-                        } 
+                        }
                     ]
                 }
             ],
