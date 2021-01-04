@@ -105,7 +105,7 @@ function MyAppBar(props) {
   }
 
   const handleExit = () => {
-    history.push({ pathname: '/' });
+    history.goBack();
   }
 
   return (

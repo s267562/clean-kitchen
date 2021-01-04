@@ -7,7 +7,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import MicIcon from '@material-ui/icons/Mic';
 import SwipeableViews from 'react-swipeable-views';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import API from './API';
 import LoadingComponent from './LoadingComponent';
 
@@ -45,22 +45,34 @@ const useStyles = makeStyles({
 
 function CookingMode() { // Rule 2: call hooks in function component
 
+    const classes = useStyles();
+    const location = useLocation();
+
     const [recipe, setRecipe] = useState(null);
+    const [currentYield, setCurrentYield] = useState(4);
+    const [help, setHelp] = useState(false);
 
     useEffect(() => {
-        API.getRecipe('r0')
+        const queryParams = location.search.replace('?', '').split('&');
+        const id = queryParams[0].replace('id=', '');
+        setCurrentYield(queryParams[1].replace('y=', ''));
+
+        API.getRecipe(id)
             .then(recipe => {
                 setRecipe(recipe);
             })
+    }, [location]);
+
+    useEffect(() => {
+
     }, []);
 
-    const classes = useStyles();
 
     /* Speech recognition */
     const [success, setSuccess] = useState(false);
     const commands = [
         {
-            command: ['cancel', 'next', 'back', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
+            command: ['cancel', 'next', 'back', 'help', 'up', 'down'], /* I grouped all together because I want to add a short delay (TIMEOUT) before performing the command --> no repetition of code (delay) */
             callback: ({ command }) => {
                 setSuccess(true); /* successfull speech recognition */
                 setTimeout(function () {
@@ -71,11 +83,14 @@ function CookingMode() { // Rule 2: call hooks in function component
                         case 'back':
                             handleBack();
                             break;
+                        case 'help':
+                            handleHelp();
+                            break;
                         case 'up':
-                            up();
+                            handleUp();
                             break;
                         case 'down':
-                            down();
+                            handleDown();
                             break;
                         default:
                             break;
@@ -113,7 +128,8 @@ function CookingMode() { // Rule 2: call hooks in function component
             setDone(true);
     };
     const handleBack = () => {
-        setCurrentStep(currentStep - 1);
+        if (currentStep > 0)
+            setCurrentStep(currentStep - 1);
     };
 
     /* swipeableViews */
@@ -122,11 +138,15 @@ function CookingMode() { // Rule 2: call hooks in function component
     };
 
     /* Util functions */
-    const up = () => {
+    const handleUp = () => {
         // TODO - scroll up
     }
-    const down = () => {
+    const handleDown = () => {
         // TODO - scroll down
+    }
+
+    const handleHelp = () => {
+        setHelp(true);
     }
 
     const [done, setDone] = useState(false);
@@ -169,13 +189,18 @@ function CookingMode() { // Rule 2: call hooks in function component
 
                                 {direction.ingredients.length > 0 &&
                                     <>
-                                        <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem', marginTop: '16px' }}>
-                                            INGREDIENTS
-                                        </Typography>
+                                        <div style={{ marginTop: '16px' }}>
+                                            <Typography variant="overline" style={{ fontSize: '0.7rem', marginTop: '16px' }}>
+                                                INGREDIENTS -&nbsp;
+                                            </Typography>
+                                            <Typography variant="overline" style={{ color: '#757575', fontSize: '0.7rem' }}>
+                                                {`${currentYield} servings`}
+                                            </Typography>
+                                        </div>
                                         <List dense style={{ paddingTop: '0px' }}>
                                             {direction.ingredients.map((ingredient) =>
-                                                <ListItem key={ingredient.name}>
-                                                    <Ingredient ingredient={ingredient} />
+                                                <ListItem key={ingredient.name} >
+                                                    <Ingredient ingredient={ingredient} currentYield={currentYield} />
                                                 </ListItem>)}
                                         </List>
                                     </>}
@@ -185,21 +210,22 @@ function CookingMode() { // Rule 2: call hooks in function component
                     <Stepper directionsNumber={recipe?.directionsNumber} currentStep={currentStep} next={handleNext} back={handleBack} setDone={setDone} />
                 </Box>
                 <SpeechRecognitionDialog transcript={transcript} open={open} listening={listening} success={success} exitedFun={() => setSuccess(false)} />
-                <DoneDialog done={done} />
+                <DoneDialog done={done} setDone={setDone} />
+                <HelpDialog open={help} setHelp={setHelp} />
             </>
         );
     }
 }
 
 function Ingredient(props) {
-    const { ingredient } = props;
+    const { ingredient, currentYield } = props;
 
     return (
         <>
             <Typography variant="body1"
                 style={{ color: '#757575', fontSize: '0.8rem' }}
                 gutterBottom>
-                {`${ingredient.quantity} ${ingredient.unit}`}&nbsp;
+                {`${Math.round((ingredient.quantity * currentYield) / 4)} ${ingredient.unit}`}&nbsp;
             </Typography>
             <Typography variant="body1"
                 style={{ fontSize: '0.8rem' }}
@@ -274,9 +300,8 @@ function SpeechRecognitionDialog(props) {
     );
 }
 
-
 function DoneDialog(props) {
-    const { done } = props;
+    const { done, setDone } = props;
 
     const history = useHistory();
 
@@ -286,7 +311,9 @@ function DoneDialog(props) {
         });
     }
 
-
+    const handleClose = () => {
+        setDone(false);
+    }
 
     return (
         <Dialog open={done}
@@ -302,12 +329,41 @@ function DoneDialog(props) {
                 <Typography variant='h5' align='center' paragraph> Well done! <br /> Enjoy your meal! </Typography>
                 <Typography variant='body1' align='center' paragraph> Say (or press) $ to go home, <br /> or say (or press) $ to keep cooking. </Typography>
                 <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-evenly' }}>
-                    <Button variant='outlined' color='secondary' size="small">
+                    <Button variant='outlined' color='secondary' size="small" onClick={handleClose}>
                         Undo
                 </Button>
-                    <Button variant='contained' color='secondary' size="small">
+                    <Button variant='contained' color='secondary' size="small" onClick={handleExit}>
                         Home
                 </Button>
+                </div>
+            </Box >
+        </Dialog >
+    );
+}
+
+function HelpDialog(props) {
+    const { open, setHelp } = props;
+
+    const handleClose = () => {
+        setHelp(false);
+    }
+
+    return (
+        <Dialog open={open}
+            fullWidth
+        >
+            <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                p={3}
+            >
+                <Typography variant='h5' align='center' paragraph> HELP SCREEN! </Typography>
+                <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-evenly' }}>
+                    <Button variant='contained' color='secondary' size="small" onClick={handleClose}>
+                        close
+                    </Button>
                 </div>
             </Box >
         </Dialog >
