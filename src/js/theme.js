@@ -34,6 +34,16 @@ const customTheme = createMuiTheme({
             fontFamily: ['Inter','sans-serif',
             ].join(','),
         },
+        subtitle1: {
+            fontFamily: ['Inter','sans-serif',
+            ].join(','),
+        },
+        subtitle2: {
+            fontFamily: ['Inter','sans-serif',
+            ].join(','),
+            fontWeight: 'bolder',
+            fontSize: '1rem'
+        },
     },
 });
 
