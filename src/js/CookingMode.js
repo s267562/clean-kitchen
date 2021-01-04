@@ -320,7 +320,7 @@ function DoneDialog(props) {
     }
 
     return (
-        <Dialog open={done} fullWidth classes={{ paper: classes.paper }} >
+        <Dialog open={done} fullWidth classes={{ paper: classes.paper }} onBackdropClick={handleClose} >
             <DialogContent style={{ marginTop: '16px' }}>
                 <Typography variant='h5' align='center' style={{ marginBottom: '26px' }}> Well done! <br /> Enjoy your meal! </Typography>
                 <Typography variant='body1' align='center' paragraph> Press HOME to go home, <br /> or press UNDO to keep cooking. </Typography>
@@ -347,7 +347,7 @@ function HelpDialog(props) {
     }
 
     return (
-        <Dialog open={open} fullWidth classes={{ paper: classes.paper }} >
+        <Dialog open={open} fullWidth classes={{ paper: classes.paper }} onBackdropClick={handleClose}>
             <Box
                 display="flex"
                 flexDirection="column"
