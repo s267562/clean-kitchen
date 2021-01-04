@@ -47,7 +47,7 @@ function SearchResults() {
 
     useEffect(() => {
         //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
-        setQuery(location.state?.query);
+        setQuery(location.search.replace('?query=', ''));
     }, [location]);
 
     useEffect(() => {
@@ -123,7 +123,7 @@ function Recipe(props) {
                             name="cost-rating"
                             readOnly
                             max={3}
-                            value={getRecipeCost(recipe)}
+                            value={recipe.cost}
                             icon={<EuroIcon fontSize="small" />}
                         />
                     </Box>
@@ -131,19 +131,6 @@ function Recipe(props) {
             </Grid>
         </Card >
     );
-}
-
-function getRecipeCost(recipe) {
-    switch (recipe.cost) {
-        case 'Low':
-            return 1;
-        case 'Medium':
-            return 2;
-        case 'High':
-            return 3;
-        default:
-            return 0;
-    }
 }
 
 export default SearchResults;
