@@ -54,7 +54,6 @@ function SearchResults() {
         if (query !== '') {
             API.getSearchResults(query)
                 .then(recipes => {
-                    console.log("Search results: " + JSON.stringify(recipes));
                     setSearchResults(recipes);
                 })
         }
@@ -62,7 +61,7 @@ function SearchResults() {
 
     if (searchResults === null) {
         return <LoadingComponent />
-    } else {
+    } else if (searchResults.length > 0) {
         return (
             <Box
                 display="flex"
@@ -82,6 +81,13 @@ function SearchResults() {
                 }
             </Box>
         );
+    } else {
+        return (
+            <div style={{ height: 'calc(100% - 128px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: '16px', marginLeft: '16px' }}>
+                <Typography variant="h4">No results found</Typography>
+                <Typography style={{ color: '#757575', marginTop: '16px', textAlign: 'center'}} >Try adjusting your search or filter to find what you're searching for.</Typography>
+            </div>
+        )
     }
 }
 
