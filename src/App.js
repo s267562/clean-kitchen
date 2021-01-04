@@ -1,7 +1,7 @@
 import { Component, useState, useEffect } from 'react';
 import CookingMode from './js/CookingMode';
 import { BrowserRouter as Router, Route, Switch, useLocation, useHistory } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Dialog, Typography, Menu, MenuItem, Button, Box, Icon, DialogTitle, DialogContent } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Home from './js/Home';
 import Tutorial from './js/Tutorial';
@@ -18,6 +18,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Divider from '@material-ui/core/Divider';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CloseIcon from '@material-ui/icons/Close';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import MicIcon from '@material-ui/icons/Mic';
 
 const settingOptions = [
   'Setting #0',
@@ -83,6 +85,7 @@ function MyAppBar(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [loc, setLoc] = useState(null);
   const [queryParam, setQueryParam] = useState('');
+  const [isOpenReminder, setOpenReminder] = useState(true);
 
   useEffect(() => {
     setLoc(location);
@@ -107,6 +110,9 @@ function MyAppBar(props) {
   const handleExit = () => {
     history.goBack();
   }
+  const handleTutorialReminder = () => {
+    setOpenReminder(true);
+  }
 
   return (
     <ElevationScroll {...props}>
@@ -125,9 +131,19 @@ function MyAppBar(props) {
           <Typography variant="h6" style={{ flexGrow: 1 }} >
             Clean Kitchen
           </Typography>
-          <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
-            <MoreVertIcon />
-          </IconButton>
+          {
+            (loc !== null && loc.pathname.toLowerCase() !== '/cookingmode') ?
+              <IconButton edge="end" color="inherit" onClick={handleClick} disableFocusRipple={true}>
+                <MoreVertIcon />
+              </IconButton>
+              :
+              <>
+                <IconButton edge="end" color="inherit" onClick={handleTutorialReminder} disableFocusRipple={true}>
+                  <HelpOutlineIcon />
+                </IconButton>
+                <TutorialReminderDialog isOpenReminder={isOpenReminder} setOpenReminder={setOpenReminder} />
+              </>
+          }
           <Menu
             id="setting-menu"
             anchorEl={anchorEl}
@@ -218,7 +234,7 @@ function SearchBar(props) {
     ? {
       endAdornment: (
         <InputAdornment position="end">
-          <Zoom in={/* isSelected */ value != ''}>
+          <Zoom in={/* isSelected */ value !== ''}>
             <IconButton
               aria-label="clear search"
               onMouseDown={handleMouseDownSearch}
@@ -228,7 +244,7 @@ function SearchBar(props) {
               <Clear />
             </IconButton>
           </Zoom>
-          <Zoom in={/* isSelected */ value != ''}>
+          <Zoom in={/* isSelected */ value !== ''}>
             <Divider orientation="vertical" style={{ height: "16px" }} />
           </Zoom>
           <IconButton
@@ -278,6 +294,50 @@ function SearchBar(props) {
         onChange={handleChange}
       />
     </form>
+  );
+}
+
+function TutorialReminderDialog(props) {
+  const { isOpenReminder, setOpenReminder } = props;
+
+  const handleClose = () => {
+    setOpenReminder(false);
+  }
+
+  return (
+    <Dialog open={isOpenReminder} onBackdropClick={handleClose}>
+      <DialogTitle disableTypography style={{ margin: '0', paddingBottom: '0' }}>
+        <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
+      <DialogContent
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          paddingTop: '0',
+          paddingBottom: '64px'
+        }}>
+        <MicIcon fontSize='large' style={{ padding: '16px' }} />
+        <Typography variant='subtitle2' align='center' gutterBottom> Here's a quick reminder for you!</Typography>
+        <Typography variant='caption' align='center' paragraph> Keep your screen clean while navigating through the recipe hands-free. </Typography>
+        <Typography variant='overline' align='center' paragraph> Available commands:</Typography>
+        <div
+          style={{
+            display: 'flex',
+            paddingTop: '8px', 
+            paddingBottom: '8px', 
+            paddingLeft: '46px', 
+            paddingRight: '46px', 
+            background: '#eeeeee', 
+            borderRadius: '25px'
+          }}>
+          <Typography variant='overline' align='center' > 'cancel'<br /> 'next'<br /> 'back'<br /> 'help'</Typography>
+        </div>
+      </DialogContent>
+    </Dialog >
   );
 }
 
