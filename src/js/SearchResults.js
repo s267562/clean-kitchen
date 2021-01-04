@@ -9,64 +9,6 @@ import TuneIcon from '@material-ui/icons/Tune';
 import API from './API';
 import LoadingComponent from './LoadingComponent';
 
-const recipes = [
-    {
-        id: "r0",
-        title: "Spaghetti alla carbonara",
-        difficulty: "Easy",
-        cost: "Low",
-        duration: "20",
-        overviewImg: "https://images.lacucinaitaliana.it/gallery/82287/Big/f80628f9-ec45-4ac9-8963-e54d9775ddf1.jpg",
-    },
-    {
-        id: "r1",
-        title: "Spaghetti all'amatriciana",
-        difficulty: "Easy",
-        cost: "Low",
-        duration: "35",
-        overviewImg: "https://www.negroni.com/sites/negroni.com/files/styles/scale__1440_x_1440_/public/bucatini-amatriciana-ricetta-originale.jpg?itok=sFKnqq8_",
-    },
-    {
-        id: "r2",
-        title: "Spaghetti alle vongole",
-        difficulty: "Easy",
-        cost: "Medium",
-        duration: "40",
-        overviewImg: "https://www.giallozafferano.it/images/219-21925/Spaghetti-alle-vongole_450x300.jpg",
-    },
-    {
-        id: "r3",
-        title: "Lasagne alla Bolognese",
-        difficulty: "Medium",
-        cost: "Low",
-        duration: "300",
-        overviewImg: "https://www.giallozafferano.it/images/229-22941/Lasagne-alla-Bolognese_450x300.jpg",
-    },
-    {
-        id: "r4",
-        title: "Risotto allo zafferano",
-        difficulty: "Medium",
-        cost: "Medium",
-        duration: "30",
-        overviewImg: "https://www.giallozafferano.it/images/174-17481/Risotto-allo-Zafferano_450x300.jpg",
-    },
-    {
-        id: "r5",
-        title: "Paella de marisco",
-        difficulty: "Medium",
-        cost: "High",
-        duration: "95",
-        overviewImg: "https://www.giallozafferano.it/images/213-21310/Paella-de-marisco_450x300.jpg",
-    },
-    {
-        id: "r6",
-        title: "Spätzle di spinaci con speck e panna",
-        difficulty: "Easy",
-        cost: "Low",
-        duration: "30",
-        overviewImg: "https://www.giallozafferano.it/images/221-22170/Spatzle-di-spinaci_450x300.jpg",
-    },
-]
 
 const StyledRating = withStyles({
     iconFilled: {
@@ -99,23 +41,24 @@ const useStyles = makeStyles(() => ({
 }));
 
 function SearchResults() {
+    const location = useLocation();
+    const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState(null);
 
     useEffect(() => {
-        API.getSearchResults('meat')
-            .then(recipes => {
-                // console.log("Search results: " + JSON.stringify(recipes));
-                setSearchResults(recipes);
-            })
-    }, []);
-
-    const location = useLocation();
-    const [query, setQuery] = useState('');
-
-    useEffect(() => {
-        console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
+        //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
         setQuery(location.state?.query);
     }, [location]);
+
+    useEffect(() => {
+        if (query !== '') {
+            API.getSearchResults(query)
+                .then(recipes => {
+                    console.log("Search results: " + JSON.stringify(recipes));
+                    setSearchResults(recipes);
+                })
+        }
+    }, [query]);
 
     if (searchResults === null) {
         return <LoadingComponent />
@@ -133,7 +76,7 @@ function SearchResults() {
                     Filter
             </Button>
                 {
-                    recipes.map((recipe) =>
+                    searchResults.map((recipe) =>
                         <Recipe key={recipe.id} recipe={recipe} />
                     )
                 }
