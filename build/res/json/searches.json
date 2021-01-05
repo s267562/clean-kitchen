@@ -1,0 +1,18 @@
+{
+    "searches": [
+        {
+            "keyword": "pasta",
+            "recipes": [
+                "r0",
+                "r1"
+            ]
+        },
+        {
+            "keyword": "",
+            "recipes": [
+                "",
+                ""
+            ]
+        }
+    ]
+}
