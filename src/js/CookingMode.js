@@ -12,11 +12,14 @@ import {
   ListItem,
   DialogContent,
   DialogActions,
+  DialogTitle,
+  IconButton,
 } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import MicIcon from "@material-ui/icons/Mic";
+import CloseIcon from "@material-ui/icons/Close";
 import SwipeableViews from "react-swipeable-views";
 import { useHistory, useLocation } from "react-router-dom";
 import API from "./API";
@@ -241,6 +244,7 @@ function CookingMode() {
         <SpeechRecognitionDialog
           transcript={transcript}
           open={open}
+          setOpen={setOpen}
           listening={listening}
           success={success}
           exitedFun={() => setSuccess(false)}
@@ -308,11 +312,27 @@ function Stepper(props) {
 }
 
 function SpeechRecognitionDialog(props) {
-  const { listening, transcript, open, success, exitedFun } = props;
+  const { listening, transcript, open, setOpen, success, exitedFun } = props;
   const classes = useStyles();
 
+  const handleClose = () => {
+    setOpen(false);
+    SpeechRecognition.stopListening();
+  };
+
   return (
-    <Dialog open={open} fullWidth={true} onExited={() => exitedFun()} classes={{ paper: classes.paper }}>
+    <Dialog
+      open={open}
+      onBackdropClick={handleClose}
+      fullWidth={true}
+      onExited={() => exitedFun()}
+      classes={{ paper: classes.paper }}
+    >
+      <DialogTitle disableTypography style={{ margin: "0", paddingBottom: "0" }}>
+        <IconButton edge='start' color='inherit' onClick={handleClose} aria-label='close'>
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
       <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' p={3}>
         <Box
           display='flex'
