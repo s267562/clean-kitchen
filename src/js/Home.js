@@ -55,7 +55,7 @@ const DialogTitle = withStyles(styles)((props) => {
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
+          Skip
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -345,15 +345,15 @@ function CustomizedDialogs() {
       <div>
         <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
           <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-            Welcome!
+            Tutorial
           </DialogTitle>
           <DialogContent dividers>
             <DotsMobileStepper /> {/* inserimento stepper nel dialogo*/}
           </DialogContent>
           <DialogActions>
-            <Button autoFocus onClick={handleClose} color="primary" variant="contained">
-              START
-             </Button>
+            {/*<Button autoFocus onClick={handleClose} color="primary" variant="contained">
+              Skip tutorial
+              </Button>*/}
           </DialogActions>
         </Dialog>
       </div>
@@ -364,34 +364,34 @@ function CustomizedDialogs() {
 //stepper function
 const tutorialSteps = [
   {
-    label: 'Welcome in Clean Kitchen!',
-    body: 'You would not prefer to touch your screen while cooking, do you?',
+    label: 'WELCOME IN CLEAN KITCHEN!',
+    body: 'Select what you want to cook! Search your recipe from our categories',
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+      'res/images/SelectRecipe.jpeg',
   },
   {
-    label: 'Select what you want to cook',
-    nody: '',
+    label: 'Start cooking!',
+    body: 'Start cooking to enter in the cooking mode, you will not need to touch your device anymore',
     imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+      'res/images/startCooking.png',
   },
   {
-    label: 'Browse pages',
+    label: 'Browse pages!',
     body: 'Bring your hand closer to the screen when you want to change page.',
     imgPath:
       'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
   },
   {
-    label: 'Set a timer',
+    label: 'Set a timer!',
     body: 'If you would like to set a timer, just hold on the sensor for 3 seconds.',
     imgPath:
       'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
   }, 
   {
     label: 'Ask for help!',
-    body: 'Say HELP if you need suggestions',
+    body: 'Say HELP if you need any suggestions',
     imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+      'res/images/help.png',
   },
 ];
 
@@ -419,7 +419,7 @@ function DotsMobileStepper() {
       <img
         className={classes.img}
         src={tutorialSteps[activeStep].imgPath}
-        alt={tutorialSteps[activeStep].label}
+        width='200' height='300' alt="fire"
       />
       <MobileStepper
         variant="dots"
