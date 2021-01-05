@@ -1,21 +1,18 @@
-import { Component } from 'react';
+import { Component } from "react";
 
 class Tutorial extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+  componentDidMount() {}
 
-    componentDidMount() {
-    }
+  componentWillUnmount() {}
 
-    componentWillUnmount() {
-    }
-
-    render() {
-        return <p>TUTORIAL</p>
-    }
+  render() {
+    return <p>TUTORIAL</p>;
+  }
 }
 
 export default Tutorial;
