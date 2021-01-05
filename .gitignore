@@ -4,3 +4,5 @@ node_modules
 debug.log
 .env
 .vscode/launch.json
+.vscode/hci.code-workspace
+.vscode/settings.json
