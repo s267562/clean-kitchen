@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import { Box } from "@material-ui/core";
 import fireAPI from "./fireAPI";
+import Grow from "@material-ui/core/Grow";
 import LoadingComponent from "./LoadingComponent";
 
 function newGradient(name) {
@@ -189,15 +190,17 @@ function GridCategory() {
 
   return (
     <Grid container className={classes.rootGridScrollView}>
-      <Grid item xs>
-        <Grid container className={classes.scrollViewCategory}>
-          {["breakfast", "fish", "meat", "vegan", "dessert"].map((value) => (
-            <Grid key={value} item>
-              <CardCategory name={value} />
-            </Grid>
-          ))}
+      <Grow in={true}>
+        <Grid item xs>
+          <Grid container className={classes.scrollViewCategory}>
+            {["breakfast", "fish", "meat", "vegan", "dessert"].map((value) => (
+              <Grid key={value} item>
+                <CardCategory name={value} />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
+      </Grow>
     </Grid>
   );
 }
@@ -233,15 +236,17 @@ function GridSuggestion(props) {
 
   return (
     <Grid container className={classes.rootGridScrollView}>
-      <Grid item xs>
-        <Grid container className={classes.scrollViewSuggestion}>
-          {recipes?.map((recipe) => (
-            <Grid key={recipe.id} item>
-              <CardSuggestion recipe={recipe} img={props.img} />
-            </Grid>
-          ))}
+      <Grow in={true}>
+        <Grid item xs>
+          <Grid container className={classes.scrollViewSuggestion}>
+            {recipes?.map((recipe) => (
+              <Grid key={recipe.id} item>
+                <CardSuggestion recipe={recipe} img={props.img} />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-      </Grid>
+      </Grow>
     </Grid>
   );
 }
