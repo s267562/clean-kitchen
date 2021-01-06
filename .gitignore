@@ -1,5 +1,6 @@
 node_modules
-
+build
+.firebase
 .eslintcache
 debug.log
 .env
