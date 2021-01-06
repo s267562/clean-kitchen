@@ -16,8 +16,8 @@ import Box from "@material-ui/core/Box";
 import Fab from "@material-ui/core/Fab";
 import ListItemText from "@material-ui/core/ListItemText";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import API from "./API";
 import LoadingComponent from "./LoadingComponent";
+import fireAPI from "./fireAPI";
 
 const useStyles = makeStyles({
   root: {
@@ -96,7 +96,8 @@ function Recipe() {
 
   useEffect(() => {
     if (id !== "") {
-      API.getRecipe(id).then((recipe) => {
+      fireAPI.getRecipeBy_id(id).then((recipe) => {
+        console.log(recipe);
         setRecipe(recipe);
         setYield(recipe.yield);
       });

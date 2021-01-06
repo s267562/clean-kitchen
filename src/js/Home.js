@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { React, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +8,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import { Box } from "@material-ui/core";
+import fireAPI from "./fireAPI";
 
 function newGradient(name) {
   var backgroundGradient = null;
@@ -120,31 +121,36 @@ const useStyles = makeStyles({
     flexFlow: "row",
   },
 });
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
-  componentDidMount() {}
+function Home() {
+  const [popularRecipes, setPopularRecipes] = useState(null);
+  const [editorRecipes, setEditorRecipes] = useState(null);
 
-  componentWillUnmount() {}
+  useEffect(() => {
+    fireAPI.getRecipesBy_section("popular").then((recipes) => {
+      //console.log(recipes);
+      setPopularRecipes(recipes);
+    });
 
-  render() {
-    return (
-      <>
-        <GridCategory />
-        <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
-          <HeaderSuggestion title='Popular' icon='fire.png' />
-          <GridSuggestion recipe='Pasta alla Carbonara' img='carbonara.jpg' />
-        </Paper>
-        <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
-          <HeaderSuggestion title="Editor's Choice" icon='choice.png' />
-          <GridSuggestion recipe='Cheesecake' img='cheesecake.jpg' />
-        </Paper>
-      </>
-    );
-  }
+    fireAPI.getRecipesBy_section("editor").then((recipes) => {
+      //console.log(recipes);
+      setEditorRecipes(recipes);
+    });
+  }, []);
+
+  return (
+    <>
+      <GridCategory />
+      <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
+        <HeaderSuggestion title='Popular' icon='fire.png' />
+        <GridSuggestion recipes={popularRecipes} recipe='Pasta alla Carbonara' img='carbonara.jpg' />
+      </Paper>
+      <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
+        <HeaderSuggestion title="Editor's Choice" icon='choice.png' />
+        <GridSuggestion recipes={editorRecipes} recipe='Cheesecake' img='cheesecake.jpg' />
+      </Paper>
+    </>
+  );
 }
 
 function CardCategory(props) {
@@ -192,22 +198,24 @@ function GridCategory() {
 }
 
 function CardSuggestion(props) {
+  const { recipe } = props;
   const classes = useStyles();
+  const history = useHistory();
+
   const handleClick = () => {
-    console.log("CardSuggestion - TODO: get recipe id and pass it to /recipe");
-    /* TODO history.push({
-            pathname: '/recipe',
-            search: `?id=${props.recipe.id}`,
-            state: { id: props.recipe.id }
-          }); */
+    history.push({
+      pathname: "/recipe",
+      search: `?id=${recipe.id}`,
+      state: { id: recipe.id },
+    });
   };
 
   return (
     <Card elevation={8} className={classes.cardSuggestion} onClick={handleClick}>
-      <CardMedia className={classes.mediaSuggestion} image={`/res/images/${props.img}`} title={props.recipe} />
+      <CardMedia className={classes.mediaSuggestion} image={recipe.overviewImg} title={recipe.title} />
       <CardContent className={classes.contentSuggestion}>
         <Typography gutterBottom variant='h6' component='h1' className={classes.textSuggestion}>
-          {props.recipe}
+          {recipe.title}
         </Typography>
       </CardContent>
     </Card>
@@ -215,15 +223,16 @@ function CardSuggestion(props) {
 }
 
 function GridSuggestion(props) {
+  const { recipes } = props;
   const classes = useStyles();
 
   return (
     <Grid container className={classes.rootGridScrollView}>
       <Grid item xs>
         <Grid container className={classes.scrollViewSuggestion}>
-          {[0, 1, 2].map((value) => (
-            <Grid key={value} item>
-              <CardSuggestion recipe={props.recipe} img={props.img} />
+          {recipes?.map((recipe) => (
+            <Grid key={recipe.id} item>
+              <CardSuggestion recipe={recipe} img={props.img} />
             </Grid>
           ))}
         </Grid>

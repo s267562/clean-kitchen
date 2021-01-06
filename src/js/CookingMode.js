@@ -22,8 +22,8 @@ import MicIcon from "@material-ui/icons/Mic";
 import CloseIcon from "@material-ui/icons/Close";
 import SwipeableViews from "react-swipeable-views";
 import { useHistory, useLocation } from "react-router-dom";
-import API from "./API";
 import LoadingComponent from "./LoadingComponent";
+import fireAPI from "./fireAPI";
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
@@ -73,7 +73,7 @@ function CookingMode() {
     const id = queryParams[0].replace("id=", "");
     setCurrentYield(queryParams[1].replace("y=", ""));
 
-    API.getRecipe(id).then((recipe) => {
+    fireAPI.getRecipeBy_id(id).then((recipe) => {
       setRecipe(recipe);
     });
   }, [location]);
@@ -211,7 +211,7 @@ function CookingMode() {
 
                 <Typography variant='body1'>{direction.description}</Typography>
 
-                {direction.ingredients.length > 0 && (
+                {direction.ingredients?.length > 0 && (
                   <>
                     <div style={{ marginTop: "16px" }}>
                       <Typography variant='overline' style={{ fontSize: "1rem", marginTop: "16px" }}>

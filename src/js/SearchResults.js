@@ -25,9 +25,9 @@ import { Rating } from "@material-ui/lab";
 import EuroIcon from "@material-ui/icons/Euro";
 import TimerIcon from "@material-ui/icons/Timer";
 import TuneIcon from "@material-ui/icons/Tune";
-import API from "./API";
 import LoadingComponent from "./LoadingComponent";
 import CloseIcon from "@material-ui/icons/Close";
+import fireAPI from "./fireAPI";
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -78,7 +78,7 @@ function SearchResults() {
 
   useEffect(() => {
     if (query !== "") {
-      API.getSearchResults(query).then((recipes) => {
+      fireAPI.getRecipesBy_keyword(query).then((recipes) => {
         setSearchResults(recipes);
         setFilteredRecipes(recipes);
       });
