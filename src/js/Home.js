@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import { Box } from "@material-ui/core";
 import fireAPI from "./fireAPI";
+import LoadingComponent from "./LoadingComponent";
 
 function newGradient(name) {
   var backgroundGradient = null;
@@ -138,19 +139,23 @@ function Home() {
     });
   }, []);
 
-  return (
-    <>
-      <GridCategory />
-      <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
-        <HeaderSuggestion title='Popular' icon='fire.png' />
-        <GridSuggestion recipes={popularRecipes} recipe='Pasta alla Carbonara' img='carbonara.jpg' />
-      </Paper>
-      <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
-        <HeaderSuggestion title="Editor's Choice" icon='choice.png' />
-        <GridSuggestion recipes={editorRecipes} recipe='Cheesecake' img='cheesecake.jpg' />
-      </Paper>
-    </>
-  );
+  if (popularRecipes === null || editorRecipes === null) {
+    return <LoadingComponent />;
+  } else {
+    return (
+      <>
+        <GridCategory />
+        <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
+          <HeaderSuggestion title='Popular' icon='fire.png' />
+          <GridSuggestion recipes={popularRecipes} recipe='Pasta alla Carbonara' img='carbonara.jpg' />
+        </Paper>
+        <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
+          <HeaderSuggestion title="Editor's Choice" icon='choice.png' />
+          <GridSuggestion recipes={editorRecipes} recipe='Cheesecake' img='cheesecake.jpg' />
+        </Paper>
+      </>
+    );
+  }
 }
 
 function CardCategory(props) {
