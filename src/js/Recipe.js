@@ -18,6 +18,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import LoadingComponent from "./LoadingComponent";
 import fireAPI from "./fireAPI";
+import { Fade } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -266,7 +267,10 @@ function IngredientsList(props) {
             <ListItemText
               primary={
                 <span>
-                  {value.quantity && Math.round((value.quantity * currentYield) / 4)} {value.unit} <b> {value.name} </b>{" "}
+                  <Fade key={currentYield} in timeout={400}>
+                    <span>{value.quantity && Math.round((value.quantity * currentYield) / 4)} </span>
+                  </Fade>
+                  {value.unit} <b> {value.name} </b>{" "}
                 </span>
               }
             />
