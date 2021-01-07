@@ -50,8 +50,8 @@ const useStyles = makeStyles({
     flexFlow: "row",
     overflowX: "scroll",
     scrollbarWidth: "none",
-    paddingTop: 8,
-    paddingBottom: 8,
+    paddingTop: 16,
+    paddingBottom: 16,
   },
   cardCategory: {
     width: 65,
@@ -119,7 +119,8 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     flexGrow: 0,
-    paddingLeft: 8,
+    paddingLeft: 16,
+    paddingTop: 8,
     flexFlow: "row",
   },
 });
@@ -146,11 +147,19 @@ function Home() {
     return (
       <>
         <GridCategory />
-        <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
+        <Paper
+          elevation={0}
+          square
+          style={{ marginTop: "8px", marginBottom: "8px", paddingTop: "8px", paddingBottom: "8px" }}
+        >
           <HeaderSuggestion title='Popular' icon='fire.png' />
           <GridSuggestion recipes={popularRecipes} recipe='Pasta alla Carbonara' img='carbonara.jpg' />
         </Paper>
-        <Paper elevation={0} square style={{ marginTop: "8px", marginBottom: "8px", padding: "8px" }}>
+        <Paper
+          elevation={0}
+          square
+          style={{ marginTop: "8px", marginBottom: "8px", paddingTop: "8px", paddingBottom: "8px" }}
+        >
           <HeaderSuggestion title="Editor's Choice" icon='choice.png' />
           <GridSuggestion recipes={editorRecipes} recipe='Cheesecake' img='cheesecake.jpg' />
         </Paper>
