@@ -190,17 +190,15 @@ function GridCategory() {
 
   return (
     <Grid container className={classes.rootGridScrollView}>
-      <Grow in={true}>
-        <Grid item xs>
-          <Grid container className={classes.scrollViewCategory}>
-            {["breakfast", "fish", "meat", "vegan", "dessert"].map((value) => (
-              <Grid key={value} item>
-                <CardCategory name={value} />
-              </Grid>
-            ))}
-          </Grid>
+      <Grid item xs>
+        <Grid container className={classes.scrollViewCategory}>
+          {["breakfast", "fish", "meat", "vegan", "dessert"].map((value) => (
+            <Grid key={value} item>
+              <CardCategory name={value} />
+            </Grid>
+          ))}
         </Grid>
-      </Grow>
+      </Grid>
     </Grid>
   );
 }
