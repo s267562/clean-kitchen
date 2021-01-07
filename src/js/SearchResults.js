@@ -71,29 +71,34 @@ function SearchResults(props) {
   const [query, setQuery] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
   const [filteredRecipes, setFilteredRecipes] = useState(null);
+  let notQuery = true;
 
   useEffect(() => {
     //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
+    notQuery = false; // fix race condition between searchKeyword and query useEffects
     setQuery(location.search.replace("?query=", "").toLowerCase());
   }, [location]);
 
   useEffect(() => {
-    //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
-    if (props.searchKeyword.toLowerCase() !== "") {
-      fireAPI.getRecipesBy_keyword(props.searchKeyword.toLowerCase()).then((recipes) => {
-        setSearchResults(recipes);
-        setFilteredRecipes(recipes);
-      });
-    } else {
-      fireAPI.getAllRecipes().then((recipes) => {
-        setSearchResults(recipes);
-        setFilteredRecipes(recipes);
-      });
+    //console.log("useEffect (SearchResults.js) - props.searchKeyword: " + props.searchKeyword);
+    if (notQuery) {
+      if (props.searchKeyword.toLowerCase() !== "") {
+        fireAPI.getRecipesBy_keyword(props.searchKeyword.toLowerCase()).then((recipes) => {
+          setSearchResults(recipes);
+          setFilteredRecipes(recipes);
+        });
+      } else {
+        fireAPI.getAllRecipes().then((recipes) => {
+          setSearchResults(recipes);
+          setFilteredRecipes(recipes);
+        });
+      }
     }
   }, [props.searchKeyword]);
 
   useEffect(() => {
     if (query !== "") {
+      notQuery = true;
       fireAPI.getRecipesBy_keyword(query).then((recipes) => {
         setSearchResults(recipes);
         setFilteredRecipes(recipes);
