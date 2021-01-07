@@ -73,7 +73,7 @@ function SearchResults() {
 
   useEffect(() => {
     //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
-    setQuery(location.search.replace("?query=", ""));
+    setQuery(location.search.replace("?query=", "").toLowerCase());
   }, [location]);
 
   useEffect(() => {
