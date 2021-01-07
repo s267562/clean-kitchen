@@ -237,9 +237,11 @@ function Ingredients(props) {
             </ButtonGroup>
 
             <Box style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingLeft: "8px" }}>
-              <Typography variant='h6' style={{ lineHeight: "1.3" }}>
-                {currentYield}
-              </Typography>
+              <Fade key={currentYield} in timeout={600}>
+                <Typography variant='h6' style={{ lineHeight: "1.3" }}>
+                  {currentYield}
+                </Typography>
+              </Fade>
               <Typography variant='overline' style={{ color: "#757575", fontSize: "0.7rem", lineHeight: "1" }}>
                 servings
               </Typography>
@@ -267,7 +269,7 @@ function IngredientsList(props) {
             <ListItemText
               primary={
                 <span>
-                  <Fade key={currentYield} in timeout={400}>
+                  <Fade key={currentYield} in timeout={600}>
                     <span>{value.quantity && Math.round((value.quantity * currentYield) / 4)} </span>
                   </Fade>
                   {value.unit} <b> {value.name} </b>{" "}
