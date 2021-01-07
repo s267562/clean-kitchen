@@ -1,134 +1,305 @@
 {
-    "recipes": [
+  "recipes": [
+    {
+      "category": "meat",
+      "cost": 1,
+      "description": "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
+      "difficulty": "medium",
+      "directions": [
         {
-            "id": "r0",
-            "keywords": [
-                "meat",
-                "chicken",
-                "fried",
-                "crispy oven fried chicken"
-            ],
-            "suggestedCategory": ["popular", "editor"],
-            "title": "Crispy Oven-Fried Chicken",
-            "description": "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
-            "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
-            "rating": "4",
-            "duration": "75",
-            "cost": 1,
-            "difficulty": "Medium",
-            "yield": 4,
-            "ingredients": [
-                {
-                    "name": "buttermilk",
-                    "quantity": "237",
-                    "unit": "milliliters"
-                },
-                {
-                    "name": "chicken legs",
-                    "quantity": "8",
-                    "unit": ""
-                },
-                {
-                    "name": "all-purpose flour",
-                    "quantity": "63",
-                    "unit": "g"
-                },
-                {
-                    "name": "paprika",
-                    "quantity": "1",
-                    "unit": "tsp"
-                },
-                {
-                    "name": "garlic powder",
-                    "quantity": "0.5",
-                    "unit": "tsp"
-                },
-                {
-                    "name": "baking powder",
-                    "quantity": "1",
-                    "unit": "tsp"
-                },
-                {
-                    "name": "fine sea salt",
-                    "quantity": "1",
-                    "unit": "tsp"
-                },
-                {
-                    "name": "black pepper",
-                    "quantity": "1",
-                    "unit": "tsp"
-                },
-                {
-                    "name": "olive oil cooking spray (as needed)",
-                    
-                    "unit": ""
-                },
-                {
-                    "name": "honey",
-                    "quantity": "170",
-                    "unit": "grams"
-                }
-            ],
-            "directionsNumber": 2,
-            "directions": [
-                {
-                    "description": "Preheat the oven to 425°F",
-                    "image": "",
-                    "timer": "",
-                    "ingredients": []
-                },
-                {
-                    "description": "Place the chicken in a shallow dish and pour the buttermilk over the top. With your hands, rub the buttermilk into the chicken so it is covered. Allow the chicken to sit at room temperature for 30 minutes.",
-                    "image": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
-                    "timer": "30",
-                    "ingredients": [
-                        {
-                            "name": "buttermilk",
-                            "quantity": "237",
-                            "unit": "milliliters"
-                        },
-                        {
-                            "name": "chicken legs",
-                            "quantity": "8",
-                            "unit": ""
-                        }
-                    ]
-                }
-            ]
+          "description": "Preheat the oven to 425°F",
+          "image": "",
+          "timer": ""
         },
         {
-            "id": "r1",
-            "keywords": [],
-            "suggested": [],
-            "title": "",
-            "description": "(short decription)",
-            "overviewImg": "(url?)",
-            "rating": "(maximum 5)",
-            "duration": "(minutes)",
-            "cost": "Low/Medium/High",
-            "difficulty": "Easy/Medium/Hard",
-            "yield": "(4 as default?)",
-            "ingredients": [
-                {
-                    "name": "",
-                    "quantity": "(optional)",
-                    "unit": "(optional)"
-                }
-            ],
-            "directions": [
-                {
-                    "description": "(short description)",
-                    "image": "(optional)",
-                    "timer": "(optional)",
-                    "ingredients": [
-                        {
-                            "name": "",
-                            "quantity": "(optional)",
-                            "unit": "(optional)"
-                        }
-                    ]
-                }
-            ]
+          "description": "Place the chicken in a shallow dish and pour the buttermilk over the top. With your hands, rub the buttermilk into the chicken so it is covered. Allow the chicken to sit at room temperature for 30 minutes.",
+          "image": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+          "ingredients": [
+            {
+              "name": "buttermilk",
+              "quantity": "237",
+              "unit": "milliliters"
+            },
+            {
+              "name": "chicken legs",
+              "quantity": "8",
+              "unit": ""
+            }
+          ],
+          "timer": "30"
         }
-    ]
+      ],
+      "directionsNumber": 2,
+      "duration": 75,
+      "id": "r0",
+      "ingredients": [
+        {
+          "name": "buttermilk",
+          "quantity": 237,
+          "unit": "milliliters"
+        },
+        {
+          "name": "chicken legs",
+          "quantity": 8,
+          "unit": "piece"
+        },
+        {
+          "name": "all-purpose flour",
+          "quantity": 63,
+          "unit": "g"
+        },
+        {
+          "name": "paprika",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "garlic powder",
+          "quantity": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "name": "baking powder",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "fine sea salt",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "black pepper",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "olive oil cooking spray (as needed)",
+          "quantity": 1,
+          "unit": "pst"
+        },
+        {
+          "name": "honey",
+          "quantity": 170,
+          "unit": "grams"
+        }
+      ],
+      "keywords": ["meat", "chicken", "fried", "crispy oven fried chicken"],
+      "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+      "rating": 4,
+      "section": ["popular"],
+      "title": "Crispy Oven-Fried Chicken",
+      "yield": 4
+    },
+    {
+      "category": "meat",
+      "cost": 2,
+      "description": "Baked Salsa Verde Chicken Is The Perfect Weeknight Dinner",
+      "difficulty": "medium",
+      "directions": [
+        {
+          "description": "(short description)",
+          "image": "(optional)",
+          "ingredients": [
+            {
+              "name": "",
+              "quantity": "(optional)",
+              "unit": "(optional)"
+            }
+          ],
+          "timer": "(optional)"
+        }
+      ],
+      "directionsNumber": 3,
+      "duration": 10,
+      "id": "r1",
+      "ingredients": [
+        {
+          "name": "",
+          "quantity": "(optional)",
+          "unit": "(optional)"
+        }
+      ],
+      "isEditorsChoice": 1,
+      "keywords": ["baked", "salsa", "verde", "chicken", "baked salsa verde chicken"],
+      "overviewImg": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/shot-5-0338-jpg-1526587417.jpg?crop=0.891xw:0.753xh;0.0969xw,0.117xh&resize=768:*",
+      "rating": 4,
+      "section": ["popular", "editor"],
+      "title": "Baked Salsa Verde Chicken",
+      "yield": 4
+    },
+    {
+      "category": "dessert",
+      "cost": 1,
+      "description": "A crowd favorite that's super simple to make. You can't go wrong with these banana muffins!",
+      "difficulty": "easy",
+      "directions": [
+        {
+          "description": "Preheat the oven to 375°F",
+          "image": "https://reviewed-com-res.cloudinary.com/image/fetch/s--lm7imI2e--/b_white,c_limit,cs_srgb,f_auto,fl_progressive.strip_profile,g_center,q_auto,w_792/https://reviewed-production.s3.amazonaws.com/attachment/98c2ea086c2d4ccc/Preheat_ovens_2.png",
+          "timer": ""
+        },
+        {
+          "description": "Line a 12-cavity muffin pan with muffin liners.",
+          "image": "https://images-na.ssl-images-amazon.com/images/I/61lEGhTlpyL._AC_SY450_.jpg",
+          "timer": ""
+        },
+        {
+          "description": "In a small bowl, mash the bananas thoroughly with a fork.",
+          "image": "https://media.miele.com/images/2000002/200000269/20000026950.png?impolicy=teaser&imwidth=2000&x=65&y=36&w=3080&h=1733&",
+          "ingredients": [
+            {
+              "name": "large banana",
+              "quantity": "2",
+              "unit": ""
+            }
+          ],
+          "timer": ""
+        },
+        {
+          "description": "In a large mixing bowl, whisk the mashed bananas, canola oil, granulated sugar, brown sugar, vanilla, and eggs vigorously until smooth and combined.",
+          "image": "https://i.pinimg.com/originals/cf/91/c7/cf91c795c0d14f925186504672ceec2e.jpg",
+          "ingredients": [
+            {
+              "name": "canola oil",
+              "quantity": "0.3",
+              "unit": "cup"
+            },
+            {
+              "name": "light brown sugar",
+              "quantity": "cup",
+              "unit": "0.25"
+            },
+            {
+              "name": "granulated sugar",
+              "quantity": "0.5",
+              "unit": "cup"
+            },
+            {
+              "name": "vanilla extract",
+              "quantity": "0.5",
+              "unit": "teaspoon"
+            },
+            {
+              "name": "large egg",
+              "quantity": "2",
+              "unit": ""
+            }
+          ],
+          "timer": ""
+        },
+        {
+          "description": "Add the flour, cinnamon, baking powder, baking soda, and salt to the bowl. Continue whisking until just combined. Be careful not to over-mix.",
+          "image": "",
+          "ingredients": [
+            {
+              "name": "all-purpose flour",
+              "quantity": "1.5",
+              "unit": "cups"
+            },
+            {
+              "name": "cinnamon",
+              "quantity": "1",
+              "unit": "teaspoon"
+            },
+            {
+              "name": "baking powder",
+              "quantity": "1",
+              "unit": "teaspoon"
+            },
+            {
+              "name": "baking soda",
+              "quantity": "0.5",
+              "unit": "teaspoon"
+            },
+            {
+              "name": "salt",
+              "quantity": "0.5",
+              "unit": "teaspoon"
+            }
+          ],
+          "timer": ""
+        },
+        {
+          "description": "Spoon an even amount of batter into each muffin liner.",
+          "image": "https://images-na.ssl-images-amazon.com/images/I/61lEGhTlpyL._AC_SY450_.jpg"
+        },
+        {
+          "description": "Bake the muffins on middle rack of oven until a toothpick inserted in the centers comes out clean, 15-25 minutes.",
+          "image": "https://lh3.googleusercontent.com/proxy/8exf_bdDvAbZGL9xIMvdHE42JdVTmPNt_AbhiQoTtb0oXxi7_ExkkVYjwnLkuog_3ID0tiQFt-Vr7Evu2kFIcBrFeB_-989SkCcXr6pia5jdr0SQeYTbdxSXhZVQn4QUQocP",
+          "timer": "25"
+        },
+        {
+          "description": "Allow muffins to cool in the pan for 5 minutes, then remove from the pan and allow to cool completely on a wire rack. Store leftovers at room temperature for 2 days or in the refrigerator for 3 days.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/banana-muffins.jpg?alt=media&token=26b46e50-d2a9-4f63-a48c-217fb3b8dd89"
+        }
+      ],
+      "directionsNumber": 8,
+      "duration": 45,
+      "id": "r3",
+      "ingredients": [
+        {
+          "name": "large banana",
+          "quantity": "2",
+          "unit": ""
+        },
+        {
+          "name": "canola oil",
+          "quantity": "0.3",
+          "unit": "cup"
+        },
+        {
+          "name": "light brown sugar",
+          "quantity": "cup",
+          "unit": "0.25"
+        },
+        {
+          "name": "granulated sugar",
+          "quantity": "0.5",
+          "unit": "cup"
+        },
+        {
+          "name": "vanilla extract",
+          "quantity": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "large egg",
+          "quantity": "1",
+          "unit": ""
+        },
+        {
+          "name": "all-purpose flour",
+          "quantity": "1.5",
+          "unit": "cups"
+        },
+        {
+          "name": "cinnamon",
+          "quantity": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "baking powder",
+          "quantity": "1",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "baking soda",
+          "quantity": "0.5",
+          "unit": "teaspoon"
+        },
+        {
+          "name": "salt",
+          "quantity": "0.5",
+          "unit": "teaspoon"
+        }
+      ],
+      "keywords": ["banana", "muffin", "dessert", "banana muffins"],
+      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/banana-muffins.jpg?alt=media&token=26b46e50-d2a9-4f63-a48c-217fb3b8dd89",
+      "rating": 4,
+      "section": ["popular"],
+      "title": "Banana Muffins",
+      "yield": 4
+    }
+  ]
 }
