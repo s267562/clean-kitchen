@@ -137,6 +137,14 @@ function CookingMode() {
   }
   window.addEventListener("userproximity", handleProximity);
 
+  /**
+   * DEVELOPMENT ONLY
+   */
+  const devTriggerVoice = () => {
+    setOpen(true);
+    SpeechRecognition.startListening();
+  };
+
   /* Stepper */
   const [currentStep, setCurrentStep] = useState(0);
   const handleNext = () => {
@@ -201,7 +209,7 @@ function CookingMode() {
                     marginBottom: "16px",
                   }}
                 >
-                  <Typography variant='body1' style={{ fontSize: "1rem", color: "#c62828" }}>
+                  <Typography onClick={devTriggerVoice} variant='body1' style={{ fontSize: "1rem", color: "#c62828" }}>
                     {`Step ${currentStep + 1}`}&nbsp;
                   </Typography>
                   <Typography variant='body1' style={{ color: "#424242", fontSize: "1rem" }}>
