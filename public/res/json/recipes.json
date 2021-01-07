@@ -300,6 +300,44 @@
       "section": ["popular"],
       "title": "Banana Muffins",
       "yield": 4
+    },
+
+    
+    {
+        "id": "(r1, r2, r3...)",
+        "category": "(meat/dessert...)",
+        "keywords": ["(list of keywords)"],
+        "section": ["(popular/editor's choice...)"],
+        "title": "",
+        "description": "(short decription)",
+        "overviewImg": "(url?)",
+        "rating": "(maximum 5)",
+        "duration": "(minutes)",
+        "cost": "(1/2/3)",
+        "difficulty": "(Easy/Medium/Hard)",
+        "yield": "(4 as default)",
+        "ingredients": [
+            {
+                "name": "",
+                "quantity": "(optional)",
+                "unit": "(optional)"
+            }
+        ],
+        "directions": [
+            {
+                "description": "(short description)",
+                "image": "(optional)",
+                "timer": "(optional)",
+                "ingredients": [
+                    {
+                        "name": "",
+                        "quantity": "(optional)",
+                        "unit": "(optional)"
+                    }
+                ]
+            }
+        ],
+        "directionsNumber": ""
     }
   ]
 }
