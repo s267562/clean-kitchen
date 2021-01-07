@@ -27,6 +27,7 @@ import TimerIcon from "@material-ui/icons/Timer";
 import TuneIcon from "@material-ui/icons/Tune";
 import LoadingComponent from "./LoadingComponent";
 import CloseIcon from "@material-ui/icons/Close";
+import Grow from "@material-ui/core/Grow";
 import fireAPI from "./fireAPI";
 
 const StyledRating = withStyles({
@@ -64,7 +65,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function SearchResults() {
+function SearchResults(props) {
   const location = useLocation();
   const [searchResults, setSearchResults] = useState(null);
   const [query, setQuery] = useState("");
@@ -77,8 +78,28 @@ function SearchResults() {
   }, [location]);
 
   useEffect(() => {
+    //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
+    if (props.searchKeyword.toLowerCase() !== "") {
+      fireAPI.getRecipesBy_keyword(props.searchKeyword.toLowerCase()).then((recipes) => {
+        setSearchResults(recipes);
+        setFilteredRecipes(recipes);
+      });
+    } else {
+      fireAPI.getAllRecipes().then((recipes) => {
+        setSearchResults(recipes);
+        setFilteredRecipes(recipes);
+      });
+    }
+  }, [props.searchKeyword]);
+
+  useEffect(() => {
     if (query !== "") {
       fireAPI.getRecipesBy_keyword(query).then((recipes) => {
+        setSearchResults(recipes);
+        setFilteredRecipes(recipes);
+      });
+    } else {
+      fireAPI.getAllRecipes().then((recipes) => {
         setSearchResults(recipes);
         setFilteredRecipes(recipes);
       });
@@ -99,7 +120,7 @@ function SearchResults() {
             Filter
           </Button>
           {filteredRecipes.map((recipe) => (
-            <Recipe key={recipe.id} recipe={recipe} />
+            <Recipe key={recipe.id} recipe={recipe} searchKeyword={props.searchKeyword} />
           ))}
         </Box>
         <FilterDialog
@@ -139,6 +160,14 @@ function Recipe(props) {
   const history = useHistory();
 
   const onCardClick = () => {
+    if (history.location.search === "" && props.searchKeyword !== "") {
+      //fix back navigation issue when clicking on a card without submitting a query
+      history.push({
+        pathname: "/searchResults",
+        search: `?query=${props.searchKeyword}`,
+        state: { query: props.searchKeyword },
+      });
+    }
     history.push({
       pathname: "/recipe",
       search: `?id=${recipe.id}`,
@@ -147,61 +176,63 @@ function Recipe(props) {
   };
 
   return (
-    <Card className={styles.card} onClick={onCardClick}>
-      <CardMedia className={styles.media} image={recipe.overviewImg} />
-      <Grid
-        container
-        direction='column'
-        justify='space-between'
-        alignItems='stretch'
-        style={{
-          overflow: "hidden",
-          height: "100%",
-          marginLeft: "16px",
-          paddingTop: "8px",
-          paddingBottom: "8px",
-        }}
-      >
-        <Grid item>
-          <Typography
-            style={{
-              fontSize: 16,
-              fontWeight: "bold",
-              lineHeight: "24px",
-              maxHeight: "48px",
-              overflow: "hidden",
-            }}
-            color='textPrimary'
-          >
-            {recipe.title}
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Box display='flex' flexDirection='row' style={{ marginTop: "8px", marginBottom: "8px" }}>
-            <Typography style={{ fontSize: "0.9em" }} color='textSecondary'>
-              {" "}
-              Difficulty:&nbsp;{" "}
+    <Grow in={true}>
+      <Card className={styles.card} onClick={onCardClick}>
+        <CardMedia className={styles.media} image={recipe.overviewImg} />
+        <Grid
+          container
+          direction='column'
+          justify='space-between'
+          alignItems='stretch'
+          style={{
+            overflow: "hidden",
+            height: "100%",
+            marginLeft: "16px",
+            paddingTop: "8px",
+            paddingBottom: "8px",
+          }}
+        >
+          <Grid item>
+            <Typography
+              style={{
+                fontSize: 16,
+                fontWeight: "bold",
+                lineHeight: "24px",
+                maxHeight: "48px",
+                overflow: "hidden",
+              }}
+              color='textPrimary'
+            >
+              {recipe.title}
             </Typography>
-            <Typography style={{ fontSize: "0.9em" }} color='textPrimary'>
-              {" "}
-              {recipe.difficulty}{" "}
-            </Typography>
-          </Box>
-          <Box display='flex' flexDirection='row'>
-            <TimerIcon fontSize='small' style={{ marginRight: "8px" }} />
-            <Typography style={{ fontSize: "0.9em" }}> {recipe.duration} min </Typography>
-            <Divider orientation='vertical' style={{ marginLeft: "8px", marginRight: "8px", height: "21px" }} />
-            <StyledRating
-              name='cost-rating'
-              readOnly
-              max={3}
-              value={recipe.cost}
-              icon={<EuroIcon fontSize='small' />}
-            />
-          </Box>
+          </Grid>
+          <Grid item>
+            <Box display='flex' flexDirection='row' style={{ marginTop: "8px", marginBottom: "8px" }}>
+              <Typography style={{ fontSize: "0.9em" }} color='textSecondary'>
+                {" "}
+                Difficulty:&nbsp;{" "}
+              </Typography>
+              <Typography style={{ fontSize: "0.9em" }} color='textPrimary'>
+                {" "}
+                {recipe.difficulty}{" "}
+              </Typography>
+            </Box>
+            <Box display='flex' flexDirection='row'>
+              <TimerIcon fontSize='small' style={{ marginRight: "8px" }} />
+              <Typography style={{ fontSize: "0.9em" }}> {recipe.duration} min </Typography>
+              <Divider orientation='vertical' style={{ marginLeft: "8px", marginRight: "8px", height: "21px" }} />
+              <StyledRating
+                name='cost-rating'
+                readOnly
+                max={3}
+                value={recipe.cost}
+                icon={<EuroIcon fontSize='small' />}
+              />
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Card>
+      </Card>
+    </Grow>
   );
 }
 

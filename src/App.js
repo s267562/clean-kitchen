@@ -47,13 +47,28 @@ class App extends Component {
 
     this.state = {
       anchorEl: null,
+      searchKeyword: "",
     };
+
+    this.setSearchKeyword = this.setSearchKeyword.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("scroll", () => {
+      document.activeElement.blur();
+    });
+  }
+
+  setSearchKeyword(keyword) {
+    this.setState({
+      searchKeyword: keyword,
+    });
   }
 
   render() {
     return (
       <Router>
-        <MyAppBar />
+        <MyAppBar setSearchKeyword={this.setSearchKeyword} />
         <Switch>
           <Route path='/tutorial'>
             <Tutorial />
@@ -61,7 +76,7 @@ class App extends Component {
           <Route path='/searchResults'>
             {" "}
             {/* field keyword (/:keyword) */}
-            <SearchResults />
+            <SearchResults searchKeyword={this.state.searchKeyword} />
           </Route>
           <Route path='/recipe'>
             {" "}
@@ -103,6 +118,7 @@ function MyAppBar(props) {
   const [queryParam, setQueryParam] = useState("");
   const [isOpenReminder, setOpenReminder] = useState(true);
   const [isOpenSettings, setOpenSettings] = useState(false);
+  const [autofocus, setAutofocus] = useState(false);
 
   useEffect(() => {
     setLoc(location);
@@ -111,6 +127,13 @@ function MyAppBar(props) {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleSearchClick = (event) => {
+    history.push({
+      pathname: "/searchResults",
+    });
+    setAutofocus(true);
   };
 
   const handleClose = (event, index) => {
@@ -161,6 +184,11 @@ function MyAppBar(props) {
           </Typography>
           {loc !== null && loc.pathname.toLowerCase() !== "/cookingmode" ? (
             <>
+              {loc.pathname === "/" && (
+                <IconButton edge='end' color='inherit' onClick={handleSearchClick} disableFocusRipple={true}>
+                  <Search />
+                </IconButton>
+              )}
               <IconButton edge='end' color='inherit' onClick={handleClick} disableFocusRipple={true}>
                 <MoreVertIcon />
               </IconButton>
@@ -182,8 +210,8 @@ function MyAppBar(props) {
             ))}
           </Menu>
         </Toolbar>
-        {loc !== null && (loc.pathname === "/" || loc.pathname.toLowerCase() === "/searchresults") && (
-          <SearchBar keyword={queryParam} />
+        {loc !== null && loc.pathname.toLowerCase() === "/searchresults" && (
+          <SearchBar keyword={queryParam} autofocus={autofocus} setSearchKeyword={props.setSearchKeyword} />
         )}
       </AppBar>
     </ElevationScroll>
@@ -198,7 +226,7 @@ const CustomSearchField = withStyles({
       background: "#fafafa",
     },
     "& label.Mui-focused": {
-      color: "#000",
+      color: "transparent",
     },
     "& .MuiInput-underline:after": {
       borderBottomColor: "#000",
@@ -231,6 +259,13 @@ function SearchBar(props) {
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    /* the user typed something */
+    /*history.push({
+      pathname: "/searchResults",
+      search: `?query=${event.target.value}`,
+      state: { query: event.target.value },
+    });*/
+    props.setSearchKeyword(event.target.value);
   };
 
   const handleClear = () => {
@@ -293,22 +328,27 @@ function SearchBar(props) {
 
   return (
     <form onSubmit={handleSubmit} style={{ margin: "16px" }}>
-      <CustomSearchField
-        label='Search for recipes'
-        variant='outlined'
-        id='custom-css-outlined-input'
-        size='small'
-        style={{ width: "100%" }}
-        value={value}
-        /* styles the input component */
-        InputProps={iconAdornment}
-        InputLabelProps={{
-          style: { color: "#000" },
-        }}
-        onFocus={(e) => setIsSelected(true)}
-        onBlur={(e) => setIsSelected(false)}
-        onChange={handleChange}
-      />
+      <Slide direction='down' in timeout={150}>
+        <CustomSearchField
+          label={isSelected || value !== "" ? "" : "Search for recipes"}
+          variant='outlined'
+          id='custom-css-outlined-input'
+          size='small'
+          autoFocus={history.location.search === ""}
+          style={{ width: "100%" }}
+          value={value}
+          /* styles the input component */
+          InputProps={iconAdornment}
+          InputLabelProps={{
+            style: { color: "#000" },
+          }}
+          onFocus={(e) => {
+            setIsSelected(true);
+          }}
+          onBlur={(e) => setIsSelected(false)}
+          onChange={handleChange}
+        />
+      </Slide>
     </form>
   );
 }
