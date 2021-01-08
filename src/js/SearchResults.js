@@ -72,6 +72,8 @@ function SearchResults(props) {
 
   const mountedRef = useRef();
 
+  const pendingReq = useRef();
+
   useEffect(() => {
     // on mount
     mountedRef.current = true;
@@ -94,10 +96,25 @@ function SearchResults(props) {
   }, [history, props.searchKeyword]);
 
   const setRecipesByKeyword = (keyword) => {
-    fireAPI.getRecipesBy_keyword(keyword).then((recipes) => {
-      setSearchResults(recipes);
-      setFilteredRecipes(recipes);
-    });
+    const req = fireAPI.getRecipesBy_keyword(keyword);
+
+    if (pendingReq.current !== undefined) {
+      /* if there is pending request (i.e. the user insert two chars very quickly), the new request is performed later */
+      pendingReq.current.then(() => {
+        req.then((recipes) => {
+          setSearchResults(recipes);
+          setFilteredRecipes(recipes);
+          pendingReq.current = undefined;
+        });
+      });
+    } else {
+      pendingReq.current = req;
+      req.then((recipes) => {
+        setSearchResults(recipes);
+        setFilteredRecipes(recipes);
+        pendingReq.current = undefined;
+      });
+    }
   };
 
   const setAllRecipes = () => {
