@@ -139,7 +139,7 @@
         {
           "name": "Extra-virgin Olive Oil",
           "quantity": 1,
-          "unit": "tbsp"
+          "unit": "tablespoon"
         },
         {
           "name": "Kosher Salt",
@@ -149,7 +149,7 @@
         {
           "name": "Garlic Powder",
           "quantity": 1,
-          "unit": "tsp"
+          "unit": "teaspoon"
         },
         {
           "name": "Shredded Cow Cheese",
@@ -353,43 +353,142 @@
       "title": "Banana Muffins",
       "yield": 4
     },
-
-    
     {
-        "id": "(r1, r2, r3...)",
-        "category": "(meat/dessert...)",
-        "keywords": ["(list of keywords)"],
-        "section": ["(popular/editor's choice...)"],
-        "title": "",
-        "description": "(short decription)",
-        "overviewImg": "(url?)",
-        "rating": "(maximum 5)",
-        "duration": "(minutes)",
-        "cost": "(1/2/3)",
-        "difficulty": "(Easy/Medium/Hard)",
-        "yield": "(4 as default)",
-        "ingredients": [
-            {
-                "name": "",
-                "quantity": "(optional)",
-                "unit": "(optional)"
-            }
-        ],
-        "directions": [
-            {
-                "description": "(short description)",
-                "image": "(optional)",
-                "timer": "(optional)",
-                "ingredients": [
-                    {
-                        "name": "",
-                        "quantity": "(optional)",
-                        "unit": "(optional)"
-                    }
-                ]
-            }
-        ],
-        "directionsNumber": ""
-    }
-  ]
+      "id": "r4",
+      "category": "fish",
+      "keywords": ["lemon", "butter", "swai", "fish", "lemon butter swai fish"],
+      "section": ["popular"],
+      "title": "Lemon Butter Swai Fish",
+      "description": "Tender and moist pan fried fish with lemon butter sauce. This recipe takes 10 mins from start to finish and rival the best seafood restaurant. Serve alone or with healthy marinated tomatoes and easy spaghetti for dinner.",
+      "overviewImg": "https://lh3.googleusercontent.com/a9Cj1si1IzU1lFDlk1LNK9JHLpK-rDBmJQZ0dXpdskm1OsYdIacqaDxRwKXUc9OZJsSMWiO5eAYV7AGpxZUgkw=s640-c-rw-v1-e365",
+      "rating": "5",
+      "duration": 20,
+      "cost": 2,
+      "difficulty": "medium",
+      "yield": 4,
+      "ingredients": [
+          {
+              "name": "Swai or Basa Fish",
+              "quantity": 1,
+              "unit": "Kilogram"
+          },
+          {
+            "name": "Salt",
+            "quantity": 2,
+            "unit": "pinches"
+        },
+        {
+          "name": "Ground Black Pepper",
+          "quantity": "",
+          "unit": ""
+      },
+      {
+        "name": "Vegetable Oil",
+        "quantity": 1,
+        "unit": "tablespoon"
+      },
+      {
+        "name": "Unsalted Melted Butter ",
+        "quantity": 4,
+        "unit": "tablespoons"
+      },
+      {
+        "name": "White Wine",
+        "quantity": 120,
+        "unit": "milliliters"
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": 2,
+        "unit": "tablespoons"
+      },
+      {
+        "name": "Lemon Juice",
+        "quantity": 2,
+        "unit": "tablespoons"
+      },
+      {
+        "name": "Chopped Italian Parsley",
+        "quantity": 2,
+        "unit": "teaspoons"
+      }
+      ],
+      "directions": [
+          {
+              "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
+              "image": "",
+              "timer": "",
+              "ingredients": [
+                  {
+                      "name": "",
+                      "quantity": "",
+                      "unit": ""
+                  }
+              ]
+          },
+          {
+            "description": "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
+            "image": "",
+            "timer": "",
+            "ingredients": [
+                {
+                    "name": "",
+                    "quantity": "",
+                    "unit": ""
+                }
+            ]
+        },
+        {
+          "description": "In a sauce pan, heat the melted butter, then add the white wine and lemon juice. Add a pinch of salt. As soon as the sauce bubbles, turn off the heat. Drizzle the sauce on the fish, garnish with parsley and serve immediately.",
+          "image": "",
+          "timer": "",
+          "ingredients": [
+              {
+                  "name": "",
+                  "quantity": "",
+                  "unit": ""
+              }
+          ]
+      }
+      ],
+      "directionsNumber": 3
+  },
+  {
+    "id": "(r1, r2, r3...)",
+    "category": "(meat/dessert...)",
+    "keywords": ["(list of keywords)"],
+    "section": ["(popular/editor's choice...)"],
+    "title": "",
+    "description": "(short decription)",
+    "overviewImg": "(url?)",
+    "rating": "(maximum 5)",
+    "duration": "(minutes)",
+    "cost": "(1/2/3)",
+    "difficulty": "(Easy/Medium/Hard)",
+    "yield": "(4 as default)",
+    "ingredients": [
+        {
+            "name": "",
+            "quantity": "(optional)",
+            "unit": "(optional)"
+        }
+    ],
+    "directions": [
+        {
+            "description": "(short description)",
+            "image": "(optional)",
+            "timer": "(optional)",
+            "ingredients": [
+                {
+                    "name": "",
+                    "quantity": "(optional)",
+                    "unit": "(optional)"
+                }
+            ]
+        }
+    ],
+    "directionsNumber": ""
+} 
+    
+]
 }
