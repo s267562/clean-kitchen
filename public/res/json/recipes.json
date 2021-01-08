@@ -17,13 +17,13 @@
           "ingredients": [
             {
               "name": "buttermilk",
-              "quantity": 237,
+              "quantity": 240,
               "unit": "milliliters"
             },
             {
               "name": "chicken legs",
               "quantity": 8,
-              "unit": ""
+              "unit": "pieces"
             }
           ],
           "timer": 30
@@ -35,52 +35,52 @@
       "ingredients": [
         {
           "name": "buttermilk",
-          "quantity": 237,
+          "quantity": 240,
           "unit": "milliliters"
         },
         {
           "name": "chicken legs",
           "quantity": 8,
-          "unit": "piece"
+          "unit": "pieces"
         },
         {
           "name": "all-purpose flour",
-          "quantity": 63,
+          "quantity": 60,
           "unit": "g"
         },
         {
           "name": "paprika",
-          "quantity": 1,
-          "unit": "tsp"
+          "quantity": 8,
+          "unit": "grams"
         },
         {
           "name": "garlic powder",
-          "quantity": 0.5,
-          "unit": "tsp"
+          "quantity": 4,
+          "unit": "grams"
         },
         {
           "name": "baking powder",
-          "quantity": 1,
-          "unit": "tsp"
+          "quantity": 4,
+          "unit": "grams"
         },
         {
           "name": "fine sea salt",
-          "quantity": 1,
-          "unit": "tsp"
+          "quantity": 8,
+          "unit": "grams"
         },
         {
           "name": "black pepper",
-          "quantity": 1,
-          "unit": "tsp"
+          "quantity": 4,
+          "unit": "grams"
         },
         {
           "name": "olive oil cooking spray (as needed)",
-          "quantity": 1,
+          "quantity": 4,
           "unit": "pst"
         },
         {
           "name": "honey",
-          "quantity": 170,
+          "quantity": 200,
           "unit": "grams"
         }
       ],
@@ -128,28 +128,33 @@
       "ingredients": [
         {
           "name": "Salsa Verde",
-          "quantity": 1,
-          "unit": "jar (16 oz.)"
+          "quantity": 300,
+          "unit": "grams"
         },
         {
           "name": "Boneless and Skinless Chicken Breasts",
           "quantity": 1,
-          "unit": "lb"
+          "unit": "kilogram"
         },
         {
           "name": "Extra-virgin Olive Oil",
-          "quantity": 1,
-          "unit": "tablespoon"
+          "quantity": 20,
+          "unit": "milliliters"
         },
         {
           "name": "Kosher Salt",
-          "quantity": 1,
-          "unit": "jar (16 oz.)"
+          "quantity": 10,
+          "unit": "grams"
         },
         {
           "name": "Garlic Powder",
-          "quantity": 1,
-          "unit": "teaspoon"
+          "quantity": 8,
+          "unit": "grams"
+        },
+        {
+          "name": "Cooked white rice for serving",
+          "quantity": 100,
+          "unit": "grams"
         },
         {
           "name": "Shredded Cow Cheese",
@@ -163,11 +168,6 @@
         },
         {
           "name": "Fresh Cilantro for Garnish",
-          "quantity": "",
-          "unit": ""
-        },
-        {
-          "name": "Cooked white rice for serving",
           "quantity": "",
           "unit": ""
         }
@@ -202,8 +202,8 @@
           "ingredients": [
             {
               "name": "large banana",
-              "quantity": "2",
-              "unit": ""
+              "quantity": 2,
+              "unit": "pieces"
             }
           ],
           "timer": ""
@@ -214,28 +214,28 @@
           "ingredients": [
             {
               "name": "canola oil",
-              "quantity": "0.3",
-              "unit": "cup"
+              "quantity": 20,
+              "unit": "milliliters"
             },
             {
               "name": "light brown sugar",
-              "quantity": "cup",
-              "unit": "0.25"
+              "quantity": 75,
+              "unit": "grams"
             },
             {
               "name": "granulated sugar",
-              "quantity": "0.5",
-              "unit": "cup"
+              "quantity": 180,
+              "unit": "grams"
             },
             {
               "name": "vanilla extract",
-              "quantity": "0.5",
-              "unit": "teaspoon"
+              "quantity": 8,
+              "unit": "grams"
             },
             {
               "name": "large egg",
-              "quantity": "2",
-              "unit": ""
+              "quantity": 2,
+              "unit": "pieces"
             }
           ],
           "timer": ""
@@ -246,28 +246,28 @@
           "ingredients": [
             {
               "name": "all-purpose flour",
-              "quantity": "1.5",
-              "unit": "cups"
+              "quantity": 100,
+              "unit": "grams"
             },
             {
               "name": "cinnamon",
-              "quantity": "1",
-              "unit": "teaspoon"
+              "quantity": 8,
+              "unit": "grams"
             },
             {
               "name": "baking powder",
-              "quantity": "1",
-              "unit": "teaspoon"
+              "quantity": 10,
+              "unit": "grams"
             },
             {
               "name": "baking soda",
-              "quantity": "0.5",
-              "unit": "teaspoon"
+              "quantity": 10,
+              "unit": "grams"
             },
             {
               "name": "salt",
-              "quantity": "0.5",
-              "unit": "teaspoon"
+              "quantity": 5,
+              "unit": "grams"
             }
           ],
           "timer": ""
@@ -279,7 +279,7 @@
         {
           "description": "Bake the muffins on middle rack of oven until a toothpick inserted in the centers comes out clean, 15-25 minutes.",
           "image": "https://lh3.googleusercontent.com/proxy/8exf_bdDvAbZGL9xIMvdHE42JdVTmPNt_AbhiQoTtb0oXxi7_ExkkVYjwnLkuog_3ID0tiQFt-Vr7Evu2kFIcBrFeB_-989SkCcXr6pia5jdr0SQeYTbdxSXhZVQn4QUQocP",
-          "timer": "25"
+          "timer": 25
         },
         {
           "description": "Allow muffins to cool in the pan for 5 minutes, then remove from the pan and allow to cool completely on a wire rack. Store leftovers at room temperature for 2 days or in the refrigerator for 3 days.",
@@ -292,58 +292,58 @@
       "ingredients": [
         {
           "name": "large banana",
-          "quantity": "2",
-          "unit": ""
+          "quantity": 2,
+          "unit": "pieces"
         },
         {
           "name": "canola oil",
-          "quantity": "0.3",
-          "unit": "cup"
+          "quantity": 20,
+          "unit": "milliliters"
         },
         {
           "name": "light brown sugar",
-          "quantity": "cup",
-          "unit": "0.25"
+          "quantity": 75,
+          "unit": "grams"
         },
         {
           "name": "granulated sugar",
-          "quantity": "0.5",
-          "unit": "cup"
+          "quantity": 180,
+          "unit": "grams"
         },
         {
           "name": "vanilla extract",
-          "quantity": "0.5",
-          "unit": "teaspoon"
+          "quantity": 8,
+          "unit": "grams"
         },
         {
           "name": "large egg",
-          "quantity": "1",
-          "unit": ""
+          "quantity": 2,
+          "unit": "pieces"
         },
         {
           "name": "all-purpose flour",
-          "quantity": "1.5",
-          "unit": "cups"
+          "quantity": 100,
+          "unit": "grams"
         },
         {
           "name": "cinnamon",
-          "quantity": "1",
-          "unit": "teaspoon"
+          "quantity": 8,
+          "unit": "grams"
         },
         {
           "name": "baking powder",
-          "quantity": "1",
-          "unit": "teaspoon"
+          "quantity": 10,
+          "unit": "grams"
         },
         {
           "name": "baking soda",
-          "quantity": "0.5",
-          "unit": "teaspoon"
+          "quantity": 10,
+          "unit": "grams"
         },
         {
           "name": "salt",
-          "quantity": "0.5",
-          "unit": "teaspoon"
+          "quantity": 5,
+          "unit": "grams"
         }
       ],
       "keywords": ["banana", "muffin", "dessert", "banana muffins"],
@@ -361,7 +361,7 @@
       "title": "Lemon Butter Swai Fish",
       "description": "Tender and moist pan fried fish with lemon butter sauce. This recipe takes 10 mins from start to finish and rival the best seafood restaurant. Serve alone or with healthy marinated tomatoes and easy spaghetti for dinner.",
       "overviewImg": "https://lh3.googleusercontent.com/a9Cj1si1IzU1lFDlk1LNK9JHLpK-rDBmJQZ0dXpdskm1OsYdIacqaDxRwKXUc9OZJsSMWiO5eAYV7AGpxZUgkw=s640-c-rw-v1-e365",
-      "rating": "5",
+      "rating": 5,
       "duration": 20,
       "cost": 2,
       "difficulty": "medium",
@@ -370,27 +370,27 @@
           {
               "name": "Swai or Basa Fish",
               "quantity": 1,
-              "unit": "Kilogram"
+              "unit": "kilogram"
           },
           {
             "name": "Salt",
-            "quantity": 2,
-            "unit": "pinches"
+            "quantity": 10,
+            "unit": "grams"
         },
         {
           "name": "Ground Black Pepper",
-          "quantity": "",
-          "unit": ""
+          "quantity": 8,
+          "unit": "grams"
       },
       {
         "name": "Vegetable Oil",
-        "quantity": 1,
-        "unit": "tablespoon"
+        "quantity": 40,
+        "unit": "milliliters"
       },
       {
         "name": "Unsalted Melted Butter ",
-        "quantity": 4,
-        "unit": "tablespoons"
+        "quantity": 40,
+        "unit": "grams"
       },
       {
         "name": "White Wine",
@@ -399,18 +399,13 @@
       },
       {
         "name": "Lemon Juice",
-        "quantity": 2,
-        "unit": "tablespoons"
-      },
-      {
-        "name": "Lemon Juice",
-        "quantity": 2,
-        "unit": "tablespoons"
+        "quantity": 20,
+        "unit": "milliliters"
       },
       {
         "name": "Chopped Italian Parsley",
-        "quantity": 2,
-        "unit": "teaspoons"
+        "quantity": 20,
+        "unit": "grams"
       }
       ],
       "directions": [
