@@ -449,6 +449,122 @@
       "directionsNumber": 3
   },
   {
+    "id": "r5",
+    "category": "breakfast",
+    "keywords": ["egg", "scrambled", "omelette", "breakfast", "menemen"],
+    "section": ["popular"],
+    "title": "Menemen",
+    "description": "Menemen, made from eggs, tomatoes, peppers and sometimes onions, is a distinctly Turkish breakfast comfort food. Although a year-round dish, it is especially pleasing in the summer, with really ripe tomatoes from the garden or farmer’s market. Be creative with this dish: Add shallots, chiles, fresh herbs or Aleppo pepper, or treat it as purists do, with only tomatoes and eggs. Cook slowly, stirring infrequently, until the eggs form billowy puffs. You can serve topped with feta cheese or lamb sausage, with any warm flatbread on the side.",
+    "overviewImg": "https://static01.nyt.com/images/2019/08/14/dining/13Menemenrex1/merlin_158856480_0c3a1fa4-dfa0-435b-9311-9714d2f0389d-articleLarge.jpg",
+    "rating": 5,
+    "duration": 25,
+    "cost": 1,
+    "difficulty": "easy",
+    "yield": 4,
+    "ingredients": [
+        {
+            "name": "Extra-virgin Olive Oil",
+            "quantity": 60,
+            "unit": "milliliters"
+        },
+        {
+          "name": "White Onion, Medium, Peeled and Diced",
+          "quantity": 1,
+          "unit": "piece"
+        },
+        {
+          "name": "Dried Oregano",
+          "quantity": 8,
+          "unit": "grams"
+        },
+        {
+          "name": "Long Green Pepper, diced",
+          "quantity": 1,
+          "unit": "piece"
+        },
+        {
+          "name": "Aleppo Pepper",
+          "quantity": 4,
+          "unit": "grams"
+        },
+        {
+          "name": "Juicy Tomatoes, peeled and fine-diced",
+          "quantity": 2,
+          "unit": "pieces"
+        },
+        {
+          "name": "Egg",
+          "quantity": 4,
+          "unit": "pieces"
+        },
+        {
+          "name": "Fresh Parsley, chopped",
+          "quantity": 8,
+          "unit": "grams"
+        },
+        {
+          "name": "Unsalted Butter",
+          "quantity": 40,
+          "unit": "grams"
+        },
+        {
+          "name": "Salt",
+          "quantity": 4,
+          "unit": "grams"
+        },
+        {
+          "name": "Freshly Ground Black Pepper",
+          "quantity": 8,
+          "unit": "grams"
+        },
+        {
+          "name": "Flatbread, toasted or untoasted, for serving",
+          "quantity": "",
+          "unit": ""
+        }
+    ],
+    "directions": [
+        {
+            "description": "Heat the oil in a nonstick medium skillet over medium-high. Add the onion, oregano and Aleppo pepper, season with salt and pepper, and cook, stirring occasionally, until onion is translucent, 7 to 9 minutes. Stir in the green pepper and cook until soft, 5 to 7 minutes.",
+            "image": "",
+            "timer": "",
+            "ingredients": [
+                {
+                    "name": "",
+                    "quantity": "",
+                    "unit": ""
+                }
+            ]
+        },
+        {
+          "description": "While the onions and peppers are cooking, purée half the tomatoes in a food processor or blender. Once the onions and peppers are soft, add the remaining chopped tomatoes to the onions and peppers. Crack the eggs into a medium bowl, add the puréed tomatoes and whisk until foamy.",
+          "image": "",
+          "timer": "",
+          "ingredients": [
+              {
+                  "name": "",
+                  "quantity": "",
+                  "unit": ""
+              }
+          ]
+      },
+      {
+        "description": "Once the mixture in the skillet comes to a simmer, stir in the 1/4 cup parsley and the butter, if using. Reduce heat to low, add the egg mixture on top and cook, stirring occasionally, until the eggs are set but still soft, 3 to 4 minutes. Taste, adding a little more salt, oregano or Aleppo pepper, if needed. Sprinkle with remaining parsley and serve directly from the skillet, with flatbread alongside.",
+        "image": "",
+        "timer": "",
+        "ingredients": [
+            {
+                "name": "",
+                "quantity": "",
+                "unit": ""
+            }
+        ]
+    }
+  ],
+    "directionsNumber": 3
+  },
+
+  {
     "id": "(r1, r2, r3...)",
     "category": "(meat/dessert...)",
     "keywords": ["(list of keywords)"],
@@ -483,7 +599,7 @@
         }
     ],
     "directionsNumber": ""
-} 
+  } 
     
 ]
 }
