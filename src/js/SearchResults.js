@@ -11,7 +11,6 @@ import {
   Dialog,
   IconButton,
   Slider,
-  DialogTitle,
   DialogContent,
   DialogActions,
   FormControl,
@@ -19,7 +18,7 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Rating } from "@material-ui/lab";
 import EuroIcon from "@material-ui/icons/Euro";
@@ -66,50 +65,47 @@ const useStyles = makeStyles(() => ({
 }));
 
 function SearchResults(props) {
-  const location = useLocation();
   const [searchResults, setSearchResults] = useState(null);
-  const [query, setQuery] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
   const [filteredRecipes, setFilteredRecipes] = useState(null);
-  let notQuery = true;
+  const history = useHistory();
+
+  const mountedRef = useRef();
 
   useEffect(() => {
-    //console.log("useEffect (SearchResults.js) - query: " + location.state?.query);
-    notQuery = false; // fix race condition between searchKeyword and query useEffects
-    setQuery(location.search.replace("?query=", "").toLowerCase());
-  }, [location]);
+    // on mount
+    mountedRef.current = true;
+  }, []);
 
   useEffect(() => {
-    //console.log("useEffect (SearchResults.js) - props.searchKeyword: " + props.searchKeyword);
-    if (notQuery) {
-      if (props.searchKeyword.toLowerCase() !== "") {
-        fireAPI.getRecipesBy_keyword(props.searchKeyword.toLowerCase()).then((recipes) => {
-          setSearchResults(recipes);
-          setFilteredRecipes(recipes);
-        });
-      } else {
-        fireAPI.getAllRecipes().then((recipes) => {
-          setSearchResults(recipes);
-          setFilteredRecipes(recipes);
-        });
-      }
-    }
-  }, [props.searchKeyword]);
+    let keyword;
 
-  useEffect(() => {
-    if (query !== "") {
-      notQuery = true;
-      fireAPI.getRecipesBy_keyword(query).then((recipes) => {
-        setSearchResults(recipes);
-        setFilteredRecipes(recipes);
-      });
+    if (mountedRef.current) {
+      /* when component is mounted get the keyword from history */
+      mountedRef.current = false;
+      keyword = history.location.search?.replace("?query=", "");
     } else {
-      fireAPI.getAllRecipes().then((recipes) => {
-        setSearchResults(recipes);
-        setFilteredRecipes(recipes);
-      });
+      /* otherwise get the keyword from props (SearchBar) */
+      keyword = props.searchKeyword;
     }
-  }, [query]);
+
+    if (keyword === "") setAllRecipes();
+    else setRecipesByKeyword(keyword);
+  }, [history, props.searchKeyword]);
+
+  const setRecipesByKeyword = (keyword) => {
+    fireAPI.getRecipesBy_keyword(keyword).then((recipes) => {
+      setSearchResults(recipes);
+      setFilteredRecipes(recipes);
+    });
+  };
+
+  const setAllRecipes = () => {
+    fireAPI.getAllRecipes().then((recipes) => {
+      setSearchResults(recipes);
+      setFilteredRecipes(recipes);
+    });
+  };
 
   const handleFilterClick = () => {
     setFilterOpen(true);

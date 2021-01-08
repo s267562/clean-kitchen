@@ -111,18 +111,16 @@ function ElevationScroll(props) {
 }
 
 function MyAppBar(props) {
-  const location = useLocation();
   const history = useHistory();
+  const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [loc, setLoc] = useState(null);
-  const [queryParam, setQueryParam] = useState("");
   const [isOpenReminder, setOpenReminder] = useState(true);
   const [isOpenSettings, setOpenSettings] = useState(false);
   const [autofocus, setAutofocus] = useState(false);
 
   useEffect(() => {
     setLoc(location);
-    setQueryParam(location.search.replace("?query=", ""));
   }, [location]);
 
   const handleClick = (event) => {
@@ -211,7 +209,7 @@ function MyAppBar(props) {
           </Menu>
         </Toolbar>
         {loc !== null && loc.pathname.toLowerCase() === "/searchresults" && (
-          <SearchBar keyword={queryParam} autofocus={autofocus} setSearchKeyword={props.setSearchKeyword} />
+          <SearchBar autofocus={autofocus} setSearchKeyword={props.setSearchKeyword} />
         )}
       </AppBar>
     </ElevationScroll>
@@ -250,8 +248,8 @@ function SearchBar(props) {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    setValue(props.keyword);
-  }, [props.keyword]);
+    setValue(history.location.search?.replace("?query=", ""));
+  }, [history]);
 
   const handleMouseDownSearch = (event) => {
     event.preventDefault();
@@ -259,17 +257,12 @@ function SearchBar(props) {
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    /* the user typed something */
-    /*history.push({
-      pathname: "/searchResults",
-      search: `?query=${event.target.value}`,
-      state: { query: event.target.value },
-    });*/
     props.setSearchKeyword(event.target.value);
   };
 
   const handleClear = () => {
     setValue("");
+    props.setSearchKeyword("");
   };
 
   const handleSubmit = (event) => {

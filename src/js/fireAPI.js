@@ -29,10 +29,11 @@ async function getRecipeBy_id(id) {
   });
 }
 
-async function getRecipesBy_keyword(keyword) {
+async function getRecipesBy_keyword(k) {
+  const keyword = k.toLowerCase();
   return getAllRecipes().then((recipes) => {
     return recipes.filter((recipe) => {
-      let filteredKeywords = recipe.keywords.filter((k) => k.includes(keyword));
+      let filteredKeywords = recipe.keywords.filter((key) => key.includes(keyword));
       return filteredKeywords.length > 0;
     });
   });
