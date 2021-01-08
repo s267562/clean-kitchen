@@ -17,16 +17,16 @@
           "ingredients": [
             {
               "name": "buttermilk",
-              "quantity": "237",
+              "quantity": 237,
               "unit": "milliliters"
             },
             {
               "name": "chicken legs",
-              "quantity": "8",
+              "quantity": 8,
               "unit": ""
             }
           ],
-          "timer": "30"
+          "timer": 30
         }
       ],
       "directionsNumber": 2,
@@ -98,26 +98,78 @@
       "difficulty": "medium",
       "directions": [
         {
-          "description": "(short description)",
-          "image": "(optional)",
-          "ingredients": [
-            {
-              "name": "",
-              "quantity": "(optional)",
-              "unit": "(optional)"
-            }
-          ],
-          "timer": "(optional)"
+          "description": "Preheat the oven to 400°F. Pour salsa verde into a large baking dish. Brush chicken all over with oil and season with salt, pepper, and garlic powder.",
+          "image": "",
+          "ingredients": [],
+          "timer": ""
+        },
+        {
+          "description": "Nestle chicken into salsa verde and bake until cooked through, 35 minutes.",
+          "image": "",
+          "ingredients": [],
+          "timer": 35
+        },
+        {
+          "description": "Remove chicken from oven and heat broiler. Top with cheese and broil until melty, 2 minutes.",
+          "image": "",
+          "ingredients": [],
+          "timer": 2
+        },
+        {
+          "description": "Squeeze lime over chicken and garnish with cilantro. Serve over rice.",
+          "image": "",
+          "ingredients": [],
+          "timer": ""
         }
       ],
-      "directionsNumber": 3,
-      "duration": 10,
+      "directionsNumber": 4,
+      "duration": 40,
       "id": "r1",
       "ingredients": [
         {
-          "name": "",
-          "quantity": "(optional)",
-          "unit": "(optional)"
+          "name": "Salsa Verde",
+          "quantity": 1,
+          "unit": "jar (16 oz.)"
+        },
+        {
+          "name": "Boneless and Skinless Chicken Breasts",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "name": "Extra-virgin Olive Oil",
+          "quantity": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Kosher Salt",
+          "quantity": 1,
+          "unit": "jar (16 oz.)"
+        },
+        {
+          "name": "Garlic Powder",
+          "quantity": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "Shredded Cow Cheese",
+          "quantity": 200,
+          "unit": "grams"
+        },
+        {
+          "name": "Lime Wedges",
+          "quantity": "",
+          "unit": ""
+        },
+        {
+          "name": "Fresh Cilantro for Garnish",
+          "quantity": "",
+          "unit": ""
+        },
+        {
+          "name": "Cooked white rice for serving",
+          "quantity": "",
+          "unit": ""
         }
       ],
       "isEditorsChoice": 1,
