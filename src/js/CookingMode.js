@@ -87,6 +87,7 @@ function CookingMode() {
       command: [
         "next",
         "back",
+        "beck", // try to correct bad pronunciation
         "help",
         "up",
         "down",
@@ -98,6 +99,7 @@ function CookingMode() {
             case "next":
               handleNext();
               break;
+            case "beck": // try to correct bad pronunciation
             case "back":
               handleBack();
               break;
@@ -351,9 +353,11 @@ function SpeechRecognitionDialog(props) {
           <MicIcon fontSize='large' style={{ color: "white" }} />
         </Box>
 
-        <Typography paragraph>{transcript !== "" ? transcript : "Speak now"}</Typography>
+        <Typography paragraph>
+          {transcript === "" ? "Speak now" : transcript === "Beck" ? "Back" : transcript}
+        </Typography>
         <Typography style={{ fontSize: 14 }} color='textSecondary' gutterBottom>
-          english
+          English
         </Typography>
       </Box>
     </Dialog>
