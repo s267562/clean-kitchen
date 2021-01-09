@@ -99,22 +99,22 @@
       "directions": [
         {
           "description": "Preheat the oven to 400°F. Pour salsa verde into a large baking dish. Brush chicken all over with oil and season with salt, pepper, and garlic powder.",
-          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss1.png",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss1.png?alt=media&token=dd13ac67-a0c1-4d98-9ad7-b75cb6fa344e",
           "timer": ""
         },
         {
           "description": "Nestle chicken into salsa verde and bake until cooked through, 35 minutes.",
-          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss2.png",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss2.png?alt=media&token=a7d36f20-8bc2-4b94-afdf-16a614f29072",
           "timer": 35
         },
         {
           "description": "Remove chicken from oven and heat broiler. Top with cheese and broil until melty, 2 minutes.",
-          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss3.png",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss3.png?alt=media&token=473050ee-79b4-483e-a222-caf946c75ac6",
           "timer": 2
         },
         {
           "description": "Squeeze lime over chicken and garnish with cilantro. Serve over rice.",
-          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss4.png",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss4.png?alt=media&token=3736d0ed-f83a-4eca-bf8d-53c75086abe9",
           "timer": ""
         }
       ],
@@ -169,7 +169,7 @@
         }
       ],
       "keywords": ["baked", "salsa", "verde", "chicken", "baked salsa verde chicken"],
-      "overviewImg": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss.jpg",
+      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss.jpg?alt=media&token=5901471a-a709-45c3-b1ad-60243446dd33",
       "rating": 4,
       "section": ["popular", "editor"],
       "title": "Baked Salsa Verde Chicken",
@@ -406,17 +406,17 @@
       "directions": [
           {
               "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
-              "image": "gs://clean-kitchen.appspot.com/LemonButterSwaiFish/ss1.jpg",
+              "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss1.jpg?alt=media&token=dd8ad28c-deb2-4d4c-aa6d-ec175f70b640",
               "timer": ""
           },
           {
             "description": "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
-            "image": "gs://clean-kitchen.appspot.com/LemonButterSwaiFish/ss2.jpg",
+            "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss2.jpg?alt=media&token=b659c558-8e67-4fb7-bf14-ae15d2d3105a",
             "timer": 4
         },
         {
           "description": "In a sauce pan, heat the melted butter, then add the white wine and lemon juice. Add a pinch of salt. As soon as the sauce bubbles, turn off the heat. Drizzle the sauce on the fish, garnish with parsley and serve immediately.",
-          "image": "gs://clean-kitchen.appspot.com/LemonButterSwaiFish/ss3.jpg",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss3.jpg?alt=media&token=2ec828e8-c72b-4855-9f90-493f6a8587f8",
           "timer": ""
       }
       ],
@@ -429,7 +429,7 @@
     "section": ["popular"],
     "title": "Menemen",
     "description": "Menemen, made from eggs, tomatoes, peppers and sometimes onions, is a distinctly Turkish breakfast comfort food. Although a year-round dish, it is especially pleasing in the summer, with really ripe tomatoes from the garden or farmer’s market. Be creative with this dish: Add shallots, chiles, fresh herbs or Aleppo pepper, or treat it as purists do, with only tomatoes and eggs. Cook slowly, stirring infrequently, until the eggs form billowy puffs. You can serve topped with feta cheese or lamb sausage, with any warm flatbread on the side.",
-    "overviewImg": "gs://clean-kitchen.appspot.com/Menemen/ss.jpg",
+    "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss.jpg?alt=media&token=94904fcc-05df-46e5-a652-48dbba6da488",
     "rating": 5,
     "duration": 25,
     "cost": 1,
@@ -500,17 +500,17 @@
     "directions": [
         {
             "description": "Heat the oil in a nonstick medium skillet over medium-high. Add the onion, oregano and Aleppo pepper, season with salt and pepper, and cook, stirring occasionally, until onion is translucent, 7 to 9 minutes. Stir in the green pepper and cook until soft, 5 to 7 minutes.",
-            "image": "gs://clean-kitchen.appspot.com/Menemen/ss1.jpg",
+            "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss1.jpg?alt=media&token=ac26e4c2-8ac4-4cf4-92b2-78b714cbcfea",
             "timer": ""
         },
         {
           "description": "While the onions and peppers are cooking, purée half the tomatoes in a food processor or blender. Once the onions and peppers are soft, add the remaining chopped tomatoes to the onions and peppers. Crack the eggs into a medium bowl, add the puréed tomatoes and whisk until foamy.",
-          "image": "gs://clean-kitchen.appspot.com/Menemen/ss2.jpg",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss2.jpg?alt=media&token=830c2ee4-47b6-40d4-afbd-b7c6b982b34c",
           "timer": ""
       },
       {
         "description": "Once the mixture in the skillet comes to a simmer, stir in the 1/4 cup parsley and the butter, if using. Reduce heat to low, add the egg mixture on top and cook, stirring occasionally, until the eggs are set but still soft, 3 to 4 minutes. Taste, adding a little more salt, oregano or Aleppo pepper, if needed. Sprinkle with remaining parsley and serve directly from the skillet, with flatbread alongside.",
-        "image": "gs://clean-kitchen.appspot.com/Menemen/ss3.gif",
+        "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss3.gif?alt=media&token=7d8f5d5f-615b-4bd4-8884-4bda91d2c733",
         "timer": ""
     }
   ],
