@@ -99,22 +99,22 @@
       "directions": [
         {
           "description": "Preheat the oven to 400°F. Pour salsa verde into a large baking dish. Brush chicken all over with oil and season with salt, pepper, and garlic powder.",
-          "image": "",
+          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss1.png",
           "timer": ""
         },
         {
           "description": "Nestle chicken into salsa verde and bake until cooked through, 35 minutes.",
-          "image": "",
+          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss2.png",
           "timer": 35
         },
         {
           "description": "Remove chicken from oven and heat broiler. Top with cheese and broil until melty, 2 minutes.",
-          "image": "",
+          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss3.png",
           "timer": 2
         },
         {
           "description": "Squeeze lime over chicken and garnish with cilantro. Serve over rice.",
-          "image": "",
+          "image": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss4.png",
           "timer": ""
         }
       ],
@@ -168,9 +168,8 @@
           "unit": ""
         }
       ],
-      "isEditorsChoice": 1,
       "keywords": ["baked", "salsa", "verde", "chicken", "baked salsa verde chicken"],
-      "overviewImg": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/shot-5-0338-jpg-1526587417.jpg?crop=0.891xw:0.753xh;0.0969xw,0.117xh&resize=768:*",
+      "overviewImg": "gs://clean-kitchen.appspot.com/BakedSalsaVerdeChicken/ss.jpg",
       "rating": 4,
       "section": ["popular", "editor"],
       "title": "Baked Salsa Verde Chicken",
