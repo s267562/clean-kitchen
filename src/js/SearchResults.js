@@ -85,7 +85,7 @@ function SearchResults(props) {
     if (mountedRef.current) {
       /* when component is mounted get the keyword from history */
       mountedRef.current = false;
-      keyword = history.location.search?.replace("?query=", "");
+      keyword = history.location.search?.replace("?query=", "").replaceAll("%20", " ");
     } else {
       /* otherwise get the keyword from props (SearchBar) */
       keyword = props.searchKeyword;
