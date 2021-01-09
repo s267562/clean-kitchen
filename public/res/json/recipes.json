@@ -406,17 +406,17 @@
       "directions": [
           {
               "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
-              "image": "",
+              "image": "gs://clean-kitchen.appspot.com/LemonButterSwaiFish/ss1.jpg",
               "timer": ""
           },
           {
             "description": "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
-            "image": "",
-            "timer": ""
+            "image": "gs://clean-kitchen.appspot.com/LemonButterSwaiFish/ss2.jpg",
+            "timer": 4
         },
         {
           "description": "In a sauce pan, heat the melted butter, then add the white wine and lemon juice. Add a pinch of salt. As soon as the sauce bubbles, turn off the heat. Drizzle the sauce on the fish, garnish with parsley and serve immediately.",
-          "image": "",
+          "image": "gs://clean-kitchen.appspot.com/LemonButterSwaiFish/ss3.jpg",
           "timer": ""
       }
       ],
