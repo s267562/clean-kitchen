@@ -161,7 +161,7 @@ function Recipe(props) {
   const history = useHistory();
 
   const onCardClick = () => {
-    if (history.location.search === "" && props.searchKeyword !== "") {
+    if (props.searchKeyword !== "") {
       //fix back navigation issue when clicking on a card without submitting a query
       history.push({
         pathname: "/searchResults",
