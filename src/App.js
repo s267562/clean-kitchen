@@ -266,7 +266,7 @@ function SearchBar(props) {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    setValue(history.location.search?.replace("?query=", ""));
+    setValue(history.location.search?.replace("?query=", "").replaceAll("%20", " "));
   }, [history]);
 
   const handleMouseDownSearch = (event) => {
