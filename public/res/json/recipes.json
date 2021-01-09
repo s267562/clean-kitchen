@@ -100,25 +100,21 @@
         {
           "description": "Preheat the oven to 400°F. Pour salsa verde into a large baking dish. Brush chicken all over with oil and season with salt, pepper, and garlic powder.",
           "image": "",
-          "ingredients": [],
           "timer": ""
         },
         {
           "description": "Nestle chicken into salsa verde and bake until cooked through, 35 minutes.",
           "image": "",
-          "ingredients": [],
           "timer": 35
         },
         {
           "description": "Remove chicken from oven and heat broiler. Top with cheese and broil until melty, 2 minutes.",
           "image": "",
-          "ingredients": [],
           "timer": 2
         },
         {
           "description": "Squeeze lime over chicken and garnish with cilantro. Serve over rice.",
           "image": "",
-          "ingredients": [],
           "timer": ""
         }
       ],
@@ -412,38 +408,17 @@
           {
               "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
               "image": "",
-              "timer": "",
-              "ingredients": [
-                  {
-                      "name": "",
-                      "quantity": "",
-                      "unit": ""
-                  }
-              ]
+              "timer": ""
           },
           {
             "description": "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
             "image": "",
-            "timer": "",
-            "ingredients": [
-                {
-                    "name": "",
-                    "quantity": "",
-                    "unit": ""
-                }
-            ]
+            "timer": ""
         },
         {
           "description": "In a sauce pan, heat the melted butter, then add the white wine and lemon juice. Add a pinch of salt. As soon as the sauce bubbles, turn off the heat. Drizzle the sauce on the fish, garnish with parsley and serve immediately.",
           "image": "",
-          "timer": "",
-          "ingredients": [
-              {
-                  "name": "",
-                  "quantity": "",
-                  "unit": ""
-              }
-          ]
+          "timer": ""
       }
       ],
       "directionsNumber": 3
@@ -527,38 +502,17 @@
         {
             "description": "Heat the oil in a nonstick medium skillet over medium-high. Add the onion, oregano and Aleppo pepper, season with salt and pepper, and cook, stirring occasionally, until onion is translucent, 7 to 9 minutes. Stir in the green pepper and cook until soft, 5 to 7 minutes.",
             "image": "",
-            "timer": "",
-            "ingredients": [
-                {
-                    "name": "",
-                    "quantity": "",
-                    "unit": ""
-                }
-            ]
+            "timer": ""
         },
         {
           "description": "While the onions and peppers are cooking, purée half the tomatoes in a food processor or blender. Once the onions and peppers are soft, add the remaining chopped tomatoes to the onions and peppers. Crack the eggs into a medium bowl, add the puréed tomatoes and whisk until foamy.",
           "image": "",
-          "timer": "",
-          "ingredients": [
-              {
-                  "name": "",
-                  "quantity": "",
-                  "unit": ""
-              }
-          ]
+          "timer": ""
       },
       {
         "description": "Once the mixture in the skillet comes to a simmer, stir in the 1/4 cup parsley and the butter, if using. Reduce heat to low, add the egg mixture on top and cook, stirring occasionally, until the eggs are set but still soft, 3 to 4 minutes. Taste, adding a little more salt, oregano or Aleppo pepper, if needed. Sprinkle with remaining parsley and serve directly from the skillet, with flatbread alongside.",
         "image": "",
-        "timer": "",
-        "ingredients": [
-            {
-                "name": "",
-                "quantity": "",
-                "unit": ""
-            }
-        ]
+        "timer": ""
     }
   ],
     "directionsNumber": 3
