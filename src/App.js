@@ -54,8 +54,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener("scroll", () => {
+    /*document.addEventListener("scroll", (e) => {
+      console.log("on scroll");
+      console.log(e);
       document.activeElement.blur();
+    });*/
+
+    document.addEventListener("touchstart", (e) => {
+      if (e.target.id !== "search-bar") document.activeElement.blur();
     });
   }
 
@@ -325,7 +331,7 @@ function SearchBar(props) {
         <CustomSearchField
           label={isSelected || value !== "" ? "" : "Search for recipes"}
           variant='outlined'
-          id='custom-css-outlined-input'
+          id='search-bar'
           size='small'
           autoFocus={history.location.search === ""}
           style={{ width: "100%" }}
