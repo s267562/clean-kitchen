@@ -270,7 +270,7 @@ function IngredientsList(props) {
               primary={
                 <span>
                   <Fade key={currentYield} in timeout={600}>
-                    <span>{value.quantity && Math.round((value.quantity * currentYield) / 4)} </span>
+                    <span>{value.quantity && Math.round(((value.quantity * currentYield) / 4) * 2) / 2} </span>
                   </Fade>
                   {value.unit} <b> {value.name} </b>{" "}
                 </span>

@@ -78,7 +78,12 @@ function CookingMode() {
     });
   }, [location]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    window.addEventListener("userproximity", handleProximity);
+    return () => {
+      window.removeEventListener("userproximity", handleProximity);
+    };
+  }, []);
 
   /* Speech recognition */
   const [success, setSuccess] = useState(false);
@@ -137,7 +142,6 @@ function CookingMode() {
       SpeechRecognition.startListening();
     }
   }
-  window.addEventListener("userproximity", handleProximity);
 
   /**
    * DEVELOPMENT ONLY
