@@ -196,7 +196,7 @@ function CookingMode() {
           <SwipeableViews
             enableMouseEvents
             index={currentStep}
-            style={{ paddingBottom: "52px" }}
+            style={{ paddingBottom: "52px", height: "calc(100% - 56px)" }}
             onChangeIndex={handleStepChange}
           >
             {recipe?.directions.map((direction, index) => (
