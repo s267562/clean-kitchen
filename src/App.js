@@ -34,6 +34,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import CloseIcon from "@material-ui/icons/Close";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import MicIcon from "@material-ui/icons/Mic";
+import fireAPI from "./js/fireAPI";
 
 const options = ["Settings", "Tutorial"];
 
@@ -124,9 +125,17 @@ function MyAppBar(props) {
   const [isOpenReminder, setOpenReminder] = useState(true);
   const [isOpenSettings, setOpenSettings] = useState(false);
   const [autofocus, setAutofocus] = useState(false);
+  const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
     setLoc(location);
+    if (history.location.pathname.toLowerCase() === "/cookingmode") {
+      const queryParams = location.search.replace("?", "").split("&");
+      const id = queryParams[0].replace("id=", "");
+      fireAPI.getRecipeBy_id(id).then((recipe) => {
+        setRecipe(recipe);
+      });
+    }
   }, [location]);
 
   const handleClick = (event) => {
@@ -183,8 +192,11 @@ function MyAppBar(props) {
               <CloseIcon />
             </IconButton>
           )}
-          <Typography variant='h6' style={{ flexGrow: 1 }}>
-            Clean Kitchen
+          <Typography
+            variant='h6'
+            style={{ flexGrow: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
+          >
+            {loc !== null && loc.pathname.toLowerCase() === "/cookingmode" ? recipe?.title : "Clean Kitchen"}
           </Typography>
           {loc !== null && loc.pathname.toLowerCase() !== "/cookingmode" ? (
             <>
