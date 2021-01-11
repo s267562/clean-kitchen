@@ -362,84 +362,84 @@
       "difficulty": "medium",
       "yield": 4,
       "ingredients": [
-          {
-              "name": "Swai or Basa Fish",
-              "quantity": 1,
-              "unit": "kilogram"
-          },
-          {
-            "name": "Salt",
-            "quantity": 10,
-            "unit": "grams"
+        {
+          "name": "Swai or Basa Fish",
+          "quantity": 1,
+          "unit": "kilogram"
+        },
+        {
+          "name": "Salt",
+          "quantity": 10,
+          "unit": "grams"
         },
         {
           "name": "Ground Black Pepper",
           "quantity": 8,
           "unit": "grams"
-      },
-      {
-        "name": "Vegetable Oil",
-        "quantity": 40,
-        "unit": "milliliters"
-      },
-      {
-        "name": "Unsalted Melted Butter ",
-        "quantity": 40,
-        "unit": "grams"
-      },
-      {
-        "name": "White Wine",
-        "quantity": 120,
-        "unit": "milliliters"
-      },
-      {
-        "name": "Lemon Juice",
-        "quantity": 20,
-        "unit": "milliliters"
-      },
-      {
-        "name": "Chopped Italian Parsley",
-        "quantity": 20,
-        "unit": "grams"
-      }
+        },
+        {
+          "name": "Vegetable Oil",
+          "quantity": 40,
+          "unit": "milliliters"
+        },
+        {
+          "name": "Unsalted Melted Butter ",
+          "quantity": 40,
+          "unit": "grams"
+        },
+        {
+          "name": "White Wine",
+          "quantity": 120,
+          "unit": "milliliters"
+        },
+        {
+          "name": "Lemon Juice",
+          "quantity": 20,
+          "unit": "milliliters"
+        },
+        {
+          "name": "Chopped Italian Parsley",
+          "quantity": 20,
+          "unit": "grams"
+        }
       ],
       "directions": [
-          {
-              "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
-              "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss1.jpg?alt=media&token=dd8ad28c-deb2-4d4c-aa6d-ec175f70b640",
-              "timer": ""
-          },
-          {
-            "description": "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
-            "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss2.jpg?alt=media&token=b659c558-8e67-4fb7-bf14-ae15d2d3105a",
-            "timer": 4
+        {
+          "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss1.jpg?alt=media&token=dd8ad28c-deb2-4d4c-aa6d-ec175f70b640",
+          "timer": ""
+        },
+        {
+          "description": "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss2.jpg?alt=media&token=b659c558-8e67-4fb7-bf14-ae15d2d3105a",
+          "timer": 4
         },
         {
           "description": "In a sauce pan, heat the melted butter, then add the white wine and lemon juice. Add a pinch of salt. As soon as the sauce bubbles, turn off the heat. Drizzle the sauce on the fish, garnish with parsley and serve immediately.",
           "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss3.jpg?alt=media&token=2ec828e8-c72b-4855-9f90-493f6a8587f8",
           "timer": ""
-      }
+        }
       ],
       "directionsNumber": 3
-  },
-  {
-    "id": "r5",
-    "category": "breakfast",
-    "keywords": ["egg", "scrambled", "omelette", "breakfast", "menemen"],
-    "section": ["popular"],
-    "title": "Menemen",
-    "description": "Menemen, made from eggs, tomatoes, peppers and sometimes onions, is a distinctly Turkish breakfast comfort food. Although a year-round dish, it is especially pleasing in the summer, with really ripe tomatoes from the garden or farmer’s market. Be creative with this dish: Add shallots, chiles, fresh herbs or Aleppo pepper, or treat it as purists do, with only tomatoes and eggs. Cook slowly, stirring infrequently, until the eggs form billowy puffs. You can serve topped with feta cheese or lamb sausage, with any warm flatbread on the side.",
-    "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss.jpg?alt=media&token=94904fcc-05df-46e5-a652-48dbba6da488",
-    "rating": 5,
-    "duration": 25,
-    "cost": 1,
-    "difficulty": "easy",
-    "yield": 4,
-    "ingredients": [
+    },
+    {
+      "id": "r5",
+      "category": "breakfast",
+      "keywords": ["egg", "scrambled", "omelette", "breakfast", "menemen"],
+      "section": ["popular"],
+      "title": "Menemen",
+      "description": "Menemen, made from eggs, tomatoes, peppers and sometimes onions, is a distinctly Turkish breakfast comfort food. Although a year-round dish, it is especially pleasing in the summer, with really ripe tomatoes from the garden or farmer’s market. Be creative with this dish: Add shallots, chiles, fresh herbs or Aleppo pepper, or treat it as purists do, with only tomatoes and eggs. Cook slowly, stirring infrequently, until the eggs form billowy puffs. You can serve topped with feta cheese or lamb sausage, with any warm flatbread on the side.",
+      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss.jpg?alt=media&token=94904fcc-05df-46e5-a652-48dbba6da488",
+      "rating": 5,
+      "duration": 25,
+      "cost": 1,
+      "difficulty": "easy",
+      "yield": 4,
+      "ingredients": [
         {
-            "name": "Extra-virgin Olive Oil",
-            "quantity": 60,
-            "unit": "milliliters"
+          "name": "Extra-virgin Olive Oil",
+          "quantity": 60,
+          "unit": "milliliters"
         },
         {
           "name": "White Onion, Medium, Peeled and Diced",
@@ -496,63 +496,295 @@
           "quantity": "",
           "unit": ""
         }
-    ],
-    "directions": [
+      ],
+      "directions": [
         {
-            "description": "Heat the oil in a nonstick medium skillet over medium-high. Add the onion, oregano and Aleppo pepper, season with salt and pepper, and cook, stirring occasionally, until onion is translucent, 7 to 9 minutes. Stir in the green pepper and cook until soft, 5 to 7 minutes.",
-            "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss1.jpg?alt=media&token=ac26e4c2-8ac4-4cf4-92b2-78b714cbcfea",
-            "timer": ""
+          "description": "Heat the oil in a nonstick medium skillet over medium-high. Add the onion, oregano and Aleppo pepper, season with salt and pepper, and cook, stirring occasionally, until onion is translucent, 7 to 9 minutes. Stir in the green pepper and cook until soft, 5 to 7 minutes.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss1.jpg?alt=media&token=ac26e4c2-8ac4-4cf4-92b2-78b714cbcfea",
+          "timer": ""
         },
         {
           "description": "While the onions and peppers are cooking, purée half the tomatoes in a food processor or blender. Once the onions and peppers are soft, add the remaining chopped tomatoes to the onions and peppers. Crack the eggs into a medium bowl, add the puréed tomatoes and whisk until foamy.",
           "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss2.jpg?alt=media&token=830c2ee4-47b6-40d4-afbd-b7c6b982b34c",
           "timer": ""
-      },
-      {
-        "description": "Once the mixture in the skillet comes to a simmer, stir in the 1/4 cup parsley and the butter, if using. Reduce heat to low, add the egg mixture on top and cook, stirring occasionally, until the eggs are set but still soft, 3 to 4 minutes. Taste, adding a little more salt, oregano or Aleppo pepper, if needed. Sprinkle with remaining parsley and serve directly from the skillet, with flatbread alongside.",
-        "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss3.gif?alt=media&token=7d8f5d5f-615b-4bd4-8884-4bda91d2c733",
-        "timer": ""
+        },
+        {
+          "description": "Once the mixture in the skillet comes to a simmer, stir in the 1/4 cup parsley and the butter, if using. Reduce heat to low, add the egg mixture on top and cook, stirring occasionally, until the eggs are set but still soft, 3 to 4 minutes. Taste, adding a little more salt, oregano or Aleppo pepper, if needed. Sprinkle with remaining parsley and serve directly from the skillet, with flatbread alongside.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss3.gif?alt=media&token=7d8f5d5f-615b-4bd4-8884-4bda91d2c733",
+          "timer": ""
+        }
+      ],
+      "directionsNumber": 3
+    },
+    {
+      "category": "breakfast",
+      "cost": 1,
+      "description": "A lovely, crispy waffle perfect for the morning.",
+      "difficulty": "easy",
+      "directions": [
+        {
+          "description": "In a large bowl, mix together flour, salt, baking powder and sugar; set aside. Preheat waffle iron to desired temperature.",
+          "image": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-5.jpg",
+          "ingredients": [
+            {
+              "name": "flour",
+              "quantity": "0.5",
+              "unit": "liter"
+            },
+            {
+              "name": "salt",
+              "quantity": "5.9",
+              "unit": "gram"
+            },
+            {
+              "name": "baking powder",
+              "quantity": "20",
+              "unit": "gram"
+            },
+            {
+              "name": "white sugar",
+              "quantity": "40",
+              "unit": "gram"
+            }
+          ],
+          "timer": ""
+        },
+        {
+          "description": "In a separate bowl, beat the eggs. Stir in the milk, butter and vanilla. Pour the milk mixture into the flour mixture; beat until blended.",
+          "image": "https://fatacuoca.files.wordpress.com/2012/11/img_6645.jpg?w=730",
+          "ingredients": [
+            {
+              "name": "eggs",
+              "quantity": "2",
+              "unit": ""
+            },
+            {
+              "name": "warm milk",
+              "quantity": "0.4",
+              "unit": "liter"
+            },
+            {
+              "name": "melted butter",
+              "quantity": "0.3",
+              "unit": "liter"
+            },
+            {
+              "name": "vanilla extract",
+              "quantity": "5",
+              "unit": "gram"
+            }
+          ],
+          "timer": ""
+        },
+        {
+          "description": "Ladle the batter into a preheated waffle iron. Cook the waffles until golden and crisp. Serve immediately.",
+          "image": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-6.jpg",
+          "timer": ""
+        }
+      ],
+      "directionsNumber": 3,
+      "duration": 25,
+      "id": "r10",
+      "ingredients": [
+        {
+          "name": "flour",
+          "quantity": "500",
+          "unit": "grams"
+        },
+        {
+          "name": "salt",
+          "quantity": "5.9",
+          "unit": "gram"
+        },
+        {
+          "name": "baking powder",
+          "quantity": "20",
+          "unit": "gram"
+        },
+        {
+          "name": "white sugar",
+          "quantity": "40",
+          "unit": "gram"
+        },
+        {
+          "name": "eggs",
+          "quantity": "2",
+          "unit": ""
+        },
+        {
+          "name": "warm milk",
+          "quantity": "400",
+          "unit": "milliliter"
+        },
+        {
+          "name": "melted butter",
+          "quantity": "300",
+          "unit": "milliliter"
+        },
+        {
+          "name": "vanilla extract",
+          "quantity": "5",
+          "unit": "gram"
+        }
+      ],
+      "keywords": ["waffles", "classic waffles", "breakfast", "dessert"],
+      "overviewImg": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-8.jpg",
+      "rating": 5,
+      "section": ["breakfast"],
+      "title": "Classic Waffles",
+      "yield": 4
+    },
+    {
+      "category": "breakfast",
+      "cost": 1,
+      "description": "Crowd pleasing banana pancakes made from scratch. A fun twist on ordinary pancakes.",
+      "difficulty": "easy",
+      "directions": [
+        {
+          "description": "Combine flour, white sugar, baking powder and salt. In a separate bowl, mix together egg, milk, vegetable oil and bananas.",
+          "image": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-5.jpg",
+          "ingredients": [
+            {
+              "name": "flour",
+              "quantity": "70",
+              "unit": "gram"
+            },
+            {
+              "name": "salt",
+              "quantity": "2",
+              "unit": "gram"
+            },
+            {
+              "name": "baking powder",
+              "quantity": "10",
+              "unit": "gram"
+            },
+            {
+              "name": "white sugar",
+              "quantity": "40",
+              "unit": "gram"
+            },
+            {
+              "name": "eggs",
+              "quantity": "1",
+              "unit": ""
+            },
+            {
+              "name": "milk",
+              "quantity": "1.5",
+              "unit": "liter"
+            },
+            {
+              "name": "ripe bananas mashed",
+              "quantity": "1",
+              "unit": ""
+            },
+            {
+              "name": "vegetable oil",
+              "quantity": "10",
+              "unit": "gram"
+            }
+          ],
+          "timer": ""
+        },
+        {
+          "description": "Stir flour mixture into banana mixture; batter will be slightly lumpy.",
+          "image": "https://www.onceuponachef.com/images/2013/01/Banana-Pancakes-8-760x544.jpg",
+          "timer": ""
+        },
+        {
+          "description": "Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Cook until pancakes are golden brown on both sides; serve hot.",
+          "image": "https://www.onceuponachef.com/images/2013/01/Banana-Pancakes-11-760x483.jpg",
+          "timer": ""
+        }
+      ],
+      "directionsNumber": 3,
+      "duration": 15,
+      "id": "r11",
+      "ingredients": [
+        {
+          "name": "flour",
+          "quantity": "70",
+          "unit": "gram"
+        },
+        {
+          "name": "salt",
+          "quantity": "2",
+          "unit": "gram"
+        },
+        {
+          "name": "baking powder",
+          "quantity": "10",
+          "unit": "gram"
+        },
+        {
+          "name": "white sugar",
+          "quantity": "40",
+          "unit": "gram"
+        },
+        {
+          "name": "eggs",
+          "quantity": "1",
+          "unit": ""
+        },
+        {
+          "name": "milk",
+          "quantity": "1.5",
+          "unit": "liter"
+        },
+        {
+          "name": "ripe bananas mashed",
+          "quantity": "1",
+          "unit": ""
+        },
+        {
+          "name": "vegetable oil",
+          "quantity": "10",
+          "unit": "gram"
+        }
+      ],
+      "keywords": ["pancakes", "banana pancakes", "breakfast", "banana"],
+      "overviewImg": "https://www.onceuponachef.com/images/2013/01/banana-pancakes-2.jpg",
+      "rating": 4,
+      "section": ["breakfast"],
+      "title": "Banana Pancakes",
+      "yield": 12
+    },
+    {
+      "id": "(r1, r2, r3...)",
+      "category": "(meat/dessert...)",
+      "keywords": ["(list of keywords)"],
+      "section": ["(popular/editor's choice...)"],
+      "title": "",
+      "description": "(short decription)",
+      "overviewImg": "(url?)",
+      "rating": "(maximum 5)",
+      "duration": "(minutes)",
+      "cost": "(1/2/3)",
+      "difficulty": "(Easy/Medium/Hard)",
+      "yield": "(4 as default)",
+      "ingredients": [
+        {
+          "name": "",
+          "quantity": "(optional)",
+          "unit": "(optional)"
+        }
+      ],
+      "directions": [
+        {
+          "description": "(short description)",
+          "image": "(optional)",
+          "timer": "(optional)",
+          "ingredients": [
+            {
+              "name": "",
+              "quantity": "(optional)",
+              "unit": "(optional)"
+            }
+          ]
+        }
+      ],
+      "directionsNumber": ""
     }
-  ],
-    "directionsNumber": 3
-  },
-
-  {
-    "id": "(r1, r2, r3...)",
-    "category": "(meat/dessert...)",
-    "keywords": ["(list of keywords)"],
-    "section": ["(popular/editor's choice...)"],
-    "title": "",
-    "description": "(short decription)",
-    "overviewImg": "(url?)",
-    "rating": "(maximum 5)",
-    "duration": "(minutes)",
-    "cost": "(1/2/3)",
-    "difficulty": "(Easy/Medium/Hard)",
-    "yield": "(4 as default)",
-    "ingredients": [
-        {
-            "name": "",
-            "quantity": "(optional)",
-            "unit": "(optional)"
-        }
-    ],
-    "directions": [
-        {
-            "description": "(short description)",
-            "image": "(optional)",
-            "timer": "(optional)",
-            "ingredients": [
-                {
-                    "name": "",
-                    "quantity": "(optional)",
-                    "unit": "(optional)"
-                }
-            ]
-        }
-    ],
-    "directionsNumber": ""
-  } 
-    
-]
+  ]
 }
