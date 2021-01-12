@@ -24,6 +24,7 @@ import SwipeableViews from "react-swipeable-views";
 import { useHistory, useLocation } from "react-router-dom";
 import LoadingComponent from "./LoadingComponent";
 import fireAPI from "./fireAPI";
+import ReactPlayer from "react-player";
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
@@ -261,7 +262,7 @@ function CookingMode() {
           setOpen={setOpen}
           listening={listening}
           success={success}
-          exitedFun={() => setSuccess(false)}
+          exitedFun={() => setSuccess(false)} //count errors and open tooltip
         />
         <DoneDialog done={done} setDone={setDone} />
         <HelpDialog open={help} setHelp={setHelp} />
@@ -423,24 +424,19 @@ function HelpDialog(props) {
 
   return (
     <Dialog open={open} fullWidth classes={{ paper: classes.paper }} onBackdropClick={handleClose}>
-      <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' p={3}>
-        <Typography variant='h5' align='center' paragraph>
-          {" "}
-          HELP SCREEN!{" "}
-        </Typography>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <Button variant='contained' color='secondary' size='small' onClick={handleClose}>
-            close
-          </Button>
-        </div>
-      </Box>
+      <ReactPlayer url='./res/video/help.webm' playing={true} controls={false} />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <Button variant='contained' color='secondary' size='small' onClick={handleClose}>
+          close
+        </Button>
+      </div>
     </Dialog>
   );
 }
