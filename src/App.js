@@ -58,6 +58,7 @@ class App extends Component {
     };
 
     this.setSearchKeyword = this.setSearchKeyword.bind(this);
+    this.setWelcomeTutorialOpen = this.setWelcomeTutorialOpen.bind(this);
   }
 
   componentDidMount() {
@@ -78,10 +79,14 @@ class App extends Component {
     });
   }
 
+  setWelcomeTutorialOpen(isOpen) {
+    this.setState({ welcomeTutorialOpen: isOpen });
+  }
+
   render() {
     return (
       <Router>
-        <MyAppBar setSearchKeyword={this.setSearchKeyword} />
+        <MyAppBar setSearchKeyword={this.setSearchKeyword} setWelcomeTutorialOpen={this.setWelcomeTutorialOpen} />
         <Switch>
           <Route path='/tutorial'>
             <Tutorial />
@@ -101,12 +106,7 @@ class App extends Component {
           </Route>
           <Route path='/'>
             <Home />
-            <WelcomeTutorial
-              isOpen={this.state.welcomeTutorialOpen}
-              setOpen={(isOpen) => {
-                this.setState({ welcomeTutorialOpen: isOpen });
-              }}
-            />
+            <WelcomeTutorial isOpen={this.state.welcomeTutorialOpen} setOpen={this.setWelcomeTutorialOpen} />
           </Route>
         </Switch>
       </Router>
@@ -171,6 +171,7 @@ function MyAppBar(props) {
       setOpenSettings(true);
     } else if (index === 1) {
       /* show tutorial */
+      props.setWelcomeTutorialOpen(true);
     }
 
     setAnchorEl(null);
