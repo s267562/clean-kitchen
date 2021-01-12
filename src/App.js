@@ -515,33 +515,36 @@ const Transition = forwardRef(function Transition(props, ref) {
 const tutorialSteps = [
   {
     title: "WELCOME TO CLEAN KITCHEN!",
-    body: "",
+    body:
+      "With our app you will find delicious recipes to cook, but here's the twist: \n" +
+      "you will be able to use voice commands to navigate through each step of the recipe, " +
+      "so that you won't have to worry about having dirty hands while using your phone!",
     imgPath: "logo192.png",
   },
   {
-    title: "HOME",
-    body: "Select what you want to cook! Search your recipe from our categories",
-    imgPath: "",
+    title: "",
+    body: "",
+    imgPath: "./res/images/tuthome.jpeg",
   },
   {
-    title: "RECIPE OVERVIEW",
-    body: "Servings + lets cook",
-    imgPath: "",
+    title: "",
+    body: "",
+    imgPath: "./res/images/tutrecipe.jpeg",
   },
   {
-    title: "COOKING MODE",
-    body: "tutorial reminder + tutorial button",
-    imgPath: "",
+    title: "",
+    body: "",
+    imgPath: "./res/images/tutcooking.jpeg",
   },
   {
     title: "ASK FOR HELP!",
     body: "Say HELP if you need any suggestions",
-    imgPath: "",
+    imgPath: "./res/images/tuthelp.jpeg",
   },
   {
-    title: "FINAL: SETTINGS + TUTORIAL",
+    title: "",
     body: "",
-    imgPath: "",
+    imgPath: "./res/images/tutsettings.jpeg",
   },
 ];
 
@@ -621,10 +624,26 @@ function WelcomeTutorial(props) {
                 justifyContent: "center",
               }}
             >
-              <Typography variant='h5' style={{ textAlign: "center" }}>
-                {step.title}
-              </Typography>
-              <img src={step.imgPath} width='84px' style={{ margin: "16px auto" }} />
+              {activeStep === 0 ? (
+                <>
+                  <img src={step.imgPath} width='84px' style={{ margin: "16px auto" }} />
+                  <Typography variant='h5' style={{ textAlign: "center", paddingBottom: "32px" }}>
+                    {step.title}
+                  </Typography>
+                  <Typography variant='body1' style={{ textAlign: "center", padding: "16px", whiteSpace: "pre-line" }}>
+                    {step.body}
+                  </Typography>
+                </>
+              ) : (
+                <img
+                  src={step.imgPath}
+                  style={{
+                    height: "100%",
+                    objectFit: "contain",
+                    objectPosition: "center",
+                  }}
+                />
+              )}
             </Grid>
           ))}
         </SwipeableViews>
