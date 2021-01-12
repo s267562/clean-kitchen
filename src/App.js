@@ -54,7 +54,7 @@ class App extends Component {
     this.state = {
       anchorEl: null,
       searchKeyword: "",
-      welcomeTutorialOpen: true,
+      welcomeTutorialOpen: 1 /* 1 = open on start; 2 = open from options; 0 = close */,
     };
 
     this.setSearchKeyword = this.setSearchKeyword.bind(this);
@@ -79,8 +79,8 @@ class App extends Component {
     });
   }
 
-  setWelcomeTutorialOpen(isOpen) {
-    this.setState({ welcomeTutorialOpen: isOpen });
+  setWelcomeTutorialOpen(value) {
+    this.setState({ welcomeTutorialOpen: value });
   }
 
   render() {
@@ -171,7 +171,7 @@ function MyAppBar(props) {
       setOpenSettings(true);
     } else if (index === 1) {
       /* show tutorial */
-      props.setWelcomeTutorialOpen(true);
+      props.setWelcomeTutorialOpen(2);
     }
 
     setAnchorEl(null);
@@ -552,14 +552,13 @@ const TutorialStepper = withStyles((theme) => ({
 }))(MobileStepper);
 
 function WelcomeTutorial(props) {
-  const classes = useStyles();
-  const theme = useTheme();
   const { isOpen, setOpen } = props;
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const maxSteps = tutorialSteps.length;
 
   const handleClose = () => {
-    setOpen(false);
+    setActiveStep(0); // reset active step
+    setOpen(0);
   };
 
   const handleNext = () => {
@@ -578,7 +577,12 @@ function WelcomeTutorial(props) {
     <Dialog fullScreen open={isOpen} onBackdropClick={handleClose}>
       <DialogTitle style={{ margin: "0", paddingBottom: "0" }}>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          {activeStep !== maxSteps - 1 ? (
+          {activeStep === maxSteps - 1 || isOpen === 2 ? (
+            /* last active step or tutorial opened from options */
+            <IconButton color='inherit' onClick={handleClose} aria-label='close'>
+              <CloseIcon />
+            </IconButton>
+          ) : (
             <Button
               edge='end'
               color='secondary'
@@ -589,10 +593,6 @@ function WelcomeTutorial(props) {
             >
               skip
             </Button>
-          ) : (
-            <IconButton color='inherit' onClick={handleClose} aria-label='close'>
-              <CloseIcon />
-            </IconButton>
           )}
         </div>
       </DialogTitle>
@@ -644,7 +644,7 @@ function WelcomeTutorial(props) {
                   Next
                 </Button>
               ) : (
-                <Button size='medium' onClick={handleNext} color='secondary' style={{ width: "78px" }}>
+                <Button size='medium' onClick={handleClose} color='secondary' style={{ width: "78px" }}>
                   Start
                 </Button>
               )}
