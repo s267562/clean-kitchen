@@ -1,7 +1,7 @@
 import { Component, useState, useEffect, forwardRef } from "react";
 import CookingMode from "./js/CookingMode";
 import { BrowserRouter as Router, Route, Switch, useLocation, useHistory } from "react-router-dom";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles, useTheme } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
@@ -16,6 +16,9 @@ import {
   DialogContent,
   Slide,
   Switch as SwitchMaterial,
+  MobileStepper,
+  Grid,
+  DialogActions,
 } from "@material-ui/core";
 import Home from "./js/Home";
 import Tutorial from "./js/Tutorial";
@@ -35,6 +38,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import MicIcon from "@material-ui/icons/Mic";
 import fireAPI from "./js/fireAPI";
+import SwipeableViews from "react-swipeable-views";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
 
 const options = ["Settings", "Tutorial"];
 
@@ -49,6 +54,7 @@ class App extends Component {
     this.state = {
       anchorEl: null,
       searchKeyword: "",
+      welcomeTutorialOpen: true,
     };
 
     this.setSearchKeyword = this.setSearchKeyword.bind(this);
@@ -95,6 +101,12 @@ class App extends Component {
           </Route>
           <Route path='/'>
             <Home />
+            <WelcomeTutorial
+              isOpen={this.state.welcomeTutorialOpen}
+              setOpen={(isOpen) => {
+                this.setState({ welcomeTutorialOpen: isOpen });
+              }}
+            />
           </Route>
         </Switch>
       </Router>
@@ -498,5 +510,154 @@ function SettingsDialog(props) {
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
+
+const tutorialSteps = [
+  {
+    title: "WELCOME TO CLEAN KITCHEN!",
+    body: "",
+    imgPath: "logo192.png",
+  },
+  {
+    title: "HOME",
+    body: "Select what you want to cook! Search your recipe from our categories",
+    imgPath: "",
+  },
+  {
+    title: "RECIPE OVERVIEW",
+    body: "Servings + lets cook",
+    imgPath: "",
+  },
+  {
+    title: "COOKING MODE",
+    body: "tutorial reminder + tutorial button",
+    imgPath: "",
+  },
+  {
+    title: "ASK FOR HELP!",
+    body: "Say HELP if you need any suggestions",
+    imgPath: "",
+  },
+  {
+    title: "FINAL: SETTINGS + TUTORIAL",
+    body: "",
+    imgPath: "",
+  },
+];
+
+const TutorialStepper = withStyles((theme) => ({
+  dotActive: {
+    background: "#c62828",
+  },
+}))(MobileStepper);
+
+function WelcomeTutorial(props) {
+  const classes = useStyles();
+  const theme = useTheme();
+  const { isOpen, setOpen } = props;
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = tutorialSteps.length;
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
+
+  return (
+    <Dialog fullScreen open={isOpen} onBackdropClick={handleClose}>
+      <DialogTitle style={{ margin: "0", paddingBottom: "0" }}>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          {activeStep !== maxSteps - 1 ? (
+            <Button
+              edge='end'
+              color='secondary'
+              size='large'
+              onClick={handleClose}
+              aria-label='close'
+              style={{ padding: "11px" }}
+            >
+              skip
+            </Button>
+          ) : (
+            <IconButton color='inherit' onClick={handleClose} aria-label='close'>
+              <CloseIcon />
+            </IconButton>
+          )}
+        </div>
+      </DialogTitle>
+      <DialogContent
+        style={{
+          paddingRight: "0",
+          paddingLeft: "0",
+        }}
+      >
+        <SwipeableViews
+          enableMouseEvents
+          index={activeStep}
+          onChangeIndex={handleStepChange}
+          style={{ height: "100%" }}
+          containerStyle={{ height: "100%" }}
+        >
+          {tutorialSteps.map((step, index) => (
+            <Grid
+              key={index}
+              container
+              style={{
+                flexGrow: 1,
+                flexDirection: "column",
+                padding: "16px",
+                height: "100%",
+                justifyContent: "center",
+              }}
+            >
+              <Typography variant='h5' style={{ textAlign: "center" }}>
+                {step.title}
+              </Typography>
+              <img src={step.imgPath} width='84px' style={{ margin: "16px auto" }} />
+            </Grid>
+          ))}
+        </SwipeableViews>
+      </DialogContent>
+      <DialogActions style={{ padding: "0" }}>
+        <TutorialStepper
+          steps={maxSteps}
+          position='static'
+          variant='dots'
+          activeStep={activeStep}
+          style={{ width: "100%", background: "white", padding: "16px" }}
+          color='secondary'
+          nextButton={
+            <>
+              {activeStep !== maxSteps - 1 ? (
+                <Button size='medium' onClick={handleNext} style={{ width: "78px" }}>
+                  Next
+                </Button>
+              ) : (
+                <Button size='medium' onClick={handleNext} color='secondary' style={{ width: "78px" }}>
+                  Start
+                </Button>
+              )}
+            </>
+          }
+          backButton={
+            <Button size='medium' onClick={handleBack} disabled={activeStep === 0} style={{ width: "78px" }}>
+              Back
+            </Button>
+          }
+        />
+      </DialogActions>
+    </Dialog>
+  );
+}
 
 export default App;
