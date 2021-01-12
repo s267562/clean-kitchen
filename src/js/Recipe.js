@@ -50,6 +50,12 @@ const useStyles = makeStyles({
     borderRadius: 0,
     marginBottom: 4,
   },
+  paperIngredients: {
+    height: "min-content",
+    width: "100%",
+    borderRadius: 0,
+    marginBottom: 82,
+  },
   infoTitle: {
     display: "flex",
     flexDirection: "row",
@@ -197,7 +203,7 @@ function Ingredients(props) {
 
   return (
     <Box className={classes.itemTitle}>
-      <Paper elevation={0} className={classes.paperTitle}>
+      <Paper elevation={0} className={classes.paperIngredients}>
         <Box className={classes.headerIngredients}>
           <Typography variant='h6' style={{ paddingLeft: "16px" }}>
             Ingredients
