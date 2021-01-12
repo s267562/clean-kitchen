@@ -646,42 +646,42 @@
           "ingredients": [
             {
               "name": "flour",
-              "quantity": "70",
+              "quantity": 70,
               "unit": "gram"
             },
             {
               "name": "salt",
-              "quantity": "2",
+              "quantity": 2,
               "unit": "gram"
             },
             {
               "name": "baking powder",
-              "quantity": "10",
+              "quantity": 10,
               "unit": "gram"
             },
             {
               "name": "white sugar",
-              "quantity": "40",
+              "quantity": 40,
               "unit": "gram"
             },
             {
               "name": "eggs",
-              "quantity": "1",
+              "quantity": 1,
               "unit": ""
             },
             {
               "name": "milk",
-              "quantity": "1.5",
+              "quantity": 1.5,
               "unit": "liter"
             },
             {
               "name": "ripe bananas mashed",
-              "quantity": "1",
+              "quantity": 1,
               "unit": ""
             },
             {
               "name": "vegetable oil",
-              "quantity": "10",
+              "quantity": 10,
               "unit": "gram"
             }
           ],
@@ -704,42 +704,42 @@
       "ingredients": [
         {
           "name": "flour",
-          "quantity": "70",
+          "quantity": 70,
           "unit": "gram"
         },
         {
           "name": "salt",
-          "quantity": "2",
+          "quantity": 2,
           "unit": "gram"
         },
         {
           "name": "baking powder",
-          "quantity": "10",
+          "quantity": 10,
           "unit": "gram"
         },
         {
           "name": "white sugar",
-          "quantity": "40",
+          "quantity": 40,
           "unit": "gram"
         },
         {
           "name": "eggs",
-          "quantity": "1",
+          "quantity": 1,
           "unit": ""
         },
         {
           "name": "milk",
-          "quantity": "1.5",
+          "quantity": 1.5,
           "unit": "liter"
         },
         {
           "name": "ripe bananas mashed",
-          "quantity": "1",
+          "quantity": 1,
           "unit": ""
         },
         {
           "name": "vegetable oil",
-          "quantity": "10",
+          "quantity": 10,
           "unit": "gram"
         }
       ],
@@ -758,45 +758,45 @@
       "title": "Scallion Pancakes",
       "description": "Chinese Scallions pancake also known as green onion pancake or Congyoubing is one of the famous and traditional Chinese street food.",
       "overviewImg": "https://www.seriouseats.com/2011/04/20200409-scallion-pancakes-vicky-wasik-3.jpg",
-      "rating": "4",
-      "duration": "60",
-      "cost": "1",
+      "rating": 4,
+      "duration": 60,
+      "cost": 1,
       "difficulty": "easy",
-      "yield": "4",
+      "yield": 4,
       "ingredients": [
         {
           "name": "flour",
-          "quantity": "250",
+          "quantity": 250,
           "unit": "grams"
         },
         {
           "name": "scallion greens",
-          "quantity": "250",
+          "quantity": 250,
           "unit": "grams"
         },
         {
           "name": "boiling water",
-          "quantity": "150",
+          "quantity": 150,
           "unit": "millliliters"
         },
         {
           "name": "sesame oil",
-          "quantity": "30",
+          "quantity": 30,
           "unit": "milliliters"
         },
         {
           "name": "soy sauce",
-          "quantity": "30",
+          "quantity": 30,
           "unit": "milliliters"
         },
         {
           "name": "ginger",
-          "quantity": "5",
+          "quantity": 5,
           "unit": "grams"
         },
         {
           "name": "sugar",
-          "quantity": "5",
+          "quantity": 5,
           "unit": "grams"
         }
       ],
@@ -808,12 +808,12 @@
           "ingredients": [
             {
               "name": "flour",
-              "quantity": "250",
+              "quantity": 250,
               "unit": "grams"
             },
             {
               "name": "boiling water",
-              "quantity": "150",
+              "quantity": 150,
               "unit": "millliliters"
             }
           ]
@@ -825,7 +825,7 @@
           "ingredients": [
             {
               "name": "sesame oil",
-              "quantity": "30",
+              "quantity": 30,
               "unit": "milliliters"
             }
           ]
@@ -837,7 +837,7 @@
           "ingredients": [
             {
               "name": "scallion greens",
-              "quantity": "250",
+              "quantity": 250,
               "unit": "grams"
             }
           ]
@@ -846,11 +846,10 @@
           "description": "Heat oil in an 8-inch nonstick or cast-iron over medium-high heat. Cook, until first side is an even golden brown, about 2 minutes. Carefully flip and continue to cook the other side.",
           "image": "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-10.jpg",
           "timer": "",
-          "ingredients": [
-          ]
+          "ingredients": []
         }
       ],
-      "directionsNumber": "4"
+      "directionsNumber": 4
     },
     {
       "id": "r9",
@@ -860,55 +859,55 @@
       "title": "Easy Fried Rice",
       "description": "This recipe produces vegetable-studded fried rice with individual grains, lightly seasoned to allow the flavor of the rice to shine.",
       "overviewImg": "https://www.seriouseats.com/recipes/images/2016/01/20160206-fried-rice-food-lab-68.jpg",
-      "rating": "4",
-      "duration": "10",
-      "cost": "1",
+      "rating": 4,
+      "duration": 10,
+      "cost": 1,
       "difficulty": "easy",
-      "yield": "4",
+      "yield": 4,
       "ingredients": [
         {
           "name": "white rice",
-          "quantity": "350",
+          "quantity": 350,
           "unit": "grams"
         },
         {
           "name": "canola oil",
-          "quantity": "30",
+          "quantity": 30,
           "unit": "milliliters"
         },
         {
           "name": "onion",
-          "quantity": "115",
+          "quantity": 115,
           "unit": "grams"
         },
         {
           "name": "carrot",
-          "quantity": "85",
+          "quantity": 85,
           "unit": "grams"
         },
         {
           "name": "scallion",
-          "quantity": "30",
+          "quantity": 30,
           "unit": "grams"
         },
         {
           "name": "garlic",
-          "quantity": "5",
+          "quantity": 5,
           "unit": "grams"
         },
         {
           "name": "peas",
-          "quantity": "115",
+          "quantity": 115,
           "unit": "grams"
         },
         {
           "name": "eggs",
-          "quantity": "1",
+          "quantity": 1,
           "unit": ""
         },
         {
           "name": "soy sauce",
-          "quantity": "5",
+          "quantity": 5,
           "unit": "milliliters"
         }
       ],
@@ -920,12 +919,12 @@
           "ingredients": [
             {
               "name": "white rice",
-              "quantity": "350",
+              "quantity": 350,
               "unit": "grams"
             },
             {
               "name": "canola oil",
-              "quantity": "30",
+              "quantity": 30,
               "unit": "milliliters"
             }
           ]
@@ -937,27 +936,27 @@
           "ingredients": [
             {
               "name": "onion",
-              "quantity": "115",
+              "quantity": 115,
               "unit": "grams"
             },
             {
               "name": "carrot",
-              "quantity": "85",
+              "quantity": 85,
               "unit": "grams"
             },
             {
               "name": "scallion",
-              "quantity": "30",
+              "quantity": 30,
               "unit": "grams"
             },
             {
               "name": "garlic",
-              "quantity": "5",
+              "quantity": 5,
               "unit": "grams"
             },
             {
               "name": "soy sauce",
-              "quantity": "5",
+              "quantity": 5,
               "unit": "milliliters"
             }
           ]
@@ -969,7 +968,7 @@
           "ingredients": [
             {
               "name": "eggs",
-              "quantity": "1",
+              "quantity": 1,
               "unit": ""
             }
           ]
@@ -981,14 +980,14 @@
           "ingredients": [
             {
               "name": "peas",
-              "quantity": "115",
+              "quantity": 115,
               "unit": "grams"
             }
           ]
         }
       ],
-      "directionsNumber": "4"
-    }
+      "directionsNumber": 4
+    },
     {
       "id": "(r1, r2, r3...)",
       "category": "(meat/dessert...)",
