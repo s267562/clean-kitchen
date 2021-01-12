@@ -584,7 +584,7 @@
       ],
       "directionsNumber": 3,
       "duration": 25,
-      "id": "r10",
+      "id": "r6",
       "ingredients": [
         {
           "name": "flour",
@@ -700,7 +700,7 @@
       ],
       "directionsNumber": 3,
       "duration": 15,
-      "id": "r11",
+      "id": "r7",
       "ingredients": [
         {
           "name": "flour",
@@ -748,8 +748,247 @@
       "rating": 4,
       "section": ["breakfast"],
       "title": "Banana Pancakes",
-      "yield": 12
+      "yield": 4
     },
+    {
+      "id": "r8",
+      "category": "vegan",
+      "keywords": ["vegan", "scallion", "pancakes", "dough"],
+      "section": ["editor"],
+      "title": "Scallion Pancakes",
+      "description": "Chinese Scallions pancake also known as green onion pancake or Congyoubing is one of the famous and traditional Chinese street food.",
+      "overviewImg": "https://www.seriouseats.com/2011/04/20200409-scallion-pancakes-vicky-wasik-3.jpg",
+      "rating": "4",
+      "duration": "60",
+      "cost": "1",
+      "difficulty": "easy",
+      "yield": "4",
+      "ingredients": [
+        {
+          "name": "flour",
+          "quantity": "250",
+          "unit": "grams"
+        },
+        {
+          "name": "scallion greens",
+          "quantity": "250",
+          "unit": "grams"
+        },
+        {
+          "name": "boiling water",
+          "quantity": "150",
+          "unit": "millliliters"
+        },
+        {
+          "name": "sesame oil",
+          "quantity": "30",
+          "unit": "milliliters"
+        },
+        {
+          "name": "soy sauce",
+          "quantity": "30",
+          "unit": "milliliters"
+        },
+        {
+          "name": "ginger",
+          "quantity": "5",
+          "unit": "grams"
+        },
+        {
+          "name": "sugar",
+          "quantity": "5",
+          "unit": "grams"
+        }
+      ],
+      "directions": [
+        {
+          "description": "Stir the flour with a wooden spoon or chopsticks in a large bowl as you add the boiling water. After it comes together, turn it out onto a floured work surface and knead for five minutes until satiny and smooth.",
+          "image": "https://images.unsplash.com/photo-1551185618-07fd482ff86e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1198&q=80",
+          "timer": "",
+          "ingredients": [
+            {
+              "name": "flour",
+              "quantity": "250",
+              "unit": "grams"
+            },
+            {
+              "name": "boiling water",
+              "quantity": "150",
+              "unit": "millliliters"
+            }
+          ]
+        },
+        {
+          "description": "Divide dough into four even pieces and roll each into a smooth ball. Using a pastry brush, paint a very thin layer of sesame oil over the top of the disk. Flatten gently with your hand.",
+          "image": "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-04.jpg",
+          "timer": "",
+          "ingredients": [
+            {
+              "name": "sesame oil",
+              "quantity": "30",
+              "unit": "milliliters"
+            }
+          ]
+        },
+        {
+          "description": "Paint with another layer of sesame oil, sprinkle with scallions, and roll up like a jelly roll again. Twist into a spiral, flatten gently, and re-roll into a 15cm disk.",
+          "image": "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-06.jpg",
+          "timer": "",
+          "ingredients": [
+            {
+              "name": "scallion greens",
+              "quantity": "250",
+              "unit": "grams"
+            }
+          ]
+        },
+        {
+          "description": "Heat oil in an 8-inch nonstick or cast-iron over medium-high heat. Cook, until first side is an even golden brown, about 2 minutes. Carefully flip and continue to cook the other side.",
+          "image": "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-10.jpg",
+          "timer": "",
+          "ingredients": [
+          ]
+        }
+      ],
+      "directionsNumber": "4"
+    },
+    {
+      "id": "r9",
+      "category": "",
+      "keywords": ["rice", "fried", "peas", "eggs", "carrots"],
+      "section": ["editor"],
+      "title": "Easy Fried Rice",
+      "description": "This recipe produces vegetable-studded fried rice with individual grains, lightly seasoned to allow the flavor of the rice to shine.",
+      "overviewImg": "https://www.seriouseats.com/recipes/images/2016/01/20160206-fried-rice-food-lab-68.jpg",
+      "rating": "4",
+      "duration": "10",
+      "cost": "1",
+      "difficulty": "easy",
+      "yield": "4",
+      "ingredients": [
+        {
+          "name": "white rice",
+          "quantity": "350",
+          "unit": "grams"
+        },
+        {
+          "name": "canola oil",
+          "quantity": "30",
+          "unit": "milliliters"
+        },
+        {
+          "name": "onion",
+          "quantity": "115",
+          "unit": "grams"
+        },
+        {
+          "name": "carrot",
+          "quantity": "85",
+          "unit": "grams"
+        },
+        {
+          "name": "scallion",
+          "quantity": "30",
+          "unit": "grams"
+        },
+        {
+          "name": "garlic",
+          "quantity": "5",
+          "unit": "grams"
+        },
+        {
+          "name": "peas",
+          "quantity": "115",
+          "unit": "grams"
+        },
+        {
+          "name": "eggs",
+          "quantity": "1",
+          "unit": ""
+        },
+        {
+          "name": "soy sauce",
+          "quantity": "5",
+          "unit": "milliliters"
+        }
+      ],
+      "directions": [
+        {
+          "description": "Heat 7ml vegetable oil in a wok over high heat until smoking. Add half of rice and cook, stirring and tossing, until the rice is pale brown and toasted. Repeat with remaining rice.",
+          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-39-750x563.jpg",
+          "timer": "",
+          "ingredients": [
+            {
+              "name": "white rice",
+              "quantity": "350",
+              "unit": "grams"
+            },
+            {
+              "name": "canola oil",
+              "quantity": "30",
+              "unit": "milliliters"
+            }
+          ]
+        },
+        {
+          "description": "Add onion, carrot, scallions, and garlic and cook. Add soy sauce and toss to coat. Season to taste with salt and white pepper.",
+          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-44-750x563.jpg",
+          "timer": "",
+          "ingredients": [
+            {
+              "name": "onion",
+              "quantity": "115",
+              "unit": "grams"
+            },
+            {
+              "name": "carrot",
+              "quantity": "85",
+              "unit": "grams"
+            },
+            {
+              "name": "scallion",
+              "quantity": "30",
+              "unit": "grams"
+            },
+            {
+              "name": "garlic",
+              "quantity": "5",
+              "unit": "grams"
+            },
+            {
+              "name": "soy sauce",
+              "quantity": "5",
+              "unit": "milliliters"
+            }
+          ]
+        },
+        {
+          "description": "Break the egg into the oil and season with a little salt. Use a spatula to scramble the egg, breaking it up into small bits. Toss the egg and the rice together.",
+          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-48-750x563.jpg",
+          "timer": "",
+          "ingredients": [
+            {
+              "name": "eggs",
+              "quantity": "1",
+              "unit": ""
+            }
+          ]
+        },
+        {
+          "description": "Add frozen peas and continue to toss and stir until peas are thawed and every grain of rice is separate.",
+          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-62-750x563.jpg",
+          "timer": "",
+          "ingredients": [
+            {
+              "name": "peas",
+              "quantity": "115",
+              "unit": "grams"
+            }
+          ]
+        }
+      ],
+      "directionsNumber": "4"
+    }
     {
       "id": "(r1, r2, r3...)",
       "category": "(meat/dessert...)",
