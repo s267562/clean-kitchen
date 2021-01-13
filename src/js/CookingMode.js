@@ -1,5 +1,5 @@
 import "../css/CookingMode.css";
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, forwardRef } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import {
   Button,
@@ -14,6 +14,7 @@ import {
   DialogActions,
   DialogTitle,
   IconButton,
+  Grow,
 } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
@@ -24,7 +25,9 @@ import SwipeableViews from "react-swipeable-views";
 import { useHistory, useLocation } from "react-router-dom";
 import LoadingComponent from "./LoadingComponent";
 import fireAPI from "./fireAPI";
-import ReactPlayer from "react-player";
+import CallEndIcon from "@material-ui/icons/CallEnd";
+import CallIcon from "@material-ui/icons/Call";
+import ReactPlayer from "react-player/lazy";
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
@@ -422,19 +425,45 @@ function HelpDialog(props) {
     setHelp(false);
   };
 
+  const Transition = forwardRef(function Transition(props, ref) {
+    return <Grow ref={ref} {...props} />;
+  });
+
   return (
-    <Dialog open={open} fullWidth classes={{ paper: classes.paper }} onBackdropClick={handleClose}>
-      <ReactPlayer url='./res/video/help.webm' playing={true} controls={false} />
+    <Dialog open={open} TransitionComponent={Transition}>
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
+          display: "block",
           width: "100%",
-          justifyContent: "space-evenly",
+          height: "100%",
+          background: "#000",
         }}
       >
-        <Button variant='contained' color='secondary' size='small' onClick={handleClose}>
-          close
+        <ReactPlayer
+          url='./res/video/help.webm'
+          playing={true}
+          controls={false}
+          height='100%'
+          width='100%'
+          //onEnded={handleClose}
+        />
+        <Button
+          variant='contained'
+          onClick={handleClose}
+          style={{
+            background: "#d50000",
+            color: "#fff",
+            position: "absolute",
+            bottom: "56px",
+            right: "0",
+            left: "0",
+            margin: "auto",
+            width: "64px",
+            height: "64px",
+            borderRadius: "32px",
+          }}
+        >
+          <CallEndIcon />
         </Button>
       </div>
     </Dialog>
