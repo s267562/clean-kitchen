@@ -19,6 +19,8 @@ import {
   MobileStepper,
   Grid,
   DialogActions,
+  ClickAwayListener,
+  Tooltip,
 } from "@material-ui/core";
 import Home from "./js/Home";
 import Tutorial from "./js/Tutorial";
@@ -55,10 +57,12 @@ class App extends Component {
       anchorEl: null,
       searchKeyword: "",
       welcomeTutorialOpen: 1 /* 1 = open on start; 2 = open from options; 0 = close */,
+      errorTooltip: false,
     };
 
     this.setSearchKeyword = this.setSearchKeyword.bind(this);
     this.setWelcomeTutorialOpen = this.setWelcomeTutorialOpen.bind(this);
+    this.setErrorTooltip = this.setErrorTooltip.bind(this);
   }
 
   componentDidMount() {
@@ -83,10 +87,19 @@ class App extends Component {
     this.setState({ welcomeTutorialOpen: value });
   }
 
+  setErrorTooltip(value) {
+    this.setState({ errorTooltip: value });
+  }
+
   render() {
     return (
       <Router>
-        <MyAppBar setSearchKeyword={this.setSearchKeyword} setWelcomeTutorialOpen={this.setWelcomeTutorialOpen} />
+        <MyAppBar
+          setSearchKeyword={this.setSearchKeyword}
+          setWelcomeTutorialOpen={this.setWelcomeTutorialOpen}
+          errorTooltip={this.state.errorTooltip}
+          setErrorTooltip={this.setErrorTooltip}
+        />
         <Switch>
           <Route path='/tutorial'>
             <Tutorial />
@@ -102,7 +115,7 @@ class App extends Component {
             <Recipe />
           </Route>
           <Route path='/cookingMode'>
-            <CookingMode />
+            <CookingMode setErrorTooltip={this.setErrorTooltip} />
           </Route>
           <Route path='/'>
             <Home />
@@ -190,6 +203,10 @@ function MyAppBar(props) {
     setOpenReminder(true);
   };
 
+  const handleTooltipClose = () => {
+    props.setErrorTooltip(false);
+  };
+
   return (
     <ElevationScroll {...props}>
       <AppBar position='sticky' style={{ background: "#fafafa", color: "#000" }}>
@@ -225,9 +242,26 @@ function MyAppBar(props) {
             </>
           ) : (
             <>
-              <IconButton edge='end' color='inherit' onClick={handleTutorialReminder} disableFocusRipple={true}>
-                <HelpOutlineIcon />
-              </IconButton>
+              <ClickAwayListener onClickAway={handleTooltipClose}>
+                <div>
+                  <Tooltip
+                    PopperProps={{
+                      disablePortal: true,
+                    }}
+                    onClose={handleTooltipClose}
+                    open={props.errorTooltip}
+                    arrow
+                    disableFocusListener
+                    disableHoverListener
+                    disableTouchListener
+                    title='Check the commands here!'
+                  >
+                    <IconButton edge='end' color='inherit' onClick={handleTutorialReminder} disableFocusRipple={true}>
+                      <HelpOutlineIcon />
+                    </IconButton>
+                  </Tooltip>
+                </div>
+              </ClickAwayListener>
               <TutorialReminderDialog isOpenReminder={isOpenReminder} setOpenReminder={setOpenReminder} />
             </>
           )}

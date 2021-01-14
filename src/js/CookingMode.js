@@ -62,7 +62,7 @@ const useStyles = makeStyles({
   paper: { borderRadius: 20 },
 });
 
-function CookingMode() {
+function CookingMode(props) {
   // Rule 2: call hooks in function component
 
   const classes = useStyles();
@@ -72,7 +72,7 @@ function CookingMode() {
   const [currentYield, setCurrentYield] = useState(4);
   const [help, setHelp] = useState(false);
   const [errorCounter, setErrorCounter] = useState(0);
-  const [errorTooltip, setErrorTooltip] = useState(false);
+  const { setErrorTooltip } = props;
 
   useEffect(() => {
     const queryParams = location.search.replace("?", "").split("&");
