@@ -71,6 +71,8 @@ function CookingMode() {
   const [recipe, setRecipe] = useState(null);
   const [currentYield, setCurrentYield] = useState(4);
   const [help, setHelp] = useState(false);
+  const [errorCounter, setErrorCounter] = useState(0);
+  const [errorTooltip, setErrorTooltip] = useState(false);
 
   useEffect(() => {
     const queryParams = location.search.replace("?", "").split("&");
@@ -122,12 +124,11 @@ function CookingMode() {
               handleDown();
               break;
             default:
+              console.log("other");
               break;
           }
         }, TIMEOUT);
       },
-      isFuzzyMatch: true,
-      fuzzyMatchingThreshold: 0.2,
       bestMatchOnly: true,
     },
   ];
@@ -179,6 +180,19 @@ function CookingMode() {
   };
   const handleDown = () => {
     // TODO - scroll down
+  };
+
+  const handleExit = () => {
+    if (!success) {
+      if (errorCounter + 1 === 2) {
+        setErrorTooltip(true);
+        setErrorCounter(0); /* reset error counter */
+      } else {
+        setErrorCounter(errorCounter + 1);
+      }
+    }
+
+    setSuccess(false); /* reset state */
   };
 
   const handleHelp = () => {
@@ -268,7 +282,7 @@ function CookingMode() {
           setOpen={setOpen}
           listening={listening}
           success={success}
-          exitedFun={() => setSuccess(false)} //count errors and open tooltip
+          exitedFun={handleExit} //count errors and open tooltip
         />
         <DoneDialog done={done} setDone={setDone} />
         <HelpDialog open={help} setHelp={setHelp} />
