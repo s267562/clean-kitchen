@@ -280,7 +280,7 @@ function Ingredient(props) {
   return (
     <>
       <Typography variant='body1' style={{ color: "#424242", fontSize: "0.95rem" }} gutterBottom>
-        {`${Math.round((ingredient.quantity * currentYield) / 4)} ${ingredient.unit}`}
+        {ingredient.quantity && Math.round(((ingredient.quantity * currentYield) / 4) * 2) / 2} {ingredient.unit}
         &nbsp;
       </Typography>
       <Typography variant='body1' style={{ fontSize: "0.95rem" }} gutterBottom>
