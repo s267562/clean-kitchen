@@ -129,7 +129,6 @@ function CookingMode() {
           }
         }, TIMEOUT);
       },
-      bestMatchOnly: true,
     },
   ];
   const { transcript, listening } = useSpeechRecognition({ commands }); // Rule 1: call hooks in top-level
