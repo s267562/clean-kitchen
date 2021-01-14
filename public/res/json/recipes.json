@@ -84,10 +84,17 @@
           "unit": "grams"
         }
       ],
-      "keywords": ["meat", "chicken", "fried", "crispy oven fried chicken"],
+      "keywords": [
+        "meat",
+        "chicken",
+        "fried",
+        "crispy oven fried chicken"
+      ],
       "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
       "rating": 4,
-      "section": ["popular"],
+      "section": [
+        "popular"
+      ],
       "title": "Crispy Oven-Fried Chicken",
       "yield": 4
     },
@@ -168,10 +175,19 @@
           "unit": ""
         }
       ],
-      "keywords": ["baked", "salsa", "verde", "chicken", "baked salsa verde chicken"],
+      "keywords": [
+        "baked",
+        "salsa",
+        "verde",
+        "chicken",
+        "baked salsa verde chicken"
+      ],
       "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss.jpg?alt=media&token=5901471a-a709-45c3-b1ad-60243446dd33",
       "rating": 4,
-      "section": ["popular", "editor"],
+      "section": [
+        "popular",
+        "editor"
+      ],
       "title": "Baked Salsa Verde Chicken",
       "yield": 4
     },
@@ -341,18 +357,33 @@
           "unit": "grams"
         }
       ],
-      "keywords": ["banana", "muffin", "dessert", "banana muffins"],
+      "keywords": [
+        "banana",
+        "muffin",
+        "dessert",
+        "banana muffins"
+      ],
       "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/banana-muffins.jpg?alt=media&token=26b46e50-d2a9-4f63-a48c-217fb3b8dd89",
       "rating": 4,
-      "section": ["popular"],
+      "section": [
+        "popular"
+      ],
       "title": "Banana Muffins",
       "yield": 4
     },
     {
       "id": "r4",
       "category": "fish",
-      "keywords": ["lemon", "butter", "swai", "fish", "lemon butter swai fish"],
-      "section": ["popular"],
+      "keywords": [
+        "lemon",
+        "butter",
+        "swai",
+        "fish",
+        "lemon butter swai fish"
+      ],
+      "section": [
+        "popular"
+      ],
       "title": "Lemon Butter Swai Fish",
       "description": "Tender and moist pan fried fish with lemon butter sauce. This recipe takes 10 mins from start to finish and rival the best seafood restaurant. Serve alone or with healthy marinated tomatoes and easy spaghetti for dinner.",
       "overviewImg": "https://lh3.googleusercontent.com/a9Cj1si1IzU1lFDlk1LNK9JHLpK-rDBmJQZ0dXpdskm1OsYdIacqaDxRwKXUc9OZJsSMWiO5eAYV7AGpxZUgkw=s640-c-rw-v1-e365",
@@ -425,8 +456,16 @@
     {
       "id": "r5",
       "category": "breakfast",
-      "keywords": ["egg", "scrambled", "omelette", "breakfast", "menemen"],
-      "section": ["popular"],
+      "keywords": [
+        "egg",
+        "scrambled",
+        "omelette",
+        "breakfast",
+        "menemen"
+      ],
+      "section": [
+        "popular"
+      ],
       "title": "Menemen",
       "description": "Menemen, made from eggs, tomatoes, peppers and sometimes onions, is a distinctly Turkish breakfast comfort food. Although a year-round dish, it is especially pleasing in the summer, with really ripe tomatoes from the garden or farmer’s market. Be creative with this dish: Add shallots, chiles, fresh herbs or Aleppo pepper, or treat it as purists do, with only tomatoes and eggs. Cook slowly, stirring infrequently, until the eggs form billowy puffs. You can serve topped with feta cheese or lamb sausage, with any warm flatbread on the side.",
       "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss.jpg?alt=media&token=94904fcc-05df-46e5-a652-48dbba6da488",
@@ -627,10 +666,17 @@
           "unit": "gram"
         }
       ],
-      "keywords": ["waffles", "classic waffles", "breakfast", "dessert"],
+      "keywords": [
+        "waffles",
+        "classic waffles",
+        "breakfast",
+        "dessert"
+      ],
       "overviewImg": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-8.jpg",
       "rating": 5,
-      "section": ["breakfast"],
+      "section": [
+        "breakfast"
+      ],
       "title": "Classic Waffles",
       "yield": 4
     },
@@ -743,18 +789,32 @@
           "unit": "gram"
         }
       ],
-      "keywords": ["pancakes", "banana pancakes", "breakfast", "banana"],
+      "keywords": [
+        "pancakes",
+        "banana pancakes",
+        "breakfast",
+        "banana"
+      ],
       "overviewImg": "https://www.onceuponachef.com/images/2013/01/banana-pancakes-2.jpg",
       "rating": 4,
-      "section": ["breakfast"],
+      "section": [
+        "breakfast"
+      ],
       "title": "Banana Pancakes",
       "yield": 4
     },
     {
       "id": "r8",
       "category": "vegan",
-      "keywords": ["vegan", "scallion", "pancakes", "dough"],
-      "section": ["editor"],
+      "keywords": [
+        "vegan",
+        "scallion",
+        "pancakes",
+        "dough"
+      ],
+      "section": [
+        "editor"
+      ],
       "title": "Scallion Pancakes",
       "description": "Chinese Scallions pancake also known as green onion pancake or Congyoubing is one of the famous and traditional Chinese street food.",
       "overviewImg": "https://www.seriouseats.com/2011/04/20200409-scallion-pancakes-vicky-wasik-3.jpg",
@@ -854,8 +914,16 @@
     {
       "id": "r9",
       "category": "",
-      "keywords": ["rice", "fried", "peas", "eggs", "carrots"],
-      "section": ["editor"],
+      "keywords": [
+        "rice",
+        "fried",
+        "peas",
+        "eggs",
+        "carrots"
+      ],
+      "section": [
+        "editor"
+      ],
       "title": "Easy Fried Rice",
       "description": "This recipe produces vegetable-studded fried rice with individual grains, lightly seasoned to allow the flavor of the rice to shine.",
       "overviewImg": "https://www.seriouseats.com/recipes/images/2016/01/20160206-fried-rice-food-lab-68.jpg",
@@ -989,10 +1057,79 @@
       "directionsNumber": 4
     },
     {
+      "id": "r10",
+      "category": "vegan",
+      "keywords": [
+        "fried plantain chips recipe",
+        "vegan",
+        "healthy"
+      ],
+      "section": [
+        "editor"
+      ],
+      "title": "Fried Plantain Chips Recipe",
+      "description": "Fried green plantain chips seasoned lightly with salt are a popular snack all over the Caribbean and Central and South America. They key to success is cutting uniform slices for even cooking.",
+      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains.jpg?alt=media&token=f6d6f7f8-8e22-4544-956e-080549c9b431",
+      "rating": 4,
+      "duration": 25,
+      "cost": 1,
+      "difficulty": "Easy",
+      "yield": 4,
+      "ingredients": [
+        {
+          "name": "green plantains",
+          "quantity": 2
+        },
+        {
+          "name": "Vegetable oil",
+          "quantity": 475,
+          "unit": "ml"
+        },
+        {
+          "name": "Kosher salt"
+        }
+      ],
+      "directions": [
+        {
+          "description": "Cut off the ends of each plantain. Peel plantains. Cut plantains in half crosswise.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-0.jpg?alt=media&token=32bd1d15-7fc6-422d-9a72-487cd5d1aae2",
+          "ingredients": [
+            {
+              "name": "green plantains",
+              "quantity": 2
+            }
+          ]
+        },
+        {
+          "description": "Using a mandoline slicer, slice plantains lengthwise into planks 1/8 inch thick.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-1.jpg?alt=media&token=6daf8ddb-2234-4683-865e-4ee82800bfb2"
+        },
+        {
+          "description": "Line a rimmed baking sheet with a wire rack. Fill a stainless steel skillet halfway with oil. Set over medium-high heat until the oil reaches 175°C. Working in batches and avoiding crowing the pan, add plantain slices and fry, turning occasionally, until golden brown all over, about 4 minutes total. Season right away with salt.",
+          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-2.jpg?alt=media&token=966cb93a-3f63-43bc-bf00-7741a65fae79",
+          "ingredients": [
+            {
+              "name": "Vegetable oil",
+              "quantity": 475,
+              "unit": "ml"
+            },
+            {
+              "name": "Kosher salt"
+            }
+          ]
+        }
+      ],
+      "directionsNumber": 3
+    },
+    {
       "id": "(r1, r2, r3...)",
       "category": "(meat/dessert...)",
-      "keywords": ["(list of keywords)"],
-      "section": ["(popular/editor's choice...)"],
+      "keywords": [
+        "(list of keywords)"
+      ],
+      "section": [
+        "(popular/editor...)"
+      ],
       "title": "",
       "description": "(short decription)",
       "overviewImg": "(url?)",
