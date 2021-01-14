@@ -18,7 +18,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import LoadingComponent from "./LoadingComponent";
 import fireAPI from "./fireAPI";
-import { Fade } from "@material-ui/core";
+import { ClickAwayListener, Fade } from "@material-ui/core";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles({
   root: {
@@ -96,6 +97,7 @@ function Recipe() {
 
   const [id, setId] = useState("");
   const [recipe, setRecipe] = useState(null);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   useEffect(() => {
     setId(location.search.replace("?id=", ""));
@@ -112,11 +114,19 @@ function Recipe() {
   }, [id]);
 
   const handleClick = () => {
-    history.push({
-      pathname: "/cookingMode",
-      search: `?id=${recipe.id}&y=${currentYield}`,
-      state: { id: recipe.id, currentYield: currentYield },
-    });
+    if (recipe.directionsNumber > 0) {
+      history.push({
+        pathname: "/cookingMode",
+        search: `?id=${recipe.id}&y=${currentYield}`,
+        state: { id: recipe.id, currentYield: currentYield },
+      });
+    } else {
+      setTooltipOpen(true);
+    }
+  };
+
+  const handleTooltipClose = () => {
+    setTooltipOpen(false);
   };
 
   if (recipe === null) {
@@ -125,18 +135,47 @@ function Recipe() {
     return (
       <>
         <RecipeOverview key={recipe.id} recipe={recipe} currentYield={currentYield} setYield={setYield} />
-        <Fab
-          variant='extended'
-          color='secondary'
-          style={{
-            position: "fixed",
-            bottom: "16px",
-            right: "16px",
-          }}
-          onClick={handleClick}
-        >
-          Let's cook!
-        </Fab>
+        <ClickAwayListener onClickAway={handleTooltipClose}>
+          <div>
+            <Tooltip
+              PopperProps={{
+                disablePortal: true,
+              }}
+              onClose={handleTooltipClose}
+              open={tooltipOpen}
+              arrow
+              disableFocusListener
+              disableHoverListener
+              disableTouchListener
+              title='Sorry, this recipe is not available'
+            >
+              <Fab
+                variant='extended'
+                color='secondary'
+                style={
+                  recipe.directionsNumber > 0
+                    ? {
+                        position: "fixed",
+                        bottom: "16px",
+                        right: "16px",
+                      }
+                    : {
+                        position: "fixed",
+                        bottom: "16px",
+                        right: "16px",
+                        opacity: "0.65",
+                        background: "#e0e0e0",
+                        boxShadow: "unset",
+                        color: "#717171",
+                      }
+                }
+                onClick={handleClick}
+              >
+                Let's cook!
+              </Fab>
+            </Tooltip>
+          </div>
+        </ClickAwayListener>
       </>
     );
   }
@@ -167,17 +206,46 @@ function RecipeHeader(props) {
   return (
     <Box className={classes.itemTitle}>
       <Paper elevation={0} className={classes.paperTitle}>
-        <Typography variant='h5' style={{ paddingTop: "8px", paddingLeft: "16px", paddingRight: "16px" }}>
-          {recipe.title}
+        <Typography
+          variant='h5'
+          style={{
+            paddingTop: "8px",
+            paddingLeft: "16px",
+            paddingRight: "16px",
+          }}
+        >
+          {recipe.title}{" "}
         </Typography>
-        <Box className={classes.infoTitle}>
-          <div style={{ display: "flex", alignItems: "center" }}>
+        <Grid container className={classes.infoTitle}>
+          <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
             <TimerIcon style={{ paddingRight: "8px" }} />
             <Typography variant='overline' style={{ display: "flex", alignContent: "center" }}>
               Time: {recipe.duration} min
             </Typography>
-          </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          </Grid>
+          <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
+            <Typography variant='overline' style={{ display: "flex", alignContent: "center" }}>
+              Difficulty: {recipe.difficulty}
+            </Typography>
+          </Grid>
+          <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
+            {recipe.directionsNumber > 0 ? (
+              <>
+                <img src={`res/images/chef.png`} width='24px' alt='chef' style={{ paddingRight: "8px" }} />
+                <Typography variant='overline' style={{ display: "flex", alignContent: "center" }}>
+                  Guided recipe
+                </Typography>
+              </>
+            ) : (
+              <>
+                <img src={`res/images/not-chef.png`} width='24px' alt='chef' style={{ paddingRight: "8px" }} />
+                <Typography variant='overline' style={{ display: "flex", alignContent: "center" }}>
+                  Not guided recipe
+                </Typography>
+              </>
+            )}
+          </Grid>
+          <Grid item xs={6} style={{ display: "flex", alignItems: "center" }}>
             <Typography variant='overline' style={{ display: "flex", alignContent: "center" }}>
               {" "}
               Cost
@@ -190,8 +258,8 @@ function RecipeHeader(props) {
               value={recipe.cost}
               icon={<EuroIcon fontSize='small' />}
             />
-          </div>
-        </Box>
+          </Grid>
+        </Grid>
       </Paper>
     </Box>
   );
@@ -205,7 +273,7 @@ function Ingredients(props) {
     <Box className={classes.itemTitle}>
       <Paper elevation={0} className={classes.paperIngredients}>
         <Box className={classes.headerIngredients}>
-          <Typography variant='h6' style={{ paddingLeft: "16px" }}>
+          <Typography variant='h6' style={{ paddingLeft: "16px", fontWeight: "bold" }}>
             Ingredients
           </Typography>
           <Box
@@ -295,11 +363,14 @@ function Descriptions(props) {
   return (
     <Box className={classes.itemTitle}>
       <Paper elevation={0} className={classes.paperTitle}>
-        <Typography variant='h6' style={{ paddingTop: "8px", paddingLeft: "16px", paddingRight: "16px" }}>
+        <Typography
+          variant='h6'
+          style={{ paddingTop: "8px", paddingLeft: "16px", paddingRight: "16px", fontWeight: "bold" }}
+        >
           Description
         </Typography>
         <Typography
-          variant='body1'
+          variant='body2'
           style={{ paddingTop: "8px", paddingBottom: "8px", paddingLeft: "16px", paddingRight: "16px" }}
         >
           {recipe.description}
