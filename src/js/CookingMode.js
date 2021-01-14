@@ -126,9 +126,6 @@ function CookingMode() {
           }
         }, TIMEOUT);
       },
-      isFuzzyMatch: true,
-      fuzzyMatchingThreshold: 0.2,
-      bestMatchOnly: true,
     },
   ];
   const { transcript, listening } = useSpeechRecognition({ commands }); // Rule 1: call hooks in top-level
