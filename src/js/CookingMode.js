@@ -284,7 +284,7 @@ function CookingMode(props) {
           exitedFun={handleExit} //count errors and open tooltip
         />
         <DoneDialog done={done} setDone={setDone} />
-        <HelpDialog open={help} setHelp={setHelp} />
+        <HelpDialog help={help} setHelp={setHelp} />
       </>
     );
   }
@@ -434,7 +434,7 @@ function DoneDialog(props) {
 }
 
 function HelpDialog(props) {
-  const { open, setHelp } = props;
+  const { help, setHelp } = props;
   const classes = useStyles();
 
   const handleClose = () => {
