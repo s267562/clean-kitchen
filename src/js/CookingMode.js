@@ -441,12 +441,8 @@ function HelpDialog(props) {
     setHelp(false);
   };
 
-  const Transition = forwardRef(function Transition(props, ref) {
-    return <Grow ref={ref} {...props} />;
-  });
-
   return (
-    <Dialog open={open} TransitionComponent={Transition}>
+    <Dialog open={help} onBackdropClick={handleClose}>
       <div
         style={{
           display: "block",
