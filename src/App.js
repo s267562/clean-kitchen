@@ -43,7 +43,7 @@ import fireAPI from "./js/fireAPI";
 import SwipeableViews from "react-swipeable-views";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
 
-const options = ["Settings", "Tutorial"];
+const options = ["Settings", "Tutorial", "Privacy"];
 
 const useStyles = makeStyles({
   paper: { borderRadius: 20 },
@@ -149,6 +149,7 @@ function MyAppBar(props) {
   const [loc, setLoc] = useState(null);
   const [isOpenReminder, setOpenReminder] = useState(true);
   const [isOpenSettings, setOpenSettings] = useState(false);
+  const [isOpenPrivacy, setOpenPrivacy] = useState(false);
   const [autofocus, setAutofocus] = useState(false);
   const [recipe, setRecipe] = useState(null);
 
@@ -185,6 +186,9 @@ function MyAppBar(props) {
     } else if (index === 1) {
       /* show tutorial */
       props.setWelcomeTutorialOpen(2);
+    } else if (index == 2) {
+      /* Show Privacy Policy */
+      setOpenPrivacy(true);
     }
 
     setAnchorEl(null);
@@ -239,6 +243,7 @@ function MyAppBar(props) {
                 <MoreVertIcon />
               </IconButton>
               <SettingsDialog isOpenSettings={isOpenSettings} setOpenSettings={setOpenSettings} />
+              <PrivacyDialog isOpenPrivacy={isOpenPrivacy} setOpenPrivacy={setOpenPrivacy} />
             </>
           ) : (
             <>
@@ -537,6 +542,58 @@ function SettingsDialog(props) {
             />
           </Box>
         </Box>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function PrivacyDialog(props) {
+  const { isOpenPrivacy, setOpenPrivacy } = props;
+  const [state, setState] = useState(true);
+
+  const handleClose = () => {
+    setOpenPrivacy(false);
+  };
+
+  const handleChange = (event) => {
+    setState(event.target.checked);
+  };
+
+  return (
+    <Dialog fullScreen open={isOpenPrivacy} onClose={handleClose} TransitionComponent={Transition}>
+      <DialogTitle>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant='overline' style={{ fontSize: "1.1rem" }}>
+            Privacy Policy
+          </Typography>
+          <IconButton edge='start' color='inherit' onClick={handleClose} aria-label='close'>
+            <CloseIcon />
+          </IconButton>
+        </div>
+      </DialogTitle>
+      <DialogContent>
+        <Typography variant='h6' gutterBottom style={{ fontWeight: "bold" }}>
+          Where does the audio data go?
+        </Typography>
+        <Typography variant='body1' paragraph style={{ fontSize: "1.1rem" }}>
+          Currently Mozilla is sending audio to Google’s Cloud Speech-to-Text. Google leads the industry in this space
+          and has speech recognition in 120 languages.
+        </Typography>
+        <Typography variant='h6' gutterBottom style={{ fontWeight: "bold" }}>
+          What kind of data is collected from the audio sample?
+        </Typography>
+        <Typography variant='body1' paragraph style={{ fontSize: "1.1rem" }}>
+          Prior to sending the data to Google, however, Mozilla routes it through our own server's proxy first, in part
+          to strip it of user identity information. This is intended to make it impractical for Google to associate such
+          requests with a user account based just on the data Mozilla provides in transcription requests.
+        </Typography>
+        <Typography variant='h6' gutterBottom style={{ fontWeight: "bold" }}>
+          How long my data is stored for?
+        </Typography>
+        <Typography variant='body1' paragraph style={{ fontSize: "1.1rem" }}>
+          Mozilla opts-out of allowing Google to store your voice requests. This means, unlike when a user inputs speech
+          using Chrome, their recordings are not saved and can not be attached to their profile and saved indefinitely.
+        </Typography>
       </DialogContent>
     </Dialog>
   );
