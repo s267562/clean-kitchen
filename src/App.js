@@ -256,6 +256,7 @@ function MyAppBar(props) {
                     onClose={handleTooltipClose}
                     open={props.errorTooltip}
                     arrow
+                    placement='left-end'
                     disableFocusListener
                     disableHoverListener
                     disableTouchListener
