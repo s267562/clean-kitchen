@@ -268,6 +268,8 @@ function RecipeHeader(props) {
 function Ingredients(props) {
   const { recipe, currentYield, setYield } = props;
   const classes = useStyles();
+  // enable vibration support
+  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
   return (
     <Box className={classes.itemTitle}>
@@ -292,6 +294,10 @@ function Ingredients(props) {
                 onClick={() => {
                   if (currentYield < 100) {
                     setYield(currentYield + 1);
+                    if (navigator.vibrate) {
+                      // vibration API supported
+                      navigator.vibrate(1000);
+                    }
                   }
                 }}
               >
@@ -303,6 +309,10 @@ function Ingredients(props) {
                 onClick={() => {
                   if (currentYield > 1) {
                     setYield(currentYield - 1);
+                    if (navigator.vibrate) {
+                      // vibration API supported
+                      navigator.vibrate(1000);
+                    }
                   }
                 }}
               >
