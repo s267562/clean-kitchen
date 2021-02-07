@@ -246,6 +246,14 @@ function Recipe(props) {
                 value={recipe.cost}
                 icon={<EuroIcon fontSize='small' />}
               />
+              {recipe.directionsNumber > 0 ? (
+                <>
+                  <Divider orientation='vertical' style={{ marginLeft: "8px", marginRight: "8px", height: "21px" }} />
+                  <img src={`res/images/chef.png`} width='20px' height='20px' alt='chef' />
+                </>
+              ) : (
+                <></>
+              )}
             </Box>
           </Grid>
         </Grid>
