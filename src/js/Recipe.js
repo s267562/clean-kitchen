@@ -296,7 +296,7 @@ function Ingredients(props) {
                     setYield(currentYield + 1);
                     if (navigator.vibrate) {
                       // vibration API supported
-                      navigator.vibrate(1000);
+                      navigator.vibrate(150);
                     }
                   }
                 }}
@@ -311,7 +311,7 @@ function Ingredients(props) {
                     setYield(currentYield - 1);
                     if (navigator.vibrate) {
                       // vibration API supported
-                      navigator.vibrate(1000);
+                      navigator.vibrate(150);
                     }
                   }
                 }}
