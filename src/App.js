@@ -462,17 +462,20 @@ function TutorialReminderDialog(props) {
             paddingBottom: "8px",
             paddingLeft: "46px",
             paddingRight: "46px",
+            marginBottom: "16px",
             background: "#eeeeee",
             borderRadius: "25px",
           }}
         >
           <Typography variant='overline' align='center'>
-            {" "}
             'next'
             <br /> 'back'
             <br /> 'help'
           </Typography>
         </div>
+        <Typography variant='caption' align='center'>
+          The 'HELP' command will videocall one of our chefs, who will answer all of your questions!
+        </Typography>
       </DialogContent>
     </Dialog>
   );
