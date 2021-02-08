@@ -1,1165 +1,1086 @@
 {
-  "recipes": [
-    {
-      "category": "meat",
-      "cost": 1,
-      "description": "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
-      "difficulty": "medium",
-      "directions": [
-        {
-          "description": "Preheat the oven to 425°F",
-          "image": "",
-          "timer": ""
-        },
-        {
-          "description": "Place the chicken in a shallow dish and pour the buttermilk over the top. With your hands, rub the buttermilk into the chicken so it is covered. Allow the chicken to sit at room temperature for 30 minutes.",
-          "image": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
-          "ingredients": [
-            {
-              "name": "buttermilk",
-              "quantity": 240,
-              "unit": "milliliters"
-            },
-            {
-              "name": "chicken legs",
-              "quantity": 8,
-              "unit": "pieces"
-            }
-          ],
-          "timer": 30
-        }
-      ],
-      "directionsNumber": 2,
-      "duration": 75,
-      "id": "r0",
-      "ingredients": [
-        {
-          "name": "buttermilk",
-          "quantity": 240,
-          "unit": "milliliters"
-        },
-        {
-          "name": "chicken legs",
-          "quantity": 8,
-          "unit": "pieces"
-        },
-        {
-          "name": "all-purpose flour",
-          "quantity": 60,
-          "unit": "g"
-        },
-        {
-          "name": "paprika",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "garlic powder",
-          "quantity": 4,
-          "unit": "grams"
-        },
-        {
-          "name": "baking powder",
-          "quantity": 4,
-          "unit": "grams"
-        },
-        {
-          "name": "fine sea salt",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "black pepper",
-          "quantity": 4,
-          "unit": "grams"
-        },
-        {
-          "name": "olive oil cooking spray (as needed)",
-          "quantity": 4,
-          "unit": "pst"
-        },
-        {
-          "name": "honey",
-          "quantity": 200,
-          "unit": "grams"
-        }
-      ],
-      "keywords": [
-        "meat",
-        "chicken",
-        "fried",
-        "crispy oven fried chicken"
-      ],
-      "overviewImg": "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
-      "rating": 4,
-      "section": [
-        "popular"
-      ],
-      "title": "Crispy Oven-Fried Chicken",
-      "yield": 4
-    },
-    {
-      "category": "meat",
-      "cost": 2,
-      "description": "Baked Salsa Verde Chicken Is The Perfect Weeknight Dinner",
-      "difficulty": "medium",
-      "directions": [
-        {
-          "description": "Preheat the oven to 400°F. Pour salsa verde into a large baking dish. Brush chicken all over with oil and season with salt, pepper, and garlic powder.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss1.png?alt=media&token=dd13ac67-a0c1-4d98-9ad7-b75cb6fa344e",
-          "timer": ""
-        },
-        {
-          "description": "Nestle chicken into salsa verde and bake until cooked through, 35 minutes.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss2.png?alt=media&token=a7d36f20-8bc2-4b94-afdf-16a614f29072",
-          "timer": 35
-        },
-        {
-          "description": "Remove chicken from oven and heat broiler. Top with cheese and broil until melty, 2 minutes.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss3.png?alt=media&token=473050ee-79b4-483e-a222-caf946c75ac6",
-          "timer": 2
-        },
-        {
-          "description": "Squeeze lime over chicken and garnish with cilantro. Serve over rice.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss4.png?alt=media&token=3736d0ed-f83a-4eca-bf8d-53c75086abe9",
-          "timer": ""
-        }
-      ],
-      "directionsNumber": 4,
-      "duration": 40,
-      "id": "r1",
-      "ingredients": [
-        {
-          "name": "Salsa Verde",
-          "quantity": 300,
-          "unit": "grams"
-        },
-        {
-          "name": "Boneless and Skinless Chicken Breasts",
-          "quantity": 1,
-          "unit": "kilogram"
-        },
-        {
-          "name": "Extra-virgin Olive Oil",
-          "quantity": 20,
-          "unit": "milliliters"
-        },
-        {
-          "name": "Kosher Salt",
-          "quantity": 10,
-          "unit": "grams"
-        },
-        {
-          "name": "Garlic Powder",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "Cooked white rice for serving",
-          "quantity": 100,
-          "unit": "grams"
-        },
-        {
-          "name": "Shredded Cow Cheese",
-          "quantity": 200,
-          "unit": "grams"
-        },
-        {
-          "name": "Lime Wedges",
-          "quantity": "",
-          "unit": ""
-        },
-        {
-          "name": "Fresh Cilantro for Garnish",
-          "quantity": "",
-          "unit": ""
-        }
-      ],
-      "keywords": [
-        "baked",
-        "salsa",
-        "verde",
-        "chicken",
-        "baked salsa verde chicken"
-      ],
-      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss.jpg?alt=media&token=5901471a-a709-45c3-b1ad-60243446dd33",
-      "rating": 4,
-      "section": [
-        "popular",
-        "editor"
-      ],
-      "title": "Baked Salsa Verde Chicken",
-      "yield": 4
-    },
-    {
-      "category": "dessert",
-      "cost": 1,
-      "description": "A crowd favorite that's super simple to make. You can't go wrong with these banana muffins!",
-      "difficulty": "easy",
-      "directions": [
-        {
-          "description": "Preheat the oven to 375°F",
-          "image": "https://reviewed-com-res.cloudinary.com/image/fetch/s--lm7imI2e--/b_white,c_limit,cs_srgb,f_auto,fl_progressive.strip_profile,g_center,q_auto,w_792/https://reviewed-production.s3.amazonaws.com/attachment/98c2ea086c2d4ccc/Preheat_ovens_2.png",
-          "timer": ""
-        },
-        {
-          "description": "Line a 12-cavity muffin pan with muffin liners.",
-          "image": "https://images-na.ssl-images-amazon.com/images/I/61lEGhTlpyL._AC_SY450_.jpg",
-          "timer": ""
-        },
-        {
-          "description": "In a small bowl, mash the bananas thoroughly with a fork.",
-          "image": "https://media.miele.com/images/2000002/200000269/20000026950.png?impolicy=teaser&imwidth=2000&x=65&y=36&w=3080&h=1733&",
-          "ingredients": [
-            {
-              "name": "large banana",
-              "quantity": 2,
-              "unit": "pieces"
-            }
-          ],
-          "timer": ""
-        },
-        {
-          "description": "In a large mixing bowl, whisk the mashed bananas, canola oil, granulated sugar, brown sugar, vanilla, and eggs vigorously until smooth and combined.",
-          "image": "https://i.pinimg.com/originals/cf/91/c7/cf91c795c0d14f925186504672ceec2e.jpg",
-          "ingredients": [
-            {
-              "name": "canola oil",
-              "quantity": 20,
-              "unit": "milliliters"
-            },
-            {
-              "name": "light brown sugar",
-              "quantity": 75,
-              "unit": "grams"
-            },
-            {
-              "name": "granulated sugar",
-              "quantity": 180,
-              "unit": "grams"
-            },
-            {
-              "name": "vanilla extract",
-              "quantity": 8,
-              "unit": "grams"
-            },
-            {
-              "name": "large egg",
-              "quantity": 2,
-              "unit": "pieces"
-            }
-          ],
-          "timer": ""
-        },
-        {
-          "description": "Add the flour, cinnamon, baking powder, baking soda, and salt to the bowl. Continue whisking until just combined. Be careful not to over-mix.",
-          "image": "",
-          "ingredients": [
-            {
-              "name": "all-purpose flour",
-              "quantity": 100,
-              "unit": "grams"
-            },
-            {
-              "name": "cinnamon",
-              "quantity": 8,
-              "unit": "grams"
-            },
-            {
-              "name": "baking powder",
-              "quantity": 10,
-              "unit": "grams"
-            },
-            {
-              "name": "baking soda",
-              "quantity": 10,
-              "unit": "grams"
-            },
-            {
-              "name": "salt",
-              "quantity": 5,
-              "unit": "grams"
-            }
-          ],
-          "timer": ""
-        },
-        {
-          "description": "Spoon an even amount of batter into each muffin liner.",
-          "image": "https://images-na.ssl-images-amazon.com/images/I/61lEGhTlpyL._AC_SY450_.jpg"
-        },
-        {
-          "description": "Bake the muffins on middle rack of oven until a toothpick inserted in the centers comes out clean, 15-25 minutes.",
-          "image": "https://lh3.googleusercontent.com/proxy/8exf_bdDvAbZGL9xIMvdHE42JdVTmPNt_AbhiQoTtb0oXxi7_ExkkVYjwnLkuog_3ID0tiQFt-Vr7Evu2kFIcBrFeB_-989SkCcXr6pia5jdr0SQeYTbdxSXhZVQn4QUQocP",
-          "timer": 25
-        },
-        {
-          "description": "Allow muffins to cool in the pan for 5 minutes, then remove from the pan and allow to cool completely on a wire rack. Store leftovers at room temperature for 2 days or in the refrigerator for 3 days.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/banana-muffins.jpg?alt=media&token=26b46e50-d2a9-4f63-a48c-217fb3b8dd89"
-        }
-      ],
-      "directionsNumber": 8,
-      "duration": 45,
-      "id": "r3",
-      "ingredients": [
-        {
-          "name": "large banana",
-          "quantity": 2,
-          "unit": "pieces"
-        },
-        {
-          "name": "canola oil",
-          "quantity": 20,
-          "unit": "milliliters"
-        },
-        {
-          "name": "light brown sugar",
-          "quantity": 75,
-          "unit": "grams"
-        },
-        {
-          "name": "granulated sugar",
-          "quantity": 180,
-          "unit": "grams"
-        },
-        {
-          "name": "vanilla extract",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "large egg",
-          "quantity": 2,
-          "unit": "pieces"
-        },
-        {
-          "name": "all-purpose flour",
-          "quantity": 100,
-          "unit": "grams"
-        },
-        {
-          "name": "cinnamon",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "baking powder",
-          "quantity": 10,
-          "unit": "grams"
-        },
-        {
-          "name": "baking soda",
-          "quantity": 10,
-          "unit": "grams"
-        },
-        {
-          "name": "salt",
-          "quantity": 5,
-          "unit": "grams"
-        }
-      ],
-      "keywords": [
-        "banana",
-        "muffin",
-        "dessert",
-        "banana muffins"
-      ],
-      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/banana-muffins.jpg?alt=media&token=26b46e50-d2a9-4f63-a48c-217fb3b8dd89",
-      "rating": 4,
-      "section": [
-        "popular"
-      ],
-      "title": "Banana Muffins",
-      "yield": 4
-    },
-    {
-      "id": "r4",
-      "category": "fish",
-      "keywords": [
-        "lemon",
-        "butter",
-        "swai",
-        "fish",
-        "lemon butter swai fish"
-      ],
-      "section": [
-        "popular"
-      ],
-      "title": "Lemon Butter Swai Fish",
-      "description": "Tender and moist pan fried fish with lemon butter sauce. This recipe takes 10 mins from start to finish and rival the best seafood restaurant. Serve alone or with healthy marinated tomatoes and easy spaghetti for dinner.",
-      "overviewImg": "https://lh3.googleusercontent.com/a9Cj1si1IzU1lFDlk1LNK9JHLpK-rDBmJQZ0dXpdskm1OsYdIacqaDxRwKXUc9OZJsSMWiO5eAYV7AGpxZUgkw=s640-c-rw-v1-e365",
-      "rating": 5,
-      "duration": 20,
-      "cost": 2,
-      "difficulty": "medium",
-      "yield": 4,
-      "ingredients": [
-        {
-          "name": "Swai or Basa Fish",
-          "quantity": 1,
-          "unit": "kilogram"
-        },
-        {
-          "name": "Salt",
-          "quantity": 10,
-          "unit": "grams"
-        },
-        {
-          "name": "Ground Black Pepper",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "Vegetable Oil",
-          "quantity": 40,
-          "unit": "milliliters"
-        },
-        {
-          "name": "Unsalted Melted Butter ",
-          "quantity": 40,
-          "unit": "grams"
-        },
-        {
-          "name": "White Wine",
-          "quantity": 120,
-          "unit": "milliliters"
-        },
-        {
-          "name": "Lemon Juice",
-          "quantity": 20,
-          "unit": "milliliters"
-        },
-        {
-          "name": "Chopped Italian Parsley",
-          "quantity": 20,
-          "unit": "grams"
-        }
-      ],
-      "directions": [
-        {
-          "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss1.jpg?alt=media&token=dd8ad28c-deb2-4d4c-aa6d-ec175f70b640",
-          "timer": ""
-        },
-        {
-          "description": "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss2.jpg?alt=media&token=b659c558-8e67-4fb7-bf14-ae15d2d3105a",
-          "timer": 4
-        },
-        {
-          "description": "In a sauce pan, heat the melted butter, then add the white wine and lemon juice. Add a pinch of salt. As soon as the sauce bubbles, turn off the heat. Drizzle the sauce on the fish, garnish with parsley and serve immediately.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss3.jpg?alt=media&token=2ec828e8-c72b-4855-9f90-493f6a8587f8",
-          "timer": ""
-        }
-      ],
-      "directionsNumber": 3
-    },
-    {
-      "id": "r5",
-      "category": "breakfast",
-      "keywords": [
-        "egg",
-        "scrambled",
-        "omelette",
-        "breakfast",
-        "menemen"
-      ],
-      "section": [
-        "popular"
-      ],
-      "title": "Menemen",
-      "description": "Menemen, made from eggs, tomatoes, peppers and sometimes onions, is a distinctly Turkish breakfast comfort food. Although a year-round dish, it is especially pleasing in the summer, with really ripe tomatoes from the garden or farmer’s market. Be creative with this dish: Add shallots, chiles, fresh herbs or Aleppo pepper, or treat it as purists do, with only tomatoes and eggs. Cook slowly, stirring infrequently, until the eggs form billowy puffs. You can serve topped with feta cheese or lamb sausage, with any warm flatbread on the side.",
-      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss.jpg?alt=media&token=94904fcc-05df-46e5-a652-48dbba6da488",
-      "rating": 5,
-      "duration": 25,
-      "cost": 1,
-      "difficulty": "easy",
-      "yield": 4,
-      "ingredients": [
-        {
-          "name": "Extra-virgin Olive Oil",
-          "quantity": 60,
-          "unit": "milliliters"
-        },
-        {
-          "name": "White Onion, Medium, Peeled and Diced",
-          "quantity": 1,
-          "unit": "piece"
-        },
-        {
-          "name": "Dried Oregano",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "Long Green Pepper, diced",
-          "quantity": 1,
-          "unit": "piece"
-        },
-        {
-          "name": "Aleppo Pepper",
-          "quantity": 4,
-          "unit": "grams"
-        },
-        {
-          "name": "Juicy Tomatoes, peeled and fine-diced",
-          "quantity": 2,
-          "unit": "pieces"
-        },
-        {
-          "name": "Egg",
-          "quantity": 4,
-          "unit": "pieces"
-        },
-        {
-          "name": "Fresh Parsley, chopped",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "Unsalted Butter",
-          "quantity": 40,
-          "unit": "grams"
-        },
-        {
-          "name": "Salt",
-          "quantity": 4,
-          "unit": "grams"
-        },
-        {
-          "name": "Freshly Ground Black Pepper",
-          "quantity": 8,
-          "unit": "grams"
-        },
-        {
-          "name": "Flatbread, toasted or untoasted, for serving",
-          "quantity": "",
-          "unit": ""
-        }
-      ],
-      "directions": [
-        {
-          "description": "Heat the oil in a nonstick medium skillet over medium-high. Add the onion, oregano and Aleppo pepper, season with salt and pepper, and cook, stirring occasionally, until onion is translucent, 7 to 9 minutes. Stir in the green pepper and cook until soft, 5 to 7 minutes.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss1.jpg?alt=media&token=ac26e4c2-8ac4-4cf4-92b2-78b714cbcfea",
-          "timer": ""
-        },
-        {
-          "description": "While the onions and peppers are cooking, purée half the tomatoes in a food processor or blender. Once the onions and peppers are soft, add the remaining chopped tomatoes to the onions and peppers. Crack the eggs into a medium bowl, add the puréed tomatoes and whisk until foamy.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss2.jpg?alt=media&token=830c2ee4-47b6-40d4-afbd-b7c6b982b34c",
-          "timer": ""
-        },
-        {
-          "description": "Once the mixture in the skillet comes to a simmer, stir in the 1/4 cup parsley and the butter, if using. Reduce heat to low, add the egg mixture on top and cook, stirring occasionally, until the eggs are set but still soft, 3 to 4 minutes. Taste, adding a little more salt, oregano or Aleppo pepper, if needed. Sprinkle with remaining parsley and serve directly from the skillet, with flatbread alongside.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss3.gif?alt=media&token=7d8f5d5f-615b-4bd4-8884-4bda91d2c733",
-          "timer": ""
-        }
-      ],
-      "directionsNumber": 3
-    },
-    {
-      "category": "breakfast",
-      "cost": 1,
-      "description": "A lovely, crispy waffle perfect for the morning.",
-      "difficulty": "easy",
-      "directions": [
-        {
-          "description": "In a large bowl, mix together flour, salt, baking powder and sugar; set aside. Preheat waffle iron to desired temperature.",
-          "image": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-5.jpg",
-          "ingredients": [
-            {
-              "name": "flour",
-              "quantity": "0.5",
-              "unit": "liter"
-            },
-            {
-              "name": "salt",
-              "quantity": "5.9",
-              "unit": "gram"
-            },
-            {
-              "name": "baking powder",
-              "quantity": "20",
-              "unit": "gram"
-            },
-            {
-              "name": "white sugar",
-              "quantity": "40",
-              "unit": "gram"
-            }
-          ],
-          "timer": ""
-        },
-        {
-          "description": "In a separate bowl, beat the eggs. Stir in the milk, butter and vanilla. Pour the milk mixture into the flour mixture; beat until blended.",
-          "image": "https://fatacuoca.files.wordpress.com/2012/11/img_6645.jpg?w=730",
-          "ingredients": [
-            {
-              "name": "eggs",
-              "quantity": "2",
-              "unit": ""
-            },
-            {
-              "name": "warm milk",
-              "quantity": "0.4",
-              "unit": "liter"
-            },
-            {
-              "name": "melted butter",
-              "quantity": "0.3",
-              "unit": "liter"
-            },
-            {
-              "name": "vanilla extract",
-              "quantity": "5",
-              "unit": "gram"
-            }
-          ],
-          "timer": ""
-        },
-        {
-          "description": "Ladle the batter into a preheated waffle iron. Cook the waffles until golden and crisp. Serve immediately.",
-          "image": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-6.jpg",
-          "timer": ""
-        }
-      ],
-      "directionsNumber": 3,
-      "duration": 25,
-      "id": "r6",
-      "ingredients": [
-        {
-          "name": "flour",
-          "quantity": "500",
-          "unit": "grams"
-        },
-        {
-          "name": "salt",
-          "quantity": "5.9",
-          "unit": "gram"
-        },
-        {
-          "name": "baking powder",
-          "quantity": "20",
-          "unit": "gram"
-        },
-        {
-          "name": "white sugar",
-          "quantity": "40",
-          "unit": "gram"
-        },
-        {
-          "name": "eggs",
-          "quantity": "2",
-          "unit": ""
-        },
-        {
-          "name": "warm milk",
-          "quantity": "400",
-          "unit": "milliliter"
-        },
-        {
-          "name": "melted butter",
-          "quantity": "300",
-          "unit": "milliliter"
-        },
-        {
-          "name": "vanilla extract",
-          "quantity": "5",
-          "unit": "gram"
-        }
-      ],
-      "keywords": [
-        "waffles",
-        "classic waffles",
-        "breakfast",
-        "dessert"
-      ],
-      "overviewImg": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-8.jpg",
-      "rating": 5,
-      "section": [
-        "breakfast"
-      ],
-      "title": "Classic Waffles",
-      "yield": 4
-    },
-    {
-      "category": "breakfast",
-      "cost": 1,
-      "description": "Crowd pleasing banana pancakes made from scratch. A fun twist on ordinary pancakes.",
-      "difficulty": "easy",
-      "directions": [
-        {
-          "description": "Combine flour, white sugar, baking powder and salt. In a separate bowl, mix together egg, milk, vegetable oil and bananas.",
-          "image": "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-5.jpg",
-          "ingredients": [
-            {
-              "name": "flour",
-              "quantity": 70,
-              "unit": "gram"
-            },
-            {
-              "name": "salt",
-              "quantity": 2,
-              "unit": "gram"
-            },
-            {
-              "name": "baking powder",
-              "quantity": 10,
-              "unit": "gram"
-            },
-            {
-              "name": "white sugar",
-              "quantity": 40,
-              "unit": "gram"
-            },
-            {
-              "name": "eggs",
-              "quantity": 1,
-              "unit": ""
-            },
-            {
-              "name": "milk",
-              "quantity": 1.5,
-              "unit": "liter"
-            },
-            {
-              "name": "ripe bananas mashed",
-              "quantity": 1,
-              "unit": ""
-            },
-            {
-              "name": "vegetable oil",
-              "quantity": 10,
-              "unit": "gram"
-            }
-          ],
-          "timer": ""
-        },
-        {
-          "description": "Stir flour mixture into banana mixture; batter will be slightly lumpy.",
-          "image": "https://www.onceuponachef.com/images/2013/01/Banana-Pancakes-8-760x544.jpg",
-          "timer": ""
-        },
-        {
-          "description": "Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Cook until pancakes are golden brown on both sides; serve hot.",
-          "image": "https://www.onceuponachef.com/images/2013/01/Banana-Pancakes-11-760x483.jpg",
-          "timer": ""
-        }
-      ],
-      "directionsNumber": 3,
-      "duration": 15,
-      "id": "r7",
-      "ingredients": [
-        {
-          "name": "flour",
-          "quantity": 70,
-          "unit": "gram"
-        },
-        {
-          "name": "salt",
-          "quantity": 2,
-          "unit": "gram"
-        },
-        {
-          "name": "baking powder",
-          "quantity": 10,
-          "unit": "gram"
-        },
-        {
-          "name": "white sugar",
-          "quantity": 40,
-          "unit": "gram"
-        },
-        {
-          "name": "eggs",
-          "quantity": 1,
-          "unit": ""
-        },
-        {
-          "name": "milk",
-          "quantity": 1.5,
-          "unit": "liter"
-        },
-        {
-          "name": "ripe bananas mashed",
-          "quantity": 1,
-          "unit": ""
-        },
-        {
-          "name": "vegetable oil",
-          "quantity": 10,
-          "unit": "gram"
-        }
-      ],
-      "keywords": [
-        "pancakes",
-        "banana pancakes",
-        "breakfast",
-        "banana"
-      ],
-      "overviewImg": "https://www.onceuponachef.com/images/2013/01/banana-pancakes-2.jpg",
-      "rating": 4,
-      "section": [
-        "breakfast"
-      ],
-      "title": "Banana Pancakes",
-      "yield": 4
-    },
-    {
-      "id": "r8",
-      "category": "vegan",
-      "keywords": [
-        "vegan",
-        "scallion",
-        "pancakes",
-        "dough"
-      ],
-      "section": [
-        "editor"
-      ],
-      "title": "Scallion Pancakes",
-      "description": "Chinese Scallions pancake also known as green onion pancake or Congyoubing is one of the famous and traditional Chinese street food.",
-      "overviewImg": "https://www.seriouseats.com/2011/04/20200409-scallion-pancakes-vicky-wasik-3.jpg",
-      "rating": 4,
-      "duration": 60,
-      "cost": 1,
-      "difficulty": "easy",
-      "yield": 4,
-      "ingredients": [
-        {
-          "name": "flour",
-          "quantity": 250,
-          "unit": "grams"
-        },
-        {
-          "name": "scallion greens",
-          "quantity": 250,
-          "unit": "grams"
-        },
-        {
-          "name": "boiling water",
-          "quantity": 150,
-          "unit": "millliliters"
-        },
-        {
-          "name": "sesame oil",
-          "quantity": 30,
-          "unit": "milliliters"
-        },
-        {
-          "name": "soy sauce",
-          "quantity": 30,
-          "unit": "milliliters"
-        },
-        {
-          "name": "ginger",
-          "quantity": 5,
-          "unit": "grams"
-        },
-        {
-          "name": "sugar",
-          "quantity": 5,
-          "unit": "grams"
-        }
-      ],
-      "directions": [
-        {
-          "description": "Stir the flour with a wooden spoon or chopsticks in a large bowl as you add the boiling water. After it comes together, turn it out onto a floured work surface and knead for five minutes until satiny and smooth.",
-          "image": "https://images.unsplash.com/photo-1551185618-07fd482ff86e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1198&q=80",
-          "timer": "",
-          "ingredients": [
-            {
-              "name": "flour",
-              "quantity": 250,
-              "unit": "grams"
-            },
-            {
-              "name": "boiling water",
-              "quantity": 150,
-              "unit": "millliliters"
-            }
-          ]
-        },
-        {
-          "description": "Divide dough into four even pieces and roll each into a smooth ball. Using a pastry brush, paint a very thin layer of sesame oil over the top of the disk. Flatten gently with your hand.",
-          "image": "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-04.jpg",
-          "timer": "",
-          "ingredients": [
-            {
-              "name": "sesame oil",
-              "quantity": 30,
-              "unit": "milliliters"
-            }
-          ]
-        },
-        {
-          "description": "Paint with another layer of sesame oil, sprinkle with scallions, and roll up like a jelly roll again. Twist into a spiral, flatten gently, and re-roll into a 15cm disk.",
-          "image": "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-06.jpg",
-          "timer": "",
-          "ingredients": [
-            {
-              "name": "scallion greens",
-              "quantity": 250,
-              "unit": "grams"
-            }
-          ]
-        },
-        {
-          "description": "Heat oil in an 8-inch nonstick or cast-iron over medium-high heat. Cook, until first side is an even golden brown, about 2 minutes. Carefully flip and continue to cook the other side.",
-          "image": "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-10.jpg",
-          "timer": "",
-          "ingredients": []
-        }
-      ],
-      "directionsNumber": 4
-    },
-    {
-      "id": "r9",
-      "category": "",
-      "keywords": [
-        "rice",
-        "fried",
-        "peas",
-        "eggs",
-        "carrots"
-      ],
-      "section": [
-        "editor"
-      ],
-      "title": "Easy Fried Rice",
-      "description": "This recipe produces vegetable-studded fried rice with individual grains, lightly seasoned to allow the flavor of the rice to shine.",
-      "overviewImg": "https://www.seriouseats.com/recipes/images/2016/01/20160206-fried-rice-food-lab-68.jpg",
-      "rating": 4,
-      "duration": 10,
-      "cost": 1,
-      "difficulty": "easy",
-      "yield": 4,
-      "ingredients": [
-        {
-          "name": "white rice",
-          "quantity": 350,
-          "unit": "grams"
-        },
-        {
-          "name": "canola oil",
-          "quantity": 30,
-          "unit": "milliliters"
-        },
-        {
-          "name": "onion",
-          "quantity": 115,
-          "unit": "grams"
-        },
-        {
-          "name": "carrot",
-          "quantity": 85,
-          "unit": "grams"
-        },
-        {
-          "name": "scallion",
-          "quantity": 30,
-          "unit": "grams"
-        },
-        {
-          "name": "garlic",
-          "quantity": 5,
-          "unit": "grams"
-        },
-        {
-          "name": "peas",
-          "quantity": 115,
-          "unit": "grams"
-        },
-        {
-          "name": "eggs",
-          "quantity": 1,
-          "unit": ""
-        },
-        {
-          "name": "soy sauce",
-          "quantity": 5,
-          "unit": "milliliters"
-        }
-      ],
-      "directions": [
-        {
-          "description": "Heat 7ml vegetable oil in a wok over high heat until smoking. Add half of rice and cook, stirring and tossing, until the rice is pale brown and toasted. Repeat with remaining rice.",
-          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-39-750x563.jpg",
-          "timer": "",
-          "ingredients": [
-            {
-              "name": "white rice",
-              "quantity": 350,
-              "unit": "grams"
-            },
-            {
-              "name": "canola oil",
-              "quantity": 30,
-              "unit": "milliliters"
-            }
-          ]
-        },
-        {
-          "description": "Add onion, carrot, scallions, and garlic and cook. Add soy sauce and toss to coat. Season to taste with salt and white pepper.",
-          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-44-750x563.jpg",
-          "timer": "",
-          "ingredients": [
-            {
-              "name": "onion",
-              "quantity": 115,
-              "unit": "grams"
-            },
-            {
-              "name": "carrot",
-              "quantity": 85,
-              "unit": "grams"
-            },
-            {
-              "name": "scallion",
-              "quantity": 30,
-              "unit": "grams"
-            },
-            {
-              "name": "garlic",
-              "quantity": 5,
-              "unit": "grams"
-            },
-            {
-              "name": "soy sauce",
-              "quantity": 5,
-              "unit": "milliliters"
-            }
-          ]
-        },
-        {
-          "description": "Break the egg into the oil and season with a little salt. Use a spatula to scramble the egg, breaking it up into small bits. Toss the egg and the rice together.",
-          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-48-750x563.jpg",
-          "timer": "",
-          "ingredients": [
-            {
-              "name": "eggs",
-              "quantity": 1,
-              "unit": ""
-            }
-          ]
-        },
-        {
-          "description": "Add frozen peas and continue to toss and stir until peas are thawed and every grain of rice is separate.",
-          "image": "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-62-750x563.jpg",
-          "timer": "",
-          "ingredients": [
-            {
-              "name": "peas",
-              "quantity": 115,
-              "unit": "grams"
-            }
-          ]
-        }
-      ],
-      "directionsNumber": 4
-    },
-    {
-      "id": "r10",
-      "category": "vegan",
-      "keywords": [
-        "fried plantain chips recipe",
-        "vegan",
-        "healthy"
-      ],
-      "section": [
-        "editor"
-      ],
-      "title": "Fried Plantain Chips Recipe",
-      "description": "Fried green plantain chips seasoned lightly with salt are a popular snack all over the Caribbean and Central and South America. They key to success is cutting uniform slices for even cooking.",
-      "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains.jpg?alt=media&token=f6d6f7f8-8e22-4544-956e-080549c9b431",
-      "rating": 4,
-      "duration": 25,
-      "cost": 1,
-      "difficulty": "Easy",
-      "yield": 4,
-      "ingredients": [
-        {
-          "name": "green plantains",
-          "quantity": 2
-        },
-        {
-          "name": "Vegetable oil",
-          "quantity": 475,
-          "unit": "ml"
-        },
-        {
-          "name": "Kosher salt"
-        }
-      ],
-      "directions": [
-        {
-          "description": "Cut off the ends of each plantain. Peel plantains. Cut plantains in half crosswise.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-0.jpg?alt=media&token=32bd1d15-7fc6-422d-9a72-487cd5d1aae2",
-          "ingredients": [
-            {
-              "name": "green plantains",
-              "quantity": 2
-            }
-          ]
-        },
-        {
-          "description": "Using a mandoline slicer, slice plantains lengthwise into planks 1/8 inch thick.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-1.jpg?alt=media&token=6daf8ddb-2234-4683-865e-4ee82800bfb2"
-        },
-        {
-          "description": "Line a rimmed baking sheet with a wire rack. Fill a stainless steel skillet halfway with oil. Set over medium-high heat until the oil reaches 175°C. Working in batches and avoiding crowing the pan, add plantain slices and fry, turning occasionally, until golden brown all over, about 4 minutes total. Season right away with salt.",
-          "image": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-2.jpg?alt=media&token=966cb93a-3f63-43bc-bf00-7741a65fae79",
-          "ingredients": [
-            {
-              "name": "Vegetable oil",
-              "quantity": 475,
-              "unit": "ml"
-            },
-            {
-              "name": "Kosher salt"
-            }
-          ]
-        }
-      ],
-      "directionsNumber": 3
-    },
-    {
-      "id": "(r1, r2, r3...)",
-      "category": "(meat/dessert...)",
-      "keywords": [
-        "(list of keywords)"
-      ],
-      "section": [
-        "(popular/editor...)"
-      ],
-      "title": "",
-      "description": "(short decription)",
-      "overviewImg": "(url?)",
-      "rating": "(maximum 5)",
-      "duration": "(minutes)",
-      "cost": "(1/2/3)",
-      "difficulty": "(Easy/Medium/Hard)",
-      "yield": "(4 as default)",
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "(optional)",
-          "unit": "(optional)"
-        }
-      ],
-      "directions": [
-        {
-          "description": "(short description)",
-          "image": "(optional)",
-          "timer": "(optional)",
-          "ingredients": [
-            {
-              "name": "",
-              "quantity": "(optional)",
-              "unit": "(optional)"
-            }
-          ]
-        }
-      ],
-      "directionsNumber": ""
-    }
-  ]
+  "recipes" : [ {
+    "category" : "meat",
+    "cost" : 1,
+    "description" : "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
+    "difficulty" : "medium",
+    "directions" : [ {
+      "description" : "Preheat the oven to 425°F",
+      "image" : "",
+      "timer" : ""
+    }, {
+      "description" : "Place the chicken in a shallow dish and pour the buttermilk over the top. With your hands, rub the buttermilk into the chicken so it is covered. Allow the chicken to sit at room temperature for 30 minutes.",
+      "image" : "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+      "ingredients" : [ {
+        "name" : "buttermilk",
+        "quantity" : 240,
+        "unit" : "milliliters"
+      }, {
+        "name" : "chicken legs",
+        "quantity" : 8,
+        "unit" : "pieces"
+      } ],
+      "timer" : 30
+    } ],
+    "directionsNumber" : 2,
+    "duration" : 75,
+    "id" : "r0",
+    "ingredients" : [ {
+      "name" : "buttermilk",
+      "quantity" : 240,
+      "unit" : "milliliters"
+    }, {
+      "name" : "chicken legs",
+      "quantity" : 8,
+      "unit" : "pieces"
+    }, {
+      "name" : "all-purpose flour",
+      "quantity" : 60,
+      "unit" : "g"
+    }, {
+      "name" : "paprika",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "garlic powder",
+      "quantity" : 4,
+      "unit" : "grams"
+    }, {
+      "name" : "baking powder",
+      "quantity" : 4,
+      "unit" : "grams"
+    }, {
+      "name" : "fine sea salt",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "black pepper",
+      "quantity" : 4,
+      "unit" : "grams"
+    }, {
+      "name" : "olive oil cooking spray (as needed)",
+      "quantity" : 4,
+      "unit" : "pst"
+    }, {
+      "name" : "honey",
+      "quantity" : 200,
+      "unit" : "grams"
+    } ],
+    "keywords" : [ "meat", "chicken", "fried", "crispy oven fried chicken" ],
+    "overviewImg" : "https://www.savorynothings.com/wp-content/uploads/2019/05/crispy-oven-fried-chicken-image-hero.jpg",
+    "rating" : 4,
+    "section" : [ "" ],
+    "title" : "Crispy Oven-Fried Chicken",
+    "yield" : 4
+  }, {
+    "category" : "meat",
+    "cost" : 2,
+    "description" : "Baked Salsa Verde Chicken Is The Perfect Weeknight Dinner",
+    "difficulty" : "medium",
+    "directions" : [ {
+      "description" : "Preheat the oven to 400°F. Pour salsa verde into a large baking dish. Brush chicken all over with oil and season with salt, pepper, and garlic powder.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss1.png?alt=media&token=dd13ac67-a0c1-4d98-9ad7-b75cb6fa344e",
+      "timer" : ""
+    }, {
+      "description" : "Nestle chicken into salsa verde and bake until cooked through, 35 minutes.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss2.png?alt=media&token=a7d36f20-8bc2-4b94-afdf-16a614f29072",
+      "timer" : 35
+    }, {
+      "description" : "Remove chicken from oven and heat broiler. Top with cheese and broil until melty, 2 minutes.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss3.png?alt=media&token=473050ee-79b4-483e-a222-caf946c75ac6",
+      "timer" : 2
+    }, {
+      "description" : "Squeeze lime over chicken and garnish with cilantro. Serve over rice.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss4.png?alt=media&token=3736d0ed-f83a-4eca-bf8d-53c75086abe9",
+      "timer" : ""
+    } ],
+    "directionsNumber" : 4,
+    "duration" : 40,
+    "id" : "r1",
+    "ingredients" : [ {
+      "name" : "Salsa Verde",
+      "quantity" : 300,
+      "unit" : "grams"
+    }, {
+      "name" : "Boneless and Skinless Chicken Breasts",
+      "quantity" : 1,
+      "unit" : "kilogram"
+    }, {
+      "name" : "Extra-virgin Olive Oil",
+      "quantity" : 20,
+      "unit" : "milliliters"
+    }, {
+      "name" : "Kosher Salt",
+      "quantity" : 10,
+      "unit" : "grams"
+    }, {
+      "name" : "Garlic Powder",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "Cooked white rice for serving",
+      "quantity" : 100,
+      "unit" : "grams"
+    }, {
+      "name" : "Shredded Cow Cheese",
+      "quantity" : 200,
+      "unit" : "grams"
+    }, {
+      "name" : "Lime Wedges",
+      "quantity" : "",
+      "unit" : ""
+    }, {
+      "name" : "Fresh Cilantro for Garnish",
+      "quantity" : "",
+      "unit" : ""
+    } ],
+    "keywords" : [ "baked", "salsa", "verde", "chicken", "baked salsa verde chicken" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss.jpg?alt=media&token=5901471a-a709-45c3-b1ad-60243446dd33",
+    "rating" : 4,
+    "section" : [ "popular", "editor" ],
+    "title" : "Baked Salsa Verde Chicken",
+    "yield" : 4
+  }, {
+    "category" : "dessert",
+    "cost" : 1,
+    "description" : "A crowd favorite that's super simple to make. You can't go wrong with these banana muffins!",
+    "difficulty" : "easy",
+    "directions" : [ {
+      "description" : "Preheat the oven to 375°F",
+      "image" : "https://reviewed-com-res.cloudinary.com/image/fetch/s--lm7imI2e--/b_white,c_limit,cs_srgb,f_auto,fl_progressive.strip_profile,g_center,q_auto,w_792/https://reviewed-production.s3.amazonaws.com/attachment/98c2ea086c2d4ccc/Preheat_ovens_2.png",
+      "timer" : ""
+    }, {
+      "description" : "Line a 12-cavity muffin pan with muffin liners.",
+      "image" : "https://images-na.ssl-images-amazon.com/images/I/61lEGhTlpyL._AC_SY450_.jpg",
+      "timer" : ""
+    }, {
+      "description" : "In a small bowl, mash the bananas thoroughly with a fork.",
+      "image" : "https://media.miele.com/images/2000002/200000269/20000026950.png?impolicy=teaser&imwidth=2000&x=65&y=36&w=3080&h=1733&",
+      "ingredients" : [ {
+        "name" : "large banana",
+        "quantity" : 2,
+        "unit" : "pieces"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "In a large mixing bowl, whisk the mashed bananas, canola oil, granulated sugar, brown sugar, vanilla, and eggs vigorously until smooth and combined.",
+      "image" : "https://i.pinimg.com/originals/cf/91/c7/cf91c795c0d14f925186504672ceec2e.jpg",
+      "ingredients" : [ {
+        "name" : "canola oil",
+        "quantity" : 20,
+        "unit" : "milliliters"
+      }, {
+        "name" : "light brown sugar",
+        "quantity" : 75,
+        "unit" : "grams"
+      }, {
+        "name" : "granulated sugar",
+        "quantity" : 180,
+        "unit" : "grams"
+      }, {
+        "name" : "vanilla extract",
+        "quantity" : 8,
+        "unit" : "grams"
+      }, {
+        "name" : "large egg",
+        "quantity" : 2,
+        "unit" : "pieces"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Add the flour, cinnamon, baking powder, baking soda, and salt to the bowl. Continue whisking until just combined. Be careful not to over-mix.",
+      "image" : "",
+      "ingredients" : [ {
+        "name" : "all-purpose flour",
+        "quantity" : 100,
+        "unit" : "grams"
+      }, {
+        "name" : "cinnamon",
+        "quantity" : 8,
+        "unit" : "grams"
+      }, {
+        "name" : "baking powder",
+        "quantity" : 10,
+        "unit" : "grams"
+      }, {
+        "name" : "baking soda",
+        "quantity" : 10,
+        "unit" : "grams"
+      }, {
+        "name" : "salt",
+        "quantity" : 5,
+        "unit" : "grams"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Spoon an even amount of batter into each muffin liner.",
+      "image" : "https://images-na.ssl-images-amazon.com/images/I/61lEGhTlpyL._AC_SY450_.jpg"
+    }, {
+      "description" : "Bake the muffins on middle rack of oven until a toothpick inserted in the centers comes out clean, 15-25 minutes.",
+      "image" : "https://lh3.googleusercontent.com/proxy/8exf_bdDvAbZGL9xIMvdHE42JdVTmPNt_AbhiQoTtb0oXxi7_ExkkVYjwnLkuog_3ID0tiQFt-Vr7Evu2kFIcBrFeB_-989SkCcXr6pia5jdr0SQeYTbdxSXhZVQn4QUQocP",
+      "timer" : 25
+    }, {
+      "description" : "Allow muffins to cool in the pan for 5 minutes, then remove from the pan and allow to cool completely on a wire rack. Store leftovers at room temperature for 2 days or in the refrigerator for 3 days.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/banana-muffins.jpg?alt=media&token=26b46e50-d2a9-4f63-a48c-217fb3b8dd89"
+    } ],
+    "directionsNumber" : 8,
+    "duration" : 45,
+    "id" : "r3",
+    "ingredients" : [ {
+      "name" : "large banana",
+      "quantity" : 2,
+      "unit" : "pieces"
+    }, {
+      "name" : "canola oil",
+      "quantity" : 20,
+      "unit" : "milliliters"
+    }, {
+      "name" : "light brown sugar",
+      "quantity" : 75,
+      "unit" : "grams"
+    }, {
+      "name" : "granulated sugar",
+      "quantity" : 180,
+      "unit" : "grams"
+    }, {
+      "name" : "vanilla extract",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "large egg",
+      "quantity" : 2,
+      "unit" : "pieces"
+    }, {
+      "name" : "all-purpose flour",
+      "quantity" : 100,
+      "unit" : "grams"
+    }, {
+      "name" : "cinnamon",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "baking powder",
+      "quantity" : 10,
+      "unit" : "grams"
+    }, {
+      "name" : "baking soda",
+      "quantity" : 10,
+      "unit" : "grams"
+    }, {
+      "name" : "salt",
+      "quantity" : 5,
+      "unit" : "grams"
+    } ],
+    "keywords" : [ "banana", "muffin", "dessert", "banana muffins" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/banana-muffins.jpg?alt=media&token=26b46e50-d2a9-4f63-a48c-217fb3b8dd89",
+    "rating" : 4,
+    "section" : [ "" ],
+    "title" : "Banana Muffins",
+    "yield" : 4
+  }, {
+    "category" : "fish",
+    "cost" : 2,
+    "description" : "Tender and moist pan fried fish with lemon butter sauce. This recipe takes 10 mins from start to finish and rival the best seafood restaurant. Serve alone or with healthy marinated tomatoes and easy spaghetti for dinner.",
+    "difficulty" : "medium",
+    "directions" : [ {
+      "description" : "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss1.jpg?alt=media&token=dd8ad28c-deb2-4d4c-aa6d-ec175f70b640",
+      "timer" : ""
+    }, {
+      "description" : "Heat up a skillet on medium-high heat. Add the vegetable oil. Pan fry the Swai fish fillet, about 1-2 minutes on each side. Turn the fish over gently and pan fry the other side until both sides are light brown with slightly crispy edges. Dish out on a plate.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss2.jpg?alt=media&token=b659c558-8e67-4fb7-bf14-ae15d2d3105a",
+      "timer" : 4
+    }, {
+      "description" : "In a sauce pan, heat the melted butter, then add the white wine and lemon juice. Add a pinch of salt. As soon as the sauce bubbles, turn off the heat. Drizzle the sauce on the fish, garnish with parsley and serve immediately.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/LemonButterSwaiFish%2Fss3.jpg?alt=media&token=2ec828e8-c72b-4855-9f90-493f6a8587f8",
+      "timer" : ""
+    } ],
+    "directionsNumber" : 3,
+    "duration" : 20,
+    "id" : "r4",
+    "ingredients" : [ {
+      "name" : "Swai or Basa Fish",
+      "quantity" : 1,
+      "unit" : "kilogram"
+    }, {
+      "name" : "Salt",
+      "quantity" : 10,
+      "unit" : "grams"
+    }, {
+      "name" : "Ground Black Pepper",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "Vegetable Oil",
+      "quantity" : 40,
+      "unit" : "milliliters"
+    }, {
+      "name" : "Unsalted Melted Butter ",
+      "quantity" : 40,
+      "unit" : "grams"
+    }, {
+      "name" : "White Wine",
+      "quantity" : 120,
+      "unit" : "milliliters"
+    }, {
+      "name" : "Lemon Juice",
+      "quantity" : 20,
+      "unit" : "milliliters"
+    }, {
+      "name" : "Chopped Italian Parsley",
+      "quantity" : 20,
+      "unit" : "grams"
+    } ],
+    "keywords" : [ "lemon", "butter", "swai", "fish", "lemon butter swai fish" ],
+    "overviewImg" : "https://lh3.googleusercontent.com/a9Cj1si1IzU1lFDlk1LNK9JHLpK-rDBmJQZ0dXpdskm1OsYdIacqaDxRwKXUc9OZJsSMWiO5eAYV7AGpxZUgkw=s640-c-rw-v1-e365",
+    "rating" : 5,
+    "section" : [ "popular" ],
+    "title" : "Lemon Butter Swai Fish",
+    "yield" : 4
+  }, {
+    "category" : "breakfast",
+    "cost" : 1,
+    "description" : "Menemen, made from eggs, tomatoes, peppers and sometimes onions, is a distinctly Turkish breakfast comfort food. Although a year-round dish, it is especially pleasing in the summer, with really ripe tomatoes from the garden or farmer’s market. Be creative with this dish: Add shallots, chiles, fresh herbs or Aleppo pepper, or treat it as purists do, with only tomatoes and eggs. Cook slowly, stirring infrequently, until the eggs form billowy puffs. You can serve topped with feta cheese or lamb sausage, with any warm flatbread on the side.",
+    "difficulty" : "easy",
+    "directions" : [ {
+      "description" : "Heat the oil in a nonstick medium skillet over medium-high. Add the onion, oregano and Aleppo pepper, season with salt and pepper, and cook, stirring occasionally, until onion is translucent, 7 to 9 minutes. Stir in the green pepper and cook until soft, 5 to 7 minutes.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss1.jpg?alt=media&token=ac26e4c2-8ac4-4cf4-92b2-78b714cbcfea",
+      "timer" : ""
+    }, {
+      "description" : "While the onions and peppers are cooking, purée half the tomatoes in a food processor or blender. Once the onions and peppers are soft, add the remaining chopped tomatoes to the onions and peppers. Crack the eggs into a medium bowl, add the puréed tomatoes and whisk until foamy.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss2.jpg?alt=media&token=830c2ee4-47b6-40d4-afbd-b7c6b982b34c",
+      "timer" : ""
+    }, {
+      "description" : "Once the mixture in the skillet comes to a simmer, stir in the 1/4 cup parsley and the butter, if using. Reduce heat to low, add the egg mixture on top and cook, stirring occasionally, until the eggs are set but still soft, 3 to 4 minutes. Taste, adding a little more salt, oregano or Aleppo pepper, if needed. Sprinkle with remaining parsley and serve directly from the skillet, with flatbread alongside.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss3.gif?alt=media&token=7d8f5d5f-615b-4bd4-8884-4bda91d2c733",
+      "timer" : ""
+    } ],
+    "directionsNumber" : 3,
+    "duration" : 25,
+    "id" : "r5",
+    "ingredients" : [ {
+      "name" : "Extra-virgin Olive Oil",
+      "quantity" : 60,
+      "unit" : "milliliters"
+    }, {
+      "name" : "White Onion, Medium, Peeled and Diced",
+      "quantity" : 1,
+      "unit" : "piece"
+    }, {
+      "name" : "Dried Oregano",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "Long Green Pepper, diced",
+      "quantity" : 1,
+      "unit" : "piece"
+    }, {
+      "name" : "Aleppo Pepper",
+      "quantity" : 4,
+      "unit" : "grams"
+    }, {
+      "name" : "Juicy Tomatoes, peeled and fine-diced",
+      "quantity" : 2,
+      "unit" : "pieces"
+    }, {
+      "name" : "Egg",
+      "quantity" : 4,
+      "unit" : "pieces"
+    }, {
+      "name" : "Fresh Parsley, chopped",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "Unsalted Butter",
+      "quantity" : 40,
+      "unit" : "grams"
+    }, {
+      "name" : "Salt",
+      "quantity" : 4,
+      "unit" : "grams"
+    }, {
+      "name" : "Freshly Ground Black Pepper",
+      "quantity" : 8,
+      "unit" : "grams"
+    }, {
+      "name" : "Flatbread, toasted or untoasted, for serving",
+      "quantity" : "",
+      "unit" : ""
+    } ],
+    "keywords" : [ "egg", "scrambled", "omelette", "breakfast", "menemen" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Menemen%2Fss.jpg?alt=media&token=94904fcc-05df-46e5-a652-48dbba6da488",
+    "rating" : 5,
+    "section" : [ "popular" ],
+    "title" : "Menemen",
+    "yield" : 4
+  }, {
+    "category" : "breakfast",
+    "cost" : 1,
+    "description" : "A lovely, crispy waffle perfect for the morning.",
+    "difficulty" : "easy",
+    "directions" : [ {
+      "description" : "In a large bowl, mix together flour, salt, baking powder and sugar; set aside. Preheat waffle iron to desired temperature.",
+      "image" : "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-5.jpg",
+      "ingredients" : [ {
+        "name" : "flour",
+        "quantity" : "0.5",
+        "unit" : "liter"
+      }, {
+        "name" : "salt",
+        "quantity" : "5.9",
+        "unit" : "gram"
+      }, {
+        "name" : "baking powder",
+        "quantity" : "20",
+        "unit" : "gram"
+      }, {
+        "name" : "white sugar",
+        "quantity" : "40",
+        "unit" : "gram"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "In a separate bowl, beat the eggs. Stir in the milk, butter and vanilla. Pour the milk mixture into the flour mixture; beat until blended.",
+      "image" : "https://fatacuoca.files.wordpress.com/2012/11/img_6645.jpg?w=730",
+      "ingredients" : [ {
+        "name" : "eggs",
+        "quantity" : "2",
+        "unit" : ""
+      }, {
+        "name" : "warm milk",
+        "quantity" : "0.4",
+        "unit" : "liter"
+      }, {
+        "name" : "melted butter",
+        "quantity" : "0.3",
+        "unit" : "liter"
+      }, {
+        "name" : "vanilla extract",
+        "quantity" : "5",
+        "unit" : "gram"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Ladle the batter into a preheated waffle iron. Cook the waffles until golden and crisp. Serve immediately.",
+      "image" : "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-6.jpg",
+      "timer" : ""
+    } ],
+    "directionsNumber" : 3,
+    "duration" : 25,
+    "id" : "r6",
+    "ingredients" : [ {
+      "name" : "flour",
+      "quantity" : "500",
+      "unit" : "grams"
+    }, {
+      "name" : "salt",
+      "quantity" : "5.9",
+      "unit" : "gram"
+    }, {
+      "name" : "baking powder",
+      "quantity" : "20",
+      "unit" : "gram"
+    }, {
+      "name" : "white sugar",
+      "quantity" : "40",
+      "unit" : "gram"
+    }, {
+      "name" : "eggs",
+      "quantity" : "2",
+      "unit" : ""
+    }, {
+      "name" : "warm milk",
+      "quantity" : "400",
+      "unit" : "milliliter"
+    }, {
+      "name" : "melted butter",
+      "quantity" : "300",
+      "unit" : "milliliter"
+    }, {
+      "name" : "vanilla extract",
+      "quantity" : "5",
+      "unit" : "gram"
+    } ],
+    "keywords" : [ "waffles", "classic waffles", "breakfast", "dessert" ],
+    "overviewImg" : "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-8.jpg",
+    "rating" : 5,
+    "section" : [ "breakfast" ],
+    "title" : "Classic Waffles",
+    "yield" : 4
+  }, {
+    "category" : "breakfast",
+    "cost" : 1,
+    "description" : "Crowd pleasing banana pancakes made from scratch. A fun twist on ordinary pancakes.",
+    "difficulty" : "easy",
+    "directions" : [ {
+      "description" : "Combine flour, white sugar, baking powder and salt. In a separate bowl, mix together egg, milk, vegetable oil and bananas.",
+      "image" : "https://i2.wp.com/completelydelicious.com/wp-content/uploads/2018/09/best-buttermilk-waffles-5.jpg",
+      "ingredients" : [ {
+        "name" : "flour",
+        "quantity" : 70,
+        "unit" : "gram"
+      }, {
+        "name" : "salt",
+        "quantity" : 2,
+        "unit" : "gram"
+      }, {
+        "name" : "baking powder",
+        "quantity" : 10,
+        "unit" : "gram"
+      }, {
+        "name" : "white sugar",
+        "quantity" : 40,
+        "unit" : "gram"
+      }, {
+        "name" : "eggs",
+        "quantity" : 1,
+        "unit" : ""
+      }, {
+        "name" : "milk",
+        "quantity" : 1.5,
+        "unit" : "liter"
+      }, {
+        "name" : "ripe bananas mashed",
+        "quantity" : 1,
+        "unit" : ""
+      }, {
+        "name" : "vegetable oil",
+        "quantity" : 10,
+        "unit" : "gram"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Stir flour mixture into banana mixture; batter will be slightly lumpy.",
+      "image" : "https://www.onceuponachef.com/images/2013/01/Banana-Pancakes-8-760x544.jpg",
+      "timer" : ""
+    }, {
+      "description" : "Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Cook until pancakes are golden brown on both sides; serve hot.",
+      "image" : "https://www.onceuponachef.com/images/2013/01/Banana-Pancakes-11-760x483.jpg",
+      "timer" : ""
+    } ],
+    "directionsNumber" : 3,
+    "duration" : 15,
+    "id" : "r7",
+    "ingredients" : [ {
+      "name" : "flour",
+      "quantity" : 70,
+      "unit" : "gram"
+    }, {
+      "name" : "salt",
+      "quantity" : 2,
+      "unit" : "gram"
+    }, {
+      "name" : "baking powder",
+      "quantity" : 10,
+      "unit" : "gram"
+    }, {
+      "name" : "white sugar",
+      "quantity" : 40,
+      "unit" : "gram"
+    }, {
+      "name" : "eggs",
+      "quantity" : 1,
+      "unit" : ""
+    }, {
+      "name" : "milk",
+      "quantity" : 1.5,
+      "unit" : "liter"
+    }, {
+      "name" : "ripe bananas mashed",
+      "quantity" : 1,
+      "unit" : ""
+    }, {
+      "name" : "vegetable oil",
+      "quantity" : 10,
+      "unit" : "gram"
+    } ],
+    "keywords" : [ "pancakes", "banana pancakes", "breakfast", "banana" ],
+    "overviewImg" : "https://www.onceuponachef.com/images/2013/01/banana-pancakes-2.jpg",
+    "rating" : 4,
+    "section" : [ "breakfast" ],
+    "title" : "Banana Pancakes",
+    "yield" : 4
+  }, {
+    "category" : "vegan",
+    "cost" : 1,
+    "description" : "Chinese Scallions pancake also known as green onion pancake or Congyoubing is one of the famous and traditional Chinese street food.",
+    "difficulty" : "easy",
+    "directions" : [ {
+      "description" : "Stir the flour with a wooden spoon or chopsticks in a large bowl as you add the boiling water. After it comes together, turn it out onto a floured work surface and knead for five minutes until satiny and smooth.",
+      "image" : "https://images.unsplash.com/photo-1551185618-07fd482ff86e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1198&q=80",
+      "ingredients" : [ {
+        "name" : "flour",
+        "quantity" : 250,
+        "unit" : "grams"
+      }, {
+        "name" : "boiling water",
+        "quantity" : 150,
+        "unit" : "millliliters"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Divide dough into four even pieces and roll each into a smooth ball. Using a pastry brush, paint a very thin layer of sesame oil over the top of the disk. Flatten gently with your hand.",
+      "image" : "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-04.jpg",
+      "ingredients" : [ {
+        "name" : "sesame oil",
+        "quantity" : 30,
+        "unit" : "milliliters"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Paint with another layer of sesame oil, sprinkle with scallions, and roll up like a jelly roll again. Twist into a spiral, flatten gently, and re-roll into a 15cm disk.",
+      "image" : "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-06.jpg",
+      "ingredients" : [ {
+        "name" : "scallion greens",
+        "quantity" : 250,
+        "unit" : "grams"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Heat oil in an 8-inch nonstick or cast-iron over medium-high heat. Cook, until first side is an even golden brown, about 2 minutes. Carefully flip and continue to cook the other side.",
+      "image" : "https://www.seriouseats.com/recipes/20110406-food-lab-scallion-pancake-10.jpg",
+      "timer" : ""
+    } ],
+    "directionsNumber" : 4,
+    "duration" : 60,
+    "id" : "r8",
+    "ingredients" : [ {
+      "name" : "flour",
+      "quantity" : 250,
+      "unit" : "grams"
+    }, {
+      "name" : "scallion greens",
+      "quantity" : 250,
+      "unit" : "grams"
+    }, {
+      "name" : "boiling water",
+      "quantity" : 150,
+      "unit" : "millliliters"
+    }, {
+      "name" : "sesame oil",
+      "quantity" : 30,
+      "unit" : "milliliters"
+    }, {
+      "name" : "soy sauce",
+      "quantity" : 30,
+      "unit" : "milliliters"
+    }, {
+      "name" : "ginger",
+      "quantity" : 5,
+      "unit" : "grams"
+    }, {
+      "name" : "sugar",
+      "quantity" : 5,
+      "unit" : "grams"
+    } ],
+    "keywords" : [ "vegan", "scallion", "pancakes", "dough" ],
+    "overviewImg" : "https://www.seriouseats.com/2011/04/20200409-scallion-pancakes-vicky-wasik-3.jpg",
+    "rating" : 4,
+    "section" : [ "editor" ],
+    "title" : "Scallion Pancakes",
+    "yield" : 4
+  }, {
+    "category" : "",
+    "cost" : 1,
+    "description" : "This recipe produces vegetable-studded fried rice with individual grains, lightly seasoned to allow the flavor of the rice to shine.",
+    "difficulty" : "easy",
+    "directions" : [ {
+      "description" : "Heat 7ml vegetable oil in a wok over high heat until smoking. Add half of rice and cook, stirring and tossing, until the rice is pale brown and toasted. Repeat with remaining rice.",
+      "image" : "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-39-750x563.jpg",
+      "ingredients" : [ {
+        "name" : "white rice",
+        "quantity" : 350,
+        "unit" : "grams"
+      }, {
+        "name" : "canola oil",
+        "quantity" : 30,
+        "unit" : "milliliters"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Add onion, carrot, scallions, and garlic and cook. Add soy sauce and toss to coat. Season to taste with salt and white pepper.",
+      "image" : "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-44-750x563.jpg",
+      "ingredients" : [ {
+        "name" : "onion",
+        "quantity" : 115,
+        "unit" : "grams"
+      }, {
+        "name" : "carrot",
+        "quantity" : 85,
+        "unit" : "grams"
+      }, {
+        "name" : "scallion",
+        "quantity" : 30,
+        "unit" : "grams"
+      }, {
+        "name" : "garlic",
+        "quantity" : 5,
+        "unit" : "grams"
+      }, {
+        "name" : "soy sauce",
+        "quantity" : 5,
+        "unit" : "milliliters"
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Break the egg into the oil and season with a little salt. Use a spatula to scramble the egg, breaking it up into small bits. Toss the egg and the rice together.",
+      "image" : "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-48-750x563.jpg",
+      "ingredients" : [ {
+        "name" : "eggs",
+        "quantity" : 1,
+        "unit" : ""
+      } ],
+      "timer" : ""
+    }, {
+      "description" : "Add frozen peas and continue to toss and stir until peas are thawed and every grain of rice is separate.",
+      "image" : "https://www.seriouseats.com/recipes/20160206-fried-rice-food-lab-62-750x563.jpg",
+      "ingredients" : [ {
+        "name" : "peas",
+        "quantity" : 115,
+        "unit" : "grams"
+      } ],
+      "timer" : ""
+    } ],
+    "directionsNumber" : 4,
+    "duration" : 10,
+    "id" : "r9",
+    "ingredients" : [ {
+      "name" : "white rice",
+      "quantity" : 350,
+      "unit" : "grams"
+    }, {
+      "name" : "canola oil",
+      "quantity" : 30,
+      "unit" : "milliliters"
+    }, {
+      "name" : "onion",
+      "quantity" : 115,
+      "unit" : "grams"
+    }, {
+      "name" : "carrot",
+      "quantity" : 85,
+      "unit" : "grams"
+    }, {
+      "name" : "scallion",
+      "quantity" : 30,
+      "unit" : "grams"
+    }, {
+      "name" : "garlic",
+      "quantity" : 5,
+      "unit" : "grams"
+    }, {
+      "name" : "peas",
+      "quantity" : 115,
+      "unit" : "grams"
+    }, {
+      "name" : "eggs",
+      "quantity" : 1,
+      "unit" : ""
+    }, {
+      "name" : "soy sauce",
+      "quantity" : 5,
+      "unit" : "milliliters"
+    } ],
+    "keywords" : [ "rice", "fried", "peas", "eggs", "carrots" ],
+    "overviewImg" : "https://www.seriouseats.com/recipes/images/2016/01/20160206-fried-rice-food-lab-68.jpg",
+    "rating" : 4,
+    "section" : [ "editor" ],
+    "title" : "Easy Fried Rice",
+    "yield" : 4
+  }, {
+    "category" : "vegan",
+    "cost" : 1,
+    "description" : "Fried green plantain chips seasoned lightly with salt are a popular snack all over the Caribbean and Central and South America. They key to success is cutting uniform slices for even cooking.",
+    "difficulty" : "Easy",
+    "directions" : [ {
+      "description" : "Cut off the ends of each plantain. Peel plantains. Cut plantains in half crosswise.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-0.jpg?alt=media&token=32bd1d15-7fc6-422d-9a72-487cd5d1aae2",
+      "ingredients" : [ {
+        "name" : "green plantains",
+        "quantity" : 2
+      } ]
+    }, {
+      "description" : "Using a mandoline slicer, slice plantains lengthwise into planks 1/8 inch thick.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-1.jpg?alt=media&token=6daf8ddb-2234-4683-865e-4ee82800bfb2"
+    }, {
+      "description" : "Line a rimmed baking sheet with a wire rack. Fill a stainless steel skillet halfway with oil. Set over medium-high heat until the oil reaches 175°C. Working in batches and avoiding crowing the pan, add plantain slices and fry, turning occasionally, until golden brown all over, about 4 minutes total. Season right away with salt.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains-2.jpg?alt=media&token=966cb93a-3f63-43bc-bf00-7741a65fae79",
+      "ingredients" : [ {
+        "name" : "Vegetable oil",
+        "quantity" : 475,
+        "unit" : "ml"
+      }, {
+        "name" : "Kosher salt"
+      } ]
+    } ],
+    "directionsNumber" : 3,
+    "duration" : 25,
+    "id" : "r10",
+    "ingredients" : [ {
+      "name" : "green plantains",
+      "quantity" : 2
+    }, {
+      "name" : "Vegetable oil",
+      "quantity" : 475,
+      "unit" : "ml"
+    }, {
+      "name" : "Kosher salt"
+    } ],
+    "keywords" : [ "fried plantain chips recipe", "vegan", "healthy" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/FriedPlantainChipsRecipe%2Ffried-plantains.jpg?alt=media&token=f6d6f7f8-8e22-4544-956e-080549c9b431",
+    "rating" : 4,
+    "section" : [ "editor" ],
+    "title" : "Fried Plantain Chips Recipe",
+    "yield" : 4
+  }, {
+    "category" : "",
+    "cost" : 2,
+    "description" : "Frequently served with penne, positively magical with rigatoni, this vodka sauce is is a powerhouse of tomato flavor smoothed over with the silky richness of heavy cream.",
+    "difficulty" : "Easy",
+    "directionsNumber" : 0,
+    "duration" : 40,
+    "id" : "r11",
+    "ingredients" : [ {
+      "name" : "unsalted butter",
+      "quantity" : 45,
+      "unit" : "g"
+    }, {
+      "name" : "yellow onion, diced",
+      "quantity" : "225",
+      "unit" : "g"
+    }, {
+      "name" : "cloves garlic, thinly sliced",
+      "quantity" : 3
+    }, {
+      "name" : "Pinch red pepper flakes"
+    }, {
+      "name" : "Kosher salt"
+    }, {
+      "name" : "concentrated tomato",
+      "quantity" : 150,
+      "unit" : "g"
+    }, {
+      "name" : "peeled tomatoes",
+      "quantity" : 400,
+      "unit" : "g"
+    }, {
+      "name" : "heavy cream",
+      "quantity" : 240,
+      "unit" : "mL"
+    }, {
+      "name" : "short tubular pasta (rigatorni or penne)",
+      "quantity" : 450,
+      "unit" : "g"
+    }, {
+      "name" : "vodka",
+      "quantity" : 60,
+      "unit" : "mL"
+    }, {
+      "name" : "grated Parmigiano-Reggiano",
+      "quantity" : 55,
+      "unit" : "g"
+    } ],
+    "keywords" : [ "pasta with vodka sauce", "pasta" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/PastaWithVodkaSauceRecipe%2Fpasta-with-vodka-sauce.jpg?alt=media&token=863f78d5-a093-4641-a50d-7527a10b913c",
+    "rating" : 1,
+    "section" : [ "" ],
+    "title" : "Pasta With Vodka Sauce",
+    "yield" : 4
+  }, {
+    "category" : "",
+    "cost" : 1,
+    "description" : "The classic Roman pasta dish cacio e pepe is as easy to make as it is delicious.",
+    "difficulty" : "Easy",
+    "directionsNumber" : 0,
+    "duration" : 15,
+    "id" : "r12",
+    "ingredients" : [ {
+      "name" : "extra-virgin olive oil",
+      "quantity" : 60,
+      "unit" : "mL"
+    }, {
+      "name" : "black pepper"
+    }, {
+      "name" : "Kosher salt"
+    }, {
+      "name" : "spaghetti",
+      "quantity" : 225,
+      "unit" : "g"
+    }, {
+      "name" : "unsalted butter",
+      "quantity" : 30,
+      "unit" : "g"
+    }, {
+      "name" : "Pecorino Romano cheese",
+      "quantity" : 55,
+      "unit" : "g"
+    } ],
+    "keywords" : [ "cacio e pepe", "pasta" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Cacio%26Pepe%2Fcacio-pepe.jpg?alt=media&token=e5a856b6-2069-448b-93ce-7480f04dd705",
+    "rating" : 3,
+    "section" : [ "" ],
+    "title" : "Cacio e Pepe",
+    "yield" : 4
+  }, {
+    "category" : "",
+    "cost" : 1,
+    "description" : "The pantry-driven, weeknight meat sauce pasta you need right now.",
+    "difficulty" : "Easy",
+    "directionsNumber" : 0,
+    "duration" : 30,
+    "id" : "r13",
+    "ingredients" : [ {
+      "name" : "extra-virgin olive oil",
+      "quantity" : 15,
+      "unit" : "mL"
+    }, {
+      "name" : "large shallots",
+      "quantity" : 90,
+      "unit" : "g"
+    }, {
+      "name" : "Kosher salt"
+    }, {
+      "name" : "tomato passata",
+      "quantity" : 700,
+      "unit" : "g"
+    }, {
+      "name" : "'nduja",
+      "quantity" : 115,
+      "unit" : "g"
+    }, {
+      "name" : "pasta",
+      "quantity" : 450,
+      "unit" : "g"
+    }, {
+      "name" : "Pecorino Romano cheese",
+      "quantity" : 60,
+      "unit" : "g"
+    } ],
+    "keywords" : [ "pasta with spicy nduja-tomato sauce", "nduja", "pasta" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/PastaNduja%2FPasta-Nduja.jpg?alt=media&token=a55c4a0b-f05f-431f-8d70-287a90770f90",
+    "rating" : 4,
+    "section" : [ "" ],
+    "title" : "Pasta With Spicy 'Nduja-Tomato Sauce",
+    "yield" : 4
+  }, {
+    "category" : "",
+    "cost" : 1,
+    "description" : "Debate rages over the correct way to make a classic Roman amatriciana sauce of cured pork and tomatoes. We tested all the variables to come up with this ideal version, which packs a delicate heat, gentle black-pepper spice, sharp Pecorino Romano cheese, and the intriguing interplay of sweet-tart tomato sauce and rich, fatty cured pork.",
+    "difficulty" : "Easy",
+    "directions" : [ {
+      "description" : "Heat olive oil in a skillet pan. If you want to brown half an onion in it, you can. Then add the guanciale and pepper flakes and cook the pork until it's slightly crisped and browned. Add white wine and cook it until it's almost all evaporated.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Amatriciana%2Famatriciana-0.jpg?alt=media&token=520c3d6d-2296-4f4d-820a-28f88420235f",
+      "ingredients" : [ {
+        "name" : "extra-virgin olive oil",
+        "quantity" : 15,
+        "unit" : "mL"
+      }, {
+        "name" : "guanciale",
+        "quantity" : 170,
+        "unit" : "g"
+      }, {
+        "name" : "red pepper flakes"
+      }, {
+        "name" : "dry white wine",
+        "quantity" : 60,
+        "unit" : "mL"
+      } ]
+    }, {
+      "description" : "Add whole canned tomatoes (crushed by hand), along with all their juices. Puréeing the tomatoes with a blender is also an option if you want a silky-smooth sauce.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Amatriciana%2Famatriciana-1.jpg?alt=media&token=cc852167-2674-479c-b460-6ae1cd2a52de",
+      "ingredients" : [ {
+        "name" : "peeled tomatoes",
+        "quantity" : 800,
+        "unit" : "g"
+      } ]
+    }, {
+      "description" : "let the sauce simmer very gently while you boil the pasta. Use bucatini (but spaghetti or even penne is a fine substitute). When the pasta is just shy of al dente, transfer it to the sauce and add a good splash of the pasta cooking water.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Amatriciana%2Famatriciana-2.jpg?alt=media&token=3a202124-164b-41da-8a44-bf8d6e2216c3",
+      "ingredients" : [ {
+        "name" : "dried bucatini pasta ",
+        "quantity" : 450,
+        "unit" : "g"
+      } ]
+    }, {
+      "description" : "Cook the pasta in its sauce, stirring it rapidly over high heat as the pasta finishes cooking and the sauce thickens up. When it's ready, add grated Pecorino Romano cheese off the heat, along with freshly ground black pepper to taste.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Amatriciana%2Famatriciana-3.jpg?alt=media&token=23b7ed36-8fac-4f1d-b45c-e1dcb0b33897",
+      "ingredients" : [ {
+        "name" : "grated Pecorino Romano cheese",
+        "quantity" : 30,
+        "unit" : "g"
+      }, {
+        "name" : "red pepper flakes"
+      } ]
+    }, {
+      "description" : "Then it's ready to serve, with more cheese sprinkled on top. Amatriciana, I thought I knew you...but now, I really do.",
+      "image" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Amatriciana%2Famatriciana-4.jpg?alt=media&token=7358cd76-5965-4188-8a99-8aadcbfb162a"
+    } ],
+    "directionsNumber" : 5,
+    "duration" : 20,
+    "id" : "r14",
+    "ingredients" : [ {
+      "name" : "extra-virgin olive oil",
+      "quantity" : 15,
+      "unit" : "mL"
+    }, {
+      "name" : "guanciale",
+      "quantity" : 170,
+      "unit" : "g"
+    }, {
+      "name" : "red pepper flakes"
+    }, {
+      "name" : "dry white wine",
+      "quantity" : 60,
+      "unit" : "mL"
+    }, {
+      "name" : "peeled tomatoes",
+      "quantity" : 800,
+      "unit" : "g"
+    }, {
+      "name" : "Kosher salt and freshly ground black pepper"
+    }, {
+      "name" : "dried bucatini pasta ",
+      "quantity" : 450,
+      "unit" : "g"
+    }, {
+      "name" : "grated Pecorino Romano cheese",
+      "quantity" : 30,
+      "unit" : "g"
+    } ],
+    "keywords" : [ "bucatini all'amatriciana", "pasta" ],
+    "overviewImg" : "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/Amatriciana%2Famatriciana.jpg?alt=media&token=33816390-a85c-48f3-83a9-4be483133224",
+    "rating" : 5,
+    "section" : [ "popular", "editor" ],
+    "title" : "Bucatini all'Amatriciana",
+    "yield" : 4
+  }, {
+    "category" : "(meat/dessert...)",
+    "cost" : "(1/2/3)",
+    "description" : "(short decription)",
+    "difficulty" : "(Easy/Medium/Hard)",
+    "directions" : [ {
+      "description" : "(short description)",
+      "image" : "(optional)",
+      "ingredients" : [ {
+        "name" : "",
+        "quantity" : "(optional)",
+        "unit" : "(optional)"
+      } ],
+      "timer" : "(optional)"
+    } ],
+    "directionsNumber" : "",
+    "duration" : "(minutes)",
+    "id" : "(r1, r2, r3...)",
+    "ingredients" : [ {
+      "name" : "",
+      "quantity" : "(optional)",
+      "unit" : "(optional)"
+    } ],
+    "keywords" : [ "(list of keywords)" ],
+    "overviewImg" : "(url?)",
+    "rating" : "(maximum 5)",
+    "section" : [ "(popular/editor...)" ],
+    "title" : "",
+    "yield" : "(4 as default)"
+  } ]
 }
