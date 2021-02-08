@@ -1128,6 +1128,81 @@
     "section" : [ "popular", "editor" ],
     "title" : "Ale-glazed beef fillet with a crispy onion crust",
     "yield" : 4
+  },
+  {
+    "category" : "",
+    "cost" : 2,
+    "description" : "Fettuccine alfredo is one of life's greatest comfort foods. It's creamy, cheesy, carb-y, and super super flavorful. We especially love this version because the shrimp adds lots of extra flavor and some lean protein to boot!",
+    "difficulty" : "Easy",
+    "directionsNumber" : 0,
+    "duration" : 25,
+    "id" : "r16",
+    "ingredients" : [ {
+      "name" : "",
+      "quantity" : ,
+      "unit" : ""
+    },
+    {
+      "name" : "Fetuccine",
+      "quantity" 500: ,
+      "unit" : "grams"
+    },
+    {
+      "name" : "Butter",
+      "quantity" : 4,
+      "unit" : "tablespoon"
+    },
+    {
+      "name" : "Shrimp (peeled and deveined, tails removed)",
+      "quantity" : 500,
+      "unit" : "grams"
+    },
+    {
+      "name" : "Kosher salt"
+    },
+    {
+      "name" : "Freshly ground black pepper"
+    },
+    {
+      "name" : "Garlic (minced)",
+      "quantity" : 2,
+      "unit" : "teaspoon"
+    },
+    {
+      "name" : "All-purpose flour",
+      "quantity" : 4,
+      "unit" : "tablespoon"
+    },
+    {
+      "name" : "Heavy cream",
+      "quantity" : 100,
+      "unit" : "grams"
+    },
+    {
+      "name" : "Whole milk",
+      "quantity" : 200,
+      "unit" : "milliliters"
+    },
+    {
+      "name" : "Egg yolk",
+      "quantity" : 1
+    },
+    {
+      "name" : "Parmesan (freshly grated)",
+      "quantity" : 100,
+      "unit" : "grams"
+    },
+    {
+      "name" : "Chopped Parsley",
+      "quantity" : 4,
+      "unit" : "tablespoon"
+    } ],
+    "keywords" : [ "shrimp", "fettuccine", "alfredo", "pasta" ],
+    "overviewImg" : "https://hips.hearstapps.com/del.h-cdn.co/assets/17/26/1600x2399/gallery-1498853511-number2.jpg?resize=768:*",
+    "rating" : 4,
+    "section" : [ "popular" ],
+    "title" : "Shrimp Fettuccine Alfredo",
+    "yield" : 4
   }, 
   {
     "category" : "(meat/dessert...)",
