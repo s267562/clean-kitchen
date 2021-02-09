@@ -427,32 +427,26 @@ function TutorialReminderDialog(props) {
 
   return (
     <Dialog open={isOpenReminder} onBackdropClick={handleClose} classes={{ paper: classes.paper }}>
-      <DialogTitle disableTypography style={{ margin: "0", paddingBottom: "0" }}>
-        <IconButton edge='start' color='inherit' onClick={handleClose} aria-label='close'>
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
       <DialogContent
         style={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          paddingTop: "0",
-          paddingBottom: "64px",
         }}
       >
         <MicIcon fontSize='large' style={{ padding: "16px" }} />
         <Typography variant='subtitle2' align='center' gutterBottom>
-          {" "}
           Here's a quick reminder for you!
         </Typography>
+        <Typography variant='caption' align='center'>
+          Keep your screen clean while navigating through the recipe hands-free.
+        </Typography>
+        <img src='./res/images/prox.png' height='64' style={{ padding: "16px" }} />
         <Typography variant='caption' align='center' paragraph>
-          {" "}
-          Keep your screen clean while navigating through the recipe hands-free.{" "}
+          Swipe your hand over the proximity sensor, then say the command.
         </Typography>
         <Typography variant='overline' align='center' paragraph>
-          {" "}
           Available commands:
         </Typography>
         <div
@@ -477,6 +471,11 @@ function TutorialReminderDialog(props) {
           The 'HELP' command will videocall one of our chefs, who will answer all of your questions!
         </Typography>
       </DialogContent>
+      <DialogActions style={{ justifyContent: "center", padding: "16px" }}>
+        <Button edge='start' color='secondary' onClick={handleClose} aria-label='close'>
+          Close
+        </Button>
+      </DialogActions>
     </Dialog>
   );
 }
