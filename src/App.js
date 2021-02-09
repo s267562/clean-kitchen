@@ -618,27 +618,27 @@ const tutorialSteps = [
   {
     title: "",
     body: "",
-    imgPath: "./res/images/tuthome.jpeg",
+    imgPath: "./res/images/home.png",
   },
   {
     title: "",
     body: "",
-    imgPath: "./res/images/tutrecipe.jpeg",
+    imgPath: "./res/images/recipe.png",
   },
   {
     title: "",
     body: "",
-    imgPath: "./res/images/tutcooking.jpeg",
-  },
-  {
-    title: "ASK FOR HELP!",
-    body: "Say HELP if you need any suggestions",
-    imgPath: "./res/images/tuthelp.jpeg",
+    imgPath: "./res/images/reminder.png",
   },
   {
     title: "",
     body: "",
-    imgPath: "./res/images/tutsettings.jpeg",
+    imgPath: "./res/images/help.png",
+  },
+  {
+    title: "",
+    body: "",
+    imgPath: "./res/images/settings.png",
   },
 ];
 
@@ -652,7 +652,7 @@ function WelcomeTutorial(props) {
   const { isOpen, setOpen } = props;
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = tutorialSteps.length;
-
+  const classes = useStyles();
   const handleClose = () => {
     setActiveStep(0); // reset active step
     setOpen(0);
@@ -693,12 +693,7 @@ function WelcomeTutorial(props) {
           )}
         </div>
       </DialogTitle>
-      <DialogContent
-        style={{
-          paddingRight: "0",
-          paddingLeft: "0",
-        }}
-      >
+      <DialogContent>
         <SwipeableViews
           enableMouseEvents
           index={activeStep}
@@ -713,7 +708,6 @@ function WelcomeTutorial(props) {
               style={{
                 flexGrow: 1,
                 flexDirection: "column",
-                padding: "16px",
                 height: "100%",
                 justifyContent: "center",
               }}
@@ -733,8 +727,9 @@ function WelcomeTutorial(props) {
                   src={step.imgPath}
                   style={{
                     height: "100%",
-                    objectFit: "contain",
+                    width: "100%",
                     objectPosition: "center",
+                    objectFit: "contain",
                   }}
                 />
               )}
