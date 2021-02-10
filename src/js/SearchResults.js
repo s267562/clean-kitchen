@@ -17,6 +17,7 @@ import {
   FormGroup,
   Checkbox,
   FormControlLabel,
+  Chip,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -69,6 +70,8 @@ function SearchResults(props) {
   const [filterOpen, setFilterOpen] = useState(false);
   const [filteredRecipes, setFilteredRecipes] = useState(null);
   const history = useHistory();
+
+  const [chipData, setChipData] = useState([]);
 
   const mountedRef = useRef();
 
@@ -137,6 +140,42 @@ function SearchResults(props) {
           <Button style={{ padding: "16px", margin: "auto" }} startIcon={<TuneIcon />} onClick={handleFilterClick}>
             Filter
           </Button>
+          <Box
+            display='flex'
+            flexDirection='row'
+            style={{ marginBottom: "8px", justifyContent: "center", flexWrap: "wrap" }}
+          >
+            {chipData.map((data) => {
+              let icon;
+              switch (data.key) {
+                case 0:
+                  icon = <TimerIcon />;
+                  break;
+                case 1:
+                case 2:
+                case 3:
+                  icon = <EuroIcon />;
+                  break;
+                default:
+                  icon = null;
+                  break;
+              }
+              return (
+                <li key={data.key} style={{ listStyle: "none" }}>
+                  <Chip
+                    variant='outlined'
+                    size='small'
+                    label={data.label}
+                    onClick={() => {
+                      setFilterOpen(true);
+                    }}
+                    style={{ padding: "4px", margin: "4px" }}
+                    icon={icon}
+                  />
+                </li>
+              );
+            })}
+          </Box>
           {filteredRecipes.map((recipe) => (
             <Recipe key={recipe.id} recipe={recipe} searchKeyword={props.searchKeyword} />
           ))}
@@ -146,6 +185,8 @@ function SearchResults(props) {
           setOpen={setFilterOpen}
           recipes={searchResults}
           setResult={setFilteredRecipes}
+          chipData={chipData}
+          setChipData={setChipData}
         />
       </>
     );
@@ -289,14 +330,14 @@ const CustomSlider = withStyles({
 
 function FilterDialog(props) {
   const classes = useStyles();
-  const { open, setOpen, setResult } = props;
+  const { open, setOpen, setResult, chipData, setChipData } = props;
   const [filteredRecipes, setFilteredRecipes] = useState(props.recipes);
   const [time, setTime] = useState([0, 200]);
-  const [difficulty, setDifficulty] = useState({ easy: false, medium: false, hard: false });
+  const [difficulty, setDifficulty] = useState({ easy: false, normal: false, hard: false });
   const [cost, setCost] = useState({ low: false, medium: false, high: false });
 
   const [savedTime, setSavedTime] = useState([0, 200]);
-  const [savedDifficulty, setSavedDifficulty] = useState({ easy: false, medium: false, hard: false });
+  const [savedDifficulty, setSavedDifficulty] = useState({ easy: false, normal: false, hard: false });
   const [savedCost, setSavedCost] = useState({ low: false, medium: false, high: false });
 
   const handleClose = () => {
@@ -312,13 +353,24 @@ function FilterDialog(props) {
 
   const handleReset = () => {
     setTime([0, 200]);
-    setDifficulty({ easy: false, medium: false, hard: false });
+    setDifficulty({ easy: false, normal: false, hard: false });
     setCost({ low: false, medium: false, high: false });
   };
 
   const handleApply = () => {
     setResult(filteredRecipes);
     saveFilters();
+    let chipDataArray = [];
+    if (time[0] !== 0 || time[1] !== 200)
+      chipDataArray.push({ key: 0, label: `${time[0]} - ${time[1] === 200 ? "200+" : time[1]} min` });
+    if (cost.low) chipDataArray.push({ key: 1, label: "Low" });
+    if (cost.medium) chipDataArray.push({ key: 2, label: "Medium" });
+    if (cost.high) chipDataArray.push({ key: 3, label: "High" });
+    if (difficulty.easy) chipDataArray.push({ key: 4, label: "Easy" });
+    if (difficulty.normal) chipDataArray.push({ key: 5, label: "Normal" });
+    if (difficulty.hard) chipDataArray.push({ key: 6, label: "Hard" });
+
+    setChipData(chipDataArray);
     setOpen(false);
   };
 
@@ -362,13 +414,13 @@ function FilterDialog(props) {
     }
   }
   function checkDifficulty(recipe) {
-    if (!difficulty.easy && !difficulty.medium && !difficulty.hard) return true;
+    if (!difficulty.easy && !difficulty.normal && !difficulty.hard) return true;
 
     switch (recipe.difficulty.toLowerCase()) {
       case "easy":
         return difficulty.easy;
-      case "medium":
-        return difficulty.medium;
+      case "normal":
+        return difficulty.normal;
       case "hard":
         return difficulty.hard;
       default:
@@ -440,8 +492,8 @@ function FilterDialog(props) {
                 label='Easy'
               />
               <FormControlLabel
-                control={<Checkbox checked={difficulty.medium} onChange={handleDifficultyChange} name='medium' />}
-                label='Medium'
+                control={<Checkbox checked={difficulty.normal} onChange={handleDifficultyChange} name='normal' />}
+                label='Normal'
               />
               <FormControlLabel
                 control={<Checkbox checked={difficulty.hard} onChange={handleDifficultyChange} name='hard' />}
