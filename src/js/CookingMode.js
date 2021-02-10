@@ -28,6 +28,7 @@ import fireAPI from "./fireAPI";
 import CallEndIcon from "@material-ui/icons/CallEnd";
 import CallIcon from "@material-ui/icons/Call";
 import ReactPlayer from "react-player/lazy";
+import useSound from "use-sound";
 
 const TIMEOUT = 1000; /* Timeout to keep the dialog (microphone) open for [N] seconds after speech recognition end --> show result (feedback) */
 
@@ -391,6 +392,7 @@ function SpeechRecognitionDialog(props) {
 function DoneDialog(props) {
   const { done, setDone } = props;
 
+  const [playDone] = useSound("/res/sounds/noti2.wav");
   const history = useHistory();
   const classes = useStyles();
 
@@ -403,6 +405,12 @@ function DoneDialog(props) {
   const handleClose = () => {
     setDone(false);
   };
+
+  useEffect(() => {
+    if (done) {
+      playDone();
+    }
+  }, [done]);
 
   return (
     <Dialog open={done} fullWidth classes={{ paper: classes.paper }} onBackdropClick={handleClose}>
