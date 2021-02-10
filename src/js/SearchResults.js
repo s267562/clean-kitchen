@@ -327,6 +327,10 @@ function FilterDialog(props) {
   };
 
   useEffect(() => {
+    setFilteredRecipes(props.recipes);
+  }, props.recipes);
+
+  useEffect(() => {
     setFilteredRecipes(
       props.recipes.filter((recipe) => {
         return checkDuration(recipe) && checkDifficulty(recipe) && checkCost(recipe);
@@ -335,7 +339,13 @@ function FilterDialog(props) {
   }, [time, difficulty, cost]);
 
   function checkDuration(recipe) {
-    return recipe.duration > time[0] && recipe.duration < time[1];
+    const MAX_TIME = 200;
+    if (time[1] === MAX_TIME) {
+      /* if the user select MAX_TIME as time[1] = max filter time check only the lower bound */
+      return recipe.duration > time[0];
+    } else {
+      return recipe.duration > time[0] && recipe.duration < time[1];
+    }
   }
   function checkDifficulty(recipe) {
     if (!difficulty.easy && !difficulty.medium && !difficulty.hard) return true;
