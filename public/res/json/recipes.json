@@ -4,7 +4,7 @@
       "category": "meat",
       "cost": 1,
       "description": "Crispy oven-fried chicken gives you all of the flavor of traditional fried chicken but without the deep-fried guilt.",
-      "difficulty": "medium",
+      "difficulty": "normal",
       "directions": [
         {
           "description": "Preheat the oven to 425°F",
@@ -95,7 +95,7 @@
       "category": "meat",
       "cost": 2,
       "description": "Baked Salsa Verde Chicken Is The Perfect Weeknight Dinner",
-      "difficulty": "medium",
+      "difficulty": "normal",
       "directions": [
         {
           "description": "Preheat the oven to 400°F. Pour salsa verde into a large baking dish. Brush chicken all over with oil and season with salt, pepper, and garlic powder.",
@@ -352,7 +352,7 @@
       "category": "fish",
       "cost": 2,
       "description": "Tender and moist pan fried fish with lemon butter sauce. This recipe takes 10 mins from start to finish and rival the best seafood restaurant. Serve alone or with healthy marinated tomatoes and easy spaghetti for dinner.",
-      "difficulty": "medium",
+      "difficulty": "normal",
       "directions": [
         {
           "description": "Rinse the swai fish fillets with cold water. Pat dry with paper towels. Seasoned both sides of the fish with salt and ground black pepper.",
@@ -1329,7 +1329,7 @@
       "category": "meat",
       "cost": 2,
       "description": "Forget traditional turkey – try Tommy's quick beef fillet for an alternative Christmas main. It's a showstopping dish that's easy to make.",
-      "difficulty": "medium",
+      "difficulty": "normal",
       "directionsNumber": 0,
       "duration": 90,
       "id": "r15",
@@ -1478,7 +1478,7 @@
       "category": "Meat",
       "cost": 1,
       "description": "This is just like spicy chicken wings, only less work. Cooks up nicely in the slow cooker! A quick meal that is super easy and oh so yummy! For crispier chicken, bake in a 400 degrees F oven for the final 30 minutes.",
-      "difficulty": "medium",
+      "difficulty": "normal",
       "directionsNumber": 0,
       "duration": 240,
       "id": "r17",
@@ -1530,7 +1530,7 @@
       "category": "Dessert",
       "cost": 1,
       "description": "One of the most famous italian dessert.",
-      "difficulty": "medium",
+      "difficulty": "normal",
       "directionsNumber": 0,
       "duration": 360,
       "id": "r18",
@@ -1624,7 +1624,7 @@
       "category": "Dessert",
       "cost": 1,
       "description": "A bright, light, refreshing dessert.",
-      "difficulty": "medium",
+      "difficulty": "normal",
       "directionsNumber": 0,
       "duration": 3,
       "id": "r20",
@@ -1748,7 +1748,7 @@
       "category": "(meat/dessert...)",
       "cost": "(1/2/3)",
       "description": "(short decription)",
-      "difficulty": "(Easy/Medium/Hard)",
+      "difficulty": "(easy/normal/hard)",
       "directions": [
         {
           "description": "(short description)",
