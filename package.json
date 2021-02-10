@@ -22,6 +22,7 @@
     "react-scripts": "4.0.1",
     "react-speech-recognition": "^3.6.0",
     "react-swipeable-views": "^0.13.9",
+    "use-sound": "^2.0.1",
     "web-vitals": "^0.2.4"
   },
   "lint-staged": {
