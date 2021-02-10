@@ -292,15 +292,22 @@ function FilterDialog(props) {
   const { open, setOpen, setResult } = props;
   const [filteredRecipes, setFilteredRecipes] = useState(props.recipes);
   const [time, setTime] = useState([0, 200]);
-  const [difficulty, setDifficulty] = useState({
-    easy: false,
-    medium: false,
-    hard: false,
-  });
+  const [difficulty, setDifficulty] = useState({ easy: false, medium: false, hard: false });
   const [cost, setCost] = useState({ low: false, medium: false, high: false });
+
+  const [savedTime, setSavedTime] = useState([0, 200]);
+  const [savedDifficulty, setSavedDifficulty] = useState({ easy: false, medium: false, hard: false });
+  const [savedCost, setSavedCost] = useState({ low: false, medium: false, high: false });
 
   const handleClose = () => {
     setOpen(false);
+    resetSavedFilters();
+  };
+
+  const resetSavedFilters = () => {
+    setTime(savedTime);
+    setDifficulty(savedDifficulty);
+    setCost(savedCost);
   };
 
   const handleReset = () => {
@@ -311,7 +318,14 @@ function FilterDialog(props) {
 
   const handleApply = () => {
     setResult(filteredRecipes);
+    saveFilters();
     setOpen(false);
+  };
+
+  const saveFilters = () => {
+    setSavedTime(time);
+    setSavedDifficulty(difficulty);
+    setSavedCost(cost);
   };
 
   const handleTimeChange = (event, newTime) => {
