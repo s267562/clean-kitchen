@@ -14,7 +14,8 @@ import {
   DialogActions,
   DialogTitle,
   IconButton,
-  Grow,
+  Zoom,
+  Avatar,
 } from "@material-ui/core";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
@@ -46,7 +47,7 @@ const BorderLinearProgress = withStyles((theme) => ({
   },
 }))(LinearProgress);
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     flexDirection: "column",
@@ -61,7 +62,11 @@ const useStyles = makeStyles({
     objectPosition: "center",
   },
   paper: { borderRadius: 20 },
-});
+  large: {
+    width: theme.spacing(16),
+    height: theme.spacing(16),
+  },
+}));
 
 function CookingMode(props) {
   // Rule 2: call hooks in function component
@@ -443,10 +448,15 @@ function DoneDialog(props) {
 
 function HelpDialog(props) {
   const { help, setHelp } = props;
+  const [playV, setPlayV] = useState(false);
   const classes = useStyles();
 
   const handleClose = () => {
     setHelp(false);
+    setPlayV(false);
+  };
+  const handlePlay = () => {
+    setPlayV(true);
   };
 
   return (
@@ -456,35 +466,93 @@ function HelpDialog(props) {
           display: "block",
           width: "100%",
           height: "100%",
-          background: "#000",
+          background: "#282C34",
         }}
       >
-        <ReactPlayer
-          url='./res/video/help.webm'
-          playing={true}
-          controls={false}
-          height='100%'
-          width='100%'
-          //onEnded={handleClose}
-        />
-        <Button
-          variant='contained'
-          onClick={handleClose}
+        <Zoom in={playV}>
+          <ReactPlayer
+            url='./res/video/erik.webm'
+            playing={playV}
+            controls={false}
+            height='100%'
+            width='100%'
+            onEnded={handleClose}
+          />
+        </Zoom>
+
+        <Zoom in={!playV}>
+          <Box
+            display='flex'
+            flexDirection='column'
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              position: "absolute",
+              top: "0",
+              bottom: "30%",
+              right: "0",
+              left: "0",
+              margin: "auto",
+            }}
+          >
+            <Avatar alt='Chef Erik' src='/res/images/erik.png' className={classes.large} />
+            <Typography
+              variant='h5'
+              style={{ color: "#fff", textAlign: "center", paddingTop: "16px", paddingBottom: "24px" }}
+            >
+              Chef Erik
+            </Typography>
+            <Typography style={{ color: "#fff", textAlign: "center" }}>
+              Chef Erik is ready <br />
+              to talk with you!
+            </Typography>
+          </Box>
+        </Zoom>
+
+        <Box
+          display='flex'
+          flexDirection='row'
+          flexWrap='nowrap'
           style={{
-            background: "#d50000",
-            color: "#fff",
+            justifyContent: playV ? "center" : "space-evenly",
             position: "absolute",
-            bottom: "56px",
+            bottom: "32px",
             right: "0",
             left: "0",
             margin: "auto",
-            width: "64px",
-            height: "64px",
-            borderRadius: "32px",
           }}
         >
-          <CallEndIcon />
-        </Button>
+          <Zoom in={!playV}>
+            <Button
+              variant='contained'
+              onClick={handlePlay}
+              style={{
+                display: playV ? "none" : "inherit",
+                background: "#1AC711",
+                color: "#fff",
+                height: "56px",
+                minWidth: "56px",
+                borderRadius: "28px",
+              }}
+            >
+              <CallIcon />
+            </Button>
+          </Zoom>
+          <Button
+            variant='contained'
+            size='small'
+            onClick={handleClose}
+            style={{
+              background: "#d50000",
+              color: "#fff",
+              height: "56px",
+              minWidth: "56px",
+              borderRadius: "28px",
+            }}
+          >
+            <CallEndIcon />
+          </Button>
+        </Box>
       </div>
     </Dialog>
   );
