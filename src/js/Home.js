@@ -176,10 +176,14 @@ function CardCategory(props) {
 
   const handleClick = () => {
     history.push({
-      pathname: "/searchResults",
-      search: `?query=${props.name}`,
+      pathname: "/category",
+      search: `?query=${capitalize(props.name)}`,
       state: { query: props.name },
     });
+  };
+
+  const capitalize = (name) => {
+    return name.slice(0, 1).toUpperCase() + name.slice(1, name.length);
   };
 
   return (

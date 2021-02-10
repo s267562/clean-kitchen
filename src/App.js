@@ -105,13 +105,12 @@ class App extends Component {
             <Tutorial />
           </Route>
           <Route path='/searchResults'>
-            {" "}
-            {/* field keyword (/:keyword) */}
+            <SearchResults searchKeyword={this.state.searchKeyword} />
+          </Route>
+          <Route path='/category'>
             <SearchResults searchKeyword={this.state.searchKeyword} />
           </Route>
           <Route path='/recipe'>
-            {" "}
-            {/* field id (/:id) */}
             <Recipe />
           </Route>
           <Route path='/cookingMode'>
@@ -195,7 +194,8 @@ function MyAppBar(props) {
   };
 
   const handleBack = () => {
-    if (loc !== null && loc.pathname.toLowerCase() === "/searchresults") history.push({ pathname: "/" });
+    if ((loc !== null && loc.pathname.toLowerCase() === "/searchresults") || loc.pathname.toLowerCase() === "/category")
+      history.push({ pathname: "/" });
     else if (loc !== null && loc.pathname.toLowerCase() === "/recipe") history.goBack();
   };
 
@@ -216,7 +216,9 @@ function MyAppBar(props) {
       <AppBar position='sticky' style={{ background: "#fafafa", color: "#000" }}>
         <Toolbar>
           {loc !== null &&
-            (loc.pathname.toLowerCase() === "/searchresults" || loc.pathname.toLowerCase() === "/recipe") && (
+            (loc.pathname.toLowerCase() === "/searchresults" ||
+              loc.pathname.toLowerCase() === "/recipe" ||
+              loc.pathname.toLowerCase() === "/category") && (
               <IconButton edge='start' color='inherit' onClick={handleBack} disableFocusRipple={true}>
                 <ArrowBackIcon />
               </IconButton>
@@ -230,7 +232,11 @@ function MyAppBar(props) {
             variant='h6'
             style={{ flexGrow: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
           >
-            {loc !== null && loc.pathname.toLowerCase() === "/cookingmode" ? recipe?.title : "Clean Kitchen"}
+            {loc !== null && loc.pathname.toLowerCase() === "/cookingmode"
+              ? recipe?.title
+              : loc !== null && loc.pathname.toLowerCase() === "/category"
+              ? loc.search?.replace("?query=", "")
+              : "Clean Kitchen"}
           </Typography>
           {loc !== null && loc.pathname.toLowerCase() !== "/cookingmode" ? (
             <>
