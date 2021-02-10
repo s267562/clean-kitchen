@@ -408,9 +408,9 @@ function FilterDialog(props) {
     const MAX_TIME = 200;
     if (time[1] === MAX_TIME) {
       /* if the user select MAX_TIME as time[1] = max filter time check only the lower bound */
-      return recipe.duration > time[0];
+      return recipe.duration >= time[0];
     } else {
-      return recipe.duration > time[0] && recipe.duration < time[1];
+      return recipe.duration >= time[0] && recipe.duration <= time[1];
     }
   }
   function checkDifficulty(recipe) {
