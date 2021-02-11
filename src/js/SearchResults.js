@@ -104,8 +104,13 @@ function SearchResults(props) {
       kw = props.searchKeyword;
     }
 
-    if (kw === "") setAllRecipes();
-    else {
+    /* search results are changed, reset all the filters */
+    setFilters(DEFAULT_FILTERS);
+
+    if (kw === "") {
+      /* reset all the recipes */
+      setAllRecipes();
+    } else {
       setRecipesByKeyword(kw);
       setKeyword(kw);
     }
