@@ -1,5 +1,10 @@
 # Clean Kitchen
 
+Available on: https://clean-kitchen.web.app
+* It works only on Firefox Beta (see **Phone Setup** section below).
+* It works on Chrome without any proximity sensor functionality. 
+  * *Development only:* you can tap on 'Step X of Y' to trigger the voice recognition as a workaround.
+
 ## Phone Setup
 * Download latest Firefox Beta
 * Type *about:config* in the address bar and enter
