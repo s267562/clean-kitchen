@@ -171,7 +171,7 @@
       "keywords": ["baked", "salsa", "verde", "chicken", "meat", "baked salsa verde chicken"],
       "overviewImg": "https://firebasestorage.googleapis.com/v0/b/clean-kitchen.appspot.com/o/BakedSalsaVerdeChicken%2Fss.jpg?alt=media&token=5901471a-a709-45c3-b1ad-60243446dd33",
       "rating": 4,
-      "section": ["popular", "editor"],
+      "section": ["popular"],
       "title": "Baked Salsa Verde Chicken",
       "yield": 4
     },
@@ -1398,7 +1398,7 @@
       "keywords": ["beef", "meat", "christmas"],
       "overviewImg": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/christmas-beef-a2b6d7c.jpg?quality=90&webp=true&resize=300,272",
       "rating": 5,
-      "section": ["popular", "editor"],
+      "section": ["editor"],
       "title": "Ale-glazed beef fillet with a crispy onion crust",
       "yield": 4
     },
@@ -1743,6 +1743,82 @@
       "section": ["Dessert"],
       "title": "Protein Brownies",
       "yield": 4
+    },
+    {
+      "category": "",
+      "cost": "2",
+      "description": "A properly-made lasagna is a dish of consummate beauty and one of the most beloved Italian food dishes in the world. They're one of Veronica's favourite dishes.",
+      "difficulty": "normal",
+      "directions": [
+        {
+          "description": "",
+          "image": "(",
+          "ingredients": [
+            {
+              "name": "",
+              "quantity": "",
+              "unit": ""
+            }
+          ],
+          "timer": ""
+        }
+      ],
+      "directionsNumber": "0",
+      "duration": "80",
+      "id": "r22",
+      "ingredients": [
+        {
+          "name": "eggs",
+          "quantity": "3",
+          "unit": ""
+        },
+        {
+          "name": "flour",
+          "quantity": "400",
+          "unit": "grams"
+        },
+        {
+          "name": "ground beef",
+          "quantity": "700",
+          "unit": "grams"
+        },
+        {
+          "name": "tomato sauce",
+          "quantity": "300",
+          "unit": "grams"
+        },
+        {
+          "name": "carrot",
+          "quantity": "1",
+          "unit": ""
+        },
+        {
+          "name": "celery",
+          "quantity": "1",
+          "unit": ""
+        },
+        {
+          "name": "onion",
+          "quantity": "1",
+          "unit": ""
+        },
+        {
+          "name": "white sauce",
+          "quantity": "300",
+          "unit": "milliliters"
+        },
+        {
+          "name": "mozzarella",
+          "quantity": "200",
+          "unit": "grams"
+        }
+      ],
+      "keywords": ["pasta", "lasagna", "ragù"],
+      "overviewImg": "https://www.gamberorosso.it/wp-content/uploads/lasagna1-768x510.jpg",
+      "rating": "5",
+      "section": ["editor"],
+      "title": "Lasagne al ragù",
+      "yield": "4"
     },
     {
       "category": "(meat/dessert...)",
