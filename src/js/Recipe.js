@@ -55,6 +55,12 @@ const useStyles = makeStyles({
     height: "min-content",
     width: "100%",
     borderRadius: 0,
+    marginBottom: 4,
+  },
+  paperDirections: {
+    height: "min-content",
+    width: "100%",
+    borderRadius: 0,
     marginBottom: 82,
   },
   infoTitle: {
@@ -194,6 +200,7 @@ function RecipeOverview(props) {
         <RecipeHeader recipe={recipe} />
         <Descriptions recipe={recipe} />
         <Ingredients recipe={recipe} currentYield={currentYield} setYield={setYield} />
+        <Directions recipe={recipe} />
       </Grid>
     </Grid>
   );
@@ -385,6 +392,32 @@ function Descriptions(props) {
         >
           {recipe.description}
         </Typography>
+      </Paper>
+    </Box>
+  );
+}
+
+function Directions(props) {
+  const { recipe } = props;
+  const classes = useStyles();
+  return (
+    <Box className={classes.itemTitle}>
+      <Paper elevation={0} className={classes.paperDirections}>
+        <Typography
+          variant='h6'
+          style={{ paddingTop: "8px", paddingLeft: "16px", paddingRight: "16px", fontWeight: "bold" }}
+        >
+          Directions
+        </Typography>
+        <List dense style={{ paddingTop: "0" }}>
+          {recipe.directions.map((value) => {
+            return (
+              <ListItem key={value.description}>
+                <ListItemText primary={value.description} />
+              </ListItem>
+            );
+          })}
+        </List>
       </Paper>
     </Box>
   );
