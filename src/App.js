@@ -49,6 +49,14 @@ const useStyles = makeStyles({
   paper: { borderRadius: 20 },
 });
 
+const HelpTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: "#c62828",
+    boxShadow: theme.shadows[1],
+    fontSize: 16,
+  },
+}))(Tooltip);
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -249,7 +257,7 @@ function MyAppBar(props) {
             <>
               <ClickAwayListener onClickAway={handleTooltipClose}>
                 <div>
-                  <Tooltip
+                  <HelpTooltip
                     PopperProps={{
                       disablePortal: true,
                     }}
@@ -265,7 +273,7 @@ function MyAppBar(props) {
                     <IconButton edge='end' color='inherit' onClick={handleTutorialReminder} disableFocusRipple={true}>
                       <HelpOutlineIcon />
                     </IconButton>
-                  </Tooltip>
+                  </HelpTooltip>
                 </div>
               </ClickAwayListener>
               <TutorialReminderDialog isOpenReminder={isOpenReminder} setOpenReminder={setOpenReminder} />
