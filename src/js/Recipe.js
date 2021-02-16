@@ -388,7 +388,13 @@ function Descriptions(props) {
         </Typography>
         <Typography
           variant='body2'
-          style={{ paddingTop: "8px", paddingBottom: "8px", paddingLeft: "16px", paddingRight: "16px" }}
+          style={{
+            paddingTop: "8px",
+            paddingBottom: "8px",
+            paddingLeft: "16px",
+            paddingRight: "16px",
+            textAlign: "justify",
+          }}
         >
           {recipe.description}
         </Typography>
@@ -413,7 +419,7 @@ function Directions(props) {
           {recipe.directions.map((value) => {
             return (
               <ListItem key={value.description}>
-                <ListItemText primary={value.description} />
+                <ListItemText primary={value.description} style={{ textAlign: "justify" }} />
               </ListItem>
             );
           })}

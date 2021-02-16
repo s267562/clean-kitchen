@@ -249,7 +249,9 @@ function CookingMode(props) {
                   </Typography>
                 </Box>
 
-                <Typography variant='body1'>{direction.description}</Typography>
+                <Typography variant='body1' style={{ textAlign: "justify" }}>
+                  {direction.description}
+                </Typography>
 
                 {direction.ingredients?.length > 0 && (
                   <>
