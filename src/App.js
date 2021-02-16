@@ -722,7 +722,7 @@ function WelcomeTutorial(props) {
             >
               {activeStep === 0 ? (
                 <>
-                  <img src={step.imgPath} width='84px' style={{ margin: "16px auto" }} />
+                  <img src={step.imgPath} width='192px' style={{ margin: "16px auto" }} />
                   <Typography variant='h5' style={{ textAlign: "center", paddingBottom: "32px" }}>
                     {step.title}
                   </Typography>
