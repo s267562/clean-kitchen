@@ -200,7 +200,7 @@ function RecipeOverview(props) {
         <RecipeHeader recipe={recipe} />
         <Descriptions recipe={recipe} />
         <Ingredients recipe={recipe} currentYield={currentYield} setYield={setYield} />
-        <Directions recipe={recipe} />
+        {recipe.directionsNumber > 0 ? <Directions recipe={recipe} /> : <></>}
       </Grid>
     </Grid>
   );
